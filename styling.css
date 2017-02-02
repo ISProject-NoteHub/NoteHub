@@ -1,0 +1,11 @@
+body {
+  font-family: "Segoe UI", sans-serif;
+  cursor: default;
+}
+
+#Page-Header {
+  background-color: khaki; color: white;
+  font-size: 26px;
+  padding: 10px;
+  font-weight: bold;
+}
