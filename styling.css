@@ -5,7 +5,9 @@ body {
 
 #Page-Header {
   background-color: khaki; color: white;
-  font-size: 26px;
+  font-size: 26px; font-weight: bold;
   padding: 10px;
-  font-weight: bold;
+  left: 0; top: 0;
+  position: fixed;
+  width: 100%;
 }
