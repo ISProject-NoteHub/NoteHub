@@ -1,2 +1,2 @@
-# Our Project Repository
-# This repository contains our project.
+# School Project Repo
+This is a repo for our school project. Pull requests are [i]very[/i] welcome. :)
