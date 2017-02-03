@@ -26,3 +26,9 @@ body {
   z-index: 3;
   position: fixed;
 }
+
+.Page-Link {
+  padding: 7.5px;
+  font-size: 20px;
+  margin-left: 15px;
+}
