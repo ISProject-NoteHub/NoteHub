@@ -4,32 +4,17 @@ body {
 }
 
 #Page-Header {
-  background-color: khaki; color: firebrick;
+  background-color: khaki; color: white;
   font-size: 26px; font-weight: bold;
   padding: 10px;
   left: 0; top: 0;
   position: fixed;
   width: 100%;
   z-index: 2;
-  vertical-align: top;
 }
 
 #Page-Content {
-  background-color: palegoldenrod; color: firebrick;
-  padding: 10px; margin-top: 85px;
+  padding: 10px; margin-top: 65px;
   z-index: 1;
-}
-
-#Page-Links {
-  right: 0; top: 0;
-  margin-right: 10px;
-  z-index: 3;
-  position: fixed;
-}
-
-.Page-Link {
-  padding: 7.5px;
-  font-size: 20px;
-  margin-left: 15px;
-  text-decoration: none;
+  background-color: #f6f6f6;
 }
