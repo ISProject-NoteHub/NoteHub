@@ -22,8 +22,7 @@ body {
 
 #Page-Links {
   right: 0; top: 0;
-  line-height: 26px;
-  padding: 10px;
+  margin-right: 10px;
   z-index: 3;
   position: fixed;
 }
