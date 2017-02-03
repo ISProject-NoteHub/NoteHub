@@ -15,7 +15,7 @@ body {
 }
 
 #Page-Content {
-  background-color: palegoldenrod;
+  background-color: palegoldenrod; color: firebrick;
   padding: 10px; margin-top: 85px;
   z-index: 1;
 }
