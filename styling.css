@@ -4,7 +4,7 @@ body {
 }
 
 #Page-Header {
-  background-color: Maroon; color: firebrick;
+  background-color: ivory; color: firebrick;
   font-size: 26px; font-weight: bold;
   padding: 10px;
   left: 0; top: 0;
@@ -15,7 +15,7 @@ body {
 }
 
 #Page-Content {
-  background-color: ivory; color: firebrick;
+  background-color: palegoldenrod; color: firebrick;
   padding: 10px; margin-top: 85px;
   z-index: 1;
 }
