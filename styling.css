@@ -24,12 +24,12 @@ body {
   right: 0; top: 0;
   margin-right: 10px;
   z-index: 3;
+  font-size: 20px;
   position: fixed;
 }
 
 .Page-Link {
   padding: 7.5px;
-  font-size: 20px;
   margin-left: 15px;
   text-decoration: none;
 }
