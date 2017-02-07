@@ -29,6 +29,8 @@ body {
 }
 
 .Page-Link {
+  text-align: middle;
+  height: 20px;
   padding: 7.5px;
   text-decoration: none;
 }
