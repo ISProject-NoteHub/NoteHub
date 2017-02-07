@@ -5,7 +5,7 @@ body {
 
 #Page-Header {
   background-color: lightseagreen; color: cornsilk;
-  font-size: 26px; font-weight: bold;
+  font-size: 26px;
   padding: 10px;
   left: 0; top: 0;
   position: fixed;
