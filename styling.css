@@ -1,5 +1,5 @@
 body {
-  font-family: "Segoe UI", Segoe UI, 'Calibri', 'Calibri Light', sans-serif;
+  font-family: "Segoe UI", "Helvetica", sans-serif;
   cursor: default;
 }
 
@@ -30,6 +30,7 @@ body {
 
 .Page-Link {
   text-align: middle;
+  color: white;
   height: 20px;
   padding: 7.5px;
   text-decoration: none;
