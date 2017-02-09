@@ -76,3 +76,7 @@ textarea[data-stacked=true] {
   margin-top: 5px;
   width: calc(100% - 100px);
 }
+
+div[contenteditable=""] {
+  cursor: text;
+}
