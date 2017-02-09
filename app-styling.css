@@ -25,3 +25,13 @@
   background-color: #f6f6f6;
   position: absolute;
 }
+
+#App-NoteBox {
+  top: 41px;
+  height: calc(100% - 61px); width: calc(75% - 20px);
+  padding: 10px; margin: 0;
+  background-color: palegoldenrod;
+  position: absolute;
+  z-index: 1;
+  bottom: 0; right: 0;
+}
