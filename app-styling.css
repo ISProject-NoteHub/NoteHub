@@ -26,6 +26,19 @@
   position: absolute;
 }
 
+.App-Function {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.App-Function:hover {
+  background-color: lightgray;
+}
+
+.App-Function[data-selected=selected] {
+  background-color: lightgray;
+}
+
 #App-NoteBox {
   top: 41px;
   height: calc(100% - 61px); width: calc(75% - 20px);
