@@ -31,6 +31,10 @@
   cursor: pointer;
 }
 
+.App-Function:hover[data-header=header] {
+  background-color: transparent;
+}
+
 .App-Function:hover {
   background-color: lightgray;
 }
