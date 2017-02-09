@@ -1,0 +1,8 @@
+#App-NoteHub {
+  background-color: lightseagreen; color: cornsilk;
+  padding: 10px;
+  left: 0; top: 0;
+  position: absolute;
+  width: 25%;
+  z-index: 1;
+}
