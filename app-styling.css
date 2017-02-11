@@ -24,6 +24,10 @@
   right: 0; top: 0;
 }
 
+#App-InviteCollabs:hover {
+  background-color: lightgray;
+}
+
 #App-Functions {
   top: 41px;
   width: 25%; height: calc(100% - 41px);
