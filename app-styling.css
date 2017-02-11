@@ -16,6 +16,14 @@
   z-index: 1;
 }
 
+#App-InviteCollabs {
+  background-color: #f6f6f6;
+  position: absolute;
+  padding: 10px;
+  z-index: 2;
+  right: 0; top: 0;
+}
+
 #App-Functions {
   top: 41px;
   width: 25%; height: calc(100% - 41px);
