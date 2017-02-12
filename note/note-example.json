@@ -1,0 +1,5 @@
+{
+    "THIS IS A DEMONSTRATION OF A TEST STORAGE SYSTEM FOR A NOTE": "this is a test",
+    "notename": "Test Note",
+    "content": "[bullet]This is a bullet point.[newline]The content here will be on a new line.[newline][numbering-start][newline]Number 1[newline][bold-start]Number 2[bold-end][numbering-stop]"
+}
