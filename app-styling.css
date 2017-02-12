@@ -5,7 +5,6 @@
   position: absolute;
   width: calc(25% - 20px);
   z-index: 1;
-  font-size: 20px;
 }
 
 #App-NoteName {
@@ -16,7 +15,6 @@
   position: absolute;
   right: 0; top: 0;
   z-index: 1;
-  font-size: 20px;
 }
 
 #App-InviteCollabs {
