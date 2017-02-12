@@ -17,13 +17,14 @@
   <script src="formatting.js"></script>
 </head>
   
-<body>
+<body onload="CheckSmallScreen();" onresize="CheckSmallScreen();">
   <div id="App-NoteHub"><span style="font-weight: lighter;">Note</span><b>Hub</b></div>
   <div id="App-NoteName" contenteditable="">New Note</div>
   <div id="App-InviteCollabs">Invite Collaborators</div>
   
   <div id="App-Functions">
     <div class="App-Function" title="Want to create a new note?" data-selected="selected">New Note</div>
+    <div class="App-Function" title="Need help from collaborators?" id="App-Functions-Invite" style="display: none;">Invite Collaborators...</div>
     <div class="App-Function" data-header="header"><b>Browse NoteHub</b></div>
     <div class="App-Function" title="Find new notes recommended by us. All for you.">NoteHub Gallery</div>
     <div class="App-Function" title="Ever wanted to browse by tags?">Look for Tags</div>
