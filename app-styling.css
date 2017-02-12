@@ -3,9 +3,16 @@
   padding: 10px;
   left: 0; top: 0;
   position: absolute;
-  width: calc(25% - 20px);
   z-index: 1;
   font-size: 24px;
+}
+
+@media screen and (min-width: 541px) {
+  #App-NoteHub { width: calc(25% - 20px); }
+}
+
+@media screen and (max-width: 540px) {
+  #App-NoteHub { width: calc(35% - 20px); }
 }
 
 #App-NoteName {
@@ -16,6 +23,14 @@
   right: 0; top: 0;
   z-index: 1;
   font-size: 24px;
+}
+
+@media screen and (min-width: 541px) {
+  #App-NoteName { width: calc(75% - 20px); }
+}
+
+@media screen and (max-width: 540px) {
+  #App-NoteName { width: calc(65% - 20px); }
 }
 
 #App-InviteCollabs {
@@ -34,13 +49,21 @@
 
 #App-Functions {
   top: 52px;
-  width: 25%; height: calc(100% - 52px);
+  height: calc(100% - 52px);
   padding: 0; margin: 0;
   z-index: 1;
   bottom: 0; left: 0;
   background-color: #f6f6f6;
   position: absolute;
   overflow-y: scroll;
+}
+
+@media screen and (min-width: 541px) {
+  #App-Functions { width: 25%; }
+}
+
+@media screen and (max-width: 540px) {
+  #App-Functions { width: 35%; }
 }
 
 .App-Function {
@@ -63,11 +86,19 @@
 
 #App-NoteBox {
   top: 52px;
-  height: calc(100% - 72px); width: calc(75% - 20px);
+  height: calc(100% - 72px);
   padding: 10px; margin: 0;
   position: absolute;
   z-index: 1;
   bottom: 0; right: 0;
   overflow-y: scroll;
   background-color: #f7fff4;
+}
+
+@media screen and (min-width: 541px) {
+  #App-NoteBox { width: calc(75% - 20px); }
+}
+
+@media screen and (max-width: 540px) {
+  #App-NoteBox { width: calc(65% - 20px); }
 }
