@@ -16,6 +16,6 @@ function GetNote(topic, noteID) {
       document.getElementById("App-NoteBox").innerHTML = getPHPFile.responseText;
     }
   }
-  getPHPFile.open("POST", "https://notehub-backend.gear.host/handlers/filing.php?topic=getting-started&notename=getting-started-00001.txt", true);
+  getPHPFile.open("POST", "https://notehub-backend.gear.host/handlers/filing.php?requestedFunction=GetNote&topic=getting-started&notename=getting-started-00001.txt", true);
   getPHPFile.send();
 }
