@@ -12,12 +12,18 @@
     .Welcome { font-size: 18px; font-weight: bold; }
     body {
       background-image: url(/temporary-background.jpg);
-      background-size: 100% 100%;
+      background-repeat: no-repeat;
     }
   </style>
+  
+  <script>
+    function FlexBackground() {
+      document.body.style.backgroundSize = window.innerWidth + "px " + window.innerHeight + "px";
+    }
+  </script>
 </head>
   
-<body>
+<body onresize="FlexBackground();">
   <div id="Page-Header">
     <span style="font-weight: lighter;">Note</span><b>Hub</b>
   </div>
@@ -28,7 +34,7 @@
     |<a class="Page-Link" href="/index.html"> Home</a>
   </div>
   
-  <div style="color: white; top: 50%; text-align: center; position: absolute; width: 70%; border-radius: 5px; left: 15%; background-color: rgba(218, 218, 218, 0.7); padding: 20px;">
+  <div style="color: white; top: 50%; text-align: center; position: absolute; width: 70%; border-radius: 10px; left: 15%; background-color: rgba(218, 218, 218, 0.7); padding: 20px;">
     <label class="Welcome">Welcome to NoteHub – the free note-sharing service.</label>
     <br><br><button style="background-color: rgb(55, 226, 139);" onclick = "window.location.href = 'https://notehub.ga/note/';">New Note</button>
     &nbsp;
