@@ -1,21 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Getting Started with NoteHub</title>
-  
-  <link href="/styling.css" rel="stylesheet"/>
-  <link href="/app-styling.css" rel="stylesheet"/>
+  <title>Help | NoteHub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
   <link href="/logo.png" rel="icon" />
+  <link href="/styling.css" rel="stylesheet" />
+  <link href="/app-styling.css" rel="stylesheet" />
+
+  <style>
+    h1 { font-size: 20px; }
+    h2 { font-size: 18px; }
+  </style>
 </head>
   
 <body>
   <div id="Page-Header">
-    <span style="font-weight: lighter;">Note</span><b>Hub</b><span style="font-size: 20px;"> - Help</span>
+     <span style="font-weight: lighter;">Note</span><b>Hub</b><span style="font-size: 20px;"> - About</span>
   </div>
-  
+    
+  <div id="Page-Links">
+    <a class="Page-Link" href="/info/programmers-logbook.html">Timeline </a>
+    |<a class="Page-Link" href="/info/about.html"> About </a>
+    |<a class="Page-Link" href="/index.html"> Home</a>
+  </div>
+  <div id="App-NoteBox" style="background-color: palegoldenrod;">
+    Help!
+  </div>
   <div id="App-Functions">
-    <div class="App-Function" data-header="header" onclick="window.location.href = './index.html'"><b>Getting Started</b></div>
-    <div class="App-Function" data-selected="selected" onclick="window.location.href = 'getting-started.html';">Getting Started with NoteHub</div>
+    <div class="App-Function" data-header="header"><b>Getting Started</b></div>
+    <div class="App-Function">Help Menu Home</div>
+    <div class="App-Function" onclick="window.location.href = 'getting-started.html';" data-selected="selected">Getting Started with NoteHub</div>
     <div class="App-Function">What is NoteHub for?</div>
     <div class="App-Function">Creating a New Note</div>
     
@@ -25,5 +40,4 @@
   </div>
 </body>
 </html>
-  
-  
+    
