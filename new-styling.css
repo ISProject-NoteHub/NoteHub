@@ -1,0 +1,51 @@
+body {
+  font-family: "Segoe UI", "Helvetica", "sans-serif";
+  cursor: default;
+}
+
+#Page-TitleBar {
+  background-color: gray; color: white;
+  position: fixed;
+  left: 0; top: 0;
+  width: 100%;
+  padding: 10px;
+  font-size: 26px;
+  z-index: 2;
+}
+
+#Page-Contents {
+  background-color: #f6f6f6;
+  z-index: 1;
+  position: absolute;
+  top: 55px; left: 0;
+}
+
+#Page-MenuBar {
+  right: 10px; top: 21px;
+  position: fixed;
+  z-index: 3;
+  color: white;
+  font-size: 18px;
+}
+
+.Page-MenuItem {
+  text-decoration: none;
+  color: white;
+}
+
+@media screen and (max-width: 540px) {
+  #Page-TitleBar { padding-left: 10px; }
+}
+
+@media screen and (min-width: 541px) {
+  #Page-TitleBar { padding-left: 50px; }
+}
+
+input {
+  padding: 7.5px;
+}
+
+input[data-stacked=stacked] {
+  margin-top: 5px;
+  width: calc(100% - 100px);
+}
