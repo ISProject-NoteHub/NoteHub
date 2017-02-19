@@ -1,6 +1,7 @@
 body {
   font-family: "Segoe UI", "Helvetica", "sans-serif";
   cursor: default;
+  letter-spacing: 0.5px;
 }
 
 #Page-TitleBar {
@@ -18,6 +19,8 @@ body {
   z-index: 1;
   position: absolute;
   top: 55px; left: 0;
+  width: calc(100% - 20px);
+  padding: 10px;
 }
 
 #Page-MenuBar {
@@ -41,6 +44,11 @@ body {
   #Page-TitleBar { padding-left: 50px; }
 }
 
+@font-face {
+  font-family: monoglyceride;
+  src: url(/fonts/monog___.ttf);
+}
+
 input {
   padding: 7.5px;
 }
@@ -48,4 +56,11 @@ input {
 input[data-stacked=stacked] {
   margin-top: 5px;
   width: calc(100% - 100px);
+}
+
+.link-tile {
+  display: block;
+  text-decoration: none;
+  padding: 10px;
+  margin-top: 5px;
 }
