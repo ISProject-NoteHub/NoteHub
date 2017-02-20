@@ -5,7 +5,7 @@ body {
 }
 
 #Page-TitleBar {
-  background-color: gray; color: white;
+  background-color: #29AB87; color: white;
   position: fixed;
   left: 0; top: 0;
   width: 100%;
@@ -15,7 +15,7 @@ body {
 }
 
 #Page-Contents {
-  background-color: #f6f6f6;
+  background-color: palegoldenrod;
   z-index: 1;
   position: absolute;
   top: 55px; left: 0;
