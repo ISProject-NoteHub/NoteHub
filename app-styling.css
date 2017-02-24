@@ -71,6 +71,7 @@
   text-decoration: none;
   padding: 10px;
   width: calc(100% - 20px);
+  color: black;
 }
 
 .App-Function:hover[data-header=header] {
