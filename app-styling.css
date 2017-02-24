@@ -67,8 +67,10 @@
 }
 
 .App-Function {
+  display: block;
+  text-decoration: none;
   padding: 10px;
-  cursor: pointer;
+  width: calc(100% - 20px);
 }
 
 .App-Function:hover[data-header=header] {
