@@ -105,3 +105,10 @@
 @media screen and (max-width: 540px) {
   #App-NoteBox { width: calc(65% - 20px); }
 }
+
+#App-Formatting {
+  bottom: 0; right: 0;
+  position: absolute;
+  background-color: lightgray;
+  padding: 5px;
+}
