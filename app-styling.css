@@ -124,6 +124,7 @@
 #App-Format {
   border: 0;
   padding: 5px;
+  z-index: 2;
 }
 
 #App-Format:hover {
