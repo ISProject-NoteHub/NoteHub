@@ -112,3 +112,11 @@
   background-color: lightgray;
   padding: 5px;
 }
+
+@media screen and (min-width: 541px) {
+  #App-Formatting { width: calc(75% - 20px); }
+}
+
+@media screen and (max-width: 540px) {
+  #App-Formatting { width: calc(65% - 20px); }
+}
