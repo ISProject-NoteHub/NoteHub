@@ -120,3 +120,12 @@
 @media screen and (max-width: 540px) {
   #App-Formatting { width: calc(65% - 20px); }
 }
+
+#App-Format {
+  border: 0;
+  padding: 5px;
+}
+
+#App-Format:hover {
+  background-color: #cdcdcd;
+}
