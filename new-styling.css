@@ -64,4 +64,5 @@ input[data-stacked=stacked] {
   padding: 10px;
   margin-top: 5px;
   border: 0;
+  cursor: pointer;
 }
