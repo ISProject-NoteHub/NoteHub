@@ -65,4 +65,5 @@ input[data-stacked=stacked] {
   margin-top: 5px;
   border: 0;
   cursor: pointer;
+  border-radius: 10px;
 }
