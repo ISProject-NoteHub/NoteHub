@@ -23,7 +23,7 @@
     
     .Page-Right-Step {
       border-radius: 10px;
-      padding: 10px;
+      padding: 10px; margin-bottom: 10px;
     }
   </style>
 
@@ -69,9 +69,17 @@
         <td style="width: 30%; padding: 7.5px; text-align: center; vertical-align: top;">
           <div id="Page-Right-First">Already have an account? Login <a href="/accounts/sign-in.html">here</a>! If you're interested to find out more about NoteHub, head to our <a href="/info/about.html">about page</a>.</div>
           
-          <div id="Page-Right-Steps">
-            <div id="Steps-First" class="Page-Right-Step" style="background-color: green; color: white;">
+          <div id="Page-Right-Steps" style="display: none;">
+            <div id="Steps-First" class="Page-Right-Step" style="background-color: green; color: white;" title="Enter your particulars so we can get to know you better.">
               Step 1<br>Enter Your Particulars
+            </div>
+            
+            <div id="Steps-First" class="Page-Right-Step" style="background-color: gray; color: white;" title="This ensures that you are not a robot.">
+              Step 2<br>Verify Your Email
+            </div>
+            
+            <div id="Steps-First" class="Page-Right-Step" style="background-color: gray; color: white;">
+              Step 3<br>Enjoy NoteHub
             </div>
           </div>
         </td>
