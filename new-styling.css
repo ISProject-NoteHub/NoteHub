@@ -34,6 +34,12 @@ body {
 .Page-MenuItem {
   text-decoration: none;
   color: white;
+  padding: 7.5px; padding-left: 15px; padding-right: 15px;
+  position: relative;
+  bottom: 10px;
+  font-size: 12px;
+  margin-left: 10px;
+  border-radius: 20px; border: 1px solid white;
 }
 
 @media screen and (max-width: 540px) {
