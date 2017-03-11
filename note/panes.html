@@ -2,13 +2,16 @@
   <label style="font-size: 24px;">Collaboration</label>
   <hr>
 
-  <b>Current Collaborators</b>
-  <select size="7" style="padding: 10px; width: calc(100% - 40px);" id="Pane-Collab-Current">
-    <option style="text-align: center;" disabled="disabled">
-      It seems like no one else
-      <br>has been invited to collaborate
-      <br>on this note yet. Why
-      <br>not add someone?
-    </option>
-  </select>
+  <b>Current Collaborators</b><br>
+  <select size="7" data-stacked="stacked" style="width: calc(100% - 40px);" id="Pane-Collab-Current">
+    <option style="text-align: center;" disabled="disabled">No collaborators yet!</option>
+  </select><br><br>
+  
+  <b>Invite Collaborators</b><br>
+  <input type="radio" data-stacked="stacked" style="width: auto;" id="Pane-Collab-Type-IP" name="Pane-Collab-Type" selected="selected" />
+  <label for="Pane-Collab-Type-IP" title="Useful when you plan to invite a collborator who does not have a NoteHub account and usually stays on the same IP address.">Invite via IP address</label><br>
+  <input type="radio" data-stacked="stacked" style="width: auto;" id="Pane-Collab-Type-Username" name="Pane-Collab-Type" />
+  <label for="Pane-Collab-Type-Username" title="Useful when you plan to invite a collaborator who has a NoteHub account and a frequently changing IP address.">Invite via NoteHub username</label><br>
+  <br>
+  ...
 </div>
