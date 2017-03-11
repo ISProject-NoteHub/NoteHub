@@ -89,7 +89,7 @@
 
 #App-NoteBox {
   top: 52px;
-  height: calc(100% - 72px);
+  height: calc(100% -110px);
   padding: 10px; margin: 0;
   position: absolute;
   z-index: 1;
@@ -107,7 +107,7 @@
 }
 
 #App-Formatting {
-  bottom: 0; right: 17px;
+  bottom: 0; right: 0;
   position: absolute;
   background-color: #d9d9d9;
   padding: 5px;
@@ -174,7 +174,7 @@
 
 #App-Panes-Close {
   bottom: 0; right: 0;
-  position: absolute; z-index: 3;
+  position: absolute; z-index: 4;
   padding: 5px;
   background-color: buttonface; color: black;
   display: none;
