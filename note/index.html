@@ -22,11 +22,11 @@
 <body onload="CheckSmallScreen();" onresize="CheckSmallScreen();">
   <div id="App-NoteHub"><span style="font-weight: lighter;">Note</span><b>Hub</b></div>
   <div id="App-NoteName" contenteditable="">New Note</div>
-  <div id="App-InviteCollabs">Invite Collaborators</div>
+  <div id="App-InviteCollabs" onclick="ShowPane('Collab');">Invite Collaborators</div>
   
   <div id="App-Functions">
     <a class="App-Function" title="Want to create a new note?" data-selected="selected">New Note</a>
-    <div class="App-Function" title="Need help from collaborators?" id="App-Functions-Invite" style="display: none;">Invite Collaborators...</div>
+    <div class="App-Function" title="Need help from collaborators?" id="App-Functions-Invite" onclick="ShowPane('Collab');" style="display: none;">Invite Collaborators...</div>
     <a class="App-Function" data-header="header"><b>Browse NoteHub</b></a>
     <a class="App-Function" title="Find new notes recommended by us. All for you." href="/gallery.html?browseby=suggestions" target="_blank">NoteHub Gallery</a>
     <a class="App-Function" title="Ever wanted to browse by tags?" href="/gallery.html?browseby=tags" target="_blank">Look for Tags</a>
@@ -51,5 +51,9 @@
   
   <div id="App-Panes"></div>
   <div id="App-Panes-Close" onclick="GetPane('closeAll');">Close</div>
+  
+  <script>
+    InitPanes();
+  </script>
 </body>
 </html>
