@@ -1,7 +1,6 @@
 body {
-  font-family: "serif";
+  font-family: "Segoe UI", "Helvetica", "sans-serif";
   cursor: default;
-  letter-spacing: 0.5px;
 }
 
 #Page-TitleBar {
