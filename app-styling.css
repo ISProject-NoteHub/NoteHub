@@ -89,7 +89,7 @@
 
 #App-NoteBox {
   top: 52px;
-  height: calc(100% -110px);
+  height: calc(100% - 110px);
   padding: 10px; margin: 0;
   position: absolute;
   z-index: 1;
