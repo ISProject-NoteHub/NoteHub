@@ -15,7 +15,7 @@ function InitPanes() {
   request.send();
 }
 
-function ShowPane() {
+function ShowPane(id) {
   var panesPresent = document.getElementById("App-Panes").childNodes.length, panes = document.getElementById("App-Panes"), panesCounted = 0;
 
   while (panesCounted < panesPresent) {
