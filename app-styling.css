@@ -115,11 +115,11 @@
 }
 
 @media screen and (min-width: 541px) {
-  #App-Formatting { width: calc(75% - 20px); }
+  #App-Formatting { width: calc(75% - 10px); }
 }
 
 @media screen and (max-width: 540px) {
-  #App-Formatting { width: calc(65% - 20px); }
+  #App-Formatting { width: calc(65% - 10px); }
 }
 
 .App-Format {
