@@ -1,16 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Programmers' Logbook | NoteHub</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <link href="/logo.png" rel="icon" />
+  <title>NoteHub</title>
+
   <link href="/new-styling.css" rel="stylesheet">
-  
+  <link href="/logo.png" rel="icon">
+
   <style>
-    h1 { font-size: 20px; }
-    h2 { font-size: 18px; }
+    #Page-Organiser-Mobile {
+      padding: 7.5px;
+    }
+    @media screen and (max-width: 540px) {
+      #Page-Organiser-Mobile { display: block; }
+      #Page-Organiser-Desktop { display: none; }
+    }
+    @media screen and (min-width: 541px) {
+      #Page-Organiser-Desktop { display: block; }
+      #Page-Organiser-Mobile { display: none; }
+    }
   </style>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="Description" content="Welcome to NoteHub, the free notesharing service.">
 </head>
 
 <body>
