@@ -33,6 +33,7 @@ body {
 .Page-MenuItem {
   text-decoration: none;
   color: white;
+  background-color: mediumseagreen;
   padding: 7.5px; padding-left: 15px; padding-right: 15px;
   position: relative;
   bottom: 10px;
