@@ -27,6 +27,7 @@ body {
   position: fixed;
   z-index: 3;
   color: white;
+  background-color: mediumseagreen;
   font-size: 18px;
 }
 
