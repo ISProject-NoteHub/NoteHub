@@ -8,7 +8,22 @@
    <link href="/styling.css" rel="stylesheet" />
    <link href="/app-styling.css" rel="stylesheet" />
   
+  <style>
+    #Page-Organiser-Mobile {
+      padding: 7.5px;
+    }
+    @media screen and (max-width: 540px) {
+      #Page-Organiser-Mobile { display: block; }
+      #Page-Organiser-Desktop { display: none; }
+    }
+    @media screen and (min-width: 541px) {
+      #Page-Organiser-Desktop { display: block; }
+      #Page-Organiser-Mobile { display: none; }
+    }
+  </style>
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="Description" content="Welcome to NoteHub's help page.">
 </head>
   
 <body>
