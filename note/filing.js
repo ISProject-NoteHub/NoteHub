@@ -1,3 +1,5 @@
+var currentNoteAsObject = null;
+
 function SaveNote() {
   var getPHPFile = new XMLHttpRequest();
   getPHPFile.onreadystatechange = function() {
@@ -15,10 +17,25 @@ function GetNote(topic, noteID) {
     if (this.readyState == 4 && this.status == 200) {
       document.getElementById("App-NoteBox").innerHTML = getPHPFile.responseText;
       
-      var noteReceived = JSON.parse(getPHPFile.responseText);
-      console.log(noteReceived);
+      //Parse Note
+      currentNoteAsObject = JSON.parse(getPHPFile.responseText);
+      
+      //Note Editor
+      document.getElementById("App-NoteName").innerHTML = currentNoteAsObject.meta.name;
+      document.getElementById("App-NoteBox").innerHTML = ParseNoteContent(currentNoteAsObject.content);
+      
+      //Push extra information - notebook
+      document.getElementById("App-Functions-Note").innerHTML = "About '" + currentNoteAsObject.meta.name + '";
+      document.getElementById("Pane-Details-Notebook-Name").innerHTML = currentNoteAsObject.meta.notebook;
+      
+      //Push extra information - note
+      document.getElementById("Pane-Details-Note-Name").innerHTML = currentNoteAsObject.meta.name;
+      document.getElementById("Pane-Details-Note-Author").innerHTML = currentNoteAsObject.meta.author;
     }
   }
-  getPHPFile.open("POST", "https://notehub-serverside.000webhostapp.com/handlers/filing.php?requestedFunction=read&topic=getting-started-with-notehub&noteId=notehub-000001-A.json", true);
+  getPHPFile.open("POST", "https://notehub-serverside.000webhostapp.com/handlers/filing.php?requestedFunction=read&topic=notehub-basics&noteId=notehub-000001-A.json", true);
   getPHPFile.send();
+}
+
+function CopyNote(topic, noteID) {
 }
