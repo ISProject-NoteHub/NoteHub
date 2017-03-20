@@ -1,14 +1,5 @@
 var currentNoteAsObject = null;
 
-//Check for first use
-function DoNecessaryForFirstUse() {
-  if (localStorage.getItem("newUser") == "nope") { return; }
-  else {
-    localStorage.setItem("newUser", "nope");
-    GetNote("notehub-basics", "notehub-000001-A.json");
-  }
-}
-
 //Save Note
 function SaveNote() {
   var getPHPFile = new XMLHttpRequest();
