@@ -1,5 +1,15 @@
 var currentNoteAsObject = null;
 
+//Check for first use
+function DoNecessaryForFirstUse() {
+  if (localStorage.getItem("newUser") == "nope") { return; }
+  else {
+    localStorage.setItem("newUser", "nope");
+    GetNote("notehub-basics", "notehub-000001-A.json");
+  }
+}
+
+//Save Note
 function SaveNote() {
   var getPHPFile = new XMLHttpRequest();
   getPHPFile.onreadystatechange = function() {
@@ -11,6 +21,7 @@ function SaveNote() {
   getPHPFile.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 }
 
+//Retrieve Note
 function GetNote(topic, noteID) {
   var getPHPFile = new XMLHttpRequest();
   getPHPFile.onreadystatechange = function() {
@@ -33,9 +44,10 @@ function GetNote(topic, noteID) {
       document.getElementById("Pane-Details-Note-Author").innerHTML = currentNoteAsObject.meta.author;
     }
   }
-  getPHPFile.open("POST", "https://notehub-serverside.000webhostapp.com/handlers/filing.php?requestedFunction=read&topic=notehub-basics&noteId=notehub-000001-A.json", true);
+  getPHPFile.open("POST", "https://notehub-serverside.000webhostapp.com/handlers/filing.php?requestedFunction=read&topic=" + topic + "&noteId=" + noteID, true);
   getPHPFile.send();
 }
 
+//Copy Note to Editor
 function CopyNote(topic, noteID) {
 }
