@@ -27,9 +27,9 @@
   <div id="App-InviteCollabs" onclick="ShowPane('Collab');">Invite Collaborators</div>
   
   <div id="App-Functions">
-    <a class="App-Function" title="Want to create a new note?" data-selected="selected">New Note</a>
-    <div class="App-Function" title="Need help from collaborators?" id="App-Functions-Invite" onclick="ShowPane('Collab');" style="display: none;">Invite Collaborators...</div>
-    <div class="App-Function" title="Contains information about this note." id="App-Functions-NoteInfo" onclick="ShowPane('Details');">About 'New Note'</div>
+    <a class="App-Function" title="Want to create a new note?" data-selected="selected" href="javascript:void();">New Note</a>
+    <div style="cursor: pointer;" class="App-Function" title="Need help from collaborators?" id="App-Functions-Invite" onclick="ShowPane('Collab');" style="display: none;">Invite Collaborators...</div>
+    <div style="cursor: pointer;" class="App-Function" title="Contains information about this note." id="App-Functions-NoteInfo" onclick="ShowPane('Details');">About 'New Note'</div>
     <a class="App-Function" data-header="header"><b>Browse NoteHub</b></a>
     <a class="App-Function" title="Find new notes recommended by us. All for you." href="/gallery.html?browseby=suggestions" target="_blank">NoteHub Gallery</a>
     <a class="App-Function" title="Ever wanted to browse by tags?" href="/gallery.html?browseby=tags" target="_blank">Look for Tags</a>
@@ -48,6 +48,13 @@
     <button class="App-Format" type="button"><b>B</b></button>
     <button class="App-Format" type="button"><i>I</i></button>
     <button class="App-Format" type="button"><u>U</u></button>
+    &nbsp;|&nbsp;
+    <select class="App-Format">
+      <option>Arial</option>
+      <option>Calibri</option>
+      <option>Cambria</option>
+      <option>Segoe UI</option>
+    </select>
     &nbsp;|&nbsp;
     <button class="App-Format" type="button">Save</button>
   </div>
