@@ -17,9 +17,21 @@
 </div>
 
 <div id="Pane-Details" class="App-Pane">
+  <style>
+    .Pane-Tooltip {
+      position: relative;
+      left: -200px;
+      background-color: #616161; color: white;
+      padding: 7.5px;
+      z-index: 4;
+    }
+    
+    /*Apply CSS animation for opacity*/
+  </style>
+  
   <label style="font-size: 24px;">Details</label>
   <hr>
-  Here, you can view additional details regarding this note.<br>
+  Here, you can view additional details regarding this note.<br><br>
   
   <b>Notebook</b><hr>
   <b>Notebook name: </b><span id="Pane-Details-Notebook-Name">New Notebook</span><br>
@@ -28,10 +40,18 @@
   <br><br>
   
   <b>Note</b><hr>
-  <b>Note name: </b><span id="Pane-Details-Note-Name" title="This is determined by the name specified in the text field above your note.">New Note</span><br>
-  <b>Note tags: </b><span id="Pane-Details-Note-Tags" title="Tags are automatically determined by our server, although you can edit them manually by clicking on any one of these tags.">(no tags yet!)</span><br>
-  <b>Privacy: </b><span id="Pane-Details-Note-Privacy">This note is private, and can only be viewed on your PC.</span><br>
-  <b>Author: </b><span id="Pane-Details-Note-Author">Anonymous (you)</span><br>
+  <b>Note name (<a href="javascript:ShowTooltip('NoteName');">?</a>): </b><span id="Pane-Details-Note-Name" title="This is determined by the name specified in the text field above your note.">New Note</span><br>
+  <div class="Pane-Tooltip">This is determined by the name specified in the text field above your note.</div>
+  
+  <b>Note tags (<a href="javascript:ShowTooltip('NoteTags');">?</a>): </b><span id="Pane-Details-Note-Tags" title="Tags are automatically determined by our server, although you can edit them manually by clicking on any one of these tags.">(no tags yet!)</span><br>
+  <div class="Pane-Tooltip">Tags are automatically determined by our server, although you can edit them manually by clicking on any one of these tags.</div>
+  
+  <b>Privacy (<a href="javascript:ShowTooltip('Privacy');">?</a>): </b><span id="Pane-Details-Note-Privacy">This note is private, and can only be viewed on your PC.</span><br>
+  <div class="Pane-Tooltip">This is determined by the name specified in the text field above your note.</div>
+  
+  <b>Author (<a href="javascript:ShowTooltip('Author');">?</a>): </b><span id="Pane-Details-Note-Author">Anonymous (you)</span><br>
+  <div class="Pane-Tooltip">This is determined by the name specified in the text field above your note.</div>
+  
   <!--put more later info here later on in development-->
   <br><br>
 </div>
