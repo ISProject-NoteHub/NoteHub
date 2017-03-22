@@ -22,6 +22,10 @@ function GetNote(topic, noteID) {
       //Parse Note
       currentNoteAsObject = JSON.parse(getPHPFile.responseText);
       
+      //Debug
+      console.log("Note requested and response was received.");
+      console.log(currentNoteAsObject);
+      
       //Note Editor
       document.getElementById("App-NoteName").innerHTML = currentNoteAsObject.meta.name;
       document.getElementById("App-NoteBox").innerHTML = ParseNoteContent(currentNoteAsObject.content);
