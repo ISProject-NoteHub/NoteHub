@@ -12,6 +12,24 @@ function CheckSmallScreen() {
   }
 }
 
+//Show tooltips in panes
+function ShowTooltip(tooltip) {
+  var tooltipElement = document.getElementById("Tooltip-" + tooltip);
+  
+  if (tooltipElement.style.display == "block") {
+    tooltipElement.style.display = "none";
+    tooltipElement.style.animationName = "";
+    tooltipElement.style.animationDuration = "";
+    tooltipElement.style.animationFillMode = "";
+  }
+  else {
+    tooltipElement.style.display = "block";
+    tooltipElement.style.animationName = "ExposeTooltip";
+    tooltipElement.style.animationDuration = "0.75s";
+    tooltipElement.style.animationFillMode = "forwards";
+  }
+}
+
 //Check for first use
 function DoNecessaryForFirstUse() {
   if (localStorage.getItem("newUser") == "nope") { return; }
