@@ -19,16 +19,17 @@
 <div id="Pane-Details" class="App-Pane">
   <style>
     .Pane-Tooltip {
-      position: relative;
-      left: -200px;
-      background-color: #616161; color: white;
+      position: absolute;
+      background-color: white; color: black;
       padding: 7.5px;
       z-index: 4;
+      display: none;
     }
     
-    .Pane-Tooltip:hover {
-      animation: ExposeTooltip;
-      animation-duration: 0.75s;
+    .Pane-Tooltip-Container {
+      position: relative;
+      width: 0; height: 0;
+      display: none;
     }
     
     /*Apply CSS animation for opacity*/
@@ -37,6 +38,13 @@
       to { opacity: 1; }
     }
   </style>
+  
+  <script>
+    function ShowTooltip(tooltip) {
+      if (document.getElementById("Tooltip-" + tooltip).style.display == "block") { document.getElementById("Tooltip-" + tooltip).style.display = "none"; }
+      else { document.getElementById("Tooltip-" + tooltip).style.display = "block"; }
+    }
+  </script>
   
   <label style="font-size: 24px;">Details</label>
   <hr>
@@ -50,7 +58,10 @@
   
   <b>Note</b><hr>
   <b>Note name (<a href="javascript:ShowTooltip('NoteName');">?</a>): </b><span id="Pane-Details-Note-Name" title="This is determined by the name specified in the text field above your note.">New Note</span><br>
-  <div class="Pane-Tooltip">This is determined by the name specified in the text field above your note.</div>
+  
+  <div id="Tooltip-NoteName" class="Pane-Tooltip-Container">
+    <div class="Pane-Tooltip">This is determined by the name specified in the text field above your note.</div>
+  </div>
   
   <b>Note tags (<a href="javascript:ShowTooltip('NoteTags');">?</a>): </b><span id="Pane-Details-Note-Tags" title="Tags are automatically determined by our server, although you can edit them manually by clicking on any one of these tags.">(no tags yet!)</span><br>
   <div class="Pane-Tooltip">Tags are automatically determined by our server, although you can edit them manually by clicking on any one of these tags.</div>
