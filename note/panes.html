@@ -24,6 +24,7 @@
       padding: 7.5px;
       z-index: 4;
       display: none;
+      opacity: 0;
     }
     
     .Pane-Tooltip-Container {
@@ -38,13 +39,6 @@
       to { opacity: 1; }
     }
   </style>
-  
-  <script>
-    function ShowTooltip(tooltip) {
-      if (document.getElementById("Tooltip-" + tooltip).style.display == "block") { document.getElementById("Tooltip-" + tooltip).style.display = "none"; }
-      else { document.getElementById("Tooltip-" + tooltip).style.display = "block"; }
-    }
-  </script>
   
   <label style="font-size: 24px;">Details</label>
   <hr>
