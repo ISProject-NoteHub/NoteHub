@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NoteHub</title>
+  <link href="/logo.png" rel="icon" />
+  <link href="/new-styling.css" rel="stylesheet" />
+  <link href="/styling.css" rel="stylesheet" />
+  <link href="/app-styling.css" rel="stylesheet" />
+
+  <style>
+    #Page-Organiser-Mobile {
+      padding: 7.5px;
+    }
+    @media screen and (max-width: 540px) {
+      #Page-Organiser-Mobile { display: block; }
+      #Page-Organiser-Desktop { display: none; }
+    }
+    @media screen and (min-width: 541px) {
+      #Page-Organiser-Desktop { display: block; }
+      #Page-Organiser-Mobile { display: none; }
+    }
+    
+    .SearchResult {
+      border-radius: 10px;
+      padding: 0;
+      width: 50%; height: 200px;
+      display: inline-block;
+    }
+    
+    .SearchResult-OverlayPiece {
+      position: relative;
+      width: 0; height: 0;
+      left: 0; top: 0;
+    }
+    
+    .SearchResult-Title {
+      position: absolute;
+      padding: 10px;
+      font-size: 18px;
+      background-color: black;
+      opacity: 0.85;
+      border-radius: 10px;
+    }
+  </style>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="Description" content="Welcome to NoteHub, the free notesharing service.">
+</head>
+
+<body>
+  <div id="Page-TitleBar">Gallery | NoteHub</div>
+
+  <div id="Page-MenuBar">
+    <a href="/index.html" class="Page-MenuItem">Home </a>
+    <a href="/info/about.html" class="Page-MenuItem"> About </a>
+    <a href="/note/index.html" class="Page-MenuItem"> New Note </a>
+    <a href="/accounts/sign-up.html" class="Page-MenuItem"> Sign Up</a>
+  </div>
+
+  <div id="Page-Contents">
+    <div id="Page-Organiser-Desktop">
+      <input type="text" placeholder="Search for keywords and topics..." style="padding: 10px; font-size: 20px; width: calc(100% - 300px);" id="Gallery-SearchByKeywords" />
+      <span style="position: relative; width: 0; height: 0;">
+        <button style="font-size: 20px; padding: 7.5px; position: absolute; left: -87.5px; top: -8.5px; background-color: white;">Search</button>
+      </span>
+      <span style="position: relative; width: 0; height: 0;">
+        <button title="Recommended notes for you, based on what you've done and read on NoteHub." style="font-size: 20px; left: -80px; padding: 10px; width: 270px; border: 2px solid buttonface;">Recommendations</button>
+      </span>
+      
+      <br><br><label id="Search-Header">Recommendations</label>
+      <div id="Search-Results" onload="GetRecommendations();">
+        <!--Sample search result-->
+        <div class="SearchResult" style="background-image: url('/logo.png');">
+          <span class="SearchResult-OverlayPiece">
+            <div class="SearchResult-Title">Getting Started with NoteHub</div>
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    <div id="Page-Organier-Mobile">
+      NoteHub's not 100% mobile-ready yet, and the gallery happens to be one such component of NoteHub. We sincerely apologise for any inconvenience this may have caused you.
+      <br><br>~ The NoteHub Team
+    </div>
+  </div>
+</body>
+</html>
