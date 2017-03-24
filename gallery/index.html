@@ -23,7 +23,7 @@
     .SearchResult {
       border-radius: 10px;
       padding: 0;
-      width: 50%; height: 200px;
+      width: 290px; height: 290px;
       display: inline-block;
     }
     
@@ -37,8 +37,9 @@
       position: absolute;
       padding: 10px;
       font-size: 18px;
-      background-color: black;
+      background-color: black; color: white;
       opacity: 0.85;
+      width: 270px; height: 270px;
       border-radius: 10px;
     }
   </style>
@@ -70,7 +71,7 @@
       <br><br><label id="Search-Header">Recommendations</label>
       <div id="Search-Results" onload="GetRecommendations();">
         <!--Sample search result-->
-        <div class="SearchResult" style="background-image: url('/logo.png');">
+        <div class="SearchResult" style="background-image: url('/logo.png'); background-repeat: no-repeat;">
           <span class="SearchResult-OverlayPiece">
             <div class="SearchResult-Title">Getting Started with NoteHub</div>
           </span>
