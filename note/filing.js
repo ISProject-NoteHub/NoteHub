@@ -28,7 +28,7 @@ function GetNote(topic, noteID) {
       
       //Note Editor
       document.getElementById("App-NoteName").innerHTML = currentNoteAsObject.meta.name;
-      document.getElementById("App-NoteBox").innerHTML = ParseNoteContent(currentNoteAsObject.content);
+      document.getElementById("App-NoteBox").innerHTML = currentNoteAsObject.content;
       
       //Push extra information - notebook
       document.getElementById("App-Functions-NoteInfo").innerHTML = "About '" + currentNoteAsObject.meta.name + "'";
