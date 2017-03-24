@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>NoteHub</title>
+  <title>Gallery | NoteHub</title>
   <link href="/logo.png" rel="icon" />
   <link href="/new-styling.css" rel="stylesheet" />
   <link href="/styling.css" rel="stylesheet" />
@@ -36,7 +36,6 @@
     .SearchResult-Title {
       position: absolute;
       padding: 10px;
-      font-size: 18px;
       background-color: black; color: white;
       opacity: 0.85;
       width: 270px; height: 270px;
@@ -49,7 +48,7 @@
 </head>
 
 <body>
-  <div id="Page-TitleBar">Gallery | NoteHub</div>
+  <div id="Page-TitleBar">NoteHub Gallery</div>
 
   <div id="Page-MenuBar">
     <a href="/index.html" class="Page-MenuItem">Home </a>
@@ -68,12 +67,28 @@
         <button title="Recommended notes for you, based on what you've done and read on NoteHub." style="font-size: 20px; left: -80px; padding: 10px; width: 270px; border: 2px solid buttonface;">Recommendations</button>
       </span>
       
-      <br><br><label id="Search-Header">Recommendations</label>
+      <br><br><label id="Search-Header" style="font-size: 20px;">Recommendations</label>
       <div id="Search-Results" onload="GetRecommendations();">
-        <!--Sample search result-->
-        <div class="SearchResult" style="background-image: url('/logo.png'); background-repeat: no-repeat;">
+        <!--Sample search results-->
+        <div class="SearchResult" style="background-image: url('/logo.png'); background-repeat: no-repeat; background-size: 100% 100%;">
           <span class="SearchResult-OverlayPiece">
-            <div class="SearchResult-Title">Getting Started with NoteHub</div>
+            <div class="SearchResult-Title">
+              <label style="font-size: 18px;">NoteHub Basics /<br>Getting Started with NoteHub</label>
+              <br>By SysAdmin
+              <br>Credibility: 4.5 stars (auto-determined)
+              <br>User rating: 5 stars
+            </div>
+          </span>
+        </div>
+        
+        <div class="SearchResult" style="background-image: url('data:image/jpeg;base64,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'); background-repeat: no-repeat; background-size: 100% 100%;">
+          <span class="SearchResult-OverlayPiece">
+            <div class="SearchResult-Title">
+              <label style="font-size: 18px;">C++ /<br>Hello World</label>
+              <br>By SysAdmin
+              <br>Credibility: 3.5 stars (auto-determined)
+              <br>User rating: 3 stars
+            </div>
           </span>
         </div>
       </div>
