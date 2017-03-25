@@ -10,7 +10,7 @@ function SaveNote() {
       notebook: document.getElementById("Pane-Details-Notebook-Name").innerHTML, "comment": "All notes in this notebook will appear editable but only save under the user's account when saved, because they are tutorials.",
       author: "SysAdmin"
     },
-    content: document.getElementById("App-NoteBox").innerHTML;
+    content: document.getElementById("App-NoteBox").innerHTML
   });
   
   var getPHPFile = new XMLHttpRequest();
