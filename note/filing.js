@@ -1,15 +1,38 @@
 var currentNoteAsObject = null;
+var privateNote = false, user = "00001", noteID = "sysadmin-000001-A.json";
 
 //Save Note
 function SaveNote() {
+  var noteAsJSON = JSON.stringify({
+    meta: {
+      name: document.getElementById("App-NoteName").innerHTML,
+      topics: ["NoteHub", "Admin"],
+      notebook: document.getElementById("Pane-Details-Notebook-Name").innerHTML, "comment": "All notes in this notebook will appear editable but only save under the user's account when saved, because they are tutorials.",
+      author: "SysAdmin"
+    },
+    content: document.getElementById("App-NoteBox").innerHTML;
+  });
+  
   var getPHPFile = new XMLHttpRequest();
   getPHPFile.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      alert('Note Saved!')
+    if (this.readyState == 4 && this.status == 200) { console.log(getPHPFile.responseText);
+      var response = JSON.parse(getPHPFile.responseText);
+      console.log("Note saved.");
+      
+      //Fill up report pane
+      
+      if (response.errors == "none") {
+        ShowSnack('Your note has been saved for everyone to see. <a href="javascript:ShowReportPane();">More Info</a>');
+      }
+      else {
+        ShowSnack('Your note has been saved as a draft on our server. <a href="javascript:ShowReportPane();">More Info</a>');
+      }
     }
   }
+          
   getPHPFile.open("POST", "https://notehub-serverside.000webhostapp.com/handlers/filing.php", true);
   getPHPFile.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  getPHPFile.send("note=" + noteAsJSON + "&noteID=" + "&topic=private-notes\00001");
 }
 
 //Retrieve Note
@@ -26,6 +49,10 @@ function GetNote(topic, noteID) {
       console.log("Note requested and response was received.");
       console.log(currentNoteAsObject);
       
+      if ((currentNoteAsObject.meta.notebook = "NoteHub Basics") || (currentNoteAsObject.meta.notebook = "My Private Notebook")) {
+        privateNote = true;
+      }
+      
       //Note Editor
       document.getElementById("App-NoteName").innerHTML = currentNoteAsObject.meta.name;
       document.getElementById("App-NoteBox").innerHTML = currentNoteAsObject.content;
@@ -39,7 +66,7 @@ function GetNote(topic, noteID) {
       document.getElementById("Pane-Details-Note-Author").innerHTML = currentNoteAsObject.meta.author;
     }
   }
-  getPHPFile.open("POST", "https://notehub-serverside.000webhostapp.com/handlers/filing.php?requestedFunction=read&topic=" + topic + "&noteId=" + noteID, true);
+  getPHPFile.open("GET", "https://notehub-serverside.000webhostapp.com/handlers/filing.php?requestedFunction=read&topic=" + topic + "&noteId=" + noteID, true);
   getPHPFile.send();
 }
 
