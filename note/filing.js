@@ -15,7 +15,8 @@ function SaveNote() {
   
   var getPHPFile = new XMLHttpRequest();
   getPHPFile.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) { console.log(getPHPFile.responseText);
+    if (this.readyState == 4 && this.status == 200) {
+      console.log(getPHPFile.responseText);
       var response = JSON.parse(getPHPFile.responseText);
       console.log("Note saved.");
       
@@ -72,4 +73,5 @@ function GetNote(topic, noteID) {
 
 //Copy Note to Editor
 function CopyNote(topic, noteID) {
+  
 }
