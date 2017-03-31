@@ -17,10 +17,11 @@ function SaveNote() {
   getPHPFile.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       console.log(getPHPFile.responseText);
-      var response = JSON.parse(getPHPFile.responseText);
+      var response = JSON.parse(decodeURIComponent(getPHPFile.responseText));
       console.log("Note saved.");
       
       //Fill up report pane
+      
       
       if (response.errors == "none") {
         ShowSnack('Your note has been saved for everyone to see. <a href="javascript:ShowReportPane();">More Info</a>');
