@@ -34,7 +34,7 @@ function SaveNote() {
           
   getPHPFile.open("POST", "https://notehub-serverside.000webhostapp.com/handlers/filing.php", true);
   getPHPFile.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  getPHPFile.send("requestedFunction=write&note=" + noteAsJSON + "&noteID=test.json" + "&topic=private-notes/00001");
+  getPHPFile.send("requestedFunction=write&note=" + noteAsJSON + "&noteId=test.json" + "&topic=private-notes/00001");
 }
 
 //Decode html entities
