@@ -16,8 +16,8 @@ function SaveNote() {
   var getPHPFile = new XMLHttpRequest();
   getPHPFile.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      console.log(decodeURIComponent(getPHPFile.responseText));
-      var response = JSON.parse(decodeURIComponent(getPHPFile.responseText));
+      console.log(decodeHTML(getPHPFile.responseText));
+      var response = JSON.parse(decodeHTML(getPHPFile.responseText));
       console.log("Note saved.");
       
       //Fill up report pane
@@ -35,6 +35,13 @@ function SaveNote() {
   getPHPFile.open("POST", "https://notehub-serverside.000webhostapp.com/handlers/filing.php", true);
   getPHPFile.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   getPHPFile.send("requestedFunction=write&note=" + noteAsJSON + "&noteID=" + "&topic=private-notes\00001");
+}
+
+//Decode html entities
+function decodeHTML(html) {
+  var txt = document.createElement("textarea");
+  txt.innerHTML = html;
+  return txt.value;
 }
 
 //Retrieve Note
