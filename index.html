@@ -28,6 +28,11 @@
       getPHPFile.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
           console.log(getPHPFile.responseText);
+          
+          if (getPHPFile.responseText == "Login successful.") {
+            localStorage.setItem("loggedIn", document.getElementById("Login-Username").value + "," + document.getElementById("Login-Password").value);
+            window.location.href = "/accounts/index.html";
+          }
         }
       }
 
