@@ -31,9 +31,10 @@
         }
       }
 
-      getPHPFile.open("POST", "https://notehub-serverside.000webhostapp.com/handlers/account-data.php", true);
+      getPHPFile.open("GET", "https://notehub-serverside.000webhostapp.com/handlers/account-data.php?requestedFunction=login&username=" + document.getElementById("Login-Username").value + "&password=" + document.getElementById("Login-Password").value, true);
       getPHPFile.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-      getPHPFile.send("requestedFunction=login&username=" + document.getElementById("Login-Username").value + "&password=" + document.getElementById("Login-Password").value);
+      getPHPFile.send();
+      //getPHPFile.send("requestedFunction=login&username=" + document.getElementById("Login-Username").value + "&password=" + document.getElementById("Login-Password").value);
     }
   </script>
 
