@@ -21,6 +21,21 @@
       #Page-Organiser-Mobile { display: none; }
     }
   </style>
+  
+  <script>
+    function Login() {
+      var getPHPFile = new XMLHttpRequest();
+      getPHPFile.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          console.log(request.responseText);
+        }
+      }
+
+      getPHPFile.open("POST", "https://notehub-serverside.000webhostapp.com/handlers/account-data.php", true);
+      getPHPFile.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      getPHPFile.send("requestedFunction=login&username=" + document.getElementById("Login-Username").value + "&password" + document.getElementById("Login-Password").value);
+    }
+  </script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="Description" content="Welcome to NoteHub, the free notesharing service.">
@@ -59,6 +74,8 @@
             Password:
             <br><input style="width: calc(100% - 30px);" type="password" data-stacked="stacked" id="Login-Password" placeholder="Password"/>
           </div>
+          
+          <br><a href="javascript:Login();">Login</a>
         </td>
       </tr>
     </table>
