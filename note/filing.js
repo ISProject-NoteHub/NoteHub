@@ -1,5 +1,5 @@
 var currentNoteAsObject = null;
-var privateNote = false, user = "00001", noteID = "sysadmin-000001-A.json";
+var privateNote = false, user = "00001", noteID = "test.json";
 
 //Save Note
 function SaveNote() {
@@ -22,15 +22,15 @@ function SaveNote() {
       
       //Fill up report pane
       
-      
+      //Show snackbar
       if (response.errors == "none") {
-        ShowSnack('Your note has been saved for everyone to see. <a href="javascript:ShowReportPane();">More Info</a>');
+        ShowSnack('Your note has been saved for everyone to see. <a style="color: white;" href="javascript:ShowReportPane();">More Info</a>');
       }
       else if (response.errors == "over9000") {
-        ShowSnack('Your note could not be saved on our server due to its size. <a href="javascript:ShowReportPane();">More Info</a');
+        ShowSnack('Your note could not be saved on our server due to its size. <a style="color: white;" href="javascript:ShowReportPane();">More Info</a');
       }
       else {
-        ShowSnack('Your note has been saved as a draft on our server. <a href="javascript:ShowReportPane();">More Info</a>');
+        ShowSnack('Your note has been saved as a draft on our server. <a style="color: white;" href="javascript:ShowReportPane();">More Info</a>');
       }
     }
   }
@@ -38,6 +38,11 @@ function SaveNote() {
   getPHPFile.open("POST", "https://notehub-serverside.000webhostapp.com/handlers/filing.php", true);
   getPHPFile.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   getPHPFile.send("requestedFunction=write&note=" + noteAsJSON + "&noteId=test.json" + "&topic=private-notes/00001");
+}
+
+//Show report pane
+function ShowReportPane() {
+  ShowPane("NoteSavingReport");
 }
 
 //Decode html entities
