@@ -21,12 +21,17 @@ function SaveNote() {
       console.log("Note saved.");
       
       //Fill up report pane
+      document.getElementById("Pane-Saving-Filename").innerHTML = "Filing Report - Test";
       
       //Show snackbar
       if (response.errors == "none") {
+        document.getElementById("Pane-Saving-Status").innerHTML = "Saved as note!";
+        
         ShowSnack('Your note has been saved for everyone to see. <a style="color: white;" href="javascript:ShowReportPane();">More Info</a>');
       }
       else if (response.errors == "over9000") {
+        document.getElementById("Pane-Saving-Status").innerHTML = "Note rejected due to size restrictions. (<a style='color: white;' href='javascript:SizeMatters();'>?</a>)";
+        
         ShowSnack('Your note could not be saved on our server due to its size. <a style="color: white;" href="javascript:ShowReportPane();">More Info</a');
       }
       else {
@@ -38,6 +43,11 @@ function SaveNote() {
   getPHPFile.open("POST", "https://notehub-serverside.000webhostapp.com/handlers/filing.php", true);
   getPHPFile.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   getPHPFile.send("requestedFunction=write&note=" + noteAsJSON + "&noteId=test.json" + "&topic=private-notes/00001");
+}
+
+//Show tooltip explaining note size restrictions
+function SizeMatters() {
+  ShowTooltip("SizeMatters");
 }
 
 //Show report pane
