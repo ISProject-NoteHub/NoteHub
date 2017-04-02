@@ -26,6 +26,9 @@ function SaveNote() {
       if (response.errors == "none") {
         ShowSnack('Your note has been saved for everyone to see. <a href="javascript:ShowReportPane();">More Info</a>');
       }
+      else if (response.errors == "over9000") {
+        ShowSnack('Your note could not be saved on our server due to its size. <a href="javascript:ShowReportPane();">More Info</a');
+      }
       else {
         ShowSnack('Your note has been saved as a draft on our server. <a href="javascript:ShowReportPane();">More Info</a>');
       }
