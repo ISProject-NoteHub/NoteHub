@@ -33,6 +33,14 @@
   #App-NoteName { width: calc(65% - 20px); }
 }
 
+@media screen and (min-width: 541px) {
+  #App-AccountName { width: calc(75% - 20px); }
+}
+
+@media screen and (max-width: 540px) {
+  #App-AccountName { width: calc(65% - 20px); }
+}
+
 #App-InviteCollabs {
   background-color: #f6f6f6;
   position: absolute;
@@ -44,6 +52,20 @@
 }
 
 #App-InviteCollabs:hover {
+  background-color: lightgray;
+}
+
+#App-ChangeDetails {
+  background-color: #f6f6f6;
+  position: absolute;
+  padding: 10px;
+  z-index: 2;
+  right: 0; top: 0;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+#App-ChangeDetails:hover {
   background-color: lightgray;
 }
 
