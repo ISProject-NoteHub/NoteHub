@@ -128,6 +128,25 @@
   #App-NoteBox { width: calc(65% - 20px); }
 }
 
+#App-Account {
+  top: 52px;
+  height: calc(100% - 110px);
+  padding: 10px; margin: 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 0; right: 0;
+  overflow-y: scroll;
+  background-color: #f7fff4;
+}
+
+@media screen and (min-width: 541px) {
+  #App-Account { width: calc(75% - 20px); }
+}
+
+@media screen and (max-width: 540px) {
+  #App-Account { width: calc(65% - 20px); }
+}
+
 #App-Formatting {
   bottom: 0; right: 0;
   position: absolute;
