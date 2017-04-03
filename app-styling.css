@@ -15,6 +15,23 @@
   #App-NoteHub { width: calc(35% - 20px); }
 }
 
+#App-NoteHubInGallery {
+  background: linear-gradient(to right, lightseagreen, #4ddc9b);
+  padding: 10px;
+  left: 0; top: 0;
+  position: absolute;
+  z-index: 1;
+  font-size: 24px;
+}
+
+@media screen and (min-width: 541px) {
+  #App-NoteHubInGallery { width: calc(15% - 20px); }
+}
+
+@media screen and (max-width: 540px) {
+  #App-NoteHubInGallery { width: calc(35% - 20px); }
+}
+
 #App-NoteName {
   background-color: #4ddc9b;
   width: calc(75% - 20px);
@@ -62,11 +79,11 @@
 }
 
 @media screen and (min-width: 541px) {
-  #App-Gallery { width: calc(75% - 20px); }
+  #App-Gallery { width: calc(85% - 20px); }
 }
 
 @media screen and (max-width: 540px) {
-  #App-Gallery { width: calc(65% - 20px); }
+  #App-Gallery { width: calc(85% - 20px); }
 }
 
 #App-InviteCollabs {
