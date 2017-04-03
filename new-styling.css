@@ -32,13 +32,13 @@ body {
 
 .Page-MenuItem {
   text-decoration: none;
-  color: white;
+  color: black;
   padding: 7.5px; padding-left: 15px; padding-right: 15px;
   position: relative;
   bottom: 10px;
   font-size: 12px;
   margin-left: 10px;
-  border-radius: 20px; border: 1px solid white;
+  border-radius: 20px; border: 1px solid gray;
 }
 
 @media screen and (max-width: 540px) {
