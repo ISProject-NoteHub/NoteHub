@@ -40,7 +40,7 @@ function SaveNote() {
     }
   }
           
-  getPHPFile.open("POST", "https://notehub-serverside.000webhostapp.com/handlers/filing.php", true);
+  getPHPFile.open("POST", "https://backend.ga/handlers/filing.php", true);
   getPHPFile.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   getPHPFile.send("requestedFunction=write&note=" + noteAsJSON + "&noteId=test.json" + "&topic=private-notes/00001");
 }
@@ -93,7 +93,7 @@ function GetNote(topic, noteID) {
       document.getElementById("Pane-Details-Note-Author").innerHTML = currentNoteAsObject.meta.author;
     }
   }
-  getPHPFile.open("GET", "https://notehub-serverside.000webhostapp.com/handlers/filing.php?requestedFunction=read&topic=" + topic + "&noteId=" + noteID, true);
+  getPHPFile.open("GET", "https://backend.ga/handlers/filing.php?requestedFunction=read&topic=" + topic + "&noteId=" + noteID, true);
   getPHPFile.send();
 }
 
