@@ -1,3 +1,16 @@
+#Page-Organiser-Mobile {
+  padding: 7.5px;
+}
+
+@media screen and (max-width: 540px) {
+  #Page-Organiser-Mobile { display: block; }
+  #Page-Organiser-Desktop { display: none; }
+}
+@media screen and (min-width: 541px) {
+  #Page-Organiser-Desktop { display: block; }
+  #Page-Organiser-Mobile { display: none; }
+}
+
 body {
   font-family: "Segoe UI", "Helvetica", "sans-serif";
   cursor: default;
