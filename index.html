@@ -16,7 +16,7 @@
     //All accounts-related functions that are used over multiple pages have been moved to accounts/accounts.js ~TheoLeeCJ
     
     function LoginHere(mobile) {
-      Login(document.getElementById(mobile "+ Login-Username").value, document.getElementById(mobile + "Login-Password").value, function() {
+      Login(document.getElementById(mobile + "Login-Username").value, document.getElementById(mobile + "Login-Password").value, function() {
         window.location.href = "/accounts/index.html";
       }, function() {
         alert("Login failed.");
