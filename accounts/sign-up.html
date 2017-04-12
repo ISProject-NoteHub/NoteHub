@@ -26,6 +26,19 @@
       padding: 10px; margin-bottom: 10px;
     }
   </style>
+  
+  <script>
+    var username = document.getElementById("Login-Username"), email = document.getElementById("Login-Email"), password = document.getElementById("Login-Password");
+    var savedStage = {
+      username: "", email: "", password = "";
+    };
+
+    function StageOne() {
+      savedStage.username = username.value;
+      savedStage.email = email.value;
+      savedStage.password = password.value;
+    }
+  </script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="Description" content="Welcome to NoteHub, the free notesharing service.">
