@@ -6,15 +6,15 @@ function Login(usernameToUse, passwordToUse) {
       console.log(getPHPFile.responseText);
 
       if (getPHPFile.responseText == "Login successful.") {
+        localStorage.setItem("logInStatus", "Successful.");
         localStorage.setItem("loggedIn", btoa(usernameToUse + "," + passwordToUse));
-        return true;
       }
       else {
-        return false;
+        localStorage.setItem("logInStatus", "Incorrect credentials.");
       }
     }
     else {
-      return "Connection unsuccessful.";
+      localStorage.setItem("logInStatus", "Could not connect to server.");
     }
   }
 
