@@ -1,15 +1,17 @@
 //Login - set localStorage and return true
-function Login(usernameToUse, passwordToUse) {
+function Login(usernameToUse, passwordToUse, onSuccess, onFailure) {
   var getPHPFile = new XMLHttpRequest();
   getPHPFile.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       console.log(getPHPFile.responseText);
 
       if (getPHPFile.responseText == "Login successful.") {
+        onSuccess();
         localStorage.setItem("logInStatus", "Successful.");
         localStorage.setItem("loggedIn", btoa(usernameToUse + "," + passwordToUse));
       }
       else {
+        onFailure();
         localStorage.setItem("logInStatus", "Incorrect credentials.");
       }
     }
