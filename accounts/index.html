@@ -9,28 +9,17 @@
   <link href="/new-styling.css" rel="stylesheet" />
   <link href="/styling.css" rel="stylesheet" />
 
-
-    <style>
-        h1 { font-size: 20px; }
-        h2 { font-size: 18px; }
-    </style>
-
-    <script src="/note/miscellaneous.js"></script>
-    <script src="/note/filing.js"></script>
-    <script src="/note/formatting.js"></script>
-
   <style>
     h1 { font-size: 20px; }
     h2 { font-size: 18px; }
   </style>
-
 
   <script src="miscellaneous.js"></script>
   <script src="filing.js"></script>
   <script src="formatting.js"></script>
 </head>
   
-<body onload="CheckSmallScreen(); DoNecessaryForFirstUse();" onresize="CheckSmallScreen();">
+<body onload="CheckSmallScreen(); DoNecessaryForFirstUse(); CheckSignedIn();" onresize="CheckSmallScreen();">
   <div id="App-NoteHub"><span style="font-weight: lighter;">Note</span><b>Hub</b></div>
   <div id="App-AccountName">SysAdmin</div>
   <!--Modify this later to show user's account name.-->
