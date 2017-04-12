@@ -17,7 +17,7 @@
     
     function LoginHere() {
       Login(document.getElementById("Login-Username").value, document.getElementById("Login-Password").value);
-      if (localStorage.getItem("logInStatus"); == "Successful.") {
+      if (localStorage.getItem("logInStatus") == "Successful.") {
         window.location.href = "/accounts/index.html";
       }
       else {
