@@ -16,7 +16,8 @@
     //All accounts-related functions that are used over multiple pages have been moved to accounts/accounts.js ~TheoLeeCJ
     
     function LoginHere() {
-      if (Login(document.getElementById("Login-Username").value, document.getElementById("Login-Password").value) == true) {
+      Login(document.getElementById("Login-Username").value, document.getElementById("Login-Password").value);
+      if (localStorage.getItem("logInStatus"); == "Successful.") {
         window.location.href = "/accounts/index.html";
       }
       else {
