@@ -8,10 +8,22 @@
   <link href="/styling.css" rel="stylesheet" />
   <link href="/app-styling.css" rel="stylesheet" />
   
+  <script src="/accounts/accounts.js"></script>
+  
   <script>
     //REMEMBER: Add function to limit number of login attempts (or use CAPTCHA after a few failed logins)
     //Noted. ~TheoLeeCJ
     //All accounts-related functions that are used over multiple pages have been moved to accounts/accounts.js ~TheoLeeCJ
+    
+    function LoginHere() {
+      if (Login(document.getElementById("Login-Username").value, document.getElementById("Login-Password").value) == true) {
+        window.location.href = "/accounts/index.html";
+      }
+      else {
+        //Update when new design is available
+        alert("Login failed");
+      }
+    }
   </script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -52,7 +64,7 @@
             <br><input style="width: calc(100% - 30px);" type="password" data-stacked="stacked" id="Login-Password" placeholder="Password"/>
           </div>
           
-          <br><a href="javascript:Login();">Login</a>
+          <br><a href="javascript:LoginHere();">Login</a>
         </td>
       </tr>
     </table>
