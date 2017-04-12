@@ -22,7 +22,7 @@ function Login(usernameToUse, passwordToUse, onSuccess, onFailure) {
 
   getPHPFile.open("POST", "https://backend.ga/handlers/account-data.php", true);
   getPHPFile.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  getPHPFile.send("requestedFunction=login&username=" + document.getElementById("Login-Username").value + "&password=" + document.getElementById("Login-Password").value);
+  getPHPFile.send("requestedFunction=login&username=" + usernameToUse + "&password=" + passwordToUse);
 }
 
 //Check for signed-in
