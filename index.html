@@ -15,8 +15,8 @@
     //Noted. ~TheoLeeCJ
     //All accounts-related functions that are used over multiple pages have been moved to accounts/accounts.js ~TheoLeeCJ
     
-    function LoginHere() {
-      Login(document.getElementById("Login-Username").value, document.getElementById("Login-Password").value, function() {
+    function LoginHere(mobile) {
+      Login(document.getElementById(mobile "+ Login-Username").value, document.getElementById(mobile + "Login-Password").value, function() {
         window.location.href = "/accounts/index.html";
       }, function() {
         alert("Login failed.");
@@ -62,7 +62,7 @@
             <br><input style="width: calc(100% - 30px);" type="password" data-stacked="stacked" id="Login-Password" placeholder="Password"/>
           </div>
           
-          <br><a href="javascript:LoginHere();">Login</a>
+          <br><a href="javascript:LoginHere('');">Login</a>
         </td>
       </tr>
     </table>
@@ -81,15 +81,15 @@
 
         <br><div style="width: 100%; text-align: left;">
           Username:
-          <br><input style="width: calc(100% - 30px);" type="text" data-stacked="stacked" id="Login-Username" placeholder="Username"/>
+          <br><input style="width: calc(100% - 30px);" type="text" data-stacked="stacked" id="Mobile-Login-Username" placeholder="Username"/>
         </div>
 
         <br><div style="width: 100%; text-align: left;">
           Password:
-          <br><input style="width: calc(100% - 30px);" type="password" data-stacked="stacked" id="Login-Password" placeholder="Password"/>
+          <br><input style="width: calc(100% - 30px);" type="password" data-stacked="stacked" id="Mobilr-Login-Password" placeholder="Password"/>
         </div>
           
-        <br><a href="javascript:LoginHere();">Login</a>
+        <br><a href="javascript:LoginHere('Mobile-');">Login</a>
       </div>
     </div>
 
