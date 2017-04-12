@@ -16,14 +16,11 @@
     //All accounts-related functions that are used over multiple pages have been moved to accounts/accounts.js ~TheoLeeCJ
     
     function LoginHere() {
-      Login(document.getElementById("Login-Username").value, document.getElementById("Login-Password").value);
-      if (localStorage.getItem("logInStatus") == "Successful.") {
+      Login(document.getElementById("Login-Username").value, document.getElementById("Login-Password").value, function() {
         window.location.href = "/accounts/index.html";
-      }
-      else {
-        //Update when new design is available
-        alert("Login failed");
-      }
+      }, function() {
+        alert("Login failed.");
+      });
     }
   </script>
 
