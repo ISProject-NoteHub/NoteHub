@@ -4,7 +4,7 @@ var notebox, newSpanContents;
 //Fonts
 function fonts_updateFont() {
   notebox = document.getElementById("App-NoteBox");
-  notebox.focus();
+  //notebox.focus();
 
   var sel, range, html;
   var text = "<table>";
