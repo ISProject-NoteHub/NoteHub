@@ -44,9 +44,9 @@
   </div>
   
   <div id="App-Formatting">
-    <button class="App-Format" type="button" id="Formatting-FontBold"><b>B</b></button>
-    <button class="App-Format" type="button" id="Formatting-FontItalic"><i>I</i></button>
-    <button class="App-Format" type="button" id="Formatting-FontUnderline"><u>U</u></button>
+    <button class="App-Format" type="button" data-active="false" onclick="SetBold(); fonts_updateFont();" id="Formatting-FontBold"><b>B</b></button>
+    <button class="App-Format" type="button" data-active="false" onclick="SetItalic(); fonts_updateFont();" id="Formatting-FontItalic"><i>I</i></button>
+    <button class="App-Format" type="button" data-active="false" onclick="SetUnderline(); fonts_updateFont();" id="Formatting-FontUnderline"><u>U</u></button>
     &nbsp;|&nbsp;
     Font:
     <select onchange="fonts_updateFont();" id="Formatting-FontFamily">
