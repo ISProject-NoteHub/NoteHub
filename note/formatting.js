@@ -1,9 +1,10 @@
 //Notebox
-var notebox = document.getElementById("App-NoteBox");
-var newSpanContents
+var notebox;
+var newSpanContents;
 
 //Fonts
 function fonts_updateFont() {
+  notebox = document.getElementById("App-NoteBox");
   notebox.focus();
   notebox.removeAttribute("contenteditable");
 
