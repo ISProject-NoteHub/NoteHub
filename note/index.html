@@ -23,7 +23,7 @@
   <!--Hello-->
   <div id="App-NoteHub"><span style="font-weight: lighter;">Note</span><b>Hub</b></div>
   <div id="App-NoteName" contenteditable="">New Note</div>
-  <div id="App-InviteCollabs" onclick="ShowPane('Collab');">Invite Collaborators</div>
+  <div id="App-InviteCollabs" onclick="ShowPane('Collab');"></div>
   
   <div id="App-Functions">
     <a class="App-Function" title="Want to create a new note?" data-selected="selected" href="javascript:void();">New Note</a>
@@ -44,21 +44,29 @@
   </div>
   
   <div id="App-Formatting">
-    <button class="App-Format" type="button"><b>B</b></button>
-    <button class="App-Format" type="button"><i>I</i></button>
-    <button class="App-Format" type="button"><u>U</u></button>
+    <button class="App-Format" type="button" id="Formatting-FontBold"><b>B</b></button>
+    <button class="App-Format" type="button" id="Formatting-FontItalic"><i>I</i></button>
+    <button class="App-Format" type="button" id="Formatting-FontUnderline"><u>U</u></button>
     &nbsp;|&nbsp;
     Font:
-    <select>
-      <option>Arial</option>
-      <option>Calibri</option>
-      <option>Cambria</option>
-      <option>Consolas</option>
-      <option>Times New Roman</option>
-      <option>Segoe UI</option>
+    <select onchange="fonts.setNewFont();" id="Formatting-FontFamily">
+      <option disabled="disabled">Font Faces</option>
+      <option style="font-family: 'Arial';">Arial</option>
+      <option style="font-family: 'Calibri';">Calibri</option>
+      <option style="font-family: 'Cambria';">Cambria</option>
+      <option style="font-family: 'Comic Sans MS', 'Comic Sans';">Comic Sans</option>
+      <option style="font-family: 'Consolas';">Consolas</option>
+      <option style="font-family: 'Times New Roman';">Times New Roman</option>
+      <option style="font-family: 'Segoe UI';">Segoe UI</option>
+      <option style="font-family: 'Trebuchet';">Trebuchet</option>
+      <option style="font-family: 'Verdana';">Verdana</option>
+      <option disabled="disabled">Generic Fonts</option>
+      <option style="font-family: 'monospace';">Monospace</option>
+      <option style="font-family: 'sans-serif';">Sans-Serif</option>
+      <option style="font-family: 'serif';">Serif</option>
     </select>
     Font Size:
-    <input style="width: 75px;" type="number" />
+    <input style="width: 75px;" id="Formatting-FontSize" onkeypress="fonts.setNewSize();" type="number" />
     &nbsp;|&nbsp;
     <button class="App-Format" type="button" onclick="SaveNote();">Save</button>
   </div>
