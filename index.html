@@ -8,24 +8,19 @@
   <link href="/styling.css" rel="stylesheet" />
   <link href="/app-styling.css" rel="stylesheet" />
   
+  <script src="/accounts/accounts.js"></script>
+  
   <script>
     //REMEMBER: Add function to limit number of login attempts (or use CAPTCHA after a few failed logins)
-    function Login() {
-      var getPHPFile = new XMLHttpRequest();
-      getPHPFile.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-          console.log(getPHPFile.responseText);
-          
-          if (getPHPFile.responseText == "Login successful.") {
-            localStorage.setItem("loggedIn", document.getElementById("Login-Username").value + "," + document.getElementById("Login-Password").value);
-            window.location.href = "/accounts/index.html";
-          }
-        }
-      }
-
-      getPHPFile.open("POST", "https://backend.ga/handlers/account-data.php", true);
-      getPHPFile.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-      getPHPFile.send("requestedFunction=login&username=" + document.getElementById("Login-Username").value + "&password=" + document.getElementById("Login-Password").value);
+    //Noted. ~TheoLeeCJ
+    //All accounts-related functions that are used over multiple pages have been moved to accounts/accounts.js ~TheoLeeCJ
+    
+    function LoginHere(mobile) {
+      Login(document.getElementById(mobile + "Login-Username").value, document.getElementById(mobile + "Login-Password").value, function() {
+        window.location.href = "/accounts/index.html";
+      }, function() {
+        alert("Login failed.");
+      });
     }
   </script>
 
@@ -67,7 +62,7 @@
             <br><input style="width: calc(100% - 30px);" type="password" data-stacked="stacked" id="Login-Password" placeholder="Password"/>
           </div>
           
-          <br><a href="javascript:Login();">Login</a>
+          <br><a href="javascript:LoginHere('');">Login</a>
         </td>
       </tr>
     </table>
@@ -86,13 +81,15 @@
 
         <br><div style="width: 100%; text-align: left;">
           Username:
-          <br><input style="width: calc(100% - 30px);" type="text" data-stacked="stacked" id="Login-Username" placeholder="Username"/>
+          <br><input style="width: calc(100% - 30px);" type="text" data-stacked="stacked" id="Mobile-Login-Username" placeholder="Username"/>
         </div>
 
         <br><div style="width: 100%; text-align: left;">
           Password:
-          <br><input style="width: calc(100% - 30px);" type="password" data-stacked="stacked" id="Login-Password" placeholder="Password"/>
+          <br><input style="width: calc(100% - 30px);" type="password" data-stacked="stacked" id="Mobile-Login-Password" placeholder="Password"/>
         </div>
+          
+        <br><a href="javascript:LoginHere('Mobile-');">Login</a>
       </div>
     </div>
 
