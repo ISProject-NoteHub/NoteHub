@@ -41,6 +41,7 @@ function fonts_updateFont(event) {
   spanToInsert.style.fontSize = document.getElementById("Formatting-FontSize").options[document.getElementById("Formatting-FontSize").selectedIndex].value + "px";
   
   //Bold, italic, underline
+  spanToInsert.innerHTML = spanToInsert.innerHTML.replace("<b>", "").replace("</b>", "").replace("<i>", "").replace("</i>", "").replace("<u>", "").replace("</u>", "");
   if (document.getElementById("Formatting-FontUnderline").getAttribute("data-active") == "true") { spanToInsert.innerHTML = "<u>" + spanToInsert.innerHTML + "</u>"; }
   if (document.getElementById("Formatting-FontBold").getAttribute("data-active") == "true") { spanToInsert.innerHTML = "<b>" + spanToInsert.innerHTML + "</b>"; }
   if (document.getElementById("Formatting-FontItalic").getAttribute("data-active") == "true") { spanToInsert.innerHTML = "<i>" + spanToInsert.innerHTML + "</i>"; }
