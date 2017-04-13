@@ -17,6 +17,8 @@ function fonts_updateFont(event) {
   sel = window.getSelection();
   if (sel.getRangeAt && sel.rangeCount)
   {
+    if (sel == "") { spanToInsert.innerHTML = "&nbsp;"; }
+    
     range = sel.getRangeAt(0);
     range.deleteContents();
     range.insertNode(spanToInsert);
