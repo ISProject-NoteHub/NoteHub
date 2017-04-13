@@ -1,6 +1,5 @@
 //Notebox
-var notebox;
-var newSpanContents;
+var notebox, newSpanContents;
 
 //Fonts
 function fonts_updateFont() {
