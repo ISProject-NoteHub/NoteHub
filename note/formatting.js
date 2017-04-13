@@ -4,7 +4,7 @@ var notebox, newSpanContents;
 //Fonts
 function fonts_updateFont(event) {
   notebox = document.getElementById("App-NoteBox");
-  //notebox.focus();
+  notebox.focus();
 
   var sel, range, html;
   var text = "<table>";
@@ -12,14 +12,7 @@ function fonts_updateFont(event) {
   var spanToInsert = document.createElement("span");
   spanToInsert.innerHTML = text;
   spanToInsert.style.fontFamily = document.getElementById("Formatting-FontFamily").options[document.getElementById("Formatting-FontFamily").selectedIndex].value;
-  
-  if (event.keyCode == 13) {
-    notebox.focus();
-    spanToInsert.style.fontSize = document.getElementById("Formatting-FontSize").value + "px";
-  }
-  else {
-    //...
-  }
+  spanToInsert.style.fontSize = document.getElementById("Formatting-FontSize").options[document.getElementById("Formatting-FontSize").selectedIndex].value;
   
   sel = window.getSelection();
   if (sel.getRangeAt && sel.rangeCount)
