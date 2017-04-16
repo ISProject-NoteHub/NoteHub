@@ -4,14 +4,19 @@
   <title>New Note | NoteHub</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-   <link href="/logo.png" rel="icon" />
-   <link href="/app-styling.css" rel="stylesheet" />
-   <link href="/new-styling.css" rel="stylesheet" />
-   <link href="/styling.css" rel="stylesheet" />
+ <link href="/logo.png" rel="icon" />
+ <link href="/app-styling.css" rel="stylesheet" />
+ <link href="/new-styling.css" rel="stylesheet" />
+ <link href="/styling.css" rel="stylesheet" />
    
   <style>
     h1 { font-size: 20px; }
     h2 { font-size: 18px; }
+    
+    /*Commit to main styling files later*/
+    App-Format[data-active=true] {
+      background-color: lightgray;
+    }
   </style>
   
   <script src="miscellaneous.js"></script>
@@ -23,7 +28,7 @@
   <!--Hello-->
   <div id="App-NoteHub"><span style="font-weight: lighter;">Note</span><b>Hub</b></div>
   <div id="App-NoteName" contenteditable="">New Note</div>
-  <div id="App-InviteCollabs" onclick="ShowPane('Collab');">Invite Collaborators</div>
+  <div id="App-InviteCollabs" onclick="ShowPane('Collab');"></div>
   
   <div id="App-Functions">
     <a class="App-Function" title="Want to create a new note?" data-selected="selected" href="javascript:void();">New Note</a>
@@ -44,21 +49,41 @@
   </div>
   
   <div id="App-Formatting">
-    <button class="App-Format" type="button"><b>B</b></button>
-    <button class="App-Format" type="button"><i>I</i></button>
-    <button class="App-Format" type="button"><u>U</u></button>
+    <button class="App-Format" type="button" data-active="false" onclick="SetBold(); fonts_updateFont();" id="Formatting-FontBold"><b>B</b></button>
+    <button class="App-Format" type="button" data-active="false" onclick="SetItalic(); fonts_updateFont();" id="Formatting-FontItalic"><i>I</i></button>
+    <button class="App-Format" type="button" data-active="false" onclick="SetUnderline(); fonts_updateFont();" id="Formatting-FontUnderline"><u>U</u></button>
     &nbsp;|&nbsp;
     Font:
-    <select>
-      <option>Arial</option>
-      <option>Calibri</option>
-      <option>Cambria</option>
-      <option>Consolas</option>
-      <option>Times New Roman</option>
-      <option>Segoe UI</option>
+    <select onchange="fonts_updateFont();" id="Formatting-FontFamily">
+      <option disabled="disabled">Font Faces</option>
+      <option style="font-family: 'Arial';">Arial</option>
+      <option style="font-family: 'Calibri';" selected="selected">Calibri</option>
+      <option style="font-family: 'Cambria';">Cambria</option>
+      <option style="font-family: 'Comic Sans MS', 'Comic Sans';">Comic Sans MS</option>
+      <option style="font-family: 'Consolas';">Consolas</option>
+      <option style="font-family: 'Times New Roman';">Times New Roman</option>
+      <option style="font-family: 'Segoe UI';">Segoe UI</option>
+      <option style="font-family: 'Trebuchet';">Trebuchet</option>
+      <option style="font-family: 'Verdana';">Verdana</option>
+      <option disabled="disabled">Generic Fonts</option>
+      <option style="font-family: 'monospace';">Monospace</option>
+      <option style="font-family: 'sans-serif';">Sans-Serif</option>
+      <option style="font-family: 'serif';">Serif</option>
     </select>
     Font Size:
-    <input style="width: 75px;" type="number" />
+    <select onchange="fonts_updateFont();" id="Formatting-FontSize">
+      <option>8</option>
+      <option>10</option>
+      <option>11</option>
+      <option>12</option>
+      <option>14</option>
+      <option selected="selected">18</option>
+      <option>24</option>
+      <option>30</option>
+      <option>36</option>
+      <option>48</option>
+      <option>72</option>
+    </select>
     &nbsp;|&nbsp;
     <button class="App-Format" type="button" onclick="SaveNote();">Save</button>
   </div>

@@ -20,7 +20,7 @@ function Login(usernameToUse, passwordToUse, onSuccess, onFailure) {
     }
   }
 
-  getPHPFile.open("POST", "https://backend.ga/handlers/account-data.php", true);
+  getPHPFile.open("POST", "https://notehub-serverside.000webhostapp.com/handlers/account-data.php", true);
   getPHPFile.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   getPHPFile.send("requestedFunction=login&username=" + usernameToUse + "&password=" + passwordToUse);
 }
