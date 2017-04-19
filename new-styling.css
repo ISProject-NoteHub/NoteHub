@@ -45,6 +45,7 @@ body {
 
 #ScrollingTiles {
   animation-name: scroll;
+  background-color: black;
 }
 
 .Page-MenuItem {
@@ -101,5 +102,5 @@ select[data-stacked=stacked] {
 
 @keyframes scroll {
   from {}
-  
+  to {}
 }
