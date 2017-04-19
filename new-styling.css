@@ -43,15 +43,6 @@ body {
   font-size: 18px;
 }
 
-#ScrollingTiles {
-  animation-name: scroll;
-  background-color: black;
-  height: auto;
-  left: 0px;
-  width: 100%;
-  margin-top: 120px;
-}
-
 .Page-MenuItem {
   text-decoration: none;
   color: black;
@@ -102,9 +93,4 @@ select[data-stacked=stacked] {
   border: 0;
   cursor: pointer;
   border-radius: 10px;
-}
-
-@keyframes scroll {
-  from {}
-  to {}
 }

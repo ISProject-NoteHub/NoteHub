@@ -8,6 +8,20 @@
   color: white;
 }
 
+#ScrollingTiles {
+  animation-name: scroll;
+  background-color: black;
+  height: auto;
+  left: 0px;
+  width: 100%;
+  margin-top: 120px;
+}
+
+@keyframes scroll {
+  from {}
+  to {}
+}
+
 #Home-Button {
   border-radius: 10px;
   border: 3px solid white;
