@@ -12,9 +12,10 @@
   animation-name: scroll;
   background-color: black;
   height: auto;
-  left: 0px;
-  width: 100%;
-  margin-top: 120px;
+  left: -20px;
+  padding: 30px;
+  top: 60px;
+  position: relative;
 }
 
 @keyframes scroll {
