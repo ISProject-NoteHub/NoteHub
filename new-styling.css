@@ -46,6 +46,8 @@ body {
 #ScrollingTiles {
   animation-name: scroll;
   background-color: black;
+  height: auto;
+  left: 0px;
 }
 
 .Page-MenuItem {
