@@ -6,9 +6,7 @@
   position: fixed;
   font-size: 30px;
   color: white;
-  text-decoration: none;
-  text-decoration-line: none;
-  text-decoration-style: none;
+  text-decoration: none !important;
 }
 
 #ScrollingTiles {
