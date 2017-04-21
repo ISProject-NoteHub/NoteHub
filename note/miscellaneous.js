@@ -96,3 +96,6 @@ function ShowPane(id) {
     document.getElementById("App-Panes-Close").style.display = "block";
   }
 }
+
+//Add titlebar
+//https://www.w3schools.com/jsref/met_document_createelement.asp
