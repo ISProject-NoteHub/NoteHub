@@ -16,14 +16,18 @@ body {
     height: 32px; width: 32px;
     margin-right: 5px;
   }
-  #Header { font-size: 30px; }
+  
+  #Header {
+    font-size: 30px;
+    vertical-align: middle;
+  }
 
   #Title {
     width: 30%;
     background-color: #d9d9d9;
     padding: 10px;
     position: absolute;
-    top: 50px; left: 0;
+    top: 55px; left: 0;
   }
 }
 
