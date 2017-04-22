@@ -11,13 +11,13 @@ body {
 
   #Title {
     width: calc(100% - 10px);
-    padding: 2.5px;
+    padding: 5px;
     top: 50px;
   }
   
   #TopBar {
-    width: calc(100% - 10px);
-    padding: 5px;
+    width: calc(100% - 5px);
+    padding: 2.5px;
     top: 90px; left: 0;
   }
 }
@@ -36,13 +36,13 @@ body {
 
   #Title {
     width: calc(30% - 20px);
-    padding: 7.5px;
+    padding: 10px;
     top: 55px;
   }
   
   #TopBar {
-    width: calc(70% - 20px);
-    padding: 10px;
+    width: calc(70% - 15px);
+    padding: 7.5px;
     top: 55px; left: 30%;
   }
 }
