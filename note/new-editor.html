@@ -20,16 +20,16 @@
     <div class="FormattingButton" onmousedown="SetBold(event);" id="Formatting-FontBold">
       <b>B</b>
     </div>
-    <div class="FormattingButton" onmousedown="SetItalic();" id="Formatting-FontItalic">
+    <div class="FormattingButton" onmousedown="SetItalic(event);" id="Formatting-FontItalic">
       <i>I</i>
     </div>
-    <div class="FormattingButton" onmousedown="SetUnderline();" id="Formatting-FontUnderline">
+    <div class="FormattingButton" onmousedown="SetUnderline(event);" id="Formatting-FontUnderline">
       <u>U</u>
     </div>
     
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     
-    <select class="FormattingSelect" onchange="UpdateFontFamily();" id="Formatting-FontFamily">
+    <select class="FormattingSelect" onmousedown="event.preventDefault();" onchange="UpdateFontFamily();" id="Formatting-FontFamily">
       <option disabled="disabled" style="font-family: 'Segoe UI'; font-size: 18px; font-weight: bold;">Font Faces</option>
       <option style="font-family: 'Arial';">Arial</option>
       <option style="font-family: 'Calibri';" selected="selected">Calibri</option>
@@ -46,7 +46,7 @@
       <option style="font-family: 'serif';">Serif</option>
     </select>
     
-    <select class="FormattingSelect" onchange="UpdateFontSize();" id="Formatting-FontSize">
+    <select class="FormattingSelect" onmousedown="event.preventDefault();" onchange="UpdateFontSize();" id="Formatting-FontSize">
       <option>8</option>
       <option>10</option>
       <option>11</option>
