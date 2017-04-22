@@ -15,15 +15,46 @@
   
   <div id="Title"><input id="Title-Title" value="New Note" /></div>
   <div id="TopBar">
-    <div class="FormattingButton">
+    <div class="FormattingButton" onclick="SetBold();" id="Formatting-FontBold">
       <b>B</b>
     </div>
-    <div class="FormattingButton">
+    <div class="FormattingButton" onclick="SetItalic();" id="Formatting-FontItalic">
       <i>I</i>
     </div>
-    <div class="FormattingButton">
+    <div class="FormattingButton" onclick="SetUnderline();" id="Formatting-FontUnderline">
       <u>U</u>
     </div>
+    
+    <select style="padding: 7.5px;" onchange="UpdateFontFamily();" id="Formatting-FontFamily">
+      <option disabled="disabled">Font Faces</option>
+      <option style="font-family: 'Arial';">Arial</option>
+      <option style="font-family: 'Calibri';" selected="selected">Calibri</option>
+      <option style="font-family: 'Cambria';">Cambria</option>
+      <option style="font-family: 'Comic Sans MS', 'Comic Sans';">Comic Sans MS</option>
+      <option style="font-family: 'Consolas';">Consolas</option>
+      <option style="font-family: 'Times New Roman';">Times New Roman</option>
+      <option style="font-family: 'Segoe UI';">Segoe UI</option>
+      <option style="font-family: 'Trebuchet';">Trebuchet</option>
+      <option style="font-family: 'Verdana';">Verdana</option>
+      <option disabled="disabled">Generic Fonts</option>
+      <option style="font-family: 'monospace';">Monospace</option>
+      <option style="font-family: 'sans-serif';">Sans-Serif</option>
+      <option style="font-family: 'serif';">Serif</option>
+    </select>
+    
+    <select style="padding: 7.5px;" onchange="UpdateFontSize();" id="Formatting-FontSize">
+      <option>8</option>
+      <option>10</option>
+      <option>11</option>
+      <option>12</option>
+      <option>14</option>
+      <option selected="selected">18</option>
+      <option>24</option>
+      <option>30</option>
+      <option>36</option>
+      <option>48</option>
+      <option>72</option>
+    </select>
   </div>
 </body>
 </html>
