@@ -1,3 +1,9 @@
+/*General*/
+body {
+  cursor: default;
+  font-family: "Segoe UI", "Helvetica", sans-serif;
+}
+
 /*Mobile*/
 @media screen and (max-width: 540px) {
   #Header-Logo { display: none; }
@@ -6,7 +12,10 @@
 
 /*Desktop*/
 @media screen and (min-width: 541px) {
-  #Header-Logo { height: 32px; width: 32px; }
+  #Header-Logo {
+    height: 32px; width: 32px;
+    margin-right: 5px;
+  }
   #Header { font-size: 30px; }
 
   #Title {
