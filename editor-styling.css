@@ -1,0 +1,28 @@
+/*Mobile*/
+@media screen and (max-width: 540px) {
+  #Header-Logo { display: none; }
+  #Header { font-size: 26px; }
+}
+
+/*Desktop*/
+@media screen and (min-width: 541px) {
+  #Header-Logo { height: 32px; width: 32px; }
+  #Header { font-size: 30px; }
+
+  #Title {
+    width: 30%;
+    background-color: #d9d9d9;
+    padding: 10px;
+    position: absolute;
+    top: 50px; left: 0;
+  }
+}
+
+/*Common*/
+#Header {
+  width: 100%;
+  color: white; background-color: rgb(1, 152, 255);
+  position: fixed;
+  left: 0; top: 0;
+  padding: 7.5px;
+}
