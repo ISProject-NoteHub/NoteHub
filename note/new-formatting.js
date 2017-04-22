@@ -1,8 +1,4 @@
-function SetBold() {
-  notebox = document.getElementById("Editor");
-  notebox.focus();
-  
+function SetBold(event) {
+  event.preventDefault();
   document.execCommand("bold", false, null);
-  
-  notebox.focus();
 }
