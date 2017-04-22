@@ -14,6 +14,12 @@ body {
     padding: 5px;
     top: 50px;
   }
+  
+  #TopBar {
+    width: calc(100% - 10px);
+    padding: 5px;
+    top: 55px; left: 0;
+  }
 }
 
 /*Desktop*/
@@ -37,7 +43,7 @@ body {
   #TopBar {
     width: calc(70% - 20px);
     padding: 10px;
-    top: 55px; left: calc(30% - 20px);
+    top: 145px; left: 30%;
   }
 }
 
@@ -67,4 +73,13 @@ body {
 #TopBar {
   background-color: #d9d9d9;
   position: absolute;
+}
+
+.FormattingButton {
+  padding: 7.5px;
+  font-size: 22px;
+}
+
+.FormattingButton:hover {
+  background-color: #cdcdcd;
 }
