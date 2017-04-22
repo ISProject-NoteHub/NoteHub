@@ -20,6 +20,10 @@ body {
     padding: 2.5px;
     top: 90px; left: 0;
   }
+
+  #Editor {
+    top: 130px;
+  }
 }
 
 /*Desktop*/
@@ -44,6 +48,10 @@ body {
     width: calc(70% - 15px);
     padding: 7.5px;
     top: 55px; left: 30%;
+  }
+
+  #Editor {
+    top: 105px;
   }
 }
 
@@ -73,6 +81,13 @@ body {
 #TopBar {
   background-color: #d9d9d9;
   position: absolute;
+}
+
+#Editor {
+  position: absolute;
+  background-color: #d9d9d9;
+  padding: 10px;
+  left: 0;
 }
 
 .FormattingButton {
