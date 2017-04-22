@@ -99,6 +99,8 @@ body {
   font-size: 18.5px;
   display: inline-block;
   cursor: pointer;
+  top: -13px;
+  position: relative;
 }
 
 .FormattingButton:hover {
@@ -109,4 +111,6 @@ body {
   border: 0;
   padding: 5px;
   cursor: pointer;
+  top: -15px;
+  position: relative;
 }
