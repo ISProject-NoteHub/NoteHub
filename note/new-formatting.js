@@ -19,7 +19,7 @@ function UpdateFontSize() {
   for (var i = 0, len = fontElements.length; i < len; ++i) {
     if (fontElements[i].size == "7") {
       fontElements[i].removeAttribute("size");
-      fontElements[i].style.fontSize = document.getElementById("Formatting-FontSize").options[document.getElementById("Formatting-FontSize").selectedIndex].value + "px" + "px";
+      fontElements[i].style.fontSize = document.getElementById("Formatting-FontSize").options[document.getElementById("Formatting-FontSize").selectedIndex].value + "px";
     }
   }
 }
