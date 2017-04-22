@@ -18,7 +18,7 @@ body {
   #TopBar {
     width: calc(100% - 10px);
     padding: 5px;
-    top: 55px; left: 0;
+    top: 145px; left: 0;
   }
 }
 
@@ -43,7 +43,7 @@ body {
   #TopBar {
     width: calc(70% - 20px);
     padding: 10px;
-    top: 145px; left: 30%;
+    top: 55px; left: 30%;
   }
 }
 
@@ -78,6 +78,7 @@ body {
 .FormattingButton {
   padding: 7.5px;
   font-size: 22px;
+  display: inline-block;
 }
 
 .FormattingButton:hover {
