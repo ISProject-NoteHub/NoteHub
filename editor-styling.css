@@ -10,7 +10,7 @@ body {
   #Header { font-size: 26px; }
 
   #Title {
-    width: calc(100% - 10px)%;
+    width: calc(100% - 10px);
     padding: 5px;
     top: 50px;
   }
