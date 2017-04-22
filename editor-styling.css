@@ -11,7 +11,7 @@ body {
 
   #Title {
     width: calc(100% - 10px);
-    padding: 5px;
+    padding: 2.5px;
     top: 50px;
   }
   
@@ -36,7 +36,7 @@ body {
 
   #Title {
     width: calc(30% - 20px);
-    padding: 10px;
+    padding: 7.5px;
     top: 55px;
   }
   
@@ -76,7 +76,7 @@ body {
 }
 
 .FormattingButton {
-  padding: 2.5px; padding-left: 5px; padding-right: 5px;
+  padding: 5px;
   font-size: 18.5px;
   display: inline-block;
   cursor: pointer;
@@ -88,6 +88,6 @@ body {
 
 .FormattingSelect {
   border: 0;
-  padding: 4px;
+  padding: 8.5px;
   cursor: pointer;
 }
