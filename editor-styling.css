@@ -4,18 +4,13 @@ body {
   font-family: "Segoe UI", "Helvetica", sans-serif;
 }
 
-.PopUpPicker {
-  position: absolute;
-  background-color: white; color: black;
-  padding: 7.5px;
-  z-index: 2;
-  display: none;
+#BottomPickerBar {
+  position: fixed;
+  background-color: #616161; color: white;
 }
 
-.PopUpPicker-Container {
-  position: relative;
-  display: inline;
-  width: 0; height: 0;
+.PickerBarPicker {
+  text-align: center;
 }
 
 /*Apply CSS animation for opacity*/
@@ -28,6 +23,11 @@ body {
 @media screen and (max-width: 540px) {
   #Header-Logo { display: none; }
   #Header { font-size: 26px; }
+
+  #BottomPickerBar {
+    width: 100%;
+    bottom: 0; left: 0;
+  }
 
   #Title {
     width: calc(100% - 10px);
@@ -57,6 +57,11 @@ body {
   #Header {
     font-size: 30px;
     vertical-align: middle;
+  }
+
+  #BottomPickerBar {
+    width: 540px;
+    bottom: 20px; left: calc(50% - 270px);
   }
 
   #Title {
