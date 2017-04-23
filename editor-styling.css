@@ -16,7 +16,7 @@ body {
 .Picker-Colour {
   cursor: pointer;
   padding: 5px;
-  margin-right: 5px;
+  margin-right: 5px; margin-top: 5px; margin-bottom: 5px;
 }
 
 /*Apply CSS animation for opacity*/
