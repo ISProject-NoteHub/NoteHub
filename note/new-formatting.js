@@ -27,3 +27,6 @@ function UpdateFontSize() {
 function UpdateFontFamily() {
   document.execCommand("fontName", false, document.getElementById("Formatting-FontFamily").options[document.getElementById("Formatting-FontFamily").selectedIndex].value);
 }
+
+function UpdateHighlight() {
+}
