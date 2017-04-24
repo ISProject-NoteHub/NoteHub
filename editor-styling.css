@@ -39,6 +39,7 @@ body {
   #Header-Logo { display: none; }
   #Header { font-size: 26px; }
   .PickerBarPicker { padding: 5px; }
+  .TopBar-Separator { display: none; }
 
   #BottomPickerBar {
     width: 100%;
@@ -74,6 +75,8 @@ body {
     font-size: 30px;
     vertical-align: middle;
   }
+  
+  .TopBar-Separator { display: block; }
   
   .PickerBarPicker { padding: 10px; }
 
