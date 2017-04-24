@@ -23,8 +23,11 @@
 }
 
 @keyframes scroll {
-  from {background-color: yellow}
-  to {background-color: green}
+  0% {background: linear-gradient(to right, darkgreen, green)};
+  25% {background: linear-gradient(to right, green, lightseagreen)};
+  50% {background: linear-gradient(to right, lightseagreen, lightskyblue)};
+  75% {background: linear-gradient(to right, lightskyblue, aliceblue)};
+  100% {background: linear-gradient(to right, aliceblue, white)};
 }
 
 /*USE PERCENTAGES. Two seconds for each image. 1 second delay between each image.
