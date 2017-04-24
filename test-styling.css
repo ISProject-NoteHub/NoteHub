@@ -10,6 +10,8 @@
 
 #ScrollingTiles {
   animation-name: scroll;
+  animation-play-state: running;
+  animation-duration: 12s;
   background-color: black;
   height: auto;
   left: -20px;
@@ -20,11 +22,13 @@
 }
 
 @keyframes scroll {
-  from {}
-  to {}
+  from {background-color: yellow}
+  to {background-color: green}
 }
 
-/*USE PERCENTAGES. Eight-seconds for each image.*/
+/*USE PERCENTAGES. Two seconds for each image. 1 second delay between each image.
+Later, include buttons to move panels back and forth.
+Is it possible to make the animation loop back to the first image after it's done?*/
 
 #Home-Button {
   border-radius: 10px;
