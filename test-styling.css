@@ -32,7 +32,8 @@
 
 /*USE PERCENTAGES. Two seconds for each image. 1 second delay between each image.
 Later, include buttons to move panels back and forth.
-Is it possible to make the animation loop back to the first image after it's done?*/
+Is it possible to make the animation loop back to the first image after it's done?
+**Maybe for that, I can use JavaScript.*/
 
 #Home-Button {
   border-radius: 10px;
