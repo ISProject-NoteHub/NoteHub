@@ -12,6 +12,7 @@
   animation-name: scroll;
   animation-play-state: running;
   animation-duration: 12s;
+  animation-iteration-count: infinite;
   background-color: black;
   height: auto;
   left: -20px;
