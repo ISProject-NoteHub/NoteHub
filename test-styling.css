@@ -26,7 +26,8 @@
   25% {background-color: green;}
   50% {background-color: lightseagreen;}
   75% {background-color: lightskyblue;}
-  100% {background-color: aliceblue;}
+  87.5% {background-color: aliceblue}
+  100% {background-color: darkgreen;}
 }
 
 /*USE PERCENTAGES. Two seconds for each image. 1 second delay between each image.
