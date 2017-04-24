@@ -23,10 +23,10 @@
 
 @keyframes scroll {
   0% {background-color: darkgreen;}
-  25% {background-color: green;}
-  50% {background-color: lightseagreen;}
-  75% {background-color: lightskyblue;}
-  87.5% {background-color: aliceblue}
+  20% {background-color: green;}
+  40% {background-color: lightseagreen;}
+  60% {background-color: lightskyblue;}
+  80% {background-color: aliceblue}
   100% {background-color: darkgreen;}
 }
 
