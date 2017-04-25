@@ -76,7 +76,7 @@ body {
     vertical-align: middle;
   }
   
-  .TopBar-Separator { display: block; }
+  .TopBar-Separator { display: inline; }
   
   .PickerBarPicker { padding: 10px; }
 
