@@ -23,8 +23,9 @@ body {
 .IconBar-Function {
   padding: 7.5px;
   color: white;
+  cursor: pointer;
 }
-.IconBar-Function:hover { background-color: #cdcdcd; }
+.IconBar-Function:hover { background-color: gray; }
 
 /*Happy Scrollbars :P*/
 ::-webkit-scrollbar {
