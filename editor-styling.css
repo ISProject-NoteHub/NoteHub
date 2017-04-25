@@ -19,6 +19,12 @@ body {
   margin-right: 5px; margin-top: 5px; margin-bottom: 5px;
 }
 
+.IconBar-Function {
+  padding: 5px;
+  color: white;
+}
+.IconBar-Function:hover { background-color: #cdcdcd; }
+
 /*Happy Scrollbars :P*/
 ::-webkit-scrollbar {
   width: 0.5em;
@@ -36,7 +42,6 @@ body {
 
 /*Mobile*/
 @media screen and (max-width: 540px) {
-  #Header-Logo { display: none; }
   #Header { font-size: 26px; }
   .PickerBarPicker { padding: 5px; }
   .TopBar-Separator { display: none; }
@@ -62,15 +67,18 @@ body {
     top: 130px;
     height: calc(100% - 150px);
   }
+  
+  #Menu-IconBar {
+    top: 50px;
+    height: calc(100% - 50px);
+  }
+  
+  #Menu-IconBar[data-open=closed] { width: 42px; }
+  #Menu-IconBar[data-open=open] { width: 100%; }
 }
 
 /*Desktop*/
 @media screen and (min-width: 541px) {
-  #Header-Logo {
-    height: 32px; width: 32px;
-    margin-right: 10px;
-  }
-  
   #Header {
     font-size: 30px;
     vertical-align: middle;
@@ -101,6 +109,14 @@ body {
     top: 105px;
     height: calc(100% - 125px);
   }
+  
+  #Menu-IconBar {
+    top: 55px;
+    height: calc(100% - 55px);
+  }
+  
+  #Menu-IconBar[data-open=closed] { width: 42px; }
+  #Menu-IconBar[data-open=open] { width: 25%; }
 }
 
 /*Common*/
@@ -155,10 +171,9 @@ body {
   background-color: #cdcdcd;
 }
 
-.FormattingSelect {
-  border: 0;
-  padding: 5px;
-  cursor: pointer;
-  top: -15px;
-  position: relative;
+#Menu-IconBar {
+  z-index: 2;
+  background-color: black;
+  position: fixed;
+  left: 0;
 }
