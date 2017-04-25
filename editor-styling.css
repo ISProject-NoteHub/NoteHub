@@ -7,6 +7,7 @@ body {
 #BottomPickerBar {
   position: fixed;
   background-color: #616161; color: white;
+  z-index: 3;
 }
 
 .PickerBarPicker {
@@ -20,7 +21,7 @@ body {
 }
 
 .IconBar-Function {
-  padding: 5px;
+  padding: 7.5px;
   color: white;
 }
 .IconBar-Function:hover { background-color: #cdcdcd; }
@@ -73,7 +74,7 @@ body {
     height: calc(100% - 50px);
   }
   
-  #Menu-IconBar[data-open=closed] { width: 42px; }
+  #Menu-IconBar[data-open=closed] { width: 47px; }
   #Menu-IconBar[data-open=open] { width: 100%; }
 }
 
@@ -115,7 +116,7 @@ body {
     height: calc(100% - 55px);
   }
   
-  #Menu-IconBar[data-open=closed] { width: 42px; }
+  #Menu-IconBar[data-open=closed] { width: 47px; }
   #Menu-IconBar[data-open=open] { width: 25%; }
 }
 
