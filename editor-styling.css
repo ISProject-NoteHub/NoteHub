@@ -54,15 +54,15 @@ body {
   }
 
   #Title {
-    width: calc(100% - 77px);
+    width: calc(100% - 57px);
     padding: 5px;
     top: 50px;
   }
   
   #TopBar {
-    width: calc(100% - 5px);
+    width: calc(100% - 52px);
     padding: 2.5px;
-    top: 90px; left: 0;
+    top: 90px; left: 47px;
   }
 
   #Editor {
