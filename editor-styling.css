@@ -180,7 +180,7 @@ body {
 }
   
 #Menu-IconBar[data-open=closed] { z-index: 0; }
-#Menu-IconBar[data-open=open] { z-index 3; }
+#Menu-IconBar[data-open=open] { z-index: 3; }
 
 .FormattingSelect {
    border: 0;
