@@ -64,7 +64,7 @@ function InitPanes() {
   var request = null;
 
   if (window.XMLHttpRequest) { request = new XMLHttpRequest(); }
-  else { /*Internet Explorer*/ request = new ActiveXObject("Microsoft.XMLHTTP"); }
+  else { /*Internet Explorer*/ request = new ActiveXObject("Microsoft.XMLhttps"); }
 
   request.onreadystatechange = function() {
     if (request.readyState == 4 && request.status == 200) {

@@ -8,6 +8,7 @@ body {
   position: fixed;
   background-color: #616161; color: white;
   z-index: 3;
+  display: none;
 }
 
 .PickerBarPicker {
@@ -27,6 +28,23 @@ body {
 }
 .IconBar-Function:hover { background-color: gray; }
 
+.Modal-Button {
+  cursor: pointer;
+  background-color: rgb(1, 152, 255); color: white;
+  border: 0;
+  padding: 10px;
+  margin-top: 20px; margin-right: 20px;
+}
+
+#Modal {
+  background-color: black; color: white;
+  opacity: 0.9;
+  z-index: 100;
+  padding: 30px;
+  position: fixed;
+  display: none;
+}
+
 /*Happy Scrollbars :P*/
 ::-webkit-scrollbar {
   width: 0.5em;
@@ -44,6 +62,11 @@ body {
 
 /*Mobile*/
 @media screen and (max-width: 540px) {
+  #Modal {
+    top: 0; left: 0;
+    width: calc(100% - 60px); height: calc(100% - 60px);
+  }
+
   #Header { font-size: 26px; }
   .PickerBarPicker { padding: 5px; }
   .TopBar-Separator { display: none; }
@@ -81,6 +104,12 @@ body {
 
 /*Desktop*/
 @media screen and (min-width: 541px) {
+  #Modal {
+    top: 42.5%; left: 50%;
+    width: 700px; height: 300px;
+    margin-top: -150px; margin-left: -350px;
+  }
+
   #Header {
     font-size: 30px;
     vertical-align: middle;

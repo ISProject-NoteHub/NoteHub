@@ -15,10 +15,10 @@
   
 <body onload="Autorun();">
   <div id="Menu-IconBar" data-open="closed">
-    <div class="IconBar-Function" onclick="SaveNote();">
+    <div class="IconBar-Function" onclick="SaveNoteAs();">
       <table style="border-spacing: 0px;"><tbody><tr><td><img src="icons/plus.png" width="32" height="32"></td><td>&nbsp;&nbsp;Save&nbsp;Note&nbsp;As</td></tr></tbody></table>
     </div>
-    <div class="IconBar-Function">
+    <div class="IconBar-Function" onclick="SaveNote();">
       <table style="border-spacing: 0px;"><tbody><tr><td><img src="icons/save.png" width="32" height="32"></td><td>&nbsp;&nbsp;Save&nbsp;Note</td></tr></tbody></table>
     </div>
     <div class="IconBar-Function" onclick="ViewNotebook();">
@@ -38,6 +38,17 @@
     <div class="IconBar-Function">
       <table style="border-spacing: 0px;"><tbody><tr><td><img src="icons/login.png" width="32" height="32"></td><td>&nbsp;&nbsp;<span id="LoggedInOut">Logout</span></td></tr></tbody></table>
     </div>
+    <hr>
+    <div class="IconBar-Function" onclick="document.getElementById('Debug').style.display = 'block';">
+      <table style="border-spacing: 0px;"><tbody><tr><td><img src="icons/user.png" width="32" height="32"></td><td>&nbsp;&nbsp;<span id="LoggedInOut">Debug</span></td></tr></tbody></table>
+    </div>
+  </div>
+
+  <!--DEBUG DIALOG - REMOVE IN RELEASE-->
+  <div id="Debug" style="display: none; z-index: 5; position: absolute; top: 0; right: 0; color: white; background-color: black; padding: 20px;">
+    Tags/Topics: <input id="Debug-Tags" /><br>
+    Notebook: <input id="Debug-Notebook" /><br>
+    Author: <input id="Debug-Author" /><br>
   </div>
   
   <div id="Header">
@@ -127,11 +138,26 @@
       </div>
     </div>
   </div>
+
+  <div id="Modal">
+    <label style="font-size: 26px;" id="Modal-Title">Authentication Required :(</label>
+    <hr>
+    <div id="Modal-Message">
+      You'll need to sign into NoteHub before saving a note (public or private), viewing your notebooks or making any changes to your account. You can sign in from <a style="color: white;" href="https://notehub.ga/" target="_blank">our homepage</a>. After signing in, close this dialog and attempt to save your note again.
+      <br><br>Alternatively, you can save this note as a public note for all to see as an anonymous user. Your IP address will instead be used to identify you, and will be publicly displayed on the note as its author.
+      <br><br>Sorry for any inconvenience caused.
+    </div>
+
+    <div id="Modal-Buttons">
+      <button class="Modal-Button" onclick="document.getElementById('Modal').style.display = 'none';">CLOSE</button>
+      <button id="Modal-Buttons-ActionButton" class="Modal-Button">SAVE AS ANONYMOUS</button>
+    </div>
+  </div>
   
   <!--
   Put this on the credits page:
-  <div>Highlighter Icon made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>.</div>
-  <div>Menu Bar Icons made by <a href="http://www.flaticon.com/authors/madebyoliver" title="Madebyoliver">Madebyoliver</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>.</div> - http://www.flaticon.com/packs/essential-compilation
+  <div>Highlighter Icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com" title="Flaticon">www.flaticon.com</a>.</div>
+  <div>Menu Bar Icons made by <a href="https://www.flaticon.com/authors/madebyoliver" title="Madebyoliver">Madebyoliver</a> from <a href="https://www.flaticon.com" title="Flaticon">www.flaticon.com</a>.</div> - https://www.flaticon.com/packs/essential-compilation
   -->
 </body>
 </html>
