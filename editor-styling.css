@@ -60,6 +60,19 @@ body {
   background: #eee
 }
 
+#Menu-IconBar::-webkit-scrollbar {
+  display: none;
+}
+#Menu-IconBar::-webkit-scrollbar-button {
+  display: none;
+}
+#Menu-IconBar::-webkit-scrollbar-track-piece {
+  display: none;
+}
+#Menu-IconBar::-webkit-scrollbar-thumb {
+  display: none;
+}
+
 /*Mobile*/
 @media screen and (max-width: 540px) {
   #Modal {
@@ -100,6 +113,25 @@ body {
   
   #Menu-IconBar[data-open=closed] { width: 47px; }
   #Menu-IconBar[data-open=open] { width: 100%; }
+
+  @keyframes IconBar-Expand {
+    from { width: 47px; }
+    to { width: 100%; }
+  }
+
+  @keyframes IconBar-Contract {
+    0% {
+      width: 100%;
+      z-index: 3;
+    }
+    99% {
+      z-index: 3;
+    }
+    100% {
+      width: 47px;
+      z-index: 0;
+    }
+  }
 }
 
 /*Desktop*/
@@ -148,6 +180,25 @@ body {
   
   #Menu-IconBar[data-open=closed] { width: 47px; }
   #Menu-IconBar[data-open=open] { width: 25%; }
+
+  @keyframes IconBar-Expand {
+    from { width: 47px; }
+    to { width: 25%; }
+  }
+
+  @keyframes IconBar-Contract {
+    0% {
+      width: 25%;
+      z-index: 3;
+    }
+    99% {
+      z-index: 3;
+    }
+    100% {
+      width: 47px;
+      z-index: 0;
+    }
+  }
 }
 
 /*Common*/
@@ -206,10 +257,21 @@ body {
   background-color: black;
   position: fixed;
   left: 0;
+  overflow-y: scroll; overflow-x: hidden;
 }
   
-#Menu-IconBar[data-open=closed] { z-index: 0; }
-#Menu-IconBar[data-open=open] { z-index: 3; }
+#Menu-IconBar[data-open=closed] {
+  animation-name: IconBar-Contract;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+#Menu-IconBar[data-open=open] {
+  z-index: 3;
+  animation-name: IconBar-Expand;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
 
 .FormattingSelect {
    border: 0;
