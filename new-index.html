@@ -5,18 +5,6 @@
   
   <link href="/logo.png" rel="icon" />
   <link href="/test-styling.css" rel="stylesheet" />
-
-  <script>
-    function pauseAnimation() {
-      document.getElementById("ScrollingTiles").style.animationPlayState = "paused";
-    }
-    function startAnimation() {
-      document.getElementById("ScrollingTiles").style.animationPlayState = "running";
-    }
-    pauseAnimation();
-    setTimeout(startAnimation, 2000);
-    setTimeout(pauseAnimation, 1000);
-  </script>
   
   <!--
     <script>
@@ -49,9 +37,9 @@
   <div id="Page-TitleBar"><span onclick="window.location.href='/new-index.html'"><span style="float: left; margin: 10px"><img src="/logo.png" height="50px" width="50px"></span><span style="font-weight: lighter;">Note</span><b>Hub</b></span><button id="Sign-In-Button">Sign In</button></div>
   <center>
     <div id="ScrollingTiles">
+      <img src="/scrolling-panes-homepage/NoteHub-AnimationLogo.png" width="1485" height="193">
       <img src="/scrolling-panes-homepage/NoteHubImage3.png" width="696.15" height="487.5">
       <!--Use CSS animation stops instead of JS.-->
-      
     </div>
   </center>
 </body>
