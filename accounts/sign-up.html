@@ -67,10 +67,14 @@
   </style>
   
   <script>
-    var username = document.getElementById("Login-Username"), email = document.getElementById("Login-Email"), password = document.getElementById("Login-Password"), question = document.getElementById("Login-Question");
+    var username, email, password, question;
     var savedStage = {
       username: "", email: "", password: "", question: ""
     };
+    
+    function Autorun() {
+      username = document.getElementById("Login-Username"), email = document.getElementById("Login-Email"), password = document.getElementById("Login-Password"), question = document.getElementById("Login-Question");
+    }
 
     function StageOne() {
       savedStage.username = username.value;
@@ -109,7 +113,7 @@
   <meta name="Description" content="Welcome to NoteHub, the free notesharing service.">
 </head>
 
-<body>
+<body onload="Autorun();">
   <div id="Page-TitleBar"><span style="float: left; margin: 10px"><img src="/logo.png" height="50px" width="50px"></span><span style="font-weight: lighter;">Note</span><b>Hub</b> - Sign Up</div>
 
   <div id="Page-Organiser-Mobile">
