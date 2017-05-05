@@ -20,8 +20,9 @@ function Login(usernameToUse, passwordToUse, onSuccess, onFailure) {
     }
   }
 
-  getPHPFile.open("GET", "https://notehub-serverside.000webhostapp.com/handlers/account-data.php?" + "requestedFunction=Credentials&username=" + usernameToUse + "&password=" + passwordToUse, true);
-  getPHPFile.send();
+  getPHPFile.open("POST", "https://notehub-serverside.000webhostapp.com/handlers/account-data.php?", true);
+  getPHPFile.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  getPHPFile.send("requestedFunction=Credentials&username=" + usernameToUse + "&password=" + passwordToUse);
 }
 
 //Check for signed-in
