@@ -5,7 +5,7 @@ function Login(usernameToUse, passwordToUse, onSuccess, onFailure) {
     if (this.readyState == 4 && this.status == 200) {
       console.log(getPHPFile.responseText);
 
-      if (getPHPFile.responseText == "Login successful.") {
+      if (getPHPFile.responseText == "Authenticated.") {
         onSuccess();
         localStorage.setItem("logInStatus", "Successful.");
         localStorage.setItem("loggedIn", btoa(usernameToUse + "," + passwordToUse));
@@ -22,7 +22,7 @@ function Login(usernameToUse, passwordToUse, onSuccess, onFailure) {
 
   getPHPFile.open("POST", "https://notehub-serverside.000webhostapp.com/handlers/account-data.php", true);
   getPHPFile.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  getPHPFile.send("requestedFunction=login&username=" + usernameToUse + "&password=" + passwordToUse);
+  getPHPFile.send("requestedFunction=Credentials&username=" + usernameToUse + "&password=" + passwordToUse);
 }
 
 //Check for signed-in
