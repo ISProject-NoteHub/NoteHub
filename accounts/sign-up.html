@@ -62,18 +62,23 @@
       background-color: #f6f6f6;
       margin-top: 5px;
     }
+    
+    button { cursor: pointer; }
   </style>
   
   <script>
-    var username = document.getElementById("Login-Username"), email = document.getElementById("Login-Email"), password = document.getElementById("Login-Password");
+    var username = document.getElementById("Login-Username"), email = document.getElementById("Login-Email"), password = document.getElementById("Login-Password"), question = document.getElementById("Login-Question");
     var savedStage = {
-      username: "", email: "", password: "",
+      username: "", email: "", password: "", question: ""
     };
 
     function StageOne() {
       savedStage.username = username.value;
       savedStage.email = email.value;
       savedStage.password = password.value;
+      savedStage.question = question.value;
+      
+      //Send request to server and make rainbows
     }
   </script>
 
@@ -102,7 +107,7 @@
       <textarea rows="6" id="Login-Question" data-stacked="stacked" placeholder="You'll use this to verify your identity should you forget your password. Don't use a question with an obvious answer such as 'What is your username?'"></textarea>
       <br><br>
       
-      <button type="button" style="width: calc(100% - 20px); text-align: center; background-color: lightseagreen; padding: 10px; border: 0;">SIGN UP</button>
+      <button type="button" style="font-weight: bold; width: 100%; text-align: center; background-color: lightseagreen; padding: 10px; border: 0;">SIGN UP</button>
     </div>
   </div>
   
@@ -124,7 +129,7 @@
       <textarea rows="6" id="Login-Question" data-stacked="stacked" placeholder="You'll use this to verify your identity should you forget your password. Don't use a question with an obvious answer such as 'What is your username?'"></textarea>
       <br><br>
       
-      <button type="button" style="width: calc(100% - 20px); text-align: center; background-color: lightseagreen; padding: 10px; border: 0;">SIGN UP</button>
+      <button type="button" style="font-weight: bold; width: 100%; text-align: center; background-color: lightseagreen; padding: 10px; border: 0;">SIGN UP</button>
     </div>
   </div>
 </body>
