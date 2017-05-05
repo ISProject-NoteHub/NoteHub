@@ -82,7 +82,7 @@
             localStorage.setItem("logInStatus", "Newcomer!");
             localStorage.setItem("loggedIn", btoa(savedStage.username + "," + savedStage.password));
             
-            //window.location.href = "my-account.html";
+            window.location.href = "my-account.html";
           }
           else {
             //Display errors if email is alr used/username is alr used
@@ -94,7 +94,7 @@
         }
       }
 
-      getPHPFile.open("GET", "https://notehub-serverside.000webhostapp.com/handlers/account-data.php?" + "requestedFunction=NewAccount&user=" + savedStage.username + "&pass=" + savedStage.password + "&email" + savedStage.email + "&securityQuestion" + savedStage.question, true);
+      getPHPFile.open("GET", "https://notehub-serverside.000webhostapp.com/handlers/account-data.php?" + "requestedFunction=NewAccount&user=" + savedStage.username + "&pass=" + savedStage.password + "&email" + savedStage.email + "&securityQuestion" + encodeURIComponent(savedStage.question), true);
       getPHPFile.send();
     }
   </script>
