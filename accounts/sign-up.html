@@ -34,7 +34,7 @@
     }
     
     #Page-SignUpBoxMobile {
-      width: 90%;
+      width: calc(90% - 20px);
       margin-top: 80px; margin-left: 5%; margin-right: 5%;
       box-shadow: 8px 8px 25px 5px #888888;
       padding: 20px;
@@ -79,6 +79,29 @@
       savedStage.question = question.value;
       
       //Send request to server and make rainbows
+      var getPHPFile = new XMLHttpRequest();
+      getPHPFile.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          console.log(getPHPFile.responseText);
+
+          if (getPHPFile.responseText == "Created.") {
+            localStorage.setItem("logInStatus", "Newcomer!");
+            localStorage.setItem("loggedIn", btoa(usernameToUse + "," + passwordToUse));
+            
+            window.location.href = "my-account.html";
+          }
+          else {
+            //Display errors if email is alr used/username is alr used
+            localStorage.setItem("logInStatus", "Incorrect credentials.");
+          }
+        }
+        else {
+          localStorage.setItem("logInStatus", "Could not connect to server.");
+        }
+      }
+
+      getPHPFile.open("GET", "https://notehub-serverside.000webhostapp.com/handlers/account-data.php?" + "requestedFunction=Credentials&username=" + usernameToUse + "&password=" + passwordToUse, true);
+      getPHPFile.send();
     }
   </script>
 
