@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>New Note | NoteHub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link href="/logo.png" rel="icon" />
+  <link href="/editor-styling.css" rel="stylesheet" />
+  
+  <script src="new-formatting.js"></script>
+  <script src="new-miscellaneous.js"></script>
+  <script src="new-filing.js"></script>
+  <script src="../accounts/accounts.js"></script>
+</head>
+  
+<body onload="Autorun();">
+  <div id="Menu-IconBar" data-open="closed">
+    <div class="IconBar-Function">
+      <table style="border-spacing: 0px;"><tbody><tr><td><img src="../note/icons/user.png" width="32" height="32"></td><td>&nbsp;&nbsp;Account&nbsp;Security/Privacy</td></tr></tbody></table>
+    </div>
+    <div class="IconBar-Function">
+      <table style="border-spacing: 0px;"><tbody><tr><td><img src="../note/icons/details.png" width="32" height="32"></td><td>&nbsp;&nbsp;Account&nbsp;Details</td></tr></tbody></table>
+    </div>
+    <div class="IconBar-Function">
+      <table style="border-spacing: 0px;"><tbody><tr><td><img src="../note/icons/login.png" width="32" height="32"></td><td>&nbsp;&nbsp;Logout</td></tr></tbody></table>
+    </div>
+    <hr>
+    <a class="IconBar-Function" href="../note/" style="display: block; text-decoration: none;">
+      <table style="border-spacing: 0px;"><tbody><tr><td><img src="../note/icons/plus.png" width="32" height="32"></td><td>&nbsp;&nbsp;New&nbsp;Note</td></tr></tbody></table>
+    </a>
+    <div class="IconBar-Function" onclick="ViewNotebooks();">
+      <table style="border-spacing: 0px;"><tbody><tr><td><img src="../note/icons/folder.png" width="32" height="32"></td><td>&nbsp;&nbsp;This&nbsp;Notebook</td></tr></tbody></table>
+    </div>
+  </div>
+  
+  <div id="Header">
+    <span onclick="RevealIconDescriptors();" style="cursor: pointer;">&#9776;</span>&nbsp;
+    <span style="font-weight: lighter">Note</span><span><b>Hub</b></span> - My Account
+  </div>
+  
+  <div id="Title">Welcome to NoteHub, <span id="NewUserName">IannTech</span>.</div>
+  
+  <div id="Editor">...</div>
+</body>
+</html>
