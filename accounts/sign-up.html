@@ -12,30 +12,20 @@
     }
     
     @media screen and (max-width: 540px) {
-      #Page-Organiser-Mobile { display: block; }
-      #Page-Organiser-Desktop { display: none; }
+      #Page-SignUpBox {
+        width: calc(90% - 20px);
+        margin-top: 80px; margin-left: 5%; margin-right: 5%;
+      }
     }
     
     @media screen and (min-width: 541px) {
-      #Page-Organiser-Desktop { display: block; }
-      #Page-Organiser-Mobile { display: none; }
+      #Page-SignUpBox {
+        width: calc(50% - 40px);
+        margin-top: 80px; margin-left: 25%; margin-right: 25%;
+      }
     }
     
-    .Page-Right-Step {
-      border-radius: 10px;
-      padding: 10px; margin-bottom: 10px;
-    }
-    
-    #Page-SignUpBoxDesktop {
-      width: calc(50% - 40px);
-      margin-top: 80px; margin-left: 25%; margin-right: 25%;
-      box-shadow: 8px 8px 25px 5px #888888;
-      padding: 20px;
-    }
-    
-    #Page-SignUpBoxMobile {
-      width: calc(90% - 20px);
-      margin-top: 80px; margin-left: 5%; margin-right: 5%;
+    #Page-SignUpBox {
       box-shadow: 8px 8px 25px 5px #888888;
       padding: 20px;
     }
@@ -115,49 +105,25 @@
 
 <body onload="Autorun();">
   <div id="Page-TitleBar"><span style="float: left; margin: 10px"><img src="/logo.png" height="50px" width="50px"></span><span style="font-weight: lighter;">Note</span><b>Hub</b> - Sign Up</div>
-
-  <div id="Page-Organiser-Mobile">
-    <div id="Page-SignUpBoxMobile">
-      Username:<br>
-      <input id="Login-Username" data-stacked="stacked" placeholder="Username" />
-      <br><br>
-      
-      Email:<br>
-      <input id="Login-Email" data-stacked="stacked" placeholder="Email (this'll be kept private)" />
-      <br><br>
-      
-      Password:<br>
-      <input id="Login-Password" type="password" data-stacked="stacked" placeholder="Password" />
-      <br><br>
-      
-      Security Question:<br>
-      <textarea rows="6" id="Login-Question" data-stacked="stacked" placeholder="You'll use this to verify your identity should you forget your password. Don't use a question with an obvious answer such as 'What is your username?'"></textarea>
-      <br><br>
-      
-      <button onclick="StageOne();" type="button" style="font-weight: bold; width: 100%; text-align: center; background-color: lightgreen; padding: 10px; border: 0;">SIGN UP</button>
-    </div>
-  </div>
   
-  <div id="Page-Organiser-Desktop">
-    <div id="Page-SignUpBoxDesktop">
-      Username:<br>
-      <input id="Login-Username" data-stacked="stacked" placeholder="Username" />
-      <br><br>
-      
-      Email:<br>
-      <input id="Login-Email" data-stacked="stacked" placeholder="Email (this'll be kept private)" />
-      <br><br>
-      
-      Password:<br>
-      <input id="Login-Password" type="password" data-stacked="stacked" placeholder="Password" />
-      <br><br>
-      
-      Security Question:<br>
-      <textarea rows="6" id="Login-Question" data-stacked="stacked" placeholder="You'll use this to verify your identity should you forget your password. Don't use a question with an obvious answer such as 'What is your username?'"></textarea>
-      <br><br>
-      
-      <button onclick="StageOne();" type="button" style="font-weight: bold; width: 100%; text-align: center; background-color: lightgreen; padding: 10px; border: 0;">SIGN UP</button>
-    </div>
+  <div id="Page-SignUpBox">
+    Username:<br>
+    <input id="Login-Username" data-stacked="stacked" placeholder="Username" />
+    <br><br>
+
+    Email:<br>
+    <input id="Login-Email" data-stacked="stacked" placeholder="Email (this'll be kept private)" />
+    <br><br>
+
+    Password:<br>
+    <input id="Login-Password" type="password" data-stacked="stacked" placeholder="Password" />
+    <br><br>
+
+    Security Question:<br>
+    <textarea rows="6" id="Login-Question" data-stacked="stacked" placeholder="You'll use this to verify your identity should you forget your password. Don't use a question with an obvious answer such as 'What is your username?'"></textarea>
+    <br><br>
+
+    <button onclick="StageOne();" type="button" style="font-weight: bold; width: 100%; text-align: center; background-color: lightgreen; padding: 10px; border: 0;">SIGN UP</button>
   </div>
 </body>
 </html>
