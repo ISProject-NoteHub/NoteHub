@@ -3,7 +3,7 @@
 <head>
   <title>Sign Up | NoteHub</title>
 
-  <link href="/new-styling.css" rel="stylesheet">
+  <link href="/test-styling.css" rel="stylesheet">
   <link href="/logo.png" rel="icon">
 
   <style>
@@ -25,6 +25,41 @@
       border-radius: 10px;
       padding: 10px; margin-bottom: 10px;
     }
+    
+    #Page-SignUpBoxDesktop {
+      width: calc(50% - 40px);
+      margin-top: 80px; margin-left: 25%; margin-right: 25%;
+      box-shadow: 8px 8px 25px 5px #888888;
+      padding: 20px;
+    }
+    
+    #Page-SignUpBoxMobile {
+      width: 90%;
+      margin-top: 80px; margin-left: 5%; margin-right: 5%;
+      box-shadow: 8px 8px 25px 5px #888888;
+      padding: 20px;
+    }
+    
+    /*Add to the master stylesheet when possible*/
+    #Page-Contents { }
+    
+    input[data-stacked=stacked] {
+      padding: 7.5px;
+      width: calc(100% - 15px);
+      border: 0;
+      background-color: #f6f6f6;
+    }
+    
+    textarea {
+      font-family: "Segoe UI", sans-serif;
+    }
+    
+    textarea[data-stacked=stacked] {
+      padding: 7.5px;
+      width: calc(100% - 15px);
+      border: 0;
+      background-color: #f6f6f6;
+    }
   </style>
   
   <script>
@@ -45,60 +80,46 @@
 </head>
 
 <body>
-  <div id="Page-TitleBar">NoteHub</div>
+  <div id="Page-TitleBar">NoteHub - Sign Up</div>
 
- <div id="Page-MenuBar">
-    <a href="/index.html" class="Page-MenuItem">Home </a>
-    <a href="/info/about.html" class="Page-MenuItem"> About </a>
-    <a href="/note/index.html" class="Page-MenuItem"> New Note </a>
-    <a href="/accounts/sign-up.html" class="Page-MenuItem"> Sign Up</a>
+  <div id="Page-Organiser-Mobile">
+    <div id="Page-SignUpBoxMobile">
+      Username:<br>
+      <input id="Login-Username" data-stacked="stacked" placeholder="Username" />
+      <br><br>
+      
+      Email:<br>
+      <input id="Login-Email" data-stacked="stacked" placeholder="Email (this'll be kept private)" />
+      <br><br>
+      
+      Password:<br>
+      <input id="Login-Password" type="password" data-stacked="stacked" placeholder="Password" />
+      <br><br>
+      
+      Security Question:<br>
+      <textarea id="Login-Question" data-stacked="stacked" placeholder="You'll use this to verify your identity should you forget your password. Don't use a question with an obvious answer such as 'What is your username?'"></textarea>
+      <br><br>
+    </div>
   </div>
-
-  <div id="Page-Contents" style="padding: 0; width: 100%;">
-    <!--Desktop-->
-    <table id="Page-Organiser-Desktop">
-      <tr>
-        <td style="width: 70%; padding: 7.5px; text-align: center; vertical-align: top;">
-          <h2>User Sign Up</h2>
-
-          <br><div style="width: 100%; text-align: left;">
-            Username:
-            <br><input style="width: calc(100% - 30px);" title="This is what you'll be seen as by other users on NoteHub." type="text" data-stacked="stacked" id="Login-Username" placeholder="Username"/>
-          </div>
-          
-          <br><div style="width: 100%; text-align: left;">
-            Email:
-            <br><input style="width: calc(100% - 30px);" title="We'll use this only for contact purposes." type="text" data-stacked="stacked" id="Login-Email" placeholder="Email"/>
-          </div>
-
-          <br><div style="width: 100%; text-align: left;">
-            Password:
-            <br><input style="width: calc(100% - 30px);" title="This is your password." type="password" data-stacked="stacked" id="Login-Password" placeholder="Password"/>
-          </div>
-          
-          <br><br>
-          <a href="javascript:StageOne();" class="link-tile" style="margin-left: 25%; background-color: gray; width: 50%; color: white; background-color: mediumseagreen;">Create Account</a>
-        </td>
-
-        <td style="width: 30%; padding: 7.5px; text-align: center; vertical-align: top;">
-          <div id="Page-Right-First">Already have an account? Login <a href="/index.html">here</a>! If you're interested to find out more about NoteHub, head to our <a href="/info/about.html">about page</a>.</div>
-          
-          <div id="Page-Right-Steps" style="display: none;">
-            <div id="Steps-First" class="Page-Right-Step" style="background-color: green; color: white;" title="Enter your particulars so we can get to know you better.">
-              Step 1<br>Enter Your Particulars
-            </div>
-            
-            <div id="Steps-First" class="Page-Right-Step" style="background-color: gray; color: white;" title="This ensures that you are not a robot.">
-              Step 2<br>Verify Your Email
-            </div>
-            
-            <div id="Steps-First" class="Page-Right-Step" style="background-color: gray; color: white;">
-              Step 3<br>Enjoy NoteHub
-            </div>
-          </div>
-        </td>
-      </tr>
-    </table>
+  
+  <div id="Page-Organiser-Desktop">
+    <div id="Page-SignUpBoxDesktop">
+      Username:<br>
+      <input id="Login-Username" data-stacked="stacked" placeholder="Username" />
+      <br><br>
+      
+      Email:<br>
+      <input id="Login-Email" data-stacked="stacked" placeholder="Email (this'll be kept private)" />
+      <br><br>
+      
+      Password:<br>
+      <input id="Login-Password" type="password" data-stacked="stacked" placeholder="Password" />
+      <br><br>
+      
+      Security Question:<br>
+      <textarea id="Login-Question" data-stacked="stacked" placeholder="You'll use this to verify your identity should you forget your password. Don't use a question with an obvious answer such as 'What is your username?'"></textarea>
+      <br><br>
+    </div>
   </div>
 </body>
 </html>
