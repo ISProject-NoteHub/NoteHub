@@ -90,7 +90,7 @@
 
           if (getPHPFile.responseText == "Created.") {
             localStorage.setItem("logInStatus", "Newcomer!");
-            localStorage.setItem("loggedIn", btoa(usernameToUse + "," + passwordToUse));
+            localStorage.setItem("loggedIn", btoa(savedStage.username + "," + savedStage.password));
             
             window.location.href = "my-account.html";
           }
@@ -104,7 +104,7 @@
         }
       }
 
-      getPHPFile.open("GET", "https://notehub-serverside.000webhostapp.com/handlers/account-data.php?" + "requestedFunction=Credentials&username=" + usernameToUse + "&password=" + passwordToUse, true);
+      getPHPFile.open("GET", "https://notehub-serverside.000webhostapp.com/handlers/account-data.php?" + "requestedFunction=NewAccount&user=" + savedStage.username + "&pass=" + savedStage.password + "&email" + savedStage.email + "&securityQuestion" + savedStage.question, true);
       getPHPFile.send();
     }
   </script>
