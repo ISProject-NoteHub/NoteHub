@@ -9,6 +9,29 @@
   
   <script src="miscellaneous.js"></script>
   <script src="accounts.js"></script>
+  
+  <style>
+    @media screen and (max-width: 540px) {
+      #Page-SignUpBox {
+        width: calc(90% - 40px); height: calc(90% - 40px);
+        left: 5%; top: 5%;
+      }
+    }
+    
+    @media screen and (min-width: 541px) {
+      #Page-SignUpBox {
+        width: calc(50% - 40px); height: calc(85% - 40px);
+        left: 25%; top: 7.5%;
+      }
+    }
+    
+    #Page-SignUpBox {
+      box-shadow: 8px 8px 25px 5px #888888;
+      padding: 20px;
+      z-index: 20;
+      position: fixed;
+    }
+  </style>
 </head>
   
 <body onload="Autorun();">
@@ -42,10 +65,6 @@
   <div id="Title" style="width: calc(100% - 67px); font-size: 23px;">Welcome to NoteHub, <span id="NewUserName">User</span>.</div>
   
   <div id="Editor">
-    <div id="EditorPanes-NewUser" style="display: none;">
-      
-    </div>
-    
     <div id="EditorPanes-Home">
       <label style="font-size: 20px;">Account Security/Privacy</label>
       <hr>
@@ -54,6 +73,11 @@
       <br><span id="Home-NotesRead">0</span> notes read
       <br><span id="Home-NotesSuggested">0</span> suggestions made
     </div>
+  </div>
+  
+  <div id="EditorPanes-NewUser" style="display: none;">
+    <label style="font-size: 20px;">Welcome to NoteHub, <span id="NewUser-Name">User</span>!</label>
+    <hr>
   </div>
 </body>
 </html>
