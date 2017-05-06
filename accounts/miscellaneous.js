@@ -9,13 +9,12 @@ function Autorun() {
   if (CheckSignIn() === true) {
     if (localStorage.getItem("logInStatus") == "Newcomer!") {
       document.getElementById("EditorPanes-NewUser").style.display = "block";
-      document.getElementById("EditorPanes-Home").style.display = "none";
     }
     else { /*Nothing*/ }
     
     document.getElementById("NewUserName").innerHTML = atob(localStorage.getItem("loggedIn")).split(",")[0];
     document.getElementById("Home-Username").innerHTML = atob(localStorage.getItem("loggedIn")).split(",")[0];
-    document.getElementById("Home-Username").innerHTML = atob(localStorage.getItem("loggedIn")).split(",")[0];
+    document.getElementById("NewUser-Name").innerHTML = atob(localStorage.getItem("loggedIn")).split(",")[0];
     
     //Get and display account details on panes
   }
