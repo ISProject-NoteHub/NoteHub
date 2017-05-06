@@ -13,8 +13,9 @@ function Autorun() {
     }
     else { /*Nothing*/ }
     
-    document.getElementById("NewUserName").innerHTML = atob(localStorage.getItem("loggedIn").split[0]);
-    document.getElementById("Home-Username").innerHTML = atob(localStorage.getItem("loggedIn").split[0]);
+    document.getElementById("NewUserName").innerHTML = atob(localStorage.getItem("loggedIn").split(",")[0]);
+    document.getElementById("Home-Username").innerHTML = atob(localStorage.getItem("loggedIn").split(",")[0]);
+    document.getElementById("Home-Username").innerHTML = atob(localStorage.getItem("loggedIn").split(",")[0]);
     
     //Get and display account details on panes
   }
