@@ -11,7 +11,7 @@
 #ScrollingTiles {
   animation-name: scroll;
   animation-play-state: running;
-  animation-duration: 12s;
+  animation-duration: 14s;
   animation-iteration-count: infinite;
   height: auto;
   left: -20px;
@@ -22,18 +22,21 @@
 }
 
 @keyframes scroll {
-  0% { left: -20px; }
-  16.67% { left: calc(-20px - 100%); }
-  25% { left: calc(-20px - 100%); }
-  41.67% { left: calc(-20px - 200%); }
-  50% { left: calc(-20px - 200%); }
-  66.67% { left: calc(-20px - 300%); }
-  75% { left: calc(-20px - 300%); }
-  91.67% { left: calc(-20px - 400%); }
-  100% { left: -20px; }
+  0% { left: -20px; background-color: black; }
+  14.29% { left: calc(-20px - 100%); background-color: white; }
+  21.43% { left: calc(-20px - 100%); background-color: black; }
+  35.71% { left: calc(-20px - 200%); background-color: white; }
+  42.86% { left: calc(-20px - 200%); background-color: black; }
+  57.14% { left: calc(-20px - 300%); background-color: white; }
+  64.29% { left: calc(-20px - 300%); background-color: black; }
+  78.57% { left: calc(-20px - 400%); background-color: white; }
+  85.71% { left: calc(-20px - 400%); background-color: black; }
+  100% { left: -20px; background-color: grey; }
+  /* The rapid changes in background colour are just to show that the animation is taking place. 
+  Will change background colour to something more appropriate when Samuel tells me what colours to use.*/
 }
 
-/*USE PERCENTAGES. Two seconds for each image. 1 second delay between each image.
+/*USE PERCENTAGES. Two seconds for each image. 1 second delay between each image. Remember - 2s pause on 1st image after loop.
 Later, include buttons to move panels back and forth.
 Is it possible to make the animation loop back to the first image after it's done?
 YES, IT IS! Use CSS.*/
