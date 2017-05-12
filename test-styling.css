@@ -18,7 +18,10 @@
   padding: 30px;
   top: 60px;
   position: relative;
-  width: 100%;
+  width: 600%; 
+  /*DO NOT CHANGE THIS ELEMENT'S RULES AT ALL! I AM FUCKING DONE! :)
+  - Wing Yip
+  Oh, and Theodore, could you help me shove new images to the left instead of on top of the existing ones? Thanks.*/
 }
 
 @keyframes scroll {
