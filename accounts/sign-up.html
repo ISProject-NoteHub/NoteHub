@@ -89,7 +89,7 @@
             if (getPHPFile.responseText == "Created.") {
               localStorage.setItem("logInStatus", "Newcomer!");
               localStorage.setItem("loggedIn", btoa(savedStage.username + "," + savedStage.password));
-              window.location.href = "my-account.html";
+              //window.location.href = "my-account.html";
             }
             else { document.getElementById("Error-Username").style.display = "block"; }
           }
