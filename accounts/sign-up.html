@@ -89,9 +89,7 @@
               localStorage.setItem("loggedIn", btoa(savedStage.username + "," + savedStage.password));
               window.location.href = "my-account.html";
             }
-            else {
-            document.getElementById("Error-Username").style.display = "block";
-            }
+            else { document.getElementById("Error-Username").style.display = "block"; }
           }
           else {
             document.getElementById("Error-Server").style.display = "block";
