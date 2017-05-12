@@ -93,11 +93,12 @@
             }
             else { document.getElementById("Error-Username").style.display = "block"; }
           }
-          else if (this.status == 500) {
-            document.getElementById("Error-Server").style.display = "block";
-            localStorage.setItem("logInStatus", "Could not connect to server.");
-          }
         }
+        
+        getPHPFile.onerror = function() {
+          document.getElementById("Error-Server").style.display = "block";
+        }
+        
         getPHPFile.open("POST", "https://notehub-serverside.000webhostapp.com/handlers/account-data.php", true);
         getPHPFile.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         getPHPFile.send("requestedFunction=NewAccount&user=" + savedStage.username + "&pass=" + savedStage.password + "&email" + savedStage.email + "&securityQuestion" + encodeURIComponent(savedStage.question));
