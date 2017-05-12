@@ -26,7 +26,7 @@
     }
     
     #Page-SignUpBox {
-      box-shadow: 8px 8px 25px 5px #888888;
+      box-shadow: 4px 4px 20px 0px #888888;
       padding: 20px;
     }
     
@@ -74,31 +74,39 @@
       savedStage.password = password.value;
       savedStage.question = question.value;
       
-      //Send request to server and make rainbows
-      var getPHPFile = new XMLHttpRequest();
-      getPHPFile.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-          console.log(getPHPFile.responseText);
+      if ((savedStage.question == "") || (savedStage.email == "") || (savedStage.password == "") || (savedStage.username == "")) {
+        document.getElementById("Error-Empty").style.display = "block";
+      }
+      else {
+        document.getElementById("Error-Empty").style.display = "none";
+        
+        //Send request to server and make rainbows
+        var getPHPFile = new XMLHttpRequest();
+        getPHPFile.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            console.log(getPHPFile.responseText);
 
-          if (getPHPFile.responseText == "Created.") {
-            localStorage.setItem("logInStatus", "Newcomer!");
-            localStorage.setItem("loggedIn", btoa(savedStage.username + "," + savedStage.password));
-            
-            window.location.href = "my-account.html";
+            if (getPHPFile.responseText == "Created.") {
+              localStorage.setItem("logInStatus", "Newcomer!");
+              localStorage.setItem("loggedIn", btoa(savedStage.username + "," + savedStage.password));
+
+              window.location.href = "my-account.html";
+            }
+            else {
+              //Display errors if email is alr used/username is alr used
+              localStorage.setItem("logInStatus", "Incorrect credentials.");
+            }
           }
           else {
-            //Display errors if email is alr used/username is alr used
-            localStorage.setItem("logInStatus", "Incorrect credentials.");
+            document.getElementById("Error-Server").style.display = "block";
+            localStorage.setItem("logInStatus", "Could not connect to server.");
           }
         }
-        else {
-          localStorage.setItem("logInStatus", "Could not connect to server.");
-        }
-      }
 
-      getPHPFile.open("POST", "https://notehub-serverside.000webhostapp.com/handlers/account-data.php", true);
-      getPHPFile.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-      getPHPFile.send("requestedFunction=NewAccount&user=" + savedStage.username + "&pass=" + savedStage.password + "&email" + savedStage.email + "&securityQuestion" + encodeURIComponent(savedStage.question));
+        getPHPFile.open("POST", "https://notehub-serverside.000webhostapp.com/handlers/account-data.php", true);
+        getPHPFile.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        getPHPFile.send("requestedFunction=NewAccount&user=" + savedStage.username + "&pass=" + savedStage.password + "&email" + savedStage.email + "&securityQuestion" + encodeURIComponent(savedStage.question));
+      }
     }
   </script>
 
@@ -125,6 +133,9 @@
     Security Question:<br>
     <textarea rows="6" id="Login-Question" data-stacked="stacked" placeholder="You'll use this to verify your identity should you forget your password. Don't use a question with an obvious answer such as 'What is your username?'"></textarea>
     <br><br>
+    
+    <div id="Error-Empty" style="font-size: 0.95em; color: red;">We can't create your account as you're missing some personal information. Please fill in all the personal information required above.</div>
+    <div id="Error-Server" style="font-size: 0.95em; color: red;">We can't create your account as our servers are down. We'll fix this as soon as we can, and apologise for any inconvenience caused.</div>
 
     <button onclick="StageOne();" type="button" style="font-weight: bold; width: 100%; text-align: center; background-color: lightgreen; padding: 10px; border: 0;">SIGN UP</button>
   </div>
