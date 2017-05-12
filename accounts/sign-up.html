@@ -57,6 +57,49 @@
     
     button { cursor: pointer; }
   </style>
+  
+  <script>
+    var username, email, password, question;
+    var savedStage = {
+      username: "", email: "", password: "", question: ""
+    };
+    
+    function Autorun() {
+      username = document.getElementById("Login-Username"), email = document.getElementById("Login-Email"), password = document.getElementById("Login-Password"), question = document.getElementById("Login-Question");
+    }
+
+    function StageOne() {
+      savedStage.username = username.value;
+      savedStage.email = email.value;
+      savedStage.password = password.value;
+      savedStage.question = question.value;
+      
+      if ((savedStage.question == "") || (savedStage.email == "") || (savedStage.password == "") || (savedStage.username == "")) {
+        document.getElementById("Error-Empty").style.display = "block";
+      }
+      else {
+        document.getElementById("Error-Empty").style.display = "none";
+        
+        //Send request to server and make rainbows
+        var getPHPFile = new XMLHttpRequest();
+        getPHPFile.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            console.log(getPHPFile.responseText);
+
+            if (getPHPFile.responseText == "Created.") {
+              localStorage.setItem("logInStatus", "Newcomer!");
+              localStorage.setItem("loggedIn", btoa(savedStage.username + "," + savedStage.password));
+
+              window.location.href = "my-account.html";
+            }
+            else if (getPHPFile.responseText == "Username taken.") { document.getElementById("Error-Username").style.display = "block"; }
+            else { /*...*/ }
+          } 
+        getPHPFile.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        getPHPFile.send("requestedFunction=NewAccount&user=" + savedStage.username + "&pass=" + savedStage.password + "&email" + savedStage.email + "&securityQuestion" + encodeURIComponent(savedStage.question));
+      }
+    }
+  </script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="Description" content="Welcome to NoteHub, the free notesharing service.">
@@ -97,47 +140,5 @@
 
     <button onclick="StageOne();" type="button" style="font-weight: bold; width: 100%; text-align: center; background-color: lightgreen; padding: 10px; border: 0;">SIGN UP</button>
   </div>
-  
-  <script>
-    var username, email, password, question;
-    var savedStage = {
-      username: "", email: "", password: "", question: ""
-    };
-    
-    function Autorun() {
-      username = document.getElementById("Login-Username"), email = document.getElementById("Login-Email"), password = document.getElementById("Login-Password"), question = document.getElementById("Login-Question");
-    }
-
-    function StageOne() {
-      savedStage.username = username.value;
-      savedStage.email = email.value;
-      savedStage.password = password.value;
-      savedStage.question = question.value;
-      
-      if ((savedStage.question == "") || (savedStage.email == "") || (savedStage.password == "") || (savedStage.username == "")) {
-        document.getElementById("Error-Empty").style.display = "block";
-      }
-      else {
-        document.getElementById("Error-Empty").style.display = "none";
-        
-        //Send request to server and make rainbows
-        var getPHPFile = new XMLHttpRequest();
-        getPHPFile.onreadystatechange = function() {
-          if (this.readyState == 4 && this.status == 200) {
-            console.log(getPHPFile.responseText);
-
-            if (getPHPFile.responseText == "Created.") {
-              localStorage.setItem("logInStatus", "Newcomer!");
-              localStorage.setItem("loggedIn", btoa(savedStage.username + "," + savedStage.password));
-
-              window.location.href = "my-account.html";
-            }
-            else if (getPHPFile.responseText == "Username taken.") { document.getElementById("Error-Username").style.display = "block"; }
-          } 
-        getPHPFile.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        getPHPFile.send("requestedFunction=NewAccount&user=" + savedStage.username + "&pass=" + savedStage.password + "&email" + savedStage.email + "&securityQuestion" + encodeURIComponent(savedStage.question));
-      }
-    }
-  </script>
 </body>
 </html>
