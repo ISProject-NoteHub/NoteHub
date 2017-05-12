@@ -22,15 +22,15 @@
 }
 
 @keyframes scroll {
-  0% {}
-  16.67% {}
-  25% {}
-  41.67% {}
-  50% {}
-  66.67% {}
-  75% {}
-  91.67% {}
-  100% {}
+  0% { left: -20px; }
+  16.67% { left: calc(-20px - 100%); }
+  25% { left: calc(-20px - 100%); }
+  41.67% { left: calc(-20px - 200%); }
+  50% { left: calc(-20px - 200%); }
+  66.67% { left: calc(-20px - 300%); }
+  75% { left: calc(-20px - 300%); }
+  91.67% { left: calc(-20px - 400%); }
+  100% { left: -20px; }
 }
 
 /*USE PERCENTAGES. Two seconds for each image. 1 second delay between each image.
