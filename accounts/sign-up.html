@@ -90,8 +90,7 @@
               window.location.href = "my-account.html";
             }
             else {
-              //Display errors if email is alr used/username is alr used
-              localStorage.setItem("logInStatus", "Incorrect credentials.");
+            document.getElementById("Error-Username").style.display = "block";
             }
           }
           else {
@@ -135,7 +134,11 @@
       <br><br>
     </div>
     <div id="Error-Server" style="font-size: 0.85em; color: red; display: none;">
-      We can't create your account as our servers are down. We'll fix this as soon as we can, and apologise for any inconvenience caused.
+      We can't create your account for our servers are down. We'll fix this as soon as we can, and apologise for any inconvenience caused.
+      <br><br>
+    </div>
+    <div id="Error-Username" style="font-size: 0.85em; color: red; display: none;">
+      We can't create your account - your username's already taken. Why not try a different one?
       <br><br>
     </div>
 
