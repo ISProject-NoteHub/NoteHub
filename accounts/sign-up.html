@@ -92,18 +92,8 @@
 
               window.location.href = "my-account.html";
             }
-            else {
-              //Display errors if email is alr used/username is alr used
-              localStorage.setItem("logInStatus", "Incorrect credentials.");
-            }
-          }
-          else {
-            document.getElementById("Error-Server").style.display = "block";
-            localStorage.setItem("logInStatus", "Could not connect to server.");
-          }
-        }
-
-        getPHPFile.open("POST", "https://notehub-serverside.000webhostapp.com/handlers/account-data.php", true);
+            else if (getPHPFile.responseText == "Username taken.") { document.getElementById("Error-Username").style.display = "block"; }
+          } 
         getPHPFile.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         getPHPFile.send("requestedFunction=NewAccount&user=" + savedStage.username + "&pass=" + savedStage.password + "&email" + savedStage.email + "&securityQuestion" + encodeURIComponent(savedStage.question));
       }
@@ -134,12 +124,16 @@
     <textarea rows="6" id="Login-Question" data-stacked="stacked" placeholder="You'll use this to verify your identity should you forget your password. Don't use a question with an obvious answer such as 'What is your username?'"></textarea>
     <br><br>
     
-    <div id="Error-Empty" style="font-size: 0.95em; color: red; display: none;">
+    <div id="Error-Empty" style="font-size: 0.85em; color: red; display: none;">
       We can't create your account as you're missing some personal information. Please fill in all the personal information required above.
       <br><br>
     </div>
-    <div id="Error-Server" style="font-size: 0.95em; color: red; display: none;">
-      We can't create your account as our servers are down. We'll fix this as soon as we can, and apologise for any inconvenience caused.
+    <div id="Error-Server" style="font-size: 0.85em; color: red; display: none;">
+      We can't create your account for our servers are down. We'll fix this as soon as we can, and apologise for any inconvenience caused.
+      <br><br>
+    </div>
+    <div id="Error-Username" style="font-size: 0.85em; color: red; display: none;">
+      We can't create your account - your username's taken. Please try another username.
       <br><br>
     </div>
 
