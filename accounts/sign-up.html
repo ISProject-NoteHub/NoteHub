@@ -93,11 +93,11 @@
             }
             else { document.getElementById("Error-Username").style.display = "block"; }
           }
-        }
+        };
         
         getPHPFile.onerror = function() {
           document.getElementById("Error-Server").style.display = "block";
-        }
+        };
         
         getPHPFile.open("POST", "https://notehub-serverside.000webhostapp.com/handlers/account-data.php", true);
         getPHPFile.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
