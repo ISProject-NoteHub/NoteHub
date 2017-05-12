@@ -59,15 +59,13 @@
   </style>
   
   <script>
-    var username, email, password, question;
-    var savedStage = {
-      username: "", email: "", password: "", question: ""
-    };
+    var username = "", email = "", password = "", question = "";
+    var savedStage = { username: "", email: "", password: "", question: "" };
     
     function Autorun() {
       username = document.getElementById("Login-Username"), email = document.getElementById("Login-Email"), password = document.getElementById("Login-Password"), question = document.getElementById("Login-Question");
     }
-
+    
     function StageOne() {
       savedStage.username = username.value;
       savedStage.email = email.value;
@@ -85,26 +83,22 @@
         getPHPFile.onreadystatechange = function() {
           if (this.readyState == 4 && this.status == 200) {
             console.log(getPHPFile.responseText);
-
             if (getPHPFile.responseText == "Created.") {
               localStorage.setItem("logInStatus", "Newcomer!");
               localStorage.setItem("loggedIn", btoa(savedStage.username + "," + savedStage.password));
-
               window.location.href = "my-account.html";
             }
             else if (getPHPFile.responseText == "Username taken.") { document.getElementById("Error-Username").style.display = "block"; }
-            else { /*...*/ }
           } 
         getPHPFile.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         getPHPFile.send("requestedFunction=NewAccount&user=" + savedStage.username + "&pass=" + savedStage.password + "&email" + savedStage.email + "&securityQuestion" + encodeURIComponent(savedStage.question));
       }
     }
   </script>
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="Description" content="Welcome to NoteHub, the free notesharing service.">
 </head>
-
 <body onload="Autorun();">
   <div id="Page-TitleBar"><span style="float: left; margin: 10px"><img src="/logo.png" height="50px" width="50px"></span><span style="font-weight: lighter;">Note</span><b>Hub</b> - Sign Up</div>
   
@@ -112,15 +106,12 @@
     Username:<br>
     <input id="Login-Username" data-stacked="stacked" placeholder="Username" />
     <br><br>
-
     Email:<br>
     <input id="Login-Email" data-stacked="stacked" placeholder="Email (this'll be kept private)" />
     <br><br>
-
     Password:<br>
     <input id="Login-Password" type="password" data-stacked="stacked" placeholder="Password" />
     <br><br>
-
     Security Question:<br>
     <textarea rows="6" id="Login-Question" data-stacked="stacked" placeholder="You'll use this to verify your identity should you forget your password. Don't use a question with an obvious answer such as 'What is your username?'"></textarea>
     <br><br>
@@ -137,7 +128,6 @@
       We can't create your account - your username's taken. Please try another username.
       <br><br>
     </div>
-
     <button onclick="StageOne();" type="button" style="font-weight: bold; width: 100%; text-align: center; background-color: lightgreen; padding: 10px; border: 0;">SIGN UP</button>
   </div>
 </body>
