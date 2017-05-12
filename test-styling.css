@@ -22,21 +22,21 @@
 }
 
 @keyframes scroll {
-  0% {background-color: darkgreen;}
-  16.67% {background-color: green;}
-  25% {background-color: lightseagreen;}
-  41.67% {background-color: lightskyblue;}
-  50% {background-color: aliceblue;}
+  0% {}
+  16.67% {}
+  25% {}
+  41.67% {}
+  50% {}
   66.67% {}
   75% {}
   91.67% {}
-  100% {background-color: darkgreen;}
+  100% {}
 }
 
 /*USE PERCENTAGES. Two seconds for each image. 1 second delay between each image.
 Later, include buttons to move panels back and forth.
 Is it possible to make the animation loop back to the first image after it's done?
-**Maybe for that, I can use JavaScript.*/
+YES, IT IS! Use CSS.*/
 
 #Home-Button {
   border-radius: 10px;
