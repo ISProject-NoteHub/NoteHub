@@ -84,6 +84,8 @@
         getPHPFile.onreadystatechange = function() {
           if (this.readyState == 4 && this.status == 200) {
             console.log(getPHPFile.responseText);
+            document.getElementById("Error-Server").style.display = "none";
+            
             if (getPHPFile.responseText == "Created.") {
               localStorage.setItem("logInStatus", "Newcomer!");
               localStorage.setItem("loggedIn", btoa(savedStage.username + "," + savedStage.password));
