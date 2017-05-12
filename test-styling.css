@@ -22,16 +22,16 @@
 }
 
 @keyframes scroll {
-  0% { left: -20px; background-color: black; }
-  14.29% { left: calc(-20px - 100%); background-color: white; }
-  21.43% { left: calc(-20px - 100%); background-color: black; }
-  35.71% { left: calc(-20px - 200%); background-color: white; }
-  42.86% { left: calc(-20px - 200%); background-color: black; }
-  57.14% { left: calc(-20px - 300%); background-color: white; }
-  64.29% { left: calc(-20px - 300%); background-color: black; }
-  78.57% { left: calc(-20px - 400%); background-color: white; }
-  85.71% { left: calc(-20px - 400%); background-color: black; }
-  100% { left: -20px; background-color: grey; }
+  0% { left: calc(-20px - 50%); background-color: black; }
+  14.29% { left: calc(-20px - 150%); background-color: white; }
+  21.43% { left: calc(-20px - 150%); background-color: black; }
+  35.71% { left: calc(-20px - 250%); background-color: white; }
+  42.86% { left: calc(-20px - 250%); background-color: black; }
+  57.14% { left: calc(-20px - 350%); background-color: white; }
+  64.29% { left: calc(-20px - 350%); background-color: black; }
+  78.57% { left: calc(-20px - 450%); background-color: white; }
+  85.71% { left: calc(-20px - 450%); background-color: black; }
+  100% { left: calc(-20px - 50%); background-color: grey; }
   /* The rapid changes in background colour are just to show that the animation is taking place. 
   Will change background colour to something more appropriate when Samuel tells me what colours to use.*/
 }
