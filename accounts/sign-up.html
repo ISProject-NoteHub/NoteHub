@@ -93,7 +93,7 @@
             }
             else { document.getElementById("Error-Username").style.display = "block"; }
           }
-          else {
+          else if (this.readyState == 4 && this.status == 500) {
             document.getElementById("Error-Server").style.display = "block";
             localStorage.setItem("logInStatus", "Could not connect to server.");
           }
