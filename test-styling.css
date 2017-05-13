@@ -18,23 +18,24 @@
   padding: 30px;
   top: 60px;
   position: relative;
-  width: 600%; 
-  /*DO NOT CHANGE THIS ELEMENT'S RULES AT ALL! I AM FUCKING DONE! :)
+  width: 600%;
+  background-color: black;
+  /*DO NOT CHANGE THIS ELEMENT'S RULES AT ALL! I AM DONE! :)
   - Wing Yip
   Oh, and Theodore, could you help me shove new images to the left instead of on top of the existing ones? Thanks.*/
 }
 
 @keyframes scroll {
-  0% { left: calc(-20px - 50%); background-color: black; }
-  14.29% { left: calc(-20px - 150%); background-color: white; }
-  21.43% { left: calc(-20px - 150%); background-color: black; }
-  35.71% { left: calc(-20px - 250%); background-color: white; }
-  42.86% { left: calc(-20px - 250%); background-color: black; }
-  57.14% { left: calc(-20px - 350%); background-color: white; }
-  64.29% { left: calc(-20px - 350%); background-color: black; }
-  78.57% { left: calc(-20px - 450%); background-color: white; }
-  85.71% { left: calc(-20px - 450%); background-color: black; }
-  100% { left: calc(-20px - 50%); background-color: grey; }
+  0% { left: calc(-20px - 50%); }
+  14.29% { left: calc(-20px - 150%); }
+  21.43% { left: calc(-20px - 150%); }
+  35.71% { left: calc(-20px - 250%); }
+  42.86% { left: calc(-20px - 250%); }
+  57.14% { left: calc(-20px - 350%); }
+  64.29% { left: calc(-20px - 350%); }
+  78.57% { left: calc(-20px - 450%); }
+  85.71% { left: calc(-20px - 450%); }
+  100% { left: calc(-20px - 50%); }
   /* The rapid changes in background colour are just to show that the animation is taking place. 
   Will change background colour to something more appropriate when Samuel tells me what colours to use.*/
 }
