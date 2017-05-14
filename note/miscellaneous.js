@@ -11,4 +11,8 @@ function Autorun() {
     document.getElementById("MyAccount").style.display = "none";
     document.getElementById("LoggedInOut").innerHTML = "Login";
   }
+
+  if (getParameterByName("edit") !== "") {
+    
+  }
 }

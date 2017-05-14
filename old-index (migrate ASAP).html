@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NoteHub</title>
+  
+  <link href="/logo.png" rel="icon" />
+  <link href="/new-styling.css" rel="stylesheet" />
+  <link href="/styling.css" rel="stylesheet" />
+  <link href="/app-styling.css" rel="stylesheet" />
+  
+  <script src="/accounts/accounts.js"></script>
+  
+  <script>
+    //REMEMBER: Add function to limit number of login attempts (or use CAPTCHA after a few failed logins)
+    //Noted. ~TheoLeeCJ
+    //All accounts-related functions that are used over multiple pages have been moved to accounts/accounts.js ~TheoLeeCJ
+    
+    function LoginHere(mobile) {
+      Login(document.getElementById(mobile + "Login-Username").value, document.getElementById(mobile + "Login-Password").value, function() {
+        window.location.href = "/gallery/index.html";
+      }, function() {
+        alert("Login failed.");
+      });
+    }
+  </script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="Description" content="Welcome to NoteHub, the free notesharing service.">
+</head>
+
+<body>
+  <div id="Page-TitleBar">NoteHub</div>
+
+  <div id="Page-MenuBar">
+    <a href="/index.html" class="Page-MenuItem">Home </a>
+    <a href="/info/about.html" class="Page-MenuItem"> About </a>
+    <a href="/note/index.html" class="Page-MenuItem"> New Note </a>
+    <a href="/accounts/sign-up.html" class="Page-MenuItem"> Sign Up</a>
+  </div>
+
+  <div id="Page-Contents" style="padding: 0; width: 100%;">
+    <!--Desktop-->
+    <table id="Page-Organiser-Desktop">
+      <tr>
+        <td style="width: 70%; padding: 7.5px; text-align: center; vertical-align: top;">
+          <h1>The Ultimate Note-Sharing Web App</h1>
+          <br>
+          Have you too many notes to stay organised? Do you want to share your notes with everyone, or need more reliable sources of information?
+          <br><br>Well, NoteHub's just the thing you need.
+        </td>
+
+        <td style="width: 30%; padding: 7.5px; text-align: center; vertical-align: top;">
+          <h2>User Login</h2>
+
+          <br><div style="width: 100%; text-align: left;">
+            Username/Email:
+            <br><input style="width: calc(100% - 30px);" type="text" data-stacked="stacked" id="Login-Username" placeholder="Username or email"/>
+          </div>
+
+          <br><div style="width: 100%; text-align: left;">
+            Password:
+            <br><input style="width: calc(100% - 30px);" type="password" data-stacked="stacked" id="Login-Password" placeholder="Password"/>
+          </div>
+          
+          <br><a href="javascript:LoginHere('');">Login</a>
+        </td>
+      </tr>
+    </table>
+
+    <!--Mobile-->
+    <div id="Page-Organiser-Mobile">
+      <div>
+        <h1>The Ultimate Note-Sharing Web App</h1>
+        <br>
+        Have you too many notes to stay organised? Do you want to share your notes with everyone, or need more reliable sources of information?
+        <br><br>Well, NoteHub's the thing you need.
+      </div>
+
+      <br><hr><div style="text-align: center;">
+        <h2>User Login</h2>
+
+        <br><div style="width: 100%; text-align: left;">
+          Username:
+          <br><input style="width: calc(100% - 30px);" type="text" data-stacked="stacked" id="Mobile-Login-Username" placeholder="Username"/>
+        </div>
+
+        <br><div style="width: 100%; text-align: left;">
+          Password:
+          <br><input style="width: calc(100% - 30px);" type="password" data-stacked="stacked" id="Mobile-Login-Password" placeholder="Password"/>
+        </div>
+          
+        <br><a href="javascript:LoginHere('Mobile-');">Login</a>
+      </div>
+    </div>
+
+    <!--Create Account-->
+    <br><hr><div style="padding: 7.5px; text-align: center;">
+      No account? Why not sign up for one? It's free, it's easy, and it lets you comment on and edit notes to your heart's content.
+      <br>
+      <br>
+      <br>
+      <a href="/accounts/sign-up.html" class="link-tile" style="margin-left: 25%; background-color: mediumseagreen; width: 50%; color: white;">Create an Account</a>
+    </div>
+  </div>
+</body>
+</html>

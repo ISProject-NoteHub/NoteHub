@@ -1,106 +1,50 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>NoteHub</title>
-  
+
   <link href="/logo.png" rel="icon" />
-  <link href="/new-styling.css" rel="stylesheet" />
-  <link href="/styling.css" rel="stylesheet" />
-  <link href="/app-styling.css" rel="stylesheet" />
-  
-  <script src="/accounts/accounts.js"></script>
-  
-  <script>
+  <link href="/test-styling.css" rel="stylesheet" />
+
+  <!--
+    <script>
     //REMEMBER: Add function to limit number of login attempts (or use CAPTCHA after a few failed logins)
-    //Noted. ~TheoLeeCJ
-    //All accounts-related functions that are used over multiple pages have been moved to accounts/accounts.js ~TheoLeeCJ
-    
-    function LoginHere(mobile) {
-      Login(document.getElementById(mobile + "Login-Username").value, document.getElementById(mobile + "Login-Password").value, function() {
-        window.location.href = "/gallery/index.html";
-      }, function() {
-        alert("Login failed.");
-      });
+    function Login() {
+      var getPHPFile = new XMLHttpRequest();
+      getPHPFile.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          console.log(getPHPFile.responseText);
+          
+          if (getPHPFile.responseText == "Login successful.") {
+            localStorage.setItem("loggedIn", document.getElementById("Login-Username").value + "," + document.getElementById("Login-Password").value);
+            window.location.href = "/accounts/index.html";
+          }
+        }
+      }
+
+      getPHPFile.open("POST", "https://notehub-serverside.000webhostapp.com/handlers/account-data.php", true);
+      getPHPFile.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      getPHPFile.send("requestedFunction=login&username=" + document.getElementById("Login-Username").value + "&password=" + document.getElementById("Login-Password").value);
     }
   </script>
+-->
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="Description" content="Welcome to NoteHub, the free notesharing service.">
 </head>
 
 <body>
-  <div id="Page-TitleBar">NoteHub</div>
-
-  <div id="Page-MenuBar">
-    <a href="/index.html" class="Page-MenuItem">Home </a>
-    <a href="/info/about.html" class="Page-MenuItem"> About </a>
-    <a href="/note/index.html" class="Page-MenuItem"> New Note </a>
-    <a href="/accounts/sign-up.html" class="Page-MenuItem"> Sign Up</a>
-  </div>
-
-  <div id="Page-Contents" style="padding: 0; width: 100%;">
-    <!--Desktop-->
-    <table id="Page-Organiser-Desktop">
-      <tr>
-        <td style="width: 70%; padding: 7.5px; text-align: center; vertical-align: top;">
-          <h1>The Ultimate Note-Sharing Web App</h1>
-          <br>
-          Have you too many notes to stay organised? Do you want to share your notes with everyone, or need more reliable sources of information?
-          <br><br>Well, NoteHub's just the thing you need.
-        </td>
-
-        <td style="width: 30%; padding: 7.5px; text-align: center; vertical-align: top;">
-          <h2>User Login</h2>
-
-          <br><div style="width: 100%; text-align: left;">
-            Username/Email:
-            <br><input style="width: calc(100% - 30px);" type="text" data-stacked="stacked" id="Login-Username" placeholder="Username or email"/>
-          </div>
-
-          <br><div style="width: 100%; text-align: left;">
-            Password:
-            <br><input style="width: calc(100% - 30px);" type="password" data-stacked="stacked" id="Login-Password" placeholder="Password"/>
-          </div>
-          
-          <br><a href="javascript:LoginHere('');">Login</a>
-        </td>
-      </tr>
-    </table>
-
-    <!--Mobile-->
-    <div id="Page-Organiser-Mobile">
-      <div>
-        <h1>The Ultimate Note-Sharing Web App</h1>
-        <br>
-        Have you too many notes to stay organised? Do you want to share your notes with everyone, or need more reliable sources of information?
-        <br><br>Well, NoteHub's the thing you need.
-      </div>
-
-      <br><hr><div style="text-align: center;">
-        <h2>User Login</h2>
-
-        <br><div style="width: 100%; text-align: left;">
-          Username:
-          <br><input style="width: calc(100% - 30px);" type="text" data-stacked="stacked" id="Mobile-Login-Username" placeholder="Username"/>
-        </div>
-
-        <br><div style="width: 100%; text-align: left;">
-          Password:
-          <br><input style="width: calc(100% - 30px);" type="password" data-stacked="stacked" id="Mobile-Login-Password" placeholder="Password"/>
-        </div>
-          
-        <br><a href="javascript:LoginHere('Mobile-');">Login</a>
-      </div>
+  <div id="Page-TitleBar"><span onclick="window.location.href='/new-index.html'"><span style="float: left; margin: 10px"><img src="/logo.png" height="50px" width="50px"></span>
+    <span
+      style="font-weight: lighter;">Note</span><b>Hub</b></span><button id="Sign-In-Button">Sign In</button></div>
+  <center>
+    <div id="ScrollingTiles">
+      <!--other images here...-->
+      <img src="/scrolling-panes-homepage/NoteHubImage3.png" width="696.15" height="487.5">
+      <!--...and here.-->
     </div>
-
-    <!--Create Account-->
-    <br><hr><div style="padding: 7.5px; text-align: center;">
-      No account? Why not sign up for one? It's free, it's easy, and it lets you comment on and edit notes to your heart's content.
-      <br>
-      <br>
-      <br>
-      <a href="/accounts/sign-up.html" class="link-tile" style="margin-left: 25%; background-color: mediumseagreen; width: 50%; color: white;">Create an Account</a>
-    </div>
-  </div>
+  </center>
 </body>
+
 </html>

@@ -2,14 +2,15 @@ var currentNoteAsObject = null;
 var privateNote = false;
 
 //Save Note As
-function SaveNoteAs() {
+function SaveNoteAs(privacy) {
+  //RE-AUTHOR FUNCTION
   //Here, check for conflicting naming in notebook, and identify if notebook + note is private or not.
   var noteAsJSON = JSON.stringify({
     meta: {
       name: document.getElementById("Title-Title").value,
       topics: document.getElementById("Debug-Tags").value.split(","),
       notebook: document.getElementById("Debug-Notebook").value, "comment": "All notes in this notebook will appear editable but only save under the user's account when saved, because they are tutorials.",
-      author: document.getElementById("Debug-Author").value
+      author: atob(localStorage.getItem("loggedIn")).split(",")[0]
     },
     content: document.getElementById("Editor").innerHTML
   });
@@ -40,10 +41,10 @@ function SaveNoteAs() {
       }
     }
   }
-          
+  
   getPHPFile.open("POST", "https://notehub-serverside.000webhostapp.com/handlers/filing.php", true);
   getPHPFile.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  getPHPFile.send("requestedFunction=MakePrivateNote&noteContent=" + noteAsJSON.trim() + "&noteName=" + document.getElementById("Title-Title").value + ".json" + "&username=" + atob(localStorage.getItem("loggedIn")).split(",")[0] + "&password=" + atob(localStorage.getItem("loggedIn")).split(",")[1]);
+  getPHPFile.send("requestedFunction=MakePrivateNote&noteContent=" + encodeURIComponent(noteAsJSON.trim()) + "&noteName=" + document.getElementById("Title-Title").value + ".json" + "&username=" + atob(localStorage.getItem("loggedIn")).split(",")[0] + "&password=" + atob(localStorage.getItem("loggedIn")).split(",")[1]);
 }
 
 //Save Note
