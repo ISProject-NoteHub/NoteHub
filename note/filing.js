@@ -3,7 +3,7 @@ var privateNote = false;
 
 //Save Note As
 function SaveNoteAs() {
-  //Here, check for conflicting naming in notebook
+  //Here, check for conflicting naming in notebook, and identify if notebook + note is private or not.
   var noteAsJSON = JSON.stringify({
     meta: {
       name: document.getElementById("Title-Title").value,
@@ -41,9 +41,9 @@ function SaveNoteAs() {
     }
   }
           
-  getPHPFile.open("POST", "https://backend.ga/handlers/filing.php", true);
+  getPHPFile.open("POST", "https://notehub-serverside.000webhostapp.com/handlers/filing.php", true);
   getPHPFile.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  getPHPFile.send("requestedFunction=write&checkConflict=true&note=" + noteAsJSON + "&noteId=" + document.getElementById("Title-Title").value + ".json" + "&topic=private-notes/" + document.getElementById("Debug-Author").value);
+  getPHPFile.send("requestedFunction=MakePrivateNote&noteContent=" + noteAsJSON.trim() + "&noteName=" + document.getElementById("Title-Title").value + ".json" + "&username=" + atob(localStorage.getItem("loggedIn")).split(",")[0] + "&password=" + atob(localStorage.getItem("loggedIn")).split(",")[1]);
 }
 
 //Save Note
@@ -87,7 +87,7 @@ function GetNote(topic, noteID) {
       document.getElementById("Editor").innerHTML = currentNoteAsObject.content;
     }
   }
-  getPHPFile.open("GET", "https://backend.ga/handlers/filing.php?requestedFunction=read&topic=" + topic + "&noteId=" + noteID, true);
+  getPHPFile.open("GET", "https://notehub-serverside.000webhostapp.com/handlers/filing.php?requestedFunction=read&topic=" + topic + "&noteId=" + noteID, true);
   getPHPFile.send();
 }
 
