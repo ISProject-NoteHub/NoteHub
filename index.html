@@ -1,52 +1,109 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <title>NoteHub</title>
 
   <link href="/logo.png" rel="icon" />
   <link href="/test-styling.css" rel="stylesheet" />
 
-  <!--
-    <script>
-    //REMEMBER: Add function to limit number of login attempts (or use CAPTCHA after a few failed logins)
-    function Login() {
-      var getPHPFile = new XMLHttpRequest();
-      getPHPFile.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-          console.log(getPHPFile.responseText);
-          
-          if (getPHPFile.responseText == "Login successful.") {
-            localStorage.setItem("loggedIn", document.getElementById("Login-Username").value + "," + document.getElementById("Login-Password").value);
-            window.location.href = "/accounts/index.html";
-          }
-        }
-      }
+  <style>
+    body { margin: 0; }
 
-      getPHPFile.open("POST", "https://notehub-serverside.000webhostapp.com/handlers/account-data.php", true);
-      getPHPFile.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-      getPHPFile.send("requestedFunction=login&username=" + document.getElementById("Login-Username").value + "&password=" + document.getElementById("Login-Password").value);
+    #Special-ScrollingTiles {
+      animation-name: scroll; animation-play-state: running; animation-duration: 14s; animation-iteration-count: infinite;
+      height: auto;
+      left: -20px; top: 60px;
+      padding: 30px;
+      position: relative;
+      width: 600%;
+      background-color: black;
+    }
+
+    @keyframes scroll {
+      0% { left: calc(-20px - 50%); }
+      14.29% { left: calc(-20px - 150%); }
+      21.43% { left: calc(-20px - 150%); }
+      35.71% { left: calc(-20px - 250%); }
+      42.86% { left: calc(-20px - 250%); }
+      57.14% { left: calc(-20px - 350%); }
+      64.29% { left: calc(-20px - 350%); }
+      78.57% { left: calc(-20px - 450%); }
+      85.71% { left: calc(-20px - 450%); }
+      100% { left: calc(-20px - 50%); }
+    }
+
+    .Page-Section {
+      padding: 10px;
+      color: white;
+    }
+
+    .Page-Section[data-background=collab] {
+      background:
+        linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ),
+        url(http://www.parallaksis.com/wp-content/uploads/2014/04/slide3_collaboration.jpg);
+    }
+
+    .Page-Section[data-background=notes] {
+      background:
+        linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ),
+        url("https://www.incimages.com/uploaded_files/image/1940x900/post-it-notes-wall)_1940x900_33832.jpg");
+    }
+  </style>
+
+  <script>
+    function LoginHere(mobile) {
+      Login(document.getElementById(mobile + "Login-Username").value, document.getElementById(mobile + "Login-Password").value, function() {
+        window.location.href = "/gallery/index.html";
+      }, function() {
+        alert("Login failed.");
+      });
     }
   </script>
--->
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="Description" content="Welcome to NoteHub, the free notesharing service.">
 </head>
 
 <body>
-  <div id="Page-TitleBar"><span onclick="window.location.href='/new-index.html'"><span style="float: left; margin: 10px"><img src="/logo.png" height="50px" width="50px"></span>
-    <span
-      style="font-weight: lighter;">Note</span><b>Hub</b></span><button id="Sign-In-Button">Sign In</button></div>
+  <div id="Page-TitleBar">
+    <a href="/"><span style="float: left; margin: 10px"><img src="/logo.png" height="50px" width="50px"></a>
+    <span style="font-weight: lighter;">Note</span><b>Hub</b></span>
+    <a id="Page-SignIn" href="/accounts/sign-in.html">Sign In</a>
+  </div>
+
   <center>
-    <div id="ScrollingTiles">
+    <div id="Special-ScrollingTiles">
       <!--Change later. This is to show that the animation is indeed taking place.-->
-      <img src="/scrolling-panes-homepage/NoteHubImage3.png" width="696.15" height="487.5">
-      <img src="/scrolling-panes-homepage/NoteHubImage3.png" width="696.15" height="487.5">
-      <img src="/scrolling-panes-homepage/NoteHubImage3.png" width="696.15" height="487.5">
-      <img src="/scrolling-panes-homepage/NoteHubImage3.png" width="696.15" height="487.5">
+      <img src="/homepage-resources/scrollingPanes-3.png" width="696.15" height="487.5">
+      <img src="/homepage-resources/scrollingPanes-3.png" width="696.15" height="487.5">
+      <img src="/homepage-resources/scrollingPanes-3.png" width="696.15" height="487.5">
+      <img src="/homepage-resources/scrollingPanes-3.png" width="696.15" height="487.5">
     </div>
   </center>
-</body>
 
+  <div class="Page-Section" style="margin-top: 60px;" data-background="notes">
+    <h1>Free Notes... For <b>All</b>!</h1>
+    <p>
+      NoteHub is a free notesharing services for anyone and everyone - you may be a student, a businessman or the owner of a start-up if you wish - as long as you need notes, you seek to benefit from NoteHub.
+      <br><br>You can help other people too - NoteHub's a notesharing service, so your notes can be easily shared with everyone - for people to see, for people to explore in a gallery, and for people to improve on them.
+    </p>
+
+    <span style="font-size: 12px;">Image courtesy <a style="color: white;" href="https://www.incimages.com/">https://www.incimages.com/</a>.</span>
+  </div>
+
+  <div class="Page-Section" data-background="collab">
+    <h1>Harness&nbsp;the&nbsp;Power&nbsp;of&nbsp;Collaboration</h1>
+    <p>
+      Whilst people seek to benefit from your notes, you can benefit too! Anyone can add suggestions, comments or improvements to your notes, and these can help you know how, and where, you can improve - indeed, everyone wins!
+      <br><br>Of course, we do offer standard direct collaboration where collaborators can edit your notes directly as well (even if they don't have an account)!
+    </p>
+
+    <span style="font-size: 12px;">Image courtesy <a style="color: white;" href="http://www.parallaksis.com/">http://www.parallaksis.com/</a>.</span>
+  </div>
+
+  <div class="Page-Section" style="text-align: center; background-color: black;">
+    <h1>What are you waiting for? Sign up for NoteHub today!</h1>
+    <a href="/accounts/sign-up.html" style="display: block; margin-left: calc(15% - 10px); width: 70%; text-decoration: none; color: white; background-color: seagreen; border-radius: 10px; padding: 10px;">Sign Up!</a>
+  </div>
+</body>
 </html>

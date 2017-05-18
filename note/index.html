@@ -10,38 +10,38 @@
   <script src="formatting.js"></script>
   <script src="miscellaneous.js"></script>
   <script src="filing.js"></script>
-  <script src="../query-string.js"></script>
+  <script src="../query-strings.js"></script>
   <script src="../accounts/accounts.js"></script>
 </head>
   
 <body onload="Autorun();">
   <div id="Menu-IconBar" data-open="closed">
-    <div class="IconBar-Function" onclick="SaveNoteAs();">
+    <div class="IconBar-Function" onclick="SaveNoteAs();" title="Save Changes As...">
       <table style="border-spacing: 0px;"><tbody><tr><td><img src="icons/plus.png" width="32" height="32"></td><td>&nbsp;&nbsp;Save&nbsp;Note&nbsp;As</td></tr></tbody></table>
     </div>
-    <div class="IconBar-Function" onclick="SaveNote();">
+    <div class="IconBar-Function" onclick="SaveNote();" title="Save Changes to Note">
       <table style="border-spacing: 0px;"><tbody><tr><td><img src="icons/save.png" width="32" height="32"></td><td>&nbsp;&nbsp;Save&nbsp;Note</td></tr></tbody></table>
     </div>
-    <div class="IconBar-Function" onclick="ViewNotebook();">
+    <div class="IconBar-Function" onclick="ViewNotebook();" title="This Notebook">
       <table style="border-spacing: 0px;"><tbody><tr><td><img src="icons/folder.png" width="32" height="32"></td><td>&nbsp;&nbsp;This&nbsp;Notebook</td></tr></tbody></table>
     </div>
     <hr>
-    <div class="IconBar-Function">
+    <div class="IconBar-Function" title="New Note">
       <table style="border-spacing: 0px;"><tbody><tr><td><img src="icons/document.png" width="32" height="32"></td><td>&nbsp;&nbsp;New&nbsp;Note</td></tr></tbody></table>
     </div>
-    <div class="IconBar-Function">
+    <div class="IconBar-Function" title="Browse NoteHub">
       <table style="border-spacing: 0px;"><tbody><tr><td><img src="icons/worldwide.png" width="32" height="32"></td><td>&nbsp;&nbsp;Browse&nbsp;NoteHub</td></tr></tbody></table>
     </div>
     <hr>
-    <div class="IconBar-Function" id="MyAccount">
+    <div class="IconBar-Function" id="MyAccount" title="My Account">
       <table style="border-spacing: 0px;"><tbody><tr><td><img src="icons/imperial-user.png" width="32" height="32"></td><td>&nbsp;&nbsp;My&nbsp;Account</td></tr></tbody></table>
     </div>
     <div class="IconBar-Function">
-      <table style="border-spacing: 0px;"><tbody><tr><td><img src="icons/login.png" width="32" height="32"></td><td>&nbsp;&nbsp;<span id="LoggedInOut">Logout</span></td></tr></tbody></table>
+      <table style="border-spacing: 0px;" title="Login"><tbody><tr><td><img src="icons/login.png" width="32" height="32"></td><td>&nbsp;&nbsp;<span id="LoggedInOut">Logout</span></td></tr></tbody></table>
     </div>
     <hr>
     <div class="IconBar-Function" onclick="document.getElementById('Debug').style.display = 'block';">
-      <table style="border-spacing: 0px;"><tbody><tr><td><img src="icons/user.png" width="32" height="32"></td><td>&nbsp;&nbsp;<span id="LoggedInOut">Debug</span></td></tr></tbody></table>
+      <table style="border-spacing: 0px;" title="Debug"><tbody><tr><td><img src="icons/user.png" width="32" height="32"></td><td>&nbsp;&nbsp;<span id="LoggedInOut">Debug</span></td></tr></tbody></table>
     </div>
   </div>
 
@@ -156,7 +156,7 @@
 
     <div id="Modal-Buttons">
       <button class="Modal-Button" onclick="document.getElementById('Modal').style.display = 'none';">CLOSE</button>
-      <button id="Modal-Buttons-ActionButton" disabled="disabled" class="Modal-Button">SAVE AS ANONYMOUS</button> <!--Ask user for tags-->
+      &nbsp;<button id="Modal-Buttons-ActionButton" disabled="disabled" class="Modal-Button">SAVE AS ANONYMOUS</button> <!--Ask user for tags-->
     </div>
   </div>
   

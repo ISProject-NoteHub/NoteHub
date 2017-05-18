@@ -6,65 +6,16 @@
   position: fixed;
   font-size: 30px;
   color: white;
+  z-index: 2;
 }
 
-#ScrollingTiles {
-  animation-name: scroll;
-  animation-play-state: running;
-  animation-duration: 14s;
-  animation-iteration-count: infinite;
-  height: auto;
-  left: -20px;
-  padding: 30px;
-  top: 60px;
-  position: relative;
-  width: 600%;
-  background-color: black;
-  /*DO NOT CHANGE THIS ELEMENT'S RULES AT ALL! I AM DONE! :)
-  - Wing Yip
-  Oh, and Theodore, could you help me shove new images to the left instead of on top of the existing ones? Thanks.*/
-}
-
-@keyframes scroll {
-  0% { left: calc(-20px - 50%); }
-  14.29% { left: calc(-20px - 150%); }
-  21.43% { left: calc(-20px - 150%); }
-  35.71% { left: calc(-20px - 250%); }
-  42.86% { left: calc(-20px - 250%); }
-  57.14% { left: calc(-20px - 350%); }
-  64.29% { left: calc(-20px - 350%); }
-  78.57% { left: calc(-20px - 450%); }
-  85.71% { left: calc(-20px - 450%); }
-  100% { left: calc(-20px - 50%); }
-  /* The rapid changes in background colour are just to show that the animation is taking place. 
-  Will change background colour to something more appropriate when Samuel tells me what colours to use.*/
-}
-
-/*USE PERCENTAGES. Two seconds for each image. 1 second delay between each image. Remember - 2s pause on 1st image after loop.
-Later, include buttons to move panels back and forth.
-Is it possible to make the animation loop back to the first image after it's done?
-YES, IT IS! Use CSS.*/
-
-#Home-Button {
-  border-radius: 10px;
-  border: 3px solid white;
+#Page-SignIn {
+  display: inline-block;
+  text-align: center; text-decoration: none;
   width: 125px;
   font-size: 20px;
-  padding: 7.5px; margin: 10px; padding-left: 15px; padding-right: 15px;
-  color: white; background-color: transparent;
-  float: right;
-  font-family: "Segoe UI", "Helvetica", "sans-serif";
-}
-
-#Sign-In-Button {
-  border-radius: 10px;
-  border: 3px solid rgb(1,152,255);
-  width: 125px;
-  font-size: 20px;
-  padding: 7.5px; margin: 10px; padding-left: 15px; padding-right: 15px;
   color: rgb(1,152,255); background-color: white;
   float: right;
-  font-family: "Segoe UI", "Helvetica", "sans-serif";
 }
 
 body {

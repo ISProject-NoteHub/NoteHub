@@ -49,15 +49,7 @@ function SaveNoteAs(privacy) {
 
 //Save Note
 
-//Show tooltip explaining note size restrictions
-function SizeMatters() {
-  ShowTooltip("SizeMatters");
-}
-
-//Show report pane
-function ShowReportPane() {
-  ShowPane("NoteSavingReport");
-}
+//...
 
 //Decode html entities
 function decodeHTML(html) {
