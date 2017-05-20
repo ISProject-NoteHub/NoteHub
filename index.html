@@ -4,8 +4,8 @@
 <head>
   <title>NoteHub</title>
 
-  <link href="/logo.png" rel="icon" />
-  <link href="/test-styling.css" rel="stylesheet" />
+  <link href="./logo.png" rel="icon" />
+  <link href="./test-styling.css" rel="stylesheet" />
 
   <style>
     body {
@@ -28,51 +28,35 @@
 
     @keyframes scroll {
       0% {
-        left: calc(-20px - 50%);
+        left: calc(-20px);
       }
       14.29% {
-        left: calc(-20px - 150%);
+        left: calc(-20px - 100%);
       }
       21.43% {
-        left: calc(-20px - 150%);
+        left: calc(-20px - 100%);
       }
       35.71% {
-        left: calc(-20px - 250%);
+        left: calc(-20px - 200%);
       }
       42.86% {
-        left: calc(-20px - 250%);
+        left: calc(-20px - 200%);
       }
       57.14% {
-        left: calc(-20px - 350%);
+        left: calc(-20px - 300%);
       }
       64.29% {
-        left: calc(-20px - 350%);
+        left: calc(-20px - 300%);
       }
       78.57% {
-        left: calc(-20px - 450%);
+        left: calc(-20px - 400%);
       }
       85.71% {
-        left: calc(-20px - 450%);
+        left: calc(-20px - 400%);
       }
       100% {
         left: calc(-20px - 50%);
       }
-    }
-
-    #ScrollingImages {
-      left: calc(100%/6 - 696.15px/2)
-    }
-
-    #ScrollingImages2 {
-      left: calc(200%/6 - 696.15px/2)
-    }
-
-    #ScrollingImages3 {
-      left: calc(300%/6 - 696.15px/2)
-    }
-
-    #ScrollingImages4 {
-      left: calc(400%/6 - 696.15px/2)
     }
 
     .Page-Section {
@@ -94,7 +78,7 @@
   <script>
     function LoginHere(mobile) {
       Login(document.getElementById(mobile + "Login-Username").value, document.getElementById(mobile + "Login-Password").value, function () {
-        window.location.href = "/gallery/index.html";
+        window.location.href = "./gallery/index.html";
       }, function () {
         alert("Login failed.");
       });
@@ -107,19 +91,37 @@
 
 <body>
   <div id="Page-TitleBar">
-    <a href="/"><span style="float: left; margin: 10px"><img src="/logo.png" height="50px" width="50px"></a>
+    <a href="./"><span style="float: left; margin: 10px"><img src="./logo.png" height="50px" width="50px"></a>
     <span style="font-weight: lighter;">Note</span><b>Hub</b></span>
   </div>
 
-  <a id="Page-SignIn" href="/accounts/sign-in.html">Sign In</a>
+  <a id="Page-SignIn" href="./accounts/sign-in.html">Sign In</a>
 
   <center>
     <div id="Special-ScrollingTiles">
       <!--Change later. This is to show that the animation is indeed taking place.-->
-      <img src="/homepage-resources/scrollingPanes-3.png" width="696.15" height="487.5" id="ScrollingImages">
-      <img src="/homepage-resources/scrollingPanes-3.png" width="696.15" height="487.5" id="ScrollingImages2">
-      <img src="/homepage-resources/scrollingPanes-3.png" width="696.15" height="487.5" id="ScrollingImages3">
-      <img src="/homepage-resources/scrollingPanes-3.png" width="696.15" height="487.5" id="ScrollingImages4">
+      <table width="100%">
+        <tr>
+          <td width="16.6%">
+            <center></center>
+          </td>
+          <td width="16.6%">
+            <center><img src="./homepage-resources/scrollingPanes-3.png" width="696.15" height="487.5"></center>
+          </td>
+          <td width="16.6%">
+            <center><img src="./homepage-resources/scrollingPanes-3.png" width="696.15" height="487.5"></center>
+          </td>
+          <td width="16.6%">
+            <center><img src="./homepage-resources/scrollingPanes-3.png" width="696.15" height="487.5"></center>
+          </td>
+          <td width="16.6%">
+            <center><img src="./homepage-resources/scrollingPanes-3.png" width="696.15" height="487.5"></center>
+          </td>
+          <td width="16.6%">
+            <center></center>
+          </td>
+        </tr>
+      </table>
     </div>
   </center>
 
@@ -149,7 +151,7 @@
 
   <div class="Page-Section" style="text-align: center; background-color: black;">
     <h1>What are you waiting for? Sign up for NoteHub today!</h1>
-    <a href="/accounts/sign-up.html" style="display: block; margin-left: calc(15% - 10px); width: 70%; text-decoration: none; color: white; background-color: seagreen; border-radius: 10px; padding: 10px;">Sign Up!</a>
+    <a href="./accounts/sign-up.html" style="display: block; margin-left: calc(15% - 10px); width: 70%; text-decoration: none; color: white; background-color: seagreen; border-radius: 10px; padding: 10px;">Sign Up!</a>
   </div>
 </body>
 
