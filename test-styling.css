@@ -12,15 +12,14 @@
 #Page-SignIn {
   position: fixed;
   text-decoration: none;
-  right: 5px; top: 5px;
+  right: 15px; top: 15px;
   z-index: 3;
   border-radius: 10px;
   width: 125px;
   font-size: 20px;
   text-align: center;
-  padding: 7.5px; margin: 10px; padding-left: 15px; padding-right: 15px;
+  padding: 7.5px;
   color: rgb(1,152,255); background-color: white;
-  float: right;
   font-family: "Segoe UI", "Helvetica", "sans-serif";
 }
 
