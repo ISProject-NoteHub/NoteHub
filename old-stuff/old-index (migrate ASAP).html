@@ -1,14 +1,15 @@
+<!--Change all the ../ to ./ if you want to use parts of this file!-->
 <!DOCTYPE html>
 <html>
 <head>
   <title>NoteHub</title>
   
-  <link href="/logo.png" rel="icon" />
-  <link href="/new-styling.css" rel="stylesheet" />
-  <link href="/styling.css" rel="stylesheet" />
-  <link href="/app-styling.css" rel="stylesheet" />
+  <link href="../logo.png" rel="icon" />
+  <link href="../new-styling.css" rel="stylesheet" />
+  <link href="../styling.css" rel="stylesheet" />
+  <link href="../app-styling.css" rel="stylesheet" />
   
-  <script src="/accounts/accounts.js"></script>
+  <script src="../accounts/accounts.js"></script>
   
   <script>
     //REMEMBER: Add function to limit number of login attempts (or use CAPTCHA after a few failed logins)
@@ -17,7 +18,7 @@
     
     function LoginHere(mobile) {
       Login(document.getElementById(mobile + "Login-Username").value, document.getElementById(mobile + "Login-Password").value, function() {
-        window.location.href = "/gallery/index.html";
+        window.location.href = "../gallery/index.html";
       }, function() {
         alert("Login failed.");
       });
@@ -32,10 +33,10 @@
   <div id="Page-TitleBar">NoteHub</div>
 
   <div id="Page-MenuBar">
-    <a href="/index.html" class="Page-MenuItem">Home </a>
-    <a href="/info/about.html" class="Page-MenuItem"> About </a>
-    <a href="/note/index.html" class="Page-MenuItem"> New Note </a>
-    <a href="/accounts/sign-up.html" class="Page-MenuItem"> Sign Up</a>
+    <a href="../index.html" class="Page-MenuItem">Home </a>
+    <a href="../info/about.html" class="Page-MenuItem"> About </a>
+    <a href="../note/index.html" class="Page-MenuItem"> New Note </a>
+    <a href="../accounts/sign-up.html" class="Page-MenuItem"> Sign Up</a>
   </div>
 
   <div id="Page-Contents" style="padding: 0; width: 100%;">
@@ -54,12 +55,12 @@
 
           <br><div style="width: 100%; text-align: left;">
             Username/Email:
-            <br><input style="width: calc(100% - 30px);" type="text" data-stacked="stacked" id="Login-Username" placeholder="Username or email"/>
+            <br><input style="width: calc(100% - 30px);" type="text" data-stacked="stacked" id="Login-Username" placeholder="Username or email"../>
           </div>
 
           <br><div style="width: 100%; text-align: left;">
             Password:
-            <br><input style="width: calc(100% - 30px);" type="password" data-stacked="stacked" id="Login-Password" placeholder="Password"/>
+            <br><input style="width: calc(100% - 30px);" type="password" data-stacked="stacked" id="Login-Password" placeholder="Password"../>
           </div>
           
           <br><a href="javascript:LoginHere('');">Login</a>
@@ -81,12 +82,12 @@
 
         <br><div style="width: 100%; text-align: left;">
           Username:
-          <br><input style="width: calc(100% - 30px);" type="text" data-stacked="stacked" id="Mobile-Login-Username" placeholder="Username"/>
+          <br><input style="width: calc(100% - 30px);" type="text" data-stacked="stacked" id="Mobile-Login-Username" placeholder="Username"../>
         </div>
 
         <br><div style="width: 100%; text-align: left;">
           Password:
-          <br><input style="width: calc(100% - 30px);" type="password" data-stacked="stacked" id="Mobile-Login-Password" placeholder="Password"/>
+          <br><input style="width: calc(100% - 30px);" type="password" data-stacked="stacked" id="Mobile-Login-Password" placeholder="Password"../>
         </div>
           
         <br><a href="javascript:LoginHere('Mobile-');">Login</a>
@@ -99,7 +100,7 @@
       <br>
       <br>
       <br>
-      <a href="/accounts/sign-up.html" class="link-tile" style="margin-left: 25%; background-color: mediumseagreen; width: 50%; color: white;">Create an Account</a>
+      <a href="../accounts/sign-up.html" class="link-tile" style="margin-left: 25%; background-color: mediumseagreen; width: 50%; color: white;">Create an Account</a>
     </div>
   </div>
 </body>
