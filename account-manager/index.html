@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <link href="../logo.png" rel="icon" />
+  <link href="../new-styling.css" rel="stylesheet" />
+  <link href="../test-styling.css" rel="stylesheet" />
   <link href="../editor-styling.css" rel="stylesheet" />
   
   <script src="miscellaneous.js"></script>
@@ -37,29 +39,30 @@
 <body onload="Autorun();">
   <div id="Menu-IconBar" data-open="closed">
     <div class="IconBar-Function">
-      <table style="border-spacing: 0px;"><tbody><tr><td><img src="../note/icons/home.png" width="32" height="32"></td><td>&nbsp;&nbsp;Account&nbsp;Home</td></tr></tbody></table>
+      <table style="border-spacing: 0px;"><tbody><tr><td><img src="../view-note/icons/home.png" width="32" height="32"></td><td>&nbsp;&nbsp;Account&nbsp;Home</td></tr></tbody></table>
     </div>
     <div class="IconBar-Function">
-      <table style="border-spacing: 0px;"><tbody><tr><td><img src="../note/icons/user.png" width="32" height="32"></td><td>&nbsp;&nbsp;Account&nbsp;Security/Privacy</td></tr></tbody></table>
+      <table style="border-spacing: 0px;"><tbody><tr><td><img src="../view-note/icons/security.png" width="32" height="32"></td><td>&nbsp;&nbsp;Account&nbsp;Security/Privacy</td></tr></tbody></table>
     </div>
     <div class="IconBar-Function">
-      <table style="border-spacing: 0px;"><tbody><tr><td><img src="../note/icons/details.png" width="32" height="32"></td><td>&nbsp;&nbsp;Account&nbsp;Details</td></tr></tbody></table>
+      <table style="border-spacing: 0px;"><tbody><tr><td><img src="../view-note/icons/user.png" width="32" height="32"></td><td>&nbsp;&nbsp;Account&nbsp;Details</td></tr></tbody></table>
     </div>
     <div class="IconBar-Function">
-      <table style="border-spacing: 0px;"><tbody><tr><td><img src="../note/icons/login.png" width="32" height="32"></td><td>&nbsp;&nbsp;Logout</td></tr></tbody></table>
+      <table style="border-spacing: 0px;"><tbody><tr><td><img src="../view-note/icons/login.png" width="32" height="32"></td><td>&nbsp;&nbsp;Logout</td></tr></tbody></table>
     </div>
     <hr>
-    <a class="IconBar-Function" href="../note/" style="display: block; text-decoration: none;">
-      <table style="border-spacing: 0px;"><tbody><tr><td><img src="../note/icons/plus.png" width="32" height="32"></td><td>&nbsp;&nbsp;New&nbsp;Note</td></tr></tbody></table>
+    <a class="IconBar-Function" href="../view-note/" style="display: block; text-decoration: none;">
+      <table style="border-spacing: 0px;"><tbody><tr><td><img src="../view-note/icons/plus.png" width="32" height="32"></td><td>&nbsp;&nbsp;New&nbsp;Note</td></tr></tbody></table>
     </a>
     <div class="IconBar-Function" onclick="ViewNotebooks();">
-      <table style="border-spacing: 0px;"><tbody><tr><td><img src="../note/icons/folder.png" width="32" height="32"></td><td>&nbsp;&nbsp;This&nbsp;Notebook</td></tr></tbody></table>
+      <table style="border-spacing: 0px;"><tbody><tr><td><img src="../view-note/icons/folder.png" width="32" height="32"></td><td>&nbsp;&nbsp;This&nbsp;Notebook</td></tr></tbody></table>
     </div>
   </div>
   
-  <div id="Header">
+  <div id="Page-TitleBar">
+    &nbsp;
     <span onclick="RevealIconDescriptors();" style="cursor: pointer;">&#9776;</span>&nbsp;
-    <span style="font-weight: lighter">Note</span><span><b>Hub</b></span> - My Account
+    <span style="font-weight: lighter">Note</span><span><b>Hub</b></span>
   </div>
   
   <div id="Title" style="width: calc(100% - 67px); font-size: 23px;">Welcome to NoteHub, <span id="NewUserName">User</span>.</div>

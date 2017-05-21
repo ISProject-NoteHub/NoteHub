@@ -92,22 +92,22 @@ body {
   #Title {
     width: calc(100% - 57px);
     padding: 5px;
-    top: 50px;
+    top: 55px;
   }
   
   #TopBar {
     width: calc(100% - 52px);
     padding: 2.5px;
-    top: 90px; left: 47px;
+    top: 55px; left: 47px;
   }
 
   #Editor {
-    top: 130px;
+    top: 105px;
     height: calc(100% - 150px);
   }
   
   #Menu-IconBar {
-    top: 50px;
+    top: 55px;
     height: calc(100% - 50px);
   }
   
@@ -159,22 +159,22 @@ body {
   #Title {
     width: calc(30% - 67px);
     padding: 10px;
-    top: 55px;
+    top: 70px;
   }
   
   #TopBar {
     width: calc(70% - 15px);
     padding: 7.5px;
-    top: 55px; left: 30%;
+    top: 70px; left: 30%;
   }
 
   #Editor {
-    top: 105px;
+    top: 120px;
     height: calc(100% - 125px);
   }
   
   #Menu-IconBar {
-    top: 55px;
+    top: 70px;
     height: calc(100% - 55px);
   }
   
@@ -265,6 +265,7 @@ body {
   animation-name: IconBar-Contract;
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
+  padding-top: 5px;
 }
 
 #Menu-IconBar[data-open=open] {
@@ -272,6 +273,7 @@ body {
   animation-name: IconBar-Expand;
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
+  padding-top: 5px;
 }
 
 .FormattingSelect {

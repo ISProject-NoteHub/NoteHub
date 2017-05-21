@@ -4,8 +4,7 @@
   <title>Gallery | NoteHub</title>
   <link href="../logo.png" rel="icon" />
   <link href="../new-styling.css" rel="stylesheet" />
-  <link href="../styling.css" rel="stylesheet" />
-  <link href="../app-styling.css" rel="stylesheet" />
+  <link href="../test-styling.css" rel="stylesheet" />
 
   <style>
     #Page-Organiser-Mobile {
@@ -48,21 +47,18 @@
 </head>
 
 <body>
-  <div id="App-NoteHubInGallery"><span style="font-weight: lighter;">Note</span><b>Hub</b></div>
-  <div id="App-Gallery">Gallery</div>
-
-  <div id="Page-MenuBar">
-    <a href="../index.html" class="Page-MenuItem">Home </a>
-    <a href="../info/about.html" class="Page-MenuItem"> About </a>
-    <a href="../note/index.html" class="Page-MenuItem"> New Note </a>
-    <a href="../accounts/sign-up.html" class="Page-MenuItem"> Sign Up</a>
+  <div id="Page-TitleBar">
+    <a href="../"><span style="float: left; margin: 10px"><img src="../logo.png" height="50px" width="50px"></a>
+    <span style="font-weight: lighter;">Note</span><b>Hub</b></span>
   </div>
+
+  <a id="Page-SignIn" href="../accounts/sign-in.html">Sign In</a>
 
   <div id="Page-Contents">
     <div id="Page-Organiser-Desktop">
       <input type="text" placeholder="Search for keywords and topics..." style="padding: 10px; font-size: 20px; width: calc(100% - 300px);" id="Gallery-SearchByKeywords" />
       <span style="position: relative; width: 0; height: 0;">
-        <button style="font-size: 20px; padding: 7.5px; position: absolute; left: -93px; top: -8.5px; border-radius: 5px; background-color: lightgrey;">Search!</button>
+        <button style="font-size: 20px; padding: 7.5px; position: absolute; left: -95px; top: -11px; border-radius: 5px; background-color: lightgrey;">Search!</button>
       </span>
       <span style="position: relative; width: 0; height: 0;">
         <button title="Recommended notes for you, based on what you've done and read on NoteHub." style="font-size: 20px; left: -80px; padding: 10px; width: 270px; border: 2px solid buttonface;">Recommendations</button>
@@ -71,7 +67,7 @@
       <br><br><label id="Search-Header" style="font-size: 20px;">Recommendations</label>
       <div id="Search-Results" style="margin-top: 10px;" onload="GetRecommendations();">
         <!--Sample search results - real results would be generated on-the-fly by JS-->
-        <div class="SearchResult" style="background-image: url('/logo.png'); background-repeat: no-repeat; background-size: 100% 100%;">
+        <div class="SearchResult" style="background-image: url('../logo.png'); background-repeat: no-repeat; background-size: 100% 100%;">
           <span class="SearchResult-OverlayPiece">
             <div class="SearchResult-Title">
               <label style="font-size: 18px;">NoteHub Basics /<br>Getting Started with NoteHub</label>

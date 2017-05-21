@@ -16,21 +16,11 @@ body {
   cursor: default;
 }
 
-#Page-TitleBar {
-  background-color: gray; color: white;
-  position: fixed;
-  left: 0; top: 0;
-  width: 100%;
-  padding: 10px;
-  font-size: 26px;
-  z-index: 2;
-}
-
 #Page-Contents {
   background-color: white;
   z-index: 1;
   position: absolute;
-  top: 55px; left: 0;
+  top: 70px; left: 0;
   width: calc(100% - 20px);
   padding: 10px;
 }
@@ -59,7 +49,7 @@ body {
 }
 
 @media screen and (min-width: 541px) {
-  #Page-TitleBar { padding-left: 50px; }
+  #Page-TitleBar { padding-left: 0px; }
 }
 
 @font-face {
