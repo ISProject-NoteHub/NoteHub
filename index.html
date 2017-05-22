@@ -14,7 +14,6 @@
 
     #Special-ScrollingTiles {
       animation-name: scroll;
-      animation-play-state: running;
       animation-duration: 14s;
       animation-iteration-count: infinite;
       height: auto;
@@ -23,6 +22,7 @@
       position: relative;
       width: 600%;
       background-color: black;
+      text-align: center;
     }
 
     @keyframes scroll {
@@ -96,33 +96,32 @@
 
   <a id="Page-SignIn" href="./accounts/sign-in.html">Sign In</a>
 
-  <center>
-    <div id="Special-ScrollingTiles">
-      <!--Change later. This is to show that the animation is indeed taking place.-->
-      <table width="100%">
-        <tr>
-          <td width="16.6%">
-            <center></center>
-          </td>
-          <td width="16.6%" style="background-image: url('./homepage-resources/scrollingPanes-1.png'); width: 1920px; height: 100%; background-position: center; background-size: cover;">
-            <center><img src="./homepage-resources/scrollingPanes-3.png" width="696.15" height="487.5"></center>
-          </td>
-          <td width="16.6%">
-            <center><img src="./homepage-resources/scrollingPanes-3.png" width="696.15" height="487.5" style="padding: 30px;"></center>
-          </td>
-          <td width="16.6%">
-            <center><img src="./homepage-resources/scrollingPanes-3.png" width="696.15" height="487.5" style="padding: 30px;"></center>
-          </td>
-          <td width="16.6%">
-            <center><img src="./homepage-resources/scrollingPanes-3.png" width="696.15" height="487.5" style="padding: 30px;"></center>
-          </td>
-          <td width="16.6%">
-            <center></center>
-          </td>
-        </tr>
-      </table>
-    </div>
-  </center>
+
+  <div id="Special-ScrollingTiles">
+    <!--Change later. This is to show that the animation is indeed taking place.-->
+    <table width="100%">
+      <tr>
+        <td width="16.6%"></td>
+        <td width="16.6%" style="background-image: url('./homepage-resources/scrollingPanes-1.png'); width: 1920px; height: 100%; background-position: center; background-size: cover;">
+          <span style="font-size: 200px; color: white;"><span style="font-weight: lighter; vertical-align: top;">Note</span><b>Hub</b></span>
+          </span><br>
+          <span style="font-size: 40px; color: white; vertical-align: center;">The Free Note-Sharing Service</span><br><br>
+          <span style="font-size: 20px; color: white; vertical-align: bottom;">built with love by AloysiusDoesTastyFries, HoWingYip, TheoLeeCJ and Hababanana</span>
+        </td>
+        <td width="16.6%">
+          <img src="./homepage-resources/scrollingPanes-3.png" width="696.15" height="487.5" style="padding: 30px;">
+        </td>
+        <td width="16.6%">
+          <img src="./homepage-resources/scrollingPanes-3.png" width="696.15" height="487.5" style="padding: 30px;">
+        </td>
+        <td width="16.6%">
+          <img src="./homepage-resources/scrollingPanes-3.png" width="696.15" height="487.5" style="padding: 30px;">
+        </td>
+        <td width="16.6%"></td>
+      </tr>
+    </table>
+  </div>
+
 
   <div class="Page-Section" style="margin-top: 60px;" data-background="notes">
     <h1>Free Notes... For <b>All</b>!</h1>
@@ -150,7 +149,7 @@
 
   <div class="Page-Section" style="text-align: center; background-color: black;">
     <h1>What are you waiting for? Sign up for NoteHub today!</h1>
-    <a href="./accounts/sign-up.html" style="display: block; margin-left: calc(15% - 10px); width: 70%; text-decoration: none; color: white; background-color: seagreen; border-radius: 10px; padding: 10px;">Sign Up!</a>
+    <a href="./accounts/sign-up.html" style="display: block; text-align: center; margin-left: 35%; width: 30%; text-decoration: none; color: black; background-color: white; border-radius: 10px; padding: 10px;">Sign Up!</a>
   </div>
 </body>
 
