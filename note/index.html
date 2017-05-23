@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>New Note | NoteHub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link href="../logo.png" rel="icon" />
+  <link href="../editor-styling.css" rel="stylesheet" />
+  
+  <script src="formatting.js"></script>
+  <script src="miscellaneous.js"></script>
+  <script src="filing.js"></script>
+  <script src="../accounts/accounts.js"></script> <!--OK-->
+</head>
+  
+<body onload="Autorun();">
+  <div id="Menu-IconBar" data-open="closed">
+    <div class="IconBar-Function" onclick="SaveNoteAs();">
+      <table style="border-spacing: 0px;"><tbody><tr><td><img src="icons/plus.png" width="32" height="32"></td><td>&nbsp;&nbsp;Save&nbsp;Note&nbsp;As</td></tr></tbody></table>
+    </div>
+    <div class="IconBar-Function" onclick="SaveNote();">
+      <table style="border-spacing: 0px;"><tbody><tr><td><img src="icons/save.png" width="32" height="32"></td><td>&nbsp;&nbsp;Save&nbsp;Note</td></tr></tbody></table>
+    </div>
+    <div class="IconBar-Function" onclick="ViewNotebook();">
+      <table style="border-spacing: 0px;"><tbody><tr><td><img src="icons/folder.png" width="32" height="32"></td><td>&nbsp;&nbsp;This&nbsp;Notebook</td></tr></tbody></table>
+    </div>
+    <hr>
+    <div class="IconBar-Function">
+      <table style="border-spacing: 0px;"><tbody><tr><td><img src="icons/document.png" width="32" height="32"></td><td>&nbsp;&nbsp;New&nbsp;Note</td></tr></tbody></table>
+    </div>
+    <div class="IconBar-Function">
+      <table style="border-spacing: 0px;"><tbody><tr><td><img src="icons/worldwide.png" width="32" height="32"></td><td>&nbsp;&nbsp;Browse&nbsp;NoteHub</td></tr></tbody></table>
+    </div>
+    <hr>
+    <div class="IconBar-Function" id="MyAccount">
+      <table style="border-spacing: 0px;"><tbody><tr><td><img src="icons/imperial-user.png" width="32" height="32"></td><td>&nbsp;&nbsp;My&nbsp;Account</td></tr></tbody></table>
+    </div>
+    <div class="IconBar-Function">
+      <table style="border-spacing: 0px;"><tbody><tr><td><img src="icons/login.png" width="32" height="32"></td><td>&nbsp;&nbsp;<span id="LoggedInOut">Logout</span></td></tr></tbody></table>
+    </div>
+    <hr>
+    <div class="IconBar-Function" onclick="document.getElementById('Debug').style.display = 'block';">
+      <table style="border-spacing: 0px;"><tbody><tr><td><img src="icons/user.png" width="32" height="32"></td><td>&nbsp;&nbsp;<span id="LoggedInOut">Debug</span></td></tr></tbody></table>
+    </div>
+  </div>
+
+  <!--DEBUG DIALOG - REMOVE IN RELEASE-->
+  <div id="Debug" style="display: none; z-index: 5; position: absolute; top: 0; right: 0; color: white; background-color: black; padding: 20px;">
+    Tags/Topics: <input id="Debug-Tags" /><br>
+    Notebook: <input id="Debug-Notebook" /><br>
+    Author: <input id="Debug-Author" /><br>
+  </div>
+  
+  <div id="Header">
+    <span onclick="RevealIconDescriptors();" style="cursor: pointer;">&#9776;</span>&nbsp;
+    <span style="font-weight: lighter">Note</span><span><b>Hub</b></span>
+  </div>
+  
+  <div id="Title"><input id="Title-Title" value="New Note" /></div>
+  <div id="TopBar">
+    <div class="FormattingButton" onmousedown="SetBold(event);" id="Formatting-FontBold">
+      <b>B</b>
+    </div>
+    <div class="FormattingButton" onmousedown="SetItalic(event);" id="Formatting-FontItalic">
+      <i>I</i>
+    </div>
+    <div class="FormattingButton" onmousedown="SetUnderline(event);" id="Formatting-FontUnderline">
+      <u>U</u>
+    </div>
+    
+    <span class="TopBar-Separator">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    
+    <select class="FormattingSelect" onchange="UpdateFontFamily();" id="Formatting-FontFamily">
+      <option disabled="disabled" style="font-family: 'Segoe UI'; font-size: 18px; font-weight: bold;">Font Faces</option>
+      <option style="font-family: 'Arial';">Arial</option>
+      <option style="font-family: 'Calibri';" selected="selected">Calibri</option>
+      <option style="font-family: 'Cambria';">Cambria</option>
+      <option style="font-family: 'Comic Sans MS', 'Comic Sans';">Comic Sans MS</option>
+      <option style="font-family: 'Consolas';">Consolas</option>
+      <option style="font-family: 'Times New Roman';">Times New Roman</option>
+      <option style="font-family: 'Segoe UI';">Segoe UI</option>
+      <option style="font-family: 'Trebuchet';">Trebuchet</option>
+      <option style="font-family: 'Verdana';">Verdana</option>
+      <option disabled="disabled" style="font-family: 'Segoe UI'; font-size: 18px; font-weight: bold;">Generic Fonts</option>
+      <option style="font-family: 'monospace';">Monospace</option>
+      <option style="font-family: 'sans-serif';">Sans-Serif</option>
+      <option style="font-family: 'serif';">Serif</option>
+    </select>
+    
+    <select class="FormattingSelect" onchange="UpdateFontSize();" id="Formatting-FontSize">
+      <option>8</option>
+      <option>10</option>
+      <option>11</option>
+      <option>12</option>
+      <option>14</option>
+      <option selected="selected">18</option>
+      <option>24</option>
+      <option>26</option>
+      <option>28</option>
+      <option>30</option>
+      <option>36</option>
+      <option>48</option>
+      <option>72</option>
+      <option>144</option>
+    </select>
+    
+    <span class="TopBar-Separator">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    
+    <div class="FormattingButton" onmousedown="return false;" id="Formatting-Highlight" style="top: -7px;">
+      <img src="icons/highlighter.png" alt="Highlight text" width="32" height="32" />
+    </div>
+    
+    <div class="FormattingButton" onmousedown="return false;" id="Formatting-Ellipsis" style="top: -7px;">
+      <img src="icons/more.png" alt="More functions..." width="32" height="32" />
+    </div>
+  </div>
+  
+  <div id="Editor" contenteditable="true">This is a note.</div>
+  
+  <div id="BottomPickerBar">
+    <div id="BottomPickerBar-HighlightPick" class="PickerBarPicker">
+      <label style="font-size: 20px;">Highlight Colour</label>
+      <br>
+      <div style="overflow-x: scroll; margin-top: 5px;">
+        <table>
+          <tr>
+            <td class="Picker-Colour" style="background-color: white; color: black;">&nbsp;&nbsp;&nbsp;</td>
+            <td class="Picker-Colour" style="background-color: gray; color: white;">&nbsp;&nbsp;&nbsp;</td>
+            <td class="Picker-Colour" style="background-color: black; color: white;">&nbsp;&nbsp;&nbsp;</td>
+            <td class="Picker-Colour" style="background-color: red; color: white;">&nbsp;&nbsp;&nbsp;</td>
+            <td class="Picker-Colour" style="background-color: green; color: white;">&nbsp;&nbsp;&nbsp;</td>
+            <td class="Picker-Colour" style="background-color: blue; color: white;">&nbsp;&nbsp;&nbsp;</td>
+            <td class="Picker-Colour" style="background-color: lightblue; color: black;">&nbsp;&nbsp;&nbsp;</td>
+            <td class="Picker-Colour" style="background-color: #2196f3; color: white;">&nbsp;&nbsp;&nbsp;</td>
+            <td class="Picker-Colour" style="background-color: yellow; color: black;">&nbsp;&nbsp;&nbsp;</td>
+            <td class="Picker-Colour" style="background-color: beige;">&nbsp;&nbsp;&nbsp;</td>
+            <td class="Picaker-Colour" style="background-color: rgb(1, 152, 255);">&nbsp;&nbsp;&nbsp;</td>
+            <td class="Picker-Colour" style="background-color: orange;">&nbsp;&nbsp;&nbsp;</td>
+            <td class="Picker-Colour" style="background-color: white; color: black;">Transparent</td>
+            <td class="Picker-Colour" style="background-color: white; color: black;">More&nbsp;colours...</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div id="Modal">
+    <label style="font-size: 26px;" id="Modal-Title">Authentication Required :(</label>
+    <hr>
+    <div id="Modal-Message">
+      You'll need to sign into NoteHub before saving a note (public or private), viewing your notebooks or making any changes to your account. You can sign in from <a style="color: white;" href="https://notehub.ga/" target="_blank">our homepage</a>. After signing in, close this dialog and attempt to save your note again.
+      <br><br>Alternatively, you can save this note as a public note for all to see as an anonymous user. Your IP address will instead be used to identify you, and will be publicly displayed on the note as its author.
+      <br><br>Sorry for any inconvenience caused.
+    </div>
+
+    <div id="Modal-Buttons">
+      <button class="Modal-Button" onclick="document.getElementById('Modal').style.display = 'none';">CLOSE</button>
+      <button id="Modal-Buttons-ActionButton" disabled="disabled" class="Modal-Button">SAVE AS ANONYMOUS</button> <!--Ask user for tags-->
+    </div>
+  </div>
+  
+  <!--
+  Put this on the credits page:
+  <div>Highlighter Icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com" title="Flaticon">www.flaticon.com</a>.</div>
+  <div>Menu Bar Icons made by <a href="https://www.flaticon.com/authors/madebyoliver" title="Madebyoliver">Madebyoliver</a> from <a href="https://www.flaticon.com" title="Flaticon">www.flaticon.com</a>.</div> - https://www.flaticon.com/packs/essential-compilation
+  -->
+</body>
+</html>

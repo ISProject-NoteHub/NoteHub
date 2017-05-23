@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sign logInStatus | NoteHub</title>
+
+  <link href="../test-styling.css" rel="stylesheet">
+  <link href="../logo.png" rel="icon">
+
+  <script src="/accounts/accounts.js"></script>
+
+  <style>
+    #Page-Organiser-Mobile {
+      padding: 7.5px;
+    }
+    
+    @media screen and (max-width: 540px) {
+      #Page-SignUpBox {
+        width: calc(90% - 40px);
+        margin-top: 80px; margin-left: 5%; margin-right: 5%;
+      }
+    }
+    
+    @media screen and (min-width: 541px) {
+      #Page-SignUpBox {
+        width: calc(50% - 40px);
+        margin-top: 80px; margin-left: 25%; margin-right: 25%;
+      }
+    }
+    
+    #Page-SignUpBox {
+      box-shadow: 4px 4px 20px 0px #888888;
+      padding: 20px;
+    }
+  </style>
+  
+  <script>
+    
+  </script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="Description" content="Sign in to NoteHub from here!">
+</head>
+
+<body onload="Autorun();">
+  <div id="Page-TitleBar"><span style="float: left; margin: 10px"><img src="../logo.png" height="50px" width="50px"></span><span style="font-weight: lighter;">Note</span><b>Hub</b></div>
+  
+  <div id="Page-SignUpBox">
+    <span style="font-size: 25px">Sign In</span>
+    <br><br>
+    Username/Email:<br>
+    <input id="Login-Username" data-stacked="stacked" placeholder="Username/Email" />
+    <br><br>
+
+    Password:<br>
+    <input id="Login-Password" type="password" data-stacked="stacked" placeholder="Password" />
+    <br><br>
+    
+    <div id="Error-Empty" style="font-size: 0.85em; color: red; display: none;">
+      Please enter both your username and password.
+      <br><br>
+    </div>
+    <div id="Error-Server" style="font-size: 0.85em; color: red; display: none;">
+      We're sorry - our login server is down. Perhaps try again later.
+      <br><br>
+    </div>
+    <div id="Error-Incorect" style="font-size: 0.85em; color: red; display: none;">
+      Your username or password is incorrect!
+      <br><br>
+    </div>
+
+    <button onclick="LoginHere();" type="button" style="font-weight: bold; width: 100%; text-align: center; background-color: lightgreen; padding: 10px; border: 0;">SIGN UP</button>
+  </div>
+</body>
+</html>
