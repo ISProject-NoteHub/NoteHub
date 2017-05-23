@@ -102,8 +102,8 @@ body {
   }
 
   #Editor {
-    top: 130px;
-    height: calc(100% - 150px);
+    top: 146px;
+    height: calc(100% - 166px);
   }
   
   #Menu-IconBar {
@@ -165,7 +165,7 @@ body {
   #TopBar {
     width: calc(70% - 15px);
     padding: 7.5px;
-    top: 55px; left: 30%;
+    top: 45px; left: 30%;
   }
 
   #Editor {
@@ -227,7 +227,8 @@ body {
 
 #TopBar {
   background-color: #d9d9d9;
-  position: fixed
+  position: fixed;
+  overflow-x: scroll;
 }
 
 #Editor {
@@ -243,10 +244,7 @@ body {
 .FormattingButton {
   padding: 5px;
   font-size: 18.5px;
-  display: inline-block;
   cursor: pointer;
-  top: -13px;
-  position: relative;
 }
 
 .FormattingButton:hover {
@@ -278,6 +276,4 @@ body {
    border: 0;
    padding: 5px;
    cursor: pointer;
-   top: -15px;
-   position: relative;
 }

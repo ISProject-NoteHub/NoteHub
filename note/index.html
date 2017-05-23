@@ -32,7 +32,7 @@
       <table style="border-spacing: 0px;"><tbody><tr><td><img src="icons/worldwide.png" width="32" height="32"></td><td>&nbsp;&nbsp;Browse&nbsp;NoteHub</td></tr></tbody></table>
     </div>
     <hr>
-    <div class="IconBar-Function" id="MyAccount">
+    <div class="IconBar-Function" id="MyAccount" onclick="window.location.href = '/account-manager/';">
       <table style="border-spacing: 0px;"><tbody><tr><td><img src="icons/imperial-user.png" width="32" height="32"></td><td>&nbsp;&nbsp;My&nbsp;Account</td></tr></tbody></table>
     </div>
     <div class="IconBar-Function">
@@ -58,61 +58,73 @@
   
   <div id="Title"><input id="Title-Title" value="New Note" /></div>
   <div id="TopBar">
-    <div class="FormattingButton" onmousedown="SetBold(event);" id="Formatting-FontBold">
-      <b>B</b>
-    </div>
-    <div class="FormattingButton" onmousedown="SetItalic(event);" id="Formatting-FontItalic">
-      <i>I</i>
-    </div>
-    <div class="FormattingButton" onmousedown="SetUnderline(event);" id="Formatting-FontUnderline">
-      <u>U</u>
-    </div>
-    
-    <span class="TopBar-Separator">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-    
-    <select class="FormattingSelect" onchange="UpdateFontFamily();" id="Formatting-FontFamily">
-      <option disabled="disabled" style="font-family: 'Segoe UI'; font-size: 18px; font-weight: bold;">Font Faces</option>
-      <option style="font-family: 'Arial';">Arial</option>
-      <option style="font-family: 'Calibri';" selected="selected">Calibri</option>
-      <option style="font-family: 'Cambria';">Cambria</option>
-      <option style="font-family: 'Comic Sans MS', 'Comic Sans';">Comic Sans MS</option>
-      <option style="font-family: 'Consolas';">Consolas</option>
-      <option style="font-family: 'Times New Roman';">Times New Roman</option>
-      <option style="font-family: 'Segoe UI';">Segoe UI</option>
-      <option style="font-family: 'Trebuchet';">Trebuchet</option>
-      <option style="font-family: 'Verdana';">Verdana</option>
-      <option disabled="disabled" style="font-family: 'Segoe UI'; font-size: 18px; font-weight: bold;">Generic Fonts</option>
-      <option style="font-family: 'monospace';">Monospace</option>
-      <option style="font-family: 'sans-serif';">Sans-Serif</option>
-      <option style="font-family: 'serif';">Serif</option>
-    </select>
-    
-    <select class="FormattingSelect" onchange="UpdateFontSize();" id="Formatting-FontSize">
-      <option>8</option>
-      <option>10</option>
-      <option>11</option>
-      <option>12</option>
-      <option>14</option>
-      <option selected="selected">18</option>
-      <option>24</option>
-      <option>26</option>
-      <option>28</option>
-      <option>30</option>
-      <option>36</option>
-      <option>48</option>
-      <option>72</option>
-      <option>144</option>
-    </select>
-    
-    <span class="TopBar-Separator">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-    
-    <div class="FormattingButton" onmousedown="return false;" id="Formatting-Highlight" style="top: -7px;">
-      <img src="icons/highlighter.png" alt="Highlight text" width="32" height="32" />
-    </div>
-    
-    <div class="FormattingButton" onmousedown="return false;" id="Formatting-Ellipsis" style="top: -7px;">
-      <img src="icons/more.png" alt="More functions..." width="32" height="32" />
-    </div>
+    <table><tr>
+      <td><div class="FormattingButton" onmousedown="SetBold(event);" id="Formatting-FontBold">
+        <b>B</b>
+      </div></td>
+      <td><div class="FormattingButton" onmousedown="SetItalic(event);" id="Formatting-FontItalic">
+        <i>I</i>
+      </div></td>
+      <td><div class="FormattingButton" onmousedown="SetUnderline(event);" id="Formatting-FontUnderline">
+        <u>U</u>
+      </div></td>
+      
+      <td><span class="TopBar-Separator">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+      
+      <td><select class="FormattingSelect" onchange="UpdateFontFamily();" id="Formatting-FontFamily">
+        <option disabled="disabled" style="font-family: 'Segoe UI'; font-size: 18px; font-weight: bold;">Font Faces</option>
+        <option style="font-family: 'Arial';">Arial</option>
+        <option style="font-family: 'Calibri';" selected="selected">Calibri</option>
+        <option style="font-family: 'Cambria';">Cambria</option>
+        <option style="font-family: 'Comic Sans MS', 'Comic Sans';">Comic Sans MS</option>
+        <option style="font-family: 'Consolas';">Consolas</option>
+        <option style="font-family: 'Times New Roman';">Times New Roman</option>
+        <option style="font-family: 'Segoe UI';">Segoe UI</option>
+        <option style="font-family: 'Trebuchet';">Trebuchet</option>
+        <option style="font-family: 'Verdana';">Verdana</option>
+        <option disabled="disabled" style="font-family: 'Segoe UI'; font-size: 18px; font-weight: bold;">Generic Fonts</option>
+        <option style="font-family: 'monospace';">Monospace</option>
+        <option style="font-family: 'sans-serif';">Sans-Serif</option>
+        <option style="font-family: 'serif';">Serif</option>
+      </select></td>
+      
+      <td><select class="FormattingSelect" onchange="UpdateFontSize();" id="Formatting-FontSize">
+        <option>8</option>
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+        <option>14</option>
+        <option selected="selected">18</option>
+        <option>24</option>
+        <option>26</option>
+        <option>28</option>
+        <option>30</option>
+        <option>36</option>
+        <option>48</option>
+        <option>72</option>
+        <option>144</option>
+      </select></td>
+      
+      <td><span class="TopBar-Separator">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+
+      <td><div class="FormattingButton" onmousedown="InsertNumberedList(event);" id="Formatting-NumberedList" style="position: relative; top: 5px;">
+        <img src="icons/list.png" alt="Insert numbered list" width="30" height="30" />
+      </div></td>
+
+      <td><div class="FormattingButton" onmousedown="InsertBulletedList(event);" id="Formatting-PointList" style="position: relative; top: 5px;">
+        <img src="icons/list-button.png" alt="Insert bulleted list" width="30" height="30" />
+      </div></td>
+
+      <td><span class="TopBar-Separator">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+
+      <td><div class="FormattingButton" onmousedown="Outdent(event);" id="Formatting-NumberedList" style="position: relative; top: 5px;">
+        <img src="icons/left-indent.png" alt="Outdent text" width="30" height="30" />
+      </div></td>
+
+      <td><div class="FormattingButton" onmousedown="Indent(event);" id="Formatting-PointList" style="position: relative; top: 5px;">
+        <img src="icons/right-indent.png" alt="Indent text" width="30" height="30" />
+      </div></td>
+    </tr></table>
   </div>
   
   <div id="Editor" contenteditable="true">This is a note.</div>
@@ -158,11 +170,5 @@
       <button id="Modal-Buttons-ActionButton" disabled="disabled" class="Modal-Button">SAVE AS ANONYMOUS</button> <!--Ask user for tags-->
     </div>
   </div>
-  
-  <!--
-  Put this on the credits page:
-  <div>Highlighter Icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com" title="Flaticon">www.flaticon.com</a>.</div>
-  <div>Menu Bar Icons made by <a href="https://www.flaticon.com/authors/madebyoliver" title="Madebyoliver">Madebyoliver</a> from <a href="https://www.flaticon.com" title="Flaticon">www.flaticon.com</a>.</div> - https://www.flaticon.com/packs/essential-compilation
-  -->
 </body>
 </html>

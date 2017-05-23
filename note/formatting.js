@@ -13,6 +13,26 @@ function SetUnderline(event) {
   document.execCommand("underline", false, null);
 }
 
+function InsertNumberedList(event) {
+  event.preventDefault();
+  document.execCommand("insertOrderedList", false, null);
+}
+
+function InsertBulletedList(event) {
+  event.preventDefault();
+  document.execCommand("insertUnorderedList", false, null);
+}
+
+function Indent(event) {
+  event.preventDefault();
+  document.execCommand("indent", false, null);
+}
+
+function Outdent(event) {
+  event.preventDefault();
+  document.execCommand("outdent", false, null);
+}
+
 function UpdateFontSize() {
   document.execCommand("fontSize", false, "7");
   var fontElements = document.getElementsByTagName("font");
