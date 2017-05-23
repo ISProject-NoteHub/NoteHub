@@ -41,6 +41,12 @@
         document.getElementById("Error-Incorrect").style.display = "block";
       });
     }
+
+    function Autorun() {
+      if (CheckSignIn() === true) {
+        window.location.href = "/account-manager/";
+      }
+    }
   </script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">

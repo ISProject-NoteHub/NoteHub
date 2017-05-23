@@ -19,6 +19,6 @@ function Autorun() {
     //Get and display account details on panes
   }
   else {
-    window.location.href = "sign-in.html";
+    window.location.href = "/accounts/sign-in.html";
   }
 }
