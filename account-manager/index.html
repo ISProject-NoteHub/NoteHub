@@ -1,39 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Manage Your Account | NoteHub</title>
+  <title>Your Account | NoteHub</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <link href="../logo.png" rel="icon" />
-  <link href="../new-styling.css" rel="stylesheet" />
-  <link href="../test-styling.css" rel="stylesheet" />
-  <link href="../editor-styling.css" rel="stylesheet" />
+  <link href="/logo.png" rel="icon" />
+  <link href="/editor-styling.css" rel="stylesheet" />
   
   <script src="miscellaneous.js"></script>
-  <script src="accounts.js"></script><!--Does this refer to filing.js? If so, it is a mistake.-->
-  
-  <style>
-    @media screen and (max-width: 540px) {
-      #Page-SignUpBox {
-        width: calc(90% - 40px); height: calc(90% - 40px);
-        left: 5%; top: 5%;
-      }
-    }
-    
-    @media screen and (min-width: 541px) {
-      #Page-SignUpBox {
-        width: calc(50% - 40px); height: calc(85% - 40px);
-        left: 25%; top: 7.5%;
-      }
-    }
-    
-    #Page-SignUpBox {
-      box-shadow: 8px 8px 25px 5px #888888;
-      padding: 20px;
-      z-index: 20;
-      position: fixed;
-    }
-  </style>
+  <script src="/accounts/accounts.js"></script>
 </head>
   
 <body onload="Autorun();">
@@ -59,10 +34,9 @@
     </div>
   </div>
   
-  <div id="Page-TitleBar">
-    &nbsp;
+  <div id="Header">
     <span onclick="RevealIconDescriptors();" style="cursor: pointer;">&#9776;</span>&nbsp;
-    <span style="font-weight: lighter">Note</span><span><b>Hub</b></span>
+    <span style="font-weight: lighter">Note</span><span><b>Hub</b></span> - My Account
   </div>
   
   <div id="Title" style="width: calc(100% - 67px); font-size: 23px;">Welcome to NoteHub, <span id="NewUserName">User</span>.</div>
