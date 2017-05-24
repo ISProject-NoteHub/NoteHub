@@ -17,10 +17,17 @@ body {
 }
 
 #Page-Contents {
-  background-color: white;
   z-index: 1;
   position: absolute;
-  top: 70px; left: 0;
+  top: 75px; left: 0;
+  width: calc(100% - 20px);
+  padding: 10px;
+}
+
+#Page-Contents-Logbook {
+  z-index: 1;
+  position: absolute;
+  top: 60px; left: 0;
   width: calc(100% - 20px);
   padding: 10px;
 }
