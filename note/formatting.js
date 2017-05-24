@@ -33,7 +33,8 @@ function Outdent(event) {
   document.execCommand("outdent", false, null);
 }
 
-function UpdateFontSize() {
+function UpdateFontSize(event) {
+  event.preventDefault();
   document.execCommand("fontSize", false, "7");
   var fontElements = document.getElementsByTagName("font");
   for (var i = 0, len = fontElements.length; i < len; ++i) {
@@ -44,7 +45,8 @@ function UpdateFontSize() {
   }
 }
 
-function UpdateFontFamily() {
+function UpdateFontFamily(event) {
+  event.preventDefault();
   document.execCommand("fontName", false, document.getElementById("Formatting-FontFamily").options[document.getElementById("Formatting-FontFamily").selectedIndex].value);
 }
 

@@ -164,7 +164,8 @@ body {
   
   #TopBar {
     width: calc(70% - 15px);
-    padding: 7.5px;
+    padding: 7.5px; padding-top: 2.5px; padding-bottom: 0px;
+    overflow-y: hidden;
     top: 45px; left: 30%;
   }
 
