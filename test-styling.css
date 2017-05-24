@@ -3,6 +3,7 @@ html, body {
 }
 
 a {
+  color: white;
   text-decoration: underline;
   text-decoration-color: white;
   -moz-text-decoration-color: white;
