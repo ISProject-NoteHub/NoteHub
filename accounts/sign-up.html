@@ -52,6 +52,12 @@
       savedStage.password = password.value;
       savedStage.question = question.value;
       
+      if (savedStage.username.length > 128) {
+        document.getElementById("Error-TooLong").style.display = "block";
+        return;
+      }
+      else { /*Continue*/ }
+      
       if ((savedStage.question == "") || (savedStage.email == "") || (savedStage.password == "") || (savedStage.username == "")) {
         document.getElementById("Error-Empty").style.display = "block";
       }
@@ -124,6 +130,10 @@
     </div>
     <div id="Error-Username" style="font-size: 0.85em; color: red; display: none;">
       We can't create your account - your username's already taken. Why not try a different one?
+      <br><br>
+    </div>
+    <div id="Error-TooLong" style="font-size: 0.85em; color: red; display: none;">
+      Your username's too long. It's nice that you put lots of thought into your username, but we can't let you create an account with one so long.
       <br><br>
     </div>
 
