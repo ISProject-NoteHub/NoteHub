@@ -3,10 +3,33 @@ html, body {
 }
 
 a {
-  color: white;
-  text-decoration: underline;
-  text-decoration-color: white;
-  -moz-text-decoration-color: white;
+  text-decoration-style: none;
+  -moz-text-decoration-style: none;
+  -o-text-decoration-style: none;
+  text-decoration: none;
+  -moz-text-decoration: none;
+  -o-text-decoration: none;
+  color: black;
+}
+
+a:active {
+  text-decoration-style: none;
+  -moz-text-decoration-style: none;
+  -o-text-decoration-style: none;
+  text-decoration: none;
+  -moz-text-decoration: none;
+  -o-text-decoration: none;
+  color: gray;
+}
+
+a:hover {
+  text-decoration-style: none;
+  -moz-text-decoration-style: none;
+  -o-text-decoration-style: none;
+  text-decoration: none;
+  -moz-text-decoration: none;
+  -o-text-decoration: none;
+  color: darkgray;
 }
 
 #Page-TitleBar {
