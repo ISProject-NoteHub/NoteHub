@@ -23,20 +23,8 @@ function SaveNoteAs() {
 
       //If errors occured
       if (response.errors == "notAuthenticated") {
-        document.getElementById("Modal").style.display = "inline-block";
-
-        document.getElementById("Modal-Title").innerHTML = "Authentication Required";
-        document.getElementById("Modal-Message").innerHTML = "You'll need to sign into NoteHub before saving a note (public or private), viewing your notebooks or making any changes to your account. You can sign in from <a style='color: white;' href='https://notehub.ga/' target='_blank'>our homepage</a>. After signing in, close this dialog and attempt to save your note again. <br><br>Alternatively, you can save this note as a public note for all to see as an anonymous user. Your IP address will instead be used to identify you, and will be publicly displayed on the note as its author. <br><br>Sorry for any inconvenience caused.";
-        document.getElementById("Modal-Buttons-ActionButton").setAttribute("onclick", "SaveNoteAs('anonymous');");
-        document.getElementById("Modal-Buttons-ActionButton").innerHTML = "SAVE NOTE AS ANONYMOUS";
-        document.getElementById("Modal-Buttons-ActionButton").style.display = "block";
       }
       else if (response.errors == "over9000") {
-        document.getElementById("Modal").style.display = "inline-block";
-
-        document.getElementById("Modal-Title").innerHTML = "Note Too Large";
-        document.getElementById("Modal-Message").innerHTML = "It seems that your note has surpassed NoteHub's 1 MB limit on notes. While we understand that 1 MB is really too small for media such as videos, images or the like, we have to instantiate such a limit as we are working with highly limited webspace. This limit <i>will</i> be removed in the near future.";
-        document.getElementById("Modal-Buttons-ActionButton").style.display = "none";
       }
     }
   }
