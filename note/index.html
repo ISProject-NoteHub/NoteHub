@@ -43,13 +43,6 @@
       <table style="border-spacing: 0px;"><tbody><tr><td><img src="icons/user.png" width="32" height="32"></td><td>&nbsp;&nbsp;<span id="LoggedInOut">Debug</span></td></tr></tbody></table>
     </div>
   </div>
-
-  <!--DEBUG DIALOG - REMOVE IN RELEASE-->
-  <div id="Debug" style="display: none; z-index: 5; position: absolute; top: 0; right: 0; color: white; background-color: black; padding: 20px;">
-    Tags/Topics: <input id="Debug-Tags" /><br>
-    Notebook: <input id="Debug-Notebook" /><br>
-    Author: <input id="Debug-Author" /><br>
-  </div>
   
   <div id="Header">
     <span onclick="RevealIconDescriptors();" style="cursor: pointer;">&#9776;</span>&nbsp;
@@ -156,18 +149,37 @@
     </div>
   </div>
 
-  <div id="Modal">
-    <label style="font-size: 26px;" id="Modal-Title">Authentication Required :(</label>
-    <hr>
-    <div id="Modal-Message">
+  <!--MODAL DIALOGS-->
+
+  <div id="Modal-Overlay"></div>
+
+  <div id="Modal-AuthRequired" class="Modal">
+    <div class="Modal-Title">Authentication Required :(</div>
+
+    <div class="Modal-Content">
       You'll need to sign into NoteHub before saving a note (public or private), viewing your notebooks or making any changes to your account. You can sign in from <a style="color: white;" href="https://notehub.ga/" target="_blank">our homepage</a>. After signing in, close this dialog and attempt to save your note again.
       <br><br>Alternatively, you can save this note as a public note for all to see as an anonymous user. Your IP address will instead be used to identify you, and will be publicly displayed on the note as its author.
       <br><br>Sorry for any inconvenience caused.
     </div>
 
-    <div id="Modal-Buttons">
-      <button class="Modal-Button" onclick="document.getElementById('Modal').style.display = 'none';">CLOSE</button>
-      <button id="Modal-Buttons-ActionButton" disabled="disabled" class="Modal-Button">SAVE AS ANONYMOUS</button> <!--Ask user for tags-->
+    <div class="Modal-Footer">
+      <button class="Modal-Button" onclick="document.getElementById('Modal-AuthRequired').style.display = 'none';">CLOSE</button>
+      <button disabled="disabled" class="Modal-Button">SAVE AS ANONYMOUS</button> <!--Ask user for tags-->
+    </div>
+  </div>
+  
+  <div id="Modal-SaveFilePicker" class="Modal">
+    <div class="Modal-Title">Save Note As...</div>
+
+    <div class="Modal-Content">
+      Select a notebook to save your note under.
+
+      <div id="Modal-SaveFilePicker-List"></div>
+    </div>
+
+    <div class="Modal-Footer">
+      <button class="Modal-Button">SAVE AS</button>
+      <button class="Modal-Button">CANCEL</button> <!--Ask user for tags-->
     </div>
   </div>
 </body>

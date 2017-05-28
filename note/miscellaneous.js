@@ -12,3 +12,7 @@ function Autorun() {
     document.getElementById("LoggedInOut").innerHTML = "Login";
   }
 }
+
+function ShowModal() {
+  
+}

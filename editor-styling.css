@@ -4,6 +4,10 @@ body {
   font-family: "Segoe UI", "Helvetica", sans-serif;
 }
 
+.Modal {
+  
+}
+
 #BottomPickerBar {
   position: fixed;
   background-color: #616161; color: white;
@@ -27,14 +31,6 @@ body {
   cursor: pointer;
 }
 .IconBar-Function:hover { background-color: gray; }
-
-.Modal-Button {
-  cursor: pointer;
-  background-color: rgb(1, 152, 255); color: white;
-  border: 0;
-  padding: 10px;
-  margin-top: 20px; margin-right: 20px;
-}
 
 #Modal {
   background-color: black; color: white;
