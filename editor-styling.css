@@ -258,12 +258,12 @@ body {
 
   @keyframes IconBar-Expand {
     from { width: 47px; }
-    to { width: 15%; }
+    to { width: 288px; }
   }
 
   @keyframes IconBar-Contract {
     0% {
-      width: 15%;
+      width: 288px;
       z-index: 3;
     }
     99% {
@@ -314,6 +314,34 @@ body {
   width: calc(100% - 67px);
   cursor: text;
   overflow: scroll;
+}
+
+#UserInfoTitle {
+  font-size: 30px;
+}
+
+#UserInfoTitle2 {
+  position: absolute; /*For reasons you ought not to know about. Do NOT modify this rule!*/
+  left: -230px;
+  top: 175px;
+  font-size: 20px;
+}
+
+#UserInfo-Content {
+  left: -230px;
+  font-size: 16px;
+}
+
+#EditorPanes-Home {
+  left: 250px;
+}
+
+#ProfilePic {
+  position: absolute;
+  top: 10px;
+  left: 30px;
+  float: left;
+  margin: 10px;
 }
 
 .FormattingButton {

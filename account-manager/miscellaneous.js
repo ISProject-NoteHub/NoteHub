@@ -19,6 +19,6 @@ function Autorun() {
     //Get and display account details on panes
   }
   else {
-    window.location.href = "/accounts/sign-in.html";
+    //window.location.href = "../accounts/sign-in.html"; - Commented this out so that it won't get in the way of UI development.
   }
 }

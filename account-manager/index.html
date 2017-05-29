@@ -4,14 +4,20 @@
   <title>Your Account | NoteHub</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <link href="/logo.png" rel="icon" />
-  <link href="/test-styling.css" rel="stylesheet" />
-  <link href="/editor-styling.css" rel="stylesheet" />
+  <link href="../logo.png" rel="icon" />
+  <link href="../test-styling.css" rel="stylesheet" />
+  <link href="../editor-styling.css" rel="stylesheet" />
   
   <script src="miscellaneous.js"></script>
-  <script src="/accounts/accounts.js"></script>
+  <script src="../accounts/accounts.js"></script>
 
-  <style>
+  <style>        
+    #EditorPanes-Home {
+      position: absolute;
+      left: 15%;
+      top: 35px;
+    }
+
     #EditorPanes-NewUser {
       display: none;
       position: fixed;
@@ -46,22 +52,23 @@
       display: block;
       bottom: 20px;
     }
+    a {
+      color: white;
+    }
   </style>
 </head>
   
 <body onload="Autorun();">
   <div id="Menu-IconBar" data-open="closed">
     <div class="IconBar-Function">
-      <table style="border-spacing: 0px;"><tbody><tr><td><img src="../view-note/icons/home.png" width="32" height="32"></td><td>&nbsp;&nbsp;Account&nbsp;Home</td></tr></tbody></table>
+      <a href="./index.html"><table style="border-spacing: 0px;"><tbody><tr><td><img src="../view-note/icons/home.png" width="32" height="32"></td><td>&nbsp;&nbsp;Account&nbsp;Details</td></tr></tbody></table></a>
     </div>
     <div class="IconBar-Function">
-      <table style="border-spacing: 0px;"><tbody><tr><td><img src="../view-note/icons/security.png" width="32" height="32"></td><td>&nbsp;&nbsp;Account&nbsp;Security/Privacy</td></tr></tbody></table>
-    </div>
-    <div class="IconBar-Function">
-      <table style="border-spacing: 0px;"><tbody><tr><td><img src="../view-note/icons/user.png" width="32" height="32"></td><td>&nbsp;&nbsp;Account&nbsp;Details</td></tr></tbody></table>
+      <a href="./security.html"><table style="border-spacing: 0px;"><tbody><tr><td><img src="../view-note/icons/security.png" width="32" height="32"></td><td>&nbsp;&nbsp;Account&nbsp;Security/Privacy</td></tr></tbody></table></a>
     </div>
     <div class="IconBar-Function">
       <table style="border-spacing: 0px;"><tbody><tr><td><img src="../view-note/icons/login.png" width="32" height="32"></td><td>&nbsp;&nbsp;Logout</td></tr></tbody></table>
+      <!--Theodore, please build function for this.-->
     </div>
     <hr>
     <a class="IconBar-Function" href="../view-note/" style="display: block; text-decoration: none;">
@@ -77,11 +84,12 @@
     <span style="font-weight: lighter">Note</span><span><b>Hub</b></span> - Your Account
   </div>
   
-  <div id="Title" style="width: calc(100% - 67px); font-size: 23px;">Welcome to NoteHub, <span id="NewUserName">User</span>! It's a beautiful day.</div>
+  <div id="Title" style="width: calc(100% - 67px); font-size: 23px;">Welcome to NoteHub, <span id="NewUserName">User</span>!</div>
   
   <div id="Editor" style="cursor: default;">
+    <img src="../view-note/icons/profilepic.png" id="ProfilePic" width="175px" height="175px" alt="User" />
     <div id="EditorPanes-Home">
-      <label style="font-size: 20px;">Account Security/Privacy</label>
+      <label id="UserInfoTitle">Account Details</label>
       <hr>
       Username: <span id="Home-Username">User</span>
       <br><span id="Home-NotesMade">0</span> notes made
