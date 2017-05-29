@@ -207,6 +207,7 @@ body {
   }
 }
 
+
 /*Desktop*/
 @media screen and (min-width: 541px) {
   #Modal {
@@ -257,12 +258,12 @@ body {
 
   @keyframes IconBar-Expand {
     from { width: 47px; }
-    to { width: 25%; }
+    to { width: 15%; }
   }
 
   @keyframes IconBar-Contract {
     0% {
-      width: 25%;
+      width: 15%;
       z-index: 3;
     }
     99% {
