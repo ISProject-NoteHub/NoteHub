@@ -16,6 +16,8 @@ function InitFilePicker() {
 
 //Parse topics into file picker
 function ParseInTopics(modalName) {
+  document.getElementById(modalName + "-SaveAs").setAttribute("disabled", "disabled");
+
   document.getElementById(modalName + "-HierachyLevel-Name").innerHTML = "Topics"
   document.getElementById(modalName + "-List").innerHTML = "";
   document.getElementById(modalName + "-HierachyLevel-Back").style.visibility = "hidden";
@@ -32,6 +34,8 @@ function ParseInTopics(modalName) {
 
 //Parse notebooks into file picker
 function ParseInNotebooks(modalName, topicIndex) {
+  document.getElementById(modalName + "-SaveAs").setAttribute("disabled", "disabled");
+
   document.getElementById(modalName + "-List").innerHTML = "";
   document.getElementById(modalName + "-HierachyLevel-Name").innerHTML = noteList[topicIndex].topic;
   document.getElementById(modalName + "-HierachyLevel-Back").style.visibility = "visible";
@@ -49,6 +53,8 @@ function ParseInNotebooks(modalName, topicIndex) {
 
 //Parse notes into file picker
 function ParseInNotes(modalName, topicIndex, notebookIndex) {
+  document.getElementById(modalName + "-SaveAs").removeAttribute("disabled");
+
   document.getElementById(modalName + "-List").innerHTML = "";
   document.getElementById(modalName + "-HierachyLevel-Name").innerHTML = noteList[topicIndex].notebooks[notebookIndex].name;
   document.getElementById(modalName + "-HierachyLevel-Back").setAttribute("href", "javascript:ParseInNotebooks('" + modalName + "', " + topicIndex + ");");
@@ -127,7 +133,33 @@ function SaveNoteAs(fromMenu) {
     InitFilePicker();
   }
   else {
+    //Prepare note object
+    var note = {
+      author: atob(localStorage.getItem("loggedIn")).split(",")[0],
+      suggestions: [],
+      content: document.getElementById("Editor").innerHTML.trim().replace("&nbsp;", " ")
+    };
 
+    ShowModal("SavingNote");
+    document.getElementById("Modal-SavingNote-Status").setAttribute("src", "../resources/loading.svg");
+
+    var getPHPFile = new XMLHttpRequest();
+    getPHPFile.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        console.log(getPHPFile.responseText);
+        document.getElementById("Modal-SavingNote-Status").setAttribute("src", "../resources/success.png");
+      }
+    }
+
+    getPHPFile.open("POST", "https://notehub-serverside.000webhostapp.com/handlers/filing.php", true);
+    getPHPFile.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    
+    if (privateNote == true) {
+      getPHPFile.send("noteName=" + document.getElementById("Modal-SaveAdvanced-SaveName").value + "&noteContent=" + JSON.stringify(note) + "&username=" + atob(localStorage.getItem("loggedIn")).split(",")[0] + "&password=" + atob(localStorage.getItem("loggedIn")).split(",")[1] + "&private=true&requestedFunction=MakeNote");
+    }
+    else {
+      getPHPFile.send("folder=" + noteList[globalTopicIndex].notebooks[globalNotebookIndex].folder + "&noteName=" + document.getElementById("Modal-SaveFilePicker-SaveName").value + "&noteContent=" + JSON.stringify(note) + "&username=" + atob(localStorage.getItem("loggedIn")).split(",")[0] + "&password=" + atob(localStorage.getItem("loggedIn")).split(",")[1] + "&private=false&requestedFunction=MakeNote");
+    }
   }
 }
 
