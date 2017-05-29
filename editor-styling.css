@@ -166,7 +166,7 @@ body {
       z-index: 0;
     }
   }
-}
+
 
 /*Desktop*/
 @media screen and (min-width: 541px) {
@@ -234,7 +234,6 @@ body {
       z-index: 0;
     }
   }
-}
 
 /*Common*/
 #Header {

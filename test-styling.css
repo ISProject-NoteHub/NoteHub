@@ -68,6 +68,9 @@ a:hover {
     top: 30%;
     left: 37%;
   }
+  a {
+	  color: black;
+  }
 }
 
 @media screen and (max-width: 1411px) {
@@ -94,9 +97,8 @@ a:hover {
     text-align: center;
   }
   a {
-    color: white;
+	  color: white;
   }
-}
 
 body {
   font-family: "Segoe UI", "Helvetica", "sans-serif";
