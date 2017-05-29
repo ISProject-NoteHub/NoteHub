@@ -70,21 +70,60 @@
 <body onload="Autorun();">
   <div id="Menu-IconBar" data-open="closed">
     <div class="IconBar-Function">
-      <a href="./index.html"><table style="border-spacing: 0px;"><tbody><tr><td><img src="../view-note/icons/home.png" width="32" height="32"></td><td>&nbsp;&nbsp;Account&nbsp;Details</td></tr></tbody></table></a>
+      <a href="./index.html">
+        <table style="border-spacing: 0px;">
+          <tbody>
+            <tr>
+              <td><img src="../view-note/icons/home.png" width="32" height="32"></td>
+              <td>&nbsp;&nbsp;Account&nbsp;Details</td>
+            </tr>
+          </tbody>
+        </table>
+      </a>
     </div>
     <div class="IconBar-Function">
-      <a href="./security.html"><table style="border-spacing: 0px;"><tbody><tr><td><img src="../view-note/icons/security.png" width="32" height="32"></td><td>&nbsp;&nbsp;Account&nbsp;Security/Privacy</td></tr></tbody></table></a>
+      <a href="./security.html">
+        <table style="border-spacing: 0px;">
+          <tbody>
+            <tr>
+              <td><img src="../view-note/icons/security.png" width="32" height="32"></td>
+              <td>&nbsp;&nbsp;Account&nbsp;Security/Privacy</td>
+            </tr>
+          </tbody>
+        </table>
+      </a>
     </div>
     <div class="IconBar-Function">
-      <table style="border-spacing: 0px;"><tbody><tr><td><img src="../view-note/icons/login.png" width="32" height="32"></td><td>&nbsp;&nbsp;Logout</td></tr></tbody></table>
+      <table style="border-spacing: 0px;">
+        <tbody>
+          <tr>
+            <td><img src="../view-note/icons/login.png" width="32" height="32"></td>
+            <td>&nbsp;&nbsp;Logout</td>
+          </tr>
+        </tbody>
+      </table>
       <!--Theodore, please build function for this.-->
     </div>
     <hr>
     <a class="IconBar-Function" href="../view-note/" style="display: block; text-decoration: none;">
-      <table style="border-spacing: 0px;"><tbody><tr><td><img src="../view-note/icons/plus.png" width="32" height="32"></td><td>&nbsp;&nbsp;New&nbsp;Note</td></tr></tbody></table>
+      <table style="border-spacing: 0px;">
+        <tbody>
+          <tr>
+            <td><img src="../view-note/icons/plus.png" width="32" height="32"></td>
+            <td>&nbsp;&nbsp;New&nbsp;Note</td>
+          </tr>
+        </tbody>
+      </table>
     </a>
     <div class="IconBar-Function" onclick="ViewNotebooks();">
-      <table style="border-spacing: 0px;"><tbody><tr><td><img src="../view-note/icons/folder.png" width="32" height="32"></td><td>&nbsp;&nbsp;This&nbsp;Notebook</td></tr></tbody></table>
+      <table style="border-spacing: 0px;">
+        <tbody>
+          <tr>
+            <td><img src="../view-note/icons/folder.png" width="32" height="32"></td>
+            <td>&nbsp;&nbsp;This&nbsp;Notebook</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 
@@ -98,7 +137,8 @@
   <div id="Editor" style="cursor: default;">
     <img src="../view-note/icons/padlock.png" id="ProfilePic" width="175px" height="175px" alt="User" />
     <div id="EditorPanes-Home">
-      <label id="UserInfoTitle">Account Security/Privacy</label><hr>
+      <label id="UserInfoTitle">Account Security/Privacy</label>
+      <hr>
       <span id="UserInfoTitle2">Recent Logins<hr><span id="UserInfo-Content">Testing testing.</span></span>
       <!--Theodore, please put a link here to the backend here to retrieve the recent login timestamps, browsers and operating systems from/at which the login occurred.-->
     </div>
