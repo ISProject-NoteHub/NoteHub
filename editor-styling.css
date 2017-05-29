@@ -166,6 +166,7 @@ body {
       z-index: 0;
     }
   }
+}
 
 
 /*Desktop*/
@@ -218,12 +219,12 @@ body {
 
   @keyframes IconBar-Expand {
     from { width: 47px; }
-    to { width: 25%; }
+    to { width: 15%; }
   }
 
   @keyframes IconBar-Contract {
     0% {
-      width: 25%;
+      width: 15%;
       z-index: 3;
     }
     99% {
@@ -234,6 +235,7 @@ body {
       z-index: 0;
     }
   }
+}
 
 /*Common*/
 #Header {
