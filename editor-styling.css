@@ -1,3 +1,42 @@
+/*File pickers*/
+.FilePicker-Item {
+  cursor: pointer;
+  padding: 10px;
+  color: rgb(1, 152, 255);
+}
+
+.FilePicker-TextBox {
+  padding: 7.5px;
+  font-size: 1em;
+  display: block;
+  width: calc(100% - 15px); max-width: 100%;
+  margin: .25rem auto; margin-top: 5px;
+  border: 1px solid #eee; border-bottom: 2px solid #ccc; border-radius: 0;
+  outline: none;
+}
+
+.FilePicker-TextBox-after {
+  display: block;
+  width: 100%; height: 2px;
+  margin: auto; margin-top: calc(-2px - .25rem);
+  transition: transform ease-in-out 300ms;
+  transform: scaleX(0);
+  background-color: rgb(1, 152, 255);
+}
+
+.FilePicker-TextBox:focus + .FilePicker-TextBox-after { transform: scaleX(1); }
+
+.FilePicker-Item:hover {
+  background-color: #e3e3e3;
+}
+
+.FilePicker-HierachyLevel {
+  margin-top: 10px;
+  font-size: 18px;
+  color: white; background-color: rgb(1, 152, 255);
+  padding: 10px;
+}
+
 /*General*/
 body {
   cursor: default;

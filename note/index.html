@@ -15,7 +15,7 @@
   
 <body onload="Autorun();">
   <div id="Menu-IconBar" data-open="closed">
-    <div class="IconBar-Function" onclick="SaveNoteAs();">
+    <div class="IconBar-Function" onclick="SaveNoteAs(true);">
       <table style="border-spacing: 0px;"><tbody><tr><td><img src="icons/plus.png" width="32" height="32"></td><td>&nbsp;&nbsp;Save&nbsp;Note&nbsp;As</td></tr></tbody></table>
     </div>
     <div class="IconBar-Function" onclick="SaveNote();">
@@ -164,14 +164,12 @@
     <div class="Modal-Title">Authentication Required :(</div>
 
     <div class="Modal-Content">
-      You'll need to sign into NoteHub before saving a note or viewing your notebooks. You can sign in from <a href="https://notehub.ga/" target="_blank">our homepage</a>. After signing in, close this dialog and attempt to save your note again.
-      <br><br>Alternatively, you can save this note as a public note as an anonymous user. Your IP address will instead be used to identify you, and will be publicly displayed on the note.
-      <br><br>Sorry for any inconvenience caused.
+      You'll need to sign into NoteHub before saving a private note or viewing your notebooks. You can sign in from <a href="https://notehub.ga/" target="_blank">our homepage</a>. After signing in, close this dialog and attempt to save your private note again.
     </div>
 
     <div class="Modal-Footer">
-      <button disabled="disabled" style="background-color: seagreen; color: white;" class="Modal-Button">SAVE AS ANONYMOUS</button> <!--Ask user for tags-->
-      <button class="Modal-Button"onclick="CloseModal();">CLOSE</button>
+      <button onclick="PublicNote();" style="background-color: seagreen; color: white;" class="Modal-Button">SAVE AS ANONYMOUS</button> <!--Ask user for tags-->
+      <button class="Modal-Button" onclick="CloseModal();">CLOSE</button>
     </div>
   </div>
   
@@ -179,14 +177,77 @@
     <div class="Modal-Title">Save Note As...</div>
 
     <div class="Modal-Content">
-      Select a notebook to save your note under.
+      Select a topic and notebook to save your note under.
 
-      <div id="Modal-SaveFilePicker-List"></div>
+      <div id="Modal-SaveFilePicker-HierachyLevel" class="FilePicker-HierachyLevel">
+        <a href="" style="text-decoration: none; color: white;" id="Modal-SaveFilePicker-HierachyLevel-Back">< back</a>
+        <span style="float: right; font-weight: bold;" id="Modal-SaveFilePicker-HierachyLevel-Name">Topics</span>
+      </div>
+      <div id="Modal-SaveFilePicker-List" style="background-color: #ebebeb; height: 144.5px; overflow-y: scroll;"></div>
+
+      <br>
+
+      Note Name:<br>
+      <input id="Modal-SaveFilePicker-SaveName" class="FilePicker-TextBox" value="New Note" onkeyup="CheckNoteName('Modal-SaveFilePicker', this);" />
+      <div class="FilePicker-TextBox-after"></div>
+
+      <br>
+
+      <div id="Modal-SaveFilePicker-WillBeSuggestion" style="color: red; display: none;">
+        Your note will be saved as a suggestion of the above note.
+      </div>
     </div>
 
     <div class="Modal-Footer">
-      <button class="Modal-Button" style="background-color: seagreen; color: white;">SAVE AS</button>
+      <button class="Modal-Button" id="Modal-SaveFilePicker-SaveAs" onclick="SaveNoteAs(false);" style="background-color: seagreen; color: white;">SAVE AS</button>
       <button class="Modal-Button" onclick="CloseModal();">CANCEL</button> <!--Ask user for tags-->
+      <button class="Modal-Button" onclick="PrivateNote();">ADVANCED</button>
+    </div>
+  </div>
+  
+  <div id="Modal-SaveAdvanced" class="Modal">
+    <div class="Modal-Title">Advanced Save Options</div>
+
+    <div class="Modal-Content">
+      Your can save this note as a private note from here. You have 10 of 10 MB of private notes available.
+
+      <div id="Modal-SaveAdvanced-HierachyLevel" class="FilePicker-HierachyLevel">
+        <span style="font-weight: bold;" id="Modal-SaveAdvanced-HierachyLevel-Name">Your Private Notes</span>
+      </div>
+      <div id="Modal-SaveAdvanced-List" style="background-color: #ebebeb; height: 144.5px; overflow-y: scroll;">
+        Looks like you don't have any private notes!
+      </div>
+
+      <br>
+
+      Note Name:<br>
+      <input id="Modal-SaveAdvanced-SaveName" class="FilePicker-TextBox" value="New Note" onkeyup="CheckNoteName('Modal-AdvancedSave', this);" />
+      <div class="FilePicker-TextBox-after"></div>
+
+      <br>
+
+      <div id="Modal-SaveAdvanced-WillBeSuggestion" style="color: red; display: none;">
+        This note will overwrite the above note.
+      </div>
+    </div>
+
+    <div class="Modal-Footer">
+      <button class="Modal-Button" id="Modal-SaveAdvanced-SaveAs" disabled="disabled" onclick="SaveNoteAs(false);" style="background-color: seagreen; color: white;">SAVE AS</button>
+      <button class="Modal-Button" onclick="PublicNote();">CANCEL</button> <!--Ask user for tags-->
+    </div>
+  </div>
+  
+  <div id="Modal-SavingNote" class="Modal">
+    <div class="Modal-Title">Saving Note...</div>
+
+    <div class="Modal-Content" style="text-align: -webkit-center;">
+      Your note's being saved to NoteHub's servers. We'll be done in a jiffy...
+      <br><br>
+      <img src="../resources/loading.svg" width="128" height="128" id="Modal-SavingNote-Status" />
+    </div>
+
+    <div class="Modal-Footer">
+      <button class="Modal-Button" onclick="CloseModal();" style="background-color: seagreen; color: white;">CLOSE</button>
     </div>
   </div>
 </body>
