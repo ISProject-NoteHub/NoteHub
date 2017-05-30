@@ -25,7 +25,7 @@ function ParseInTopics(modalName) {
   for (i = 0; i < noteList.length; i++) {
     var topic = document.createElement("div");
     topic.setAttribute("class", "FilePicker-Item");
-    topic.innerHTML = noteList[i].topic;
+    topic.innerHTML = noteList[i][0];
     topic.setAttribute("onclick", "ParseInNotebooks('" + modalName + "', " + i + ");")
 
     document.getElementById(modalName + "-List").innerHTML = document.getElementById(modalName + "-List").innerHTML + topic.outerHTML;
@@ -37,14 +37,14 @@ function ParseInNotebooks(modalName, topicIndex) {
   document.getElementById(modalName + "-SaveAs").setAttribute("disabled", "disabled");
 
   document.getElementById(modalName + "-List").innerHTML = "";
-  document.getElementById(modalName + "-HierachyLevel-Name").innerHTML = noteList[topicIndex].topic;
+  document.getElementById(modalName + "-HierachyLevel-Name").innerHTML = noteList[topicIndex][0];
   document.getElementById(modalName + "-HierachyLevel-Back").style.visibility = "visible";
   document.getElementById(modalName + "-HierachyLevel-Back").setAttribute("href", "javascript:ParseInTopics('" + modalName + "');");
 
-  for (i = 0; i < noteList[topicIndex].notebooks.length; i++) {
+  for (i = 0; i < noteList[topicIndex][3].length; i++) {
     var topic = document.createElement("div");
     topic.setAttribute("class", "FilePicker-Item");
-    topic.innerHTML = noteList[topicIndex].notebooks[i].name;
+    topic.innerHTML = noteList[topicIndex][3][i][0];
     topic.setAttribute("onclick", "ParseInNotes('" + modalName + "', " + topicIndex + "," + i + ");");
 
     document.getElementById(modalName + "-List").innerHTML = document.getElementById(modalName + "-List").innerHTML + topic.outerHTML;
@@ -56,15 +56,15 @@ function ParseInNotes(modalName, topicIndex, notebookIndex) {
   document.getElementById(modalName + "-SaveAs").removeAttribute("disabled");
 
   document.getElementById(modalName + "-List").innerHTML = "";
-  document.getElementById(modalName + "-HierachyLevel-Name").innerHTML = noteList[topicIndex].notebooks[notebookIndex].name;
+  document.getElementById(modalName + "-HierachyLevel-Name").innerHTML = noteList[topicIndex][3][notebookIndex][0];
   document.getElementById(modalName + "-HierachyLevel-Back").setAttribute("href", "javascript:ParseInNotebooks('" + modalName + "', " + topicIndex + ");");
 
   globalTopicIndex = topicIndex; globalNotebookIndex = notebookIndex;
 
-  for (i = 0; i < noteList[topicIndex].notebooks[notebookIndex].notes.length; i++) {
+  for (i = 0; i < noteList[topicIndex][3][notebookIndex][3].length; i++) {
     var topic = document.createElement("div");
     topic.setAttribute("class", "FilePicker-Item");
-    topic.innerHTML = noteList[topicIndex].notebooks[notebookIndex].notes[i].name;
+    topic.innerHTML = noteList[topicIndex][3][notebookIndex][3][i];
     topic.setAttribute("onclick", "ChangeNoteNameTo('" + modalName + "', this);");
 
     document.getElementById(modalName + "-List").innerHTML = document.getElementById(modalName + "-List").innerHTML + topic.outerHTML;
@@ -121,8 +121,8 @@ function ChangeNoteNameTo(modalName, note) {
 
 //Check note name
 function CheckNoteName(modalName, noteName) {
-  for (i = 0; i < noteList[globalTopicIndex].notebooks[globalNotebookIndex].notes.length; i++) {
-    if (noteName == noteList[globalTopicIndex].notebooks[globalNotebookIndex].notes[i].name) { document.getElementById(modalName + "-WillBeSuggestion").style.display = "block"; }
+  for (i = 0; i < noteList[globalTopicIndex][3][globalNotebookIndex][3].length; i++) {
+    if (noteName == noteList[globalTopicIndex][3][globalNotebookIndex][3][i]) { document.getElementById(modalName + "-WillBeSuggestion").style.display = "block"; }
     else { document.getElementById(modalName + "-WillBeSuggestion").style.display = "none"; isSuggestion = false; }
   }
 }
@@ -158,7 +158,7 @@ function SaveNoteAs(fromMenu) {
       getPHPFile.send("noteName=" + document.getElementById("Modal-SaveAdvanced-SaveName").value + "&noteContent=" + JSON.stringify(note) + "&username=" + atob(localStorage.getItem("loggedIn")).split(",")[0] + "&password=" + atob(localStorage.getItem("loggedIn")).split(",")[1] + "&private=true&requestedFunction=MakeNote");
     }
     else {
-      getPHPFile.send("folder=" + noteList[globalTopicIndex].notebooks[globalNotebookIndex].folder + "&noteName=" + document.getElementById("Modal-SaveFilePicker-SaveName").value + "&noteContent=" + JSON.stringify(note) + "&username=" + atob(localStorage.getItem("loggedIn")).split(",")[0] + "&password=" + atob(localStorage.getItem("loggedIn")).split(",")[1] + "&private=false&requestedFunction=MakeNote");
+      getPHPFile.send("folder=" + noteList[globalTopicIndex][3][globalNotebookIndex][1] + "&noteName=" + document.getElementById("Modal-SaveFilePicker-SaveName").value + "&noteContent=" + JSON.stringify(note) + "&username=" + atob(localStorage.getItem("loggedIn")).split(",")[0] + "&password=" + atob(localStorage.getItem("loggedIn")).split(",")[1] + "&private=false&requestedFunction=MakeNote");
     }
   }
 }
