@@ -1,4 +1,4 @@
-var currentNoteAsObject = null, noteList = null, privateNote = false, isSuggestion = false, noteOpened = false;
+var currentNoteAsObject = null, noteList = null, privateNote = false, isSuggestion = false, noteOpened = false, noteName = "";
 
 //Initialise file picker
 function InitFilePicker() {
@@ -155,10 +155,10 @@ function SaveNoteAs(fromMenu) {
     getPHPFile.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     
     if (privateNote == true) {
-      getPHPFile.send("noteName=" + document.getElementById("Modal-SaveAdvanced-SaveName").value + "&noteContent=" + JSON.stringify(note) + "&username=" + atob(localStorage.getItem("loggedIn")).split(",")[0] + "&password=" + atob(localStorage.getItem("loggedIn")).split(",")[1] + "&private=true&requestedFunction=MakeNote");
+      getPHPFile.send("saveAs=true&noteName=" + document.getElementById("Modal-SaveAdvanced-SaveName").value + "&noteContent=" + JSON.stringify(note) + "&username=" + atob(localStorage.getItem("loggedIn")).split(",")[0] + "&password=" + atob(localStorage.getItem("loggedIn")).split(",")[1] + "&private=true&requestedFunction=MakeNote");
     }
     else {
-      getPHPFile.send("folder=" + noteList[globalTopicIndex][3][globalNotebookIndex][1] + "&noteName=" + document.getElementById("Modal-SaveFilePicker-SaveName").value + "&noteContent=" + JSON.stringify(note) + "&username=" + atob(localStorage.getItem("loggedIn")).split(",")[0] + "&password=" + atob(localStorage.getItem("loggedIn")).split(",")[1] + "&private=false&requestedFunction=MakeNote");
+      getPHPFile.send("saveAs=true&folder=" + noteList[globalTopicIndex][3][globalNotebookIndex][1] + "&noteName=" + document.getElementById("Modal-SaveFilePicker-SaveName").value + "&noteContent=" + JSON.stringify(note) + "&username=" + atob(localStorage.getItem("loggedIn")).split(",")[0] + "&password=" + atob(localStorage.getItem("loggedIn")).split(",")[1] + "&private=false&requestedFunction=MakeNote");
     }
   }
 }
@@ -166,16 +166,37 @@ function SaveNoteAs(fromMenu) {
 //Save Note
 function SaveNote() {
   if (noteOpened == true) {
+    //Prepare note object
+    var note = {
+      author: atob(localStorage.getItem("loggedIn")).split(",")[0],
+      suggestions: [],
+      content: document.getElementById("Editor").innerHTML.trim().replace("&nbsp;", " ")
+    };
 
+    ShowModal("SavingNote");
+    document.getElementById("Modal-SavingNote-Status").setAttribute("src", "../resources/loading.svg");
+
+    var getPHPFile = new XMLHttpRequest();
+    getPHPFile.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        console.log(getPHPFile.responseText);
+        document.getElementById("Modal-SavingNote-Status").setAttribute("src", "../resources/success.png");
+      }
+    }
+
+    getPHPFile.open("POST", "https://notehub-serverside.000webhostapp.com/handlers/filing.php", true);
+    getPHPFile.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    
+    if (privateNote == true) {
+      getPHPFile.send("saveAs=false&noteName=" + noteName + "&noteContent=" + JSON.stringify(note) + "&username=" + atob(localStorage.getItem("loggedIn")).split(",")[0] + "&password=" + atob(localStorage.getItem("loggedIn")).split(",")[1] + "&private=true&requestedFunction=MakeNote");
+    }
+    else {
+      getPHPFile.send("saveAs=false&folder=" + noteFolder + "&noteName=" + noteName + "&noteContent=" + JSON.stringify(note) + "&username=" + atob(localStorage.getItem("loggedIn")).split(",")[0] + "&password=" + atob(localStorage.getItem("loggedIn")).split(",")[1] + "&private=false&requestedFunction=MakeNote");
+    }
   }
   else {
-    SaveNoteAs();
+    SaveNoteAs(true);
   }
-}
-
-//Save Note
-function SaveNote() {
-
 }
 
 //Decode html entities

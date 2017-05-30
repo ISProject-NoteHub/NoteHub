@@ -40,8 +40,8 @@
       <table style="border-spacing: 0px;"><tbody><tr><td><img src="icons/login.png" width="32" height="32"></td><td>&nbsp;&nbsp;<span id="LoggedInOut">Logout</span></td></tr></tbody></table>
     </div>
     <hr>
-    <div class="IconBar-Function" onclick="document.getElementById('Debug').style.display = 'block';">
-      <table style="border-spacing: 0px;"><tbody><tr><td><img src="icons/user.png" width="32" height="32"></td><td>&nbsp;&nbsp;<span id="LoggedInOut">Debug</span></td></tr></tbody></table>
+    <div class="IconBar-Function" id="GetEditLink" onclick="">
+      <table style="border-spacing: 0px;"><tbody><tr><td><img src="icons/unlink.png" width="32" height="32"></td><td>&nbsp;&nbsp;Get&nbsp;Editing&nbsp;Link</td></tr></tbody></table>
     </div>
   </div>
   
@@ -150,16 +150,13 @@
     </div>
   </div>
 
-  <!--DEBUG DIALOG - REMOVE IN RELEASE-->
-  <div id="Debug" style="display: none; z-index: 5; position: absolute; top: 0; right: 0; color: white; background-color: black; padding: 20px;">
-    Tags/Topics: <input id="Debug-Tags" /><br>
-    Notebook: <input id="Debug-Notebook" /><br>
-    Author: <input id="Debug-Author" /><br>
-  </div>
-
   <!--MODAL DIALOGS-->
 
-  <div id="Modal-Overlay"></div>
+  <div id="Modal-Overlay">
+    We're retrieving your note from our servers. This shouldn't take long...
+    <br><br>
+    <img src="../resources/loading.svg" width="128" height="128" id="Modal-SavingNote-Status" />
+  </div>
 
   <div id="Modal-AuthRequired" class="Modal">
     <div class="Modal-Title">Authentication Required :(</div>

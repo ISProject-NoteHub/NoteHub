@@ -11,6 +11,10 @@ function Autorun() {
     document.getElementById("MyAccount").style.display = "none";
     document.getElementById("LoggedInOut").innerHTML = "Login";
   }
+
+  if (getParameterByName("edit") !== null) {
+    document.getElementById("Modal-Overlay").style.display = "block"; //Hide when note is loaded
+  }
 }
 
 function ShowModal(modalId) {
