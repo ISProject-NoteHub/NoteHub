@@ -16,6 +16,7 @@ function InitFilePicker() {
 
 //Parse topics into file picker
 function ParseInTopics(modalName) {
+  document.getElementById("Modal-SaveFilePicker-WillBeSuggestion").style.display = "none";
   document.getElementById(modalName + "-SaveAs").setAttribute("disabled", "disabled");
 
   document.getElementById(modalName + "-HierachyLevel-Name").innerHTML = "Topics"
@@ -75,6 +76,7 @@ function ParseInNotes(modalName, topicIndex, notebookIndex) {
 function PrivateNote() {
   if (CheckSignIn() == true) {
     privateNote = true;
+    document.getElementById("Modal-SaveAdvanced-WillBeSuggestion").style.display = "none";
     var username = atob(localStorage.getItem("loggedIn")).split(",")[0], password = atob(localStorage.getItem("loggedIn")).split(",")[1];
 
     var getPHPFile = new XMLHttpRequest();
@@ -122,7 +124,7 @@ function ChangeNoteNameTo(modalName, note) {
 //Check note name
 function CheckNoteName(modalName, noteName) {
   for (i = 0; i < noteList[globalTopicIndex][3][globalNotebookIndex][3].length; i++) {
-    if (noteName == noteList[globalTopicIndex][3][globalNotebookIndex][3][i]) { document.getElementById(modalName + "-WillBeSuggestion").style.display = "block"; }
+    if (noteName == noteList[globalTopicIndex][3][globalNotebookIndex][3][i]) { document.getElementById(modalName + "-WillBeSuggestion").style.display = "block"; isSuggestion = true; }
     else { document.getElementById(modalName + "-WillBeSuggestion").style.display = "none"; isSuggestion = false; }
   }
 }
@@ -153,12 +155,19 @@ function SaveNoteAs(fromMenu) {
 
     getPHPFile.open("POST", "https://notehub-serverside.000webhostapp.com/handlers/filing.php", true);
     getPHPFile.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    
-    if (privateNote == true) {
-      getPHPFile.send("saveAs=true&noteName=" + document.getElementById("Modal-SaveAdvanced-SaveName").value + "&noteContent=" + JSON.stringify(note) + "&username=" + atob(localStorage.getItem("loggedIn")).split(",")[0] + "&password=" + atob(localStorage.getItem("loggedIn")).split(",")[1] + "&private=true&requestedFunction=MakeNote");
+
+    if (isSuggestion == true) {
+      var saveAs = false;
     }
     else {
-      getPHPFile.send("saveAs=true&folder=" + noteList[globalTopicIndex][3][globalNotebookIndex][1] + "&noteName=" + document.getElementById("Modal-SaveFilePicker-SaveName").value + "&noteContent=" + JSON.stringify(note) + "&username=" + atob(localStorage.getItem("loggedIn")).split(",")[0] + "&password=" + atob(localStorage.getItem("loggedIn")).split(",")[1] + "&private=false&requestedFunction=MakeNote");
+      var saveAs = true;
+    }
+    
+    if (privateNote == true) {
+      getPHPFile.send("saveAs=" + saveAs + "&noteName=" + document.getElementById("Modal-SaveAdvanced-SaveName").value + "&noteContent=" + JSON.stringify(note) + "&username=" + atob(localStorage.getItem("loggedIn")).split(",")[0] + "&password=" + atob(localStorage.getItem("loggedIn")).split(",")[1] + "&private=true&requestedFunction=MakeNote");
+    }
+    else {
+      getPHPFile.send("saveAs=" + saveAs + "&folder=" + noteList[globalTopicIndex][3][globalNotebookIndex][1] + "&noteName=" + document.getElementById("Modal-SaveFilePicker-SaveName").value + "&noteContent=" + JSON.stringify(note) + "&username=" + atob(localStorage.getItem("loggedIn")).split(",")[0] + "&password=" + atob(localStorage.getItem("loggedIn")).split(",")[1] + "&private=false&requestedFunction=MakeNote");
     }
   }
 }
@@ -179,8 +188,8 @@ function SaveNote() {
     var getPHPFile = new XMLHttpRequest();
     getPHPFile.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-        console.log(getPHPFile.responseText);
         document.getElementById("Modal-SavingNote-Status").setAttribute("src", "../resources/success.png");
+        console.log(getPHPFile.responseText);
       }
     }
 
@@ -199,19 +208,24 @@ function SaveNote() {
   }
 }
 
-//Decode html entities
+//Decode HTML entities
 function decodeHTML(html) {
   var txt = document.createElement("textarea");
   txt.innerHTML = html;
   return txt.value;
 }
 
-//Retrieve Note
-function GetNote(topic, noteID) {
-  
-}
+//Retrieve note
+function GetNote(folder, note) {
+  var getPHPFile = new XMLHttpRequest();
+  getPHPFile.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      console.log(getPHPFile.responseText);
+      CloseModal();
+    }
+  }
 
-//Copy Note to Editor
-function CopyNote(topic, noteID) {
-  
+  getPHPFile.open("POST", "https://notehub-serverside.000webhostapp.com/handlers/filing.php", true);
+  getPHPFile.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  getPHPFile.send();
 }

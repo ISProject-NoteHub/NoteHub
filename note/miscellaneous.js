@@ -14,7 +14,15 @@ function Autorun() {
 
   if (getParameterByName("edit") !== null) {
     document.getElementById("Modal-Overlay").style.display = "block"; //Hide when note is loaded
+
+    
   }
+  else { /*Nothing*/ }
+
+  if (localStorage.getItem("seenNotice") !== "seen") {
+    ShowModal("WhatWorks");
+  }
+  else { /*Who cares*/ }
 }
 
 function ShowModal(modalId) {
@@ -38,4 +46,9 @@ function CloseModal() {
   }
 
   document.getElementById("Modal-Overlay").style.display = "none";
+}
+
+function CloseNotice() {
+  CloseModal();
+  localStorage.setItem("seenNotice", "seen");
 }

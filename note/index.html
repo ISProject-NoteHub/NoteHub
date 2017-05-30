@@ -53,33 +53,35 @@
   <div id="Title"><input id="Title-Title" value="New Note" /></div>
   <div id="TopBar">
     <table><tr>
-      <td><div class="FormattingButton" onmousedown="SetBold(event);" id="Formatting-FontBold">
+      <td><div class="FormattingButton" data-image="false" onmousedown="SetBold(event);" id="Formatting-FontBold">
         <b>B</b>
       </div></td>
-      <td><div class="FormattingButton" onmousedown="SetItalic(event);" id="Formatting-FontItalic">
+      <td><div class="FormattingButton" data-image="false" onmousedown="SetItalic(event);" id="Formatting-FontItalic">
         <i>I</i>
       </div></td>
-      <td><div class="FormattingButton" onmousedown="SetUnderline(event);" id="Formatting-FontUnderline">
+      <td><div class="FormattingButton" data-image="false" onmousedown="SetUnderline(event);" id="Formatting-FontUnderline">
         <u>U</u>
       </div></td>
       
-      <td><span class="TopBar-Separator">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
-      
       <td><select class="FormattingSelect" onchange="UpdateFontFamily(event);" id="Formatting-FontFamily">
-        <option disabled="disabled" style="font-family: 'Segoe UI'; font-size: 18px; font-weight: bold;">Font Faces</option>
-        <option style="font-family: 'Arial';">Arial</option>
-        <option style="font-family: 'Calibri';" selected="selected">Calibri</option>
-        <option style="font-family: 'Cambria';">Cambria</option>
-        <option style="font-family: 'Comic Sans MS', 'Comic Sans';">Comic Sans MS</option>
-        <option style="font-family: 'Consolas';">Consolas</option>
-        <option style="font-family: 'Times New Roman';">Times New Roman</option>
-        <option style="font-family: 'Segoe UI';">Segoe UI</option>
-        <option style="font-family: 'Trebuchet';">Trebuchet</option>
-        <option style="font-family: 'Verdana';">Verdana</option>
-        <option disabled="disabled" style="font-family: 'Segoe UI'; font-size: 18px; font-weight: bold;">Generic Fonts</option>
-        <option style="font-family: 'monospace';">Monospace</option>
-        <option style="font-family: 'sans-serif';">Sans-Serif</option>
-        <option style="font-family: 'serif';">Serif</option>
+        <optgroup label="Generic Fonts">
+          <option style="font-family: 'Arial';">Arial</option>
+          <option style="font-family: 'Calibri';" selected="selected">Calibri</option>
+          <option style="font-family: 'Cambria';">Cambria</option>
+          <option style="font-family: 'Comic Sans MS', 'Comic Sans';">Comic Sans MS</option>
+          <option style="font-family: 'Consolas';">Consolas</option>
+          <option style="font-family: 'Open Sans';">Open Sans</option>
+          <option style="font-family: 'Times New Roman';">Times New Roman</option>
+          <option style="font-family: 'Segoe UI';" selected="selected">Segoe UI</option>
+          <option style="font-family: 'Trebuchet';">Trebuchet</option>
+          <option style="font-family: 'Verdana';">Verdana</option>
+        </optgroup>
+
+        <optgroup label="Generic Fonts">
+          <option style="font-family: 'monospace';">Monospace</option>
+          <option style="font-family: 'sans-serif';">Sans-Serif</option>
+          <option style="font-family: 'serif';">Serif</option>
+        </optgroup>
       </select></td>
       
       <td><select class="FormattingSelect" onchange="UpdateFontSize(event);" id="Formatting-FontSize">
@@ -92,36 +94,50 @@
         <option>24</option>
         <option>26</option>
         <option>28</option>
-        <option>30</option>
+        <option>25</option>
         <option>36</option>
         <option>48</option>
         <option>72</option>
         <option>144</option>
       </select></td>
       
+      <td><div class="FormattingButton" onmousedown="RemoveFormatting(event);" id="Formatting-PointList" data-image="true">
+        <img src="icons/error.png" height="25" />
+        <span class="FormattingButton-Text">Clear Formatting</span>
+      </div></td>
+      
       <td><span class="TopBar-Separator">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
 
-      <td><div class="FormattingButton" onmousedown="InsertNumberedList(event);" id="Formatting-NumberedList" style="position: relative; top: 5px;">
-        <img src="icons/list.png" alt="Insert numbered list" width="30" height="30" />
+      <td><div class="FormattingButton" onmousedown="InsertBulletedList(event);" id="Formatting-NumberedList" data-image="true">
+        <img src="icons/list.png" height="25" />
+        <span class="FormattingButton-Text">Numbered List</span>
       </div></td>
 
-      <td><div class="FormattingButton" onmousedown="InsertBulletedList(event);" id="Formatting-PointList" style="position: relative; top: 5px;">
-        <img src="icons/list-button.png" alt="Insert bulleted list" width="30" height="30" />
+      <td><div class="FormattingButton" onmousedown="InsertNumberedList(event);" id="Formatting-PointList" data-image="true">
+        <img src="icons/list-button.png" height="25" />
+        <span class="FormattingButton-Text">Bulleted List</span>
+      </div></td>
+      
+      <td><div class="FormattingButton" onmousedown="Line(event);" id="Formatting-PointList" data-image="true">
+        <img src="icons/subtract.png" height="25" />
+        <span class="FormattingButton-Text">Horizontal Rule</span>
       </div></td>
 
       <td><span class="TopBar-Separator">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
 
-      <td><div class="FormattingButton" onmousedown="Outdent(event);" id="Formatting-NumberedList" style="position: relative; top: 5px;">
-        <img src="icons/left-indent.png" alt="Outdent text" width="30" height="30" />
+      <td><div class="FormattingButton" onmousedown="Outdent(event);" id="Formatting-NumberedList" data-image="true">
+        <img src="icons/left-indent.png" height="25" />
+        <span class="FormattingButton-Text">Outdent</span>
       </div></td>
 
-      <td><div class="FormattingButton" onmousedown="Indent(event);" id="Formatting-PointList" style="position: relative; top: 5px;">
-        <img src="icons/right-indent.png" alt="Indent text" width="30" height="30" />
+      <td><div class="FormattingButton" onmousedown="Indent(event);" id="Formatting-PointList" data-image="true">
+        <img src="icons/right-indent.png" height="25" />
+        <span class="FormattingButton-Text">Indent</span>
       </div></td>
     </tr></table>
   </div>
   
-  <div id="Editor" contenteditable="true">This is a note.</div>
+  <div id="Editor" contenteditable="true" onclick="FormattingToolbarUpdate();">This is a note.</div>
   
   <div id="BottomPickerBar">
     <div id="BottomPickerBar-HighlightPick" class="PickerBarPicker">
@@ -140,7 +156,7 @@
             <td class="Picker-Colour" style="background-color: #2196f3; color: white;">&nbsp;&nbsp;&nbsp;</td>
             <td class="Picker-Colour" style="background-color: yellow; color: black;">&nbsp;&nbsp;&nbsp;</td>
             <td class="Picker-Colour" style="background-color: beige;">&nbsp;&nbsp;&nbsp;</td>
-            <td class="Picaker-Colour" style="background-color: rgb(1, 152, 255);">&nbsp;&nbsp;&nbsp;</td>
+            <td class="Picker-Colour" style="background-color: rgb(1, 152, 255);">&nbsp;&nbsp;&nbsp;</td>
             <td class="Picker-Colour" style="background-color: orange;">&nbsp;&nbsp;&nbsp;</td>
             <td class="Picker-Colour" style="background-color: white; color: black;">Transparent</td>
             <td class="Picker-Colour" style="background-color: white; color: black;">More&nbsp;colours...</td>
@@ -152,10 +168,23 @@
 
   <!--MODAL DIALOGS-->
 
+  <div id="Modal-WhatWorks" class="Modal">
+    <div class="Modal-Title">Alpha Notice</div>
+
+    <div class="Modal-Content">
+      NoteHub's in a very early stage of development (alpha). Some features in the editor, such as font families, font size and the like, may only partially work, or may not work at all.
+      <br><br>As such, do not take this build of NoteHub as an indication of the final product's completeness or quality.
+    </div>
+
+    <div class="Modal-Footer">
+      <button onclick="CloseNotice();" style="background-color: seagreen; color: white;" class="Modal-Button">OK</button>
+    </div>
+  </div>
+
   <div id="Modal-Overlay">
     We're retrieving your note from our servers. This shouldn't take long...
     <br><br>
-    <img src="../resources/loading.svg" width="128" height="128" id="Modal-SavingNote-Status" />
+    <img src="../resources/loading.svg" width="128" height="128" />
   </div>
 
   <div id="Modal-AuthRequired" class="Modal">
