@@ -71,20 +71,20 @@ function GetFontSize() {
   }
   
   if (containerEl) {
-    var fontName = getComputedStyleProperty(containerEl, "fontSize"); console.log(fontName);
+    var fontSize = getComputedStyleProperty(containerEl, "fontSize"); console.log(fontSize);
 
-    if (fontName.includes("144")) { document.getElementById("Formatting-FontFamily").selectedIndex = 12; }
-    else if (fontName.includes("72")) { document.getElementById("Formatting-FontFamily").selectedIndex = 11; }
-    else if (fontName.includes("48")) { document.getElementById("Formatting-FontFamily").selectedIndex = 10; }
-    else if (fontName.includes("36")) { document.getElementById("Formatting-FontFamily").selectedIndex = 9; }
-    else if (fontName.includes("28")) { document.getElementById("Formatting-FontFamily").selectedIndex = 8; }
-    else if (fontName.includes("26")) { document.getElementById("Formatting-FontFamily").selectedIndex = 7; }
-    else if (fontName.includes("24")) { document.getElementById("Formatting-FontFamily").selectedIndex = 6; }
-    else if (fontName.includes("18")) { document.getElementById("Formatting-FontFamily").selectedIndex = 5; }
-    else if (fontName.includes("14")) { document.getElementById("Formatting-FontFamily").selectedIndex = 4; }
-    else if (fontName.includes("12")) { document.getElementById("Formatting-FontFamily").selectedIndex = 3; }
-    else if (fontName.includes("11")) { document.getElementById("Formatting-FontFamily").selectedIndex = 2; }
-    else if (fontName.includes("10")) { document.getElementById("Formatting-FontFamily").selectedIndex = 1; }
+    if (fontSize.includes("144")) { document.getElementById("Formatting-FontSize").selectedIndex = 12; }
+    else if (fontSize.includes("72")) { document.getElementById("Formatting-FontSize").selectedIndex = 11; }
+    else if (fontSize.includes("48")) { document.getElementById("Formatting-FontSize").selectedIndex = 10; }
+    else if (fontSize.includes("36")) { document.getElementById("Formatting-FontSize").selectedIndex = 9; }
+    else if (fontSize.includes("28")) { document.getElementById("Formatting-FontSize").selectedIndex = 8; }
+    else if (fontSize.includes("26")) { document.getElementById("Formatting-FontSize").selectedIndex = 7; }
+    else if (fontSize.includes("24")) { document.getElementById("Formatting-FontSize").selectedIndex = 6; }
+    else if (fontSize.includes("18")) { document.getElementById("Formatting-FontSize").selectedIndex = 5; }
+    else if (fontSize.includes("14")) { document.getElementById("Formatting-FontSize").selectedIndex = 4; }
+    else if (fontSize.includes("12")) { document.getElementById("Formatting-FontSize").selectedIndex = 3; }
+    else if (fontSize.includes("11")) { document.getElementById("Formatting-FontSize").selectedIndex = 2; }
+    else if (fontSize.includes("10")) { document.getElementById("Formatting-FontSize").selectedIndex = 1; }
     else { document.getElementById("Formatting-FontFamily").selectedIndex = 0; }
   }
 }
