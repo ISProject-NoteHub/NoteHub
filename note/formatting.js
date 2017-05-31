@@ -71,7 +71,7 @@ function GetFontSize() {
   }
   
   if (containerEl) {
-    var fontSize = getComputedStyleProperty(containerEl, "fontSize"); console.log(fontSize);
+    var fontName = getComputedStyleProperty(containerEl, "fontSize"); console.log(fontSize);
 
     if (fontName.includes("144")) { document.getElementById("Formatting-FontFamily").selectedIndex = 12; }
     else if (fontName.includes("72")) { document.getElementById("Formatting-FontFamily").selectedIndex = 11; }
@@ -85,7 +85,7 @@ function GetFontSize() {
     else if (fontName.includes("12")) { document.getElementById("Formatting-FontFamily").selectedIndex = 3; }
     else if (fontName.includes("11")) { document.getElementById("Formatting-FontFamily").selectedIndex = 2; }
     else if (fontName.includes("10")) { document.getElementById("Formatting-FontFamily").selectedIndex = 1; }
-    else if (fontName.includes("8")) { document.getElementById("Formatting-FontFamily").selectedIndex = 0; }
+    else { document.getElementById("Formatting-FontFamily").selectedIndex = 0; }
   }
 }
 
