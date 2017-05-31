@@ -94,7 +94,6 @@
         <option>24</option>
         <option>26</option>
         <option>28</option>
-        <option>25</option>
         <option>36</option>
         <option>48</option>
         <option>72</option>
@@ -106,7 +105,7 @@
         <span class="FormattingButton-Text">Clear Formatting</span>
       </div></td>
       
-      <td><span class="TopBar-Separator">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+      <td><span class="TopBar-Separator"></span></td>
 
       <td><div class="FormattingButton" onmousedown="InsertBulletedList(event);" id="Formatting-NumberedList" data-image="true">
         <img src="icons/list.png" height="25" />
@@ -122,8 +121,13 @@
         <img src="icons/subtract.png" height="25" />
         <span class="FormattingButton-Text">Horizontal Rule</span>
       </div></td>
+      
+      <td><div class="FormattingButton" onmousedown="Section(event);" title="Inserts a section, with different background colour and a heading." id="Formatting-PointList" data-image="true">
+        <img src="icons/section.png" height="25" />
+        <span class="FormattingButton-Text">Section</span>
+      </div></td>
 
-      <td><span class="TopBar-Separator">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+      <td><span class="TopBar-Separator"></span></td>
 
       <td><div class="FormattingButton" onmousedown="Outdent(event);" id="Formatting-NumberedList" data-image="true">
         <img src="icons/left-indent.png" height="25" />
@@ -137,7 +141,7 @@
     </tr></table>
   </div>
   
-  <div id="Editor" contenteditable="true" onclick="FormattingToolbarUpdate();">This is a note.</div>
+  <div id="Editor" contenteditable="true" onkeyup="FormattingToolbarUpdate();" onclick="FormattingToolbarUpdate();" onblur="event.preventDefault();" oncontextmenu="ContextMenu(global);">This is a note.</div>
   
   <div id="BottomPickerBar">
     <div id="BottomPickerBar-HighlightPick" class="PickerBarPicker">

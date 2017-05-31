@@ -222,7 +222,11 @@ body {
     vertical-align: middle;
   }
   
-  .TopBar-Separator { display: inline; }
+  .TopBar-Separator {
+    position: relative;
+    top: 9px;
+    border: 1px solid black;
+  }
   
   .PickerBarPicker { padding: 10px; }
 

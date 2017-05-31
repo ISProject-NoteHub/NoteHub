@@ -47,7 +47,7 @@ function UpdateFontSize(event) {
   event.preventDefault();
   document.execCommand("fontSize", false, "7");
   var fontElements = document.getElementsByTagName("font");
-  for (var i = 0, len = fontElements.length; i < len; ++i) {
+  for (var i = 0, len = fontElements.length; i < len; i++) {
     if (fontElements[i].size == "7") {
       fontElements[i].removeAttribute("size");
       fontElements[i].style.fontSize = document.getElementById("Formatting-FontSize").options[document.getElementById("Formatting-FontSize").selectedIndex].value + "px";
@@ -73,7 +73,19 @@ function GetFontSize() {
   if (containerEl) {
     var fontSize = getComputedStyleProperty(containerEl, "fontSize"); console.log(fontSize);
 
-    //COMPLETE THIS @THEO
+    if (fontName.includes("144")) { document.getElementById("Formatting-FontFamily").selectedIndex = 12; }
+    else if (fontName.includes("72")) { document.getElementById("Formatting-FontFamily").selectedIndex = 11; }
+    else if (fontName.includes("48")) { document.getElementById("Formatting-FontFamily").selectedIndex = 10; }
+    else if (fontName.includes("36")) { document.getElementById("Formatting-FontFamily").selectedIndex = 9; }
+    else if (fontName.includes("28")) { document.getElementById("Formatting-FontFamily").selectedIndex = 8; }
+    else if (fontName.includes("26")) { document.getElementById("Formatting-FontFamily").selectedIndex = 7; }
+    else if (fontName.includes("24")) { document.getElementById("Formatting-FontFamily").selectedIndex = 6; }
+    else if (fontName.includes("18")) { document.getElementById("Formatting-FontFamily").selectedIndex = 5; }
+    else if (fontName.includes("14")) { document.getElementById("Formatting-FontFamily").selectedIndex = 4; }
+    else if (fontName.includes("12")) { document.getElementById("Formatting-FontFamily").selectedIndex = 3; }
+    else if (fontName.includes("11")) { document.getElementById("Formatting-FontFamily").selectedIndex = 2; }
+    else if (fontName.includes("10")) { document.getElementById("Formatting-FontFamily").selectedIndex = 1; }
+    else if (fontName.includes("8")) { document.getElementById("Formatting-FontFamily").selectedIndex = 0; }
   }
 }
 
