@@ -71,7 +71,7 @@ function GetFontSize() {
   }
   
   if (containerEl) {
-    var fontName = getComputedStyleProperty(containerEl, "fontSize"); console.log(fontSize);
+    var fontName = getComputedStyleProperty(containerEl, "fontSize"); console.log(fontName);
 
     if (fontName.includes("144")) { document.getElementById("Formatting-FontFamily").selectedIndex = 12; }
     else if (fontName.includes("72")) { document.getElementById("Formatting-FontFamily").selectedIndex = 11; }
