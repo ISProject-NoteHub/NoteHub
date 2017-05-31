@@ -32,6 +32,12 @@ a:hover {
   color: darkgray;
 }
 
+#Page-Contents {
+  margin-top: 60px;
+  padding: 10px;
+  /*Defines styling to move page contents to under the titlebar so that they are visible*/
+}
+
 #Page-TitleBar {
   background-color: rgb(1, 152, 255);
   line-height: 70px;
