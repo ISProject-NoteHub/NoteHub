@@ -38,6 +38,11 @@ function Line(event) {
   document.execCommand("insertHorizontalRule", false, null);
 }
 
+function Section(event) {
+  event.preventDefault();
+  document.execCommand("insertHTML", false, "<div class='Note-Section'><h2>Section Header</h2><p>Content</p></div><br>");
+}
+
 function RemoveFormatting(event) {
   event.preventDefault();
   document.execCommand("removeFormat", false, null);

@@ -408,3 +408,18 @@ body {
    position: relative;
    top: 8px;
 }
+
+/*Styles for note elements*/
+.Note-Section {
+  padding: 10px;
+  position: relative;
+  left: -10px;
+  width: 100%;
+}
+
+.Note-Section:nth-child(odd) {
+  background-color: white;
+}
+.Note-Section:nth-child(even) {
+  background-color: #d0d0d0;
+}
