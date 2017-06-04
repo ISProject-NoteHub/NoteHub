@@ -60,6 +60,8 @@ body {
 
 .Modal-Content {
   padding: 10px;
+  max-height: 275px;
+  overflow-y: scroll;
 }
 
 .Modal-Footer {

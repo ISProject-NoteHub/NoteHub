@@ -6,6 +6,8 @@ function RevealIconDescriptors() {
 }
 
 function Autorun() {
+  LoadLanguageData();
+
   if (CheckSignIn() === true) { /*Nothing*/ }
   else {
     document.getElementById("MyAccount").style.display = "none";

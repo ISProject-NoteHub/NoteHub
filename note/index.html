@@ -5,16 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <link href="../logo.png" rel="icon" />
+  <link href="../test-styling.css" rel="stylesheet" />
   <link href="../editor-styling.css" rel="stylesheet" />
+
+  <script>
+    var checkKeywordsTags = true;
+  </script>
   
   <script src="formatting.js"></script>
   <script src="../query-strings.js"></script>
   <script src="miscellaneous.js"></script>
+  <script src="think-about-it.js"></script>
   <script src="filing.js"></script>
   <script src="../accounts/accounts.js"></script> <!--OK-->
+
+  <script src="../resources/tags/tags.js"></script>
+  <link href="../resources/tags/tags.css" rel="stylesheet" />
 </head>
   
-<body onload="Autorun();">
+<body onload="Autorun(); InitTags();">
   <div id="Menu-IconBar" data-open="closed">
     <div class="IconBar-Function" onclick="SaveNoteAs(true);">
       <table style="border-spacing: 0px;"><tbody><tr><td><img src="icons/plus.png" width="32" height="32"></td><td>&nbsp;&nbsp;Save&nbsp;Note&nbsp;As</td></tr></tbody></table>
@@ -22,8 +31,11 @@
     <div class="IconBar-Function" onclick="SaveNote();">
       <table style="border-spacing: 0px;"><tbody><tr><td><img src="icons/save.png" width="32" height="32"></td><td>&nbsp;&nbsp;Save&nbsp;Note</td></tr></tbody></table>
     </div>
-    <div class="IconBar-Function" onclick="ViewNotebook();">
-      <table style="border-spacing: 0px;"><tbody><tr><td><img src="icons/folder.png" width="32" height="32"></td><td>&nbsp;&nbsp;This&nbsp;Notebook</td></tr></tbody></table>
+    <div class="IconBar-Function" onclick="window.location.href = '/account-manager/file-manager.html?tab=public';">
+      <table style="border-spacing: 0px;"><tbody><tr><td><img src="icons/folder.png" width="32" height="32"></td><td>&nbsp;&nbsp;Open&nbsp;Note</td></tr></tbody></table>
+    </div>
+    <div class="IconBar-Function" onclick="ThisNotebook();">
+      <table style="border-spacing: 0px;"><tbody><tr><td><img src="icons/notebook.png" width="32" height="32"></td><td>&nbsp;&nbsp;This&nbsp;Notebook</td></tr></tbody></table>
     </div>
     <hr>
     <div class="IconBar-Function">
@@ -42,6 +54,9 @@
     <hr>
     <div class="IconBar-Function" id="GetEditLink" onclick="">
       <table style="border-spacing: 0px;"><tbody><tr><td><img src="icons/unlink.png" width="32" height="32"></td><td>&nbsp;&nbsp;Get&nbsp;Editing&nbsp;Link</td></tr></tbody></table>
+    </div>
+    <div class="IconBar-Function" onclick="ShowModal('NoteInfo');">
+      <table style="border-spacing: 0px;"><tbody><tr><td><img src="icons/info.png" width="32" height="32"></td><td>&nbsp;&nbsp;Note&nbsp;Information</td></tr></tbody></table>
     </div>
   </div>
   
@@ -265,6 +280,36 @@
     <div class="Modal-Footer">
       <button class="Modal-Button" id="Modal-SaveAdvanced-SaveAs" disabled="disabled" onclick="SaveNoteAs(false);" style="background-color: seagreen; color: white;">SAVE AS</button>
       <button class="Modal-Button" onclick="PublicNote();">CANCEL</button> <!--Ask user for tags-->
+    </div>
+  </div>
+  
+  <div id="Modal-NoteInfo" class="Modal">
+    <div class="Modal-Title">Note Information</div>
+
+    <div class="Modal-Content">
+      Here's the meta-data of your note. We use this data to assist our intelligent algorithm in suggesting notes to users such as yourself. Feel free to update any of the data here.
+      <br><br>
+
+      <b>Note Name: </b><span id="NoteInfo-NoteName">New Note</span> - this is only updated when you save your note.<br>
+      <b>Note Privacy: </b><span id="NoteInfo-NotePrivacy">Public, for all to see. Anyone can suggest, but you retain full control of what gets incoporated.</span><br>
+      <a href="https://notehub.ga/note?edit=<note id in generated link...>" target="_blank">Learn More about note privacy</a><br>
+      <b>Last Modified: </b><span id="NoteInfo-LastModified">Today</span><br><br>
+
+      <b>Note Tags:</b>
+      <input id="NoteInfo-Tags" placeholder="Note Tags" />
+      <label><b>Suggested / Warnings: </b><span id="NoteInfo-SuggestedTags">- None -</span><br>
+      <label>Note tags are displayed on your note as tags, for users to see. They are also a factor when other users search for notes using tags. Popular tags tend to be displayed at the top of the gallery feed.</label><br>
+      <a href="https://notehub.ga/note?edit=<note id in generated link...>" target="_blank">Learn More about tags</a><br><br>
+
+      <b>Note Keywords:</b>
+      <input id="NoteInfo-Keywords" placeholder="Note Keywords" />
+      <label><b>Suggested: </b><span id="NoteInfo-SuggestedKeywords"></span><br>
+      <label>Keywords cannot be seen by other users when they view your notes as NoteHub uses them purely as a reference. Keywords also affect search results.</label><br>
+      <a href="https://notehub.ga/note?edit=<note id in generated link...>" target="_blank">Learn More about keywords</a>
+    </div>
+
+    <div class="Modal-Footer">
+      <button class="Modal-Button" onclick="CloseModal();" style="background-color: seagreen; color: white;">OK</button>
     </div>
   </div>
   

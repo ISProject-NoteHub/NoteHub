@@ -1,7 +1,19 @@
 var currentNoteAsObject = null, noteList = null, privateNote = false, isSuggestion = false, noteOpened = false, noteName = "";
+var noteTagsInput = null;
+var noteKeywordsInput = null;
+
+//Initialise tags
+function InitTags() {
+  noteTagsKeywords = new Tags("#NoteInfo-Keywords");
+  noteTagsInput = new Tags("#NoteInfo-Tags");
+}
 
 //Initialise file picker
 function InitFilePicker() {
+  //Set file name
+  document.getElementById("Modal-SaveFilePicker-SaveName").value = document.getElementById("Title-Title").value;
+  document.getElementById("Modal-SaveAdvanced-SaveName").value = document.getElementById("Title-Title").value;
+
   var getPHPFile = new XMLHttpRequest();
   getPHPFile.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -227,5 +239,5 @@ function GetNote(folder, note) {
 
   getPHPFile.open("POST", "https://notehub-serverside.000webhostapp.com/handlers/filing.php", true);
   getPHPFile.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  getPHPFile.send();
+  getPHPFile.send("requestedFunction=GetNote&noteRequested=");
 }
