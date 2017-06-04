@@ -27,7 +27,7 @@ function CheckKeywordsTags(input) {
   for (i = 0; i < vulgarities["no-context"].length; i++) {
     if (input.value.toUpperCase().includes(vulgarities["no-context"][i].toUpperCase())) {
       document.getElementById("NoteInfo-SuggestedTags").style.color = "red";
-      document.getElementById("NoteInfo-SuggestedTags").innerHTML = "We've detected that you're trying to add a rather rude-sounding tag. Perhaps try another tag?";
+      document.getElementById("NoteInfo-SuggestedTags").innerHTML = "We've detected that you're trying to add a rude tag to your note. Please try another tag.";
       console.log("no.");
       return "No.";
     }
