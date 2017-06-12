@@ -6,6 +6,25 @@ function RevealIconDescriptors() {
 }
 
 function Autorun() {
+  //Quill
+  var container = document.getElementById('Editor-Inside');
+  var quill = new Quill(container, {
+    modules: {
+      toolbar: [
+        [{ header: [1, 2, 3, 4, 5, 6, false] }, { 'font': [] }, { size: [ 'small', false, 'large', 'huge' ]}],
+        ['bold', 'italic', 'underline', 'strike', 'blockquote', 'clean'],
+        ['link', 'image', 'code-block'],
+        [{ 'list': 'ordered'}, { 'list': 'bullet' }, { 'indent': '-1'}, { 'indent': '+1' }, { 'align': [] }],
+        [{ 'color': [] }, { 'background': [] }]
+      ],
+      history: {
+        delay: 1000,
+        maxStack: 500
+      }
+    },
+    theme: 'snow'
+  });
+
   LoadLanguageData();
 
   if (CheckSignIn() === true) { /*Nothing*/ }

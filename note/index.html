@@ -11,13 +11,16 @@
   <script>
     var checkKeywordsTags = true;
   </script>
-  
-  <script src="formatting.js"></script>
+
   <script src="../query-strings.js"></script>
   <script src="miscellaneous.js"></script>
   <script src="think-about-it.js"></script>
   <script src="filing.js"></script>
   <script src="../accounts/accounts.js"></script> <!--OK-->
+
+  <!--Quill-->
+  <script src="quill.min.js"></script>
+  <link href="quill.snow.css" rel="stylesheet">
 
   <script src="../resources/tags/tags.js"></script>
   <link href="../resources/tags/tags.css" rel="stylesheet" />
@@ -67,123 +70,29 @@
   
   <div id="Title"><input id="Title-Title" value="New Note" /></div>
   <div id="TopBar">
-    <table><tr>
-      <td><div class="FormattingButton" data-image="false" onmousedown="SetBold(event);" id="Formatting-FontBold">
-        <b>B</b>
-      </div></td>
-      <td><div class="FormattingButton" data-image="false" onmousedown="SetItalic(event);" id="Formatting-FontItalic">
-        <i>I</i>
-      </div></td>
-      <td><div class="FormattingButton" data-image="false" onmousedown="SetUnderline(event);" id="Formatting-FontUnderline">
-        <u>U</u>
-      </div></td>
-      
-      <td><select class="FormattingSelect" onchange="UpdateFontFamily(event);" id="Formatting-FontFamily">
-        <optgroup label="Generic Fonts">
-          <option style="font-family: 'Arial';">Arial</option>
-          <option style="font-family: 'Calibri';" selected="selected">Calibri</option>
-          <option style="font-family: 'Cambria';">Cambria</option>
-          <option style="font-family: 'Comic Sans MS', 'Comic Sans';">Comic Sans MS</option>
-          <option style="font-family: 'Consolas';">Consolas</option>
-          <option style="font-family: 'Open Sans';">Open Sans</option>
-          <option style="font-family: 'Times New Roman';">Times New Roman</option>
-          <option style="font-family: 'Segoe UI';" selected="selected">Segoe UI</option>
-          <option style="font-family: 'Trebuchet';">Trebuchet</option>
-          <option style="font-family: 'Verdana';">Verdana</option>
-        </optgroup>
-
-        <optgroup label="Generic Fonts">
-          <option style="font-family: 'monospace';">Monospace</option>
-          <option style="font-family: 'sans-serif';">Sans-Serif</option>
-          <option style="font-family: 'serif';">Serif</option>
-        </optgroup>
-      </select></td>
-      
-      <td><select class="FormattingSelect" onchange="UpdateFontSize(event);" id="Formatting-FontSize">
-        <option>8</option>
-        <option>10</option>
-        <option>11</option>
-        <option>12</option>
-        <option>14</option>
-        <option selected="selected">18</option>
-        <option>24</option>
-        <option>26</option>
-        <option>28</option>
-        <option>36</option>
-        <option>48</option>
-        <option>72</option>
-        <option>144</option>
-      </select></td>
-      
-      <td><div class="FormattingButton" onmousedown="RemoveFormatting(event);" id="Formatting-PointList" data-image="true">
-        <img src="icons/error.png" height="25" />
-        <span class="FormattingButton-Text">Clear Formatting</span>
-      </div></td>
-      
-      <td><span class="TopBar-Separator"></span></td>
-
-      <td><div class="FormattingButton" onmousedown="InsertBulletedList(event);" id="Formatting-NumberedList" data-image="true">
-        <img src="icons/list.png" height="25" />
-        <span class="FormattingButton-Text">Numbered List</span>
-      </div></td>
-
-      <td><div class="FormattingButton" onmousedown="InsertNumberedList(event);" id="Formatting-PointList" data-image="true">
-        <img src="icons/list-button.png" height="25" />
-        <span class="FormattingButton-Text">Bulleted List</span>
-      </div></td>
-      
-      <td><div class="FormattingButton" onmousedown="Line(event);" id="Formatting-PointList" data-image="true">
-        <img src="icons/subtract.png" height="25" />
-        <span class="FormattingButton-Text">Horizontal Rule</span>
-      </div></td>
-      
-      <td><div class="FormattingButton" onmousedown="Section(event);" title="Inserts a section, with different background colour and a heading." id="Formatting-PointList" data-image="true">
-        <img src="icons/section.png" height="25" />
-        <span class="FormattingButton-Text">Section</span>
-      </div></td>
-
-      <td><span class="TopBar-Separator"></span></td>
-
-      <td><div class="FormattingButton" onmousedown="Outdent(event);" id="Formatting-NumberedList" data-image="true">
-        <img src="icons/left-indent.png" height="25" />
-        <span class="FormattingButton-Text">Outdent</span>
-      </div></td>
-
-      <td><div class="FormattingButton" onmousedown="Indent(event);" id="Formatting-PointList" data-image="true">
-        <img src="icons/right-indent.png" height="25" />
-        <span class="FormattingButton-Text">Indent</span>
-      </div></td>
-    </tr></table>
+    ...
   </div>
   
-  <div id="Editor" contenteditable="true" onkeyup="FormattingToolbarUpdate();" onclick="FormattingToolbarUpdate();" onblur="event.preventDefault();" oncontextmenu="ContextMenu(global);">This is a note.</div>
-  
-  <div id="BottomPickerBar">
-    <div id="BottomPickerBar-HighlightPick" class="PickerBarPicker">
-      <label style="font-size: 20px;">Highlight Colour</label>
-      <br>
-      <div style="overflow-x: scroll; margin-top: 5px;">
-        <table>
-          <tr>
-            <td class="Picker-Colour" style="background-color: white; color: black;">&nbsp;&nbsp;&nbsp;</td>
-            <td class="Picker-Colour" style="background-color: gray; color: white;">&nbsp;&nbsp;&nbsp;</td>
-            <td class="Picker-Colour" style="background-color: black; color: white;">&nbsp;&nbsp;&nbsp;</td>
-            <td class="Picker-Colour" style="background-color: red; color: white;">&nbsp;&nbsp;&nbsp;</td>
-            <td class="Picker-Colour" style="background-color: green; color: white;">&nbsp;&nbsp;&nbsp;</td>
-            <td class="Picker-Colour" style="background-color: blue; color: white;">&nbsp;&nbsp;&nbsp;</td>
-            <td class="Picker-Colour" style="background-color: lightblue; color: black;">&nbsp;&nbsp;&nbsp;</td>
-            <td class="Picker-Colour" style="background-color: #2196f3; color: white;">&nbsp;&nbsp;&nbsp;</td>
-            <td class="Picker-Colour" style="background-color: yellow; color: black;">&nbsp;&nbsp;&nbsp;</td>
-            <td class="Picker-Colour" style="background-color: beige;">&nbsp;&nbsp;&nbsp;</td>
-            <td class="Picker-Colour" style="background-color: rgb(1, 152, 255);">&nbsp;&nbsp;&nbsp;</td>
-            <td class="Picker-Colour" style="background-color: orange;">&nbsp;&nbsp;&nbsp;</td>
-            <td class="Picker-Colour" style="background-color: white; color: black;">Transparent</td>
-            <td class="Picker-Colour" style="background-color: white; color: black;">More&nbsp;colours...</td>
-          </tr>
-        </table>
-      </div>
-    </div>
+  <div id="Editor" style="padding: 0;">
+    <div id="Editor-Inside"></div>
   </div>
+
+  <!--Special styles for this editor-->
+  <style>
+    #Editor {
+      width: calc(100% - 47px);
+      cursor: default;
+      overflow: hidden;
+    }
+    @media screen and (min-width: 541px) { #Editor {
+      top: 105px;
+      height: calc(100% - 105px);
+    } }
+    @media screen and (max-width: 540px) { #Editor {
+      top: 146px;
+      height: calc(100% - 146px);
+    } }
+  </style>
 
   <!--MODAL DIALOGS-->
 
