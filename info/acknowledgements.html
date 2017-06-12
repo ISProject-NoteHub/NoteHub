@@ -2,20 +2,157 @@
 <html>
   <head>
     <title>NoteHub - Acknowledgements</title>
-    <link rel="icon" href="../logo.png">
+
+    <link href="../test-styling.css" rel="stylesheet">
+    <link href="../logo.png" rel="icon">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script>
+      function ShowModal(modalId) {
+        var modalsClosed = 0;
+
+        while (document.getElementsByClassName("Modal").length > modalsClosed) {
+          document.getElementsByClassName("Modal")[modalsClosed].style.display = "none";
+          modalsClosed++;
+        }
+
+        document.getElementById("Modal-" + modalId).style.display = "block";
+        document.getElementById("Modal-Overlay").style.display = "block";
+      }
+
+      function CloseModal() {
+        var modalsClosed = 0;
+
+        while (document.getElementsByClassName("Modal").length > modalsClosed) {
+          document.getElementsByClassName("Modal")[modalsClosed].style.display = "none";
+          modalsClosed++;
+        }
+
+        document.getElementById("Modal-Overlay").style.display = "none";
+      }
+    </script>
+
+    <style>
+      .Modal {
+        position: fixed;
+        z-index: 11;
+        top: 20px; left: 5%; right: 5%;
+        background-color: white;
+        width: 90%;
+        display: none;
+      }
+
+      .Modal-Title {
+        color: white; background-color: rgb(1, 152, 255);
+        font-size: 26px;
+        padding: 10px;
+      }
+
+      .Modal-Content {
+        padding: 10px;
+        max-height: 275px;
+        overflow-y: scroll;
+      }
+
+      .Modal-Footer {
+        background-color: rgb(1, 152, 255);
+        padding: 10px;
+      }
+
+      .Modal-Button {
+        cursor: pointer;
+        border: 0; border-radius: 2.5px;
+        box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+        padding: 10px;
+        background-color: white;
+      }
+
+      #Modal-Overlay {
+        position: fixed;
+        z-index: 10;
+        opacity: 0.9;
+        background-color: black; color: white;
+        left: 0; top: 0;
+        width: calc(100% - 40px); height: calc(100% - 40px);
+        padding: 20px;
+        text-align: -webkit-center;
+        display: none;
+      }
+    </style>
   </head>
+
   <body>
-    Menu Bar Icons made by:
-    <ul>
-      <li><a href="http://www.flaticon.com/authors/freepik" title="Madebyoliver">Freepik</a> from <a href="https://www.flaticon.com" title="Flaticon">www.flaticon.com</a>,</li>
-      <li><a href="https://www.flaticon.com/authors/madebyoliver" title="Madebyoliver">Madebyoliver</a> from <a href="https://www.flaticon.com" title="Flaticon">www.flaticon.com</a>, and</li>
-      <li><a href="http://www.flaticon.com/authors/elegant-themes" title="Elegant Themes">Elegant Themes</a> from <a href="https://www.flaticon.com" title="Flaticon">www.flaticon.com</a>.</li>
-    </ul><br>
-    404 page icon for <a href="../resources/404.png">large screens</a> and <a href="../resources/404-smallscreen.png">small screens</a> is a mishmash of icons by:<br>
-    <ul>
-      <li><a href="http://www.flaticon.com/authors/roundicons" title="Roundicons">Roundicons</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>, and</li>
-      <li><a href="http://www.flaticon.com/authors/madebyoliver" title="Madebyoliver">Madebyoliver</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>.</li>
-    </ul>
-    Tagging user interface made possible by GitHub user <a href="https://github.com/k-ivan">'k-ivan'</a>.
+    <div id="Page-TitleBar">
+      <a href="../"><span style="float: left; margin: 10px"><img src="../logo.png" height="50px" width="50px"></a>
+      <span style="font-weight: lighter;">Note</span><b>Hub</b> - Acknowledgements</span>
+    </div>
+
+    <a id="Page-SignIn" href="../accounts/sign-in.html">Sign In</a>
+
+    <div id="Page-Contents">
+      NoteHub wouldn't have been possible without many external projects, such as rich text editors, libraries, plugins and icons, done by some really cool people. Check them out!
+      <br><br>
+      Menu Bar Icons made by:
+      <ul>
+        <li><a href="http://www.flaticon.com/authors/freepik" title="Madebyoliver">Freepik</a> from <a href="https://www.flaticon.com" title="Flaticon">www.flaticon.com</a>,</li>
+        <li><a href="https://www.flaticon.com/authors/madebyoliver" title="Madebyoliver">Madebyoliver</a> from <a href="https://www.flaticon.com" title="Flaticon">www.flaticon.com</a>, and</li>
+        <li><a href="http://www.flaticon.com/authors/elegant-themes" title="Elegant Themes">Elegant Themes</a> from <a href="https://www.flaticon.com" title="Flaticon">www.flaticon.com</a>.</li>
+      </ul>
+      The 404 page icon for <a href="../resources/404.png">large screens</a> and <a href="../resources/404-smallscreen.png">small screens</a> is a mishmash of icons by:<br>
+      <ul>
+        <li><a href="http://www.flaticon.com/authors/roundicons" title="Roundicons">Roundicons</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>, and</li>
+        <li><a href="http://www.flaticon.com/authors/madebyoliver" title="Madebyoliver">Madebyoliver</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>.</li>
+      </ul>
+      Tagging user interface made possible by GitHub user <a href="https://github.com/k-ivan">'k-ivan'</a>.<br>
+      Note Editor made possible by <a href="https://quilljs.com/">Quill</a>, a free text editor. This code has been used under its <a href="javascript:CloseModal(); ShowModal('Quill');">"BSD 3-clause 'New' or 'Revised' License"</a>.<br>
+    </div>
+
+    <div id="Modal-Overlay"></div>
+
+    <div id="Modal-Quill" class="Modal">
+      <div class="Modal-Title">Quill License</div>
+
+      <div class="Modal-Content">
+        <b>"BSD 3-clause 'New' or 'Revised' License"</b>
+        <br><a href="https://github.com/quilljs/quill/blob/develop/LICENSE">https://github.com/quilljs/quill/blob/develop/LICENSE</a>
+        <pre>
+          Copyright (c) 2014, Jason Chen
+          Copyright (c) 2013, salesforce.com
+          All rights reserved.
+
+          Redistribution and use in source and binary forms, with or without
+          modification, are permitted provided that the following conditions
+          are met:
+
+          1. Redistributions of source code must retain the above copyright
+          notice, this list of conditions and the following disclaimer.
+
+          2. Redistributions in binary form must reproduce the above copyright
+          notice, this list of conditions and the following disclaimer in the
+          documentation and/or other materials provided with the distribution.
+
+          3. Neither the name of the copyright holder nor the names of its
+          contributors may be used to endorse or promote products derived from
+          this software without specific prior written permission.
+
+          THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
+          IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
+          TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+          PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+          HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+          SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+          LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+          DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+          THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+          (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+          OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+        </pre>
+      </div>
+
+      <div class="Modal-Footer">
+        <button class="Modal-Button" style="background-color: seagreen; color: white;" onclick="CloseModal();">CLOSE</button>
+      </div>
+    </div>
   </body>
 </html>
