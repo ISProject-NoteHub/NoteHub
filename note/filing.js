@@ -151,7 +151,7 @@ function SaveNoteAs(fromMenu) {
     var note = {
       author: atob(localStorage.getItem("loggedIn")).split(",")[0],
       suggestions: [],
-      content: document.getElementsByClassName('ql-editor')[0].innerHTML.trim().replace("&nbsp;", " ")
+      content: document.getElementsByClassName("cke_wysiwyg_frame cke_reset")[0].contentDocument.body.innerHTML.trim().replace("&nbsp;", " ")
     };
 
     ShowModal("SavingNote");
@@ -191,7 +191,7 @@ function SaveNote() {
     var note = {
       author: atob(localStorage.getItem("loggedIn")).split(",")[0],
       suggestions: [],
-      content: document.getElementsByClassName('ql-editor')[0].innerHTML.trim().replace("&nbsp;", " ")
+      content: document.getElementsByClassName("cke_wysiwyg_frame cke_reset")[0].contentDocument.body.innerHTML.trim().replace("&nbsp;", " ")
     };
 
     ShowModal("SavingNote");

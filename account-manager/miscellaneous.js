@@ -7,13 +7,17 @@ function RevealIconDescriptors() {
 
 function Autorun() {
   if (CheckSignIn() === true) {
-    if (localStorage.getItem("logInStatus") == "Newcomer!") {
+    if ((localStorage.getItem("logInStatus") == "Newcomer!") && (document.body.getAttribute("data-hasintro") == "true")) {
       document.getElementById("EditorPanes-NewUser").style.display = "block";
     }
-    else { /*Nothing*/ }
+
+    document.getElementById("IconBar-LogInOut-Content").innerHTML = "&nbsp;&nbsp;Logout";
+    document.getElementById("IconBar-LogInOut").setAttribute("onclick", "Logout(); window.location.href = '../accounts/sign-in.html';");
   }
   else {
-    //window.location.href = "../accounts/sign-in.html"; - Commented this out so that it won't get in the way of UI development.
-    //Sure :D
+    if ((document.body.getAttribute("data-filemanager") == "true") && (getParameterByName("tab") !== "private")) { /*...*/ }
+    else {
+      window.location.href = "../accounts/sign-in.html";
+    }
   }
 }
