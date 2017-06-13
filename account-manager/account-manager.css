@@ -72,3 +72,23 @@ a { text-decoration: none; } /*Add this class to all account manager pages, not 
 a:hover {
   color: white;
 }
+
+.FileManager-Tab {
+  display: inline-block;
+  padding: 10px;
+  border-bottom: 2.5px solid #eeeeee;
+  text-align: center;
+  width: calc(100% - 20px);
+  background-color: #eeeeee; color: black;
+  cursor: pointer;
+  margin: 0;
+}
+
+.FileManager-Tab[data-open=true] {
+  border-bottom: 2.5px solid black;
+}
+
+.FileManager-Tab:hover {
+  border-bottom: 2.5px solid #e5e5e5;
+  background-color: #e5e5e5; color: black;
+}

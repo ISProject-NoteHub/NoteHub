@@ -14,7 +14,7 @@
   <script src="../accounts/accounts.js"></script>
 </head>
   
-<body onload="Autorun();" data-filemanager="true">
+<body onload="Autorun(); CheckFiles();" data-filemanager="true">
   <div id="Menu-IconBar" data-open="closed">
     <a class="IconBar-Function" href="index.html" style="display: block;">
       <table style="border-spacing: 0px;"><tbody><tr><td><img src="../resources/menu-icons/home.png" width="32" height="32"></td><td>&nbsp;&nbsp;Account&nbsp;Details</td></tr></tbody></table>
@@ -44,8 +44,17 @@
   
   <div id="Title" style="width: calc(100% - 67px); font-size: 23px;">Welcome to NoteHub, <span id="NewUserName">User</span>!</div>
   
-  <div id="Editor" style="cursor: default;">
-    
+  <div id="Editor" class="NoPadding" style="cursor: default;">
+    <!--Tabs-->
+    <table style="width: 100%; border-collapse: collapse; border-spacing: 0;"><tr>
+      <td><a id="Editor-PrivateNotes" class="FileManager-Tab" href="file-manager.html?tab=private">Private Notes</a></td>
+      <td><a id="Editor-PublicNotes" class="FileManager-Tab" href="file-manager.html?tab=public" data-open="true">Public Notes</a></td>
+    </tr></table>
+
+    <!--Content-->
+    <div id="Editor-NoteList">
+      <div class="FilePicker-HierachyLevel" style="margin-top: 0;"><b>Topics</b></div>
+    </div>
   </div>
 </body>
 </html>
