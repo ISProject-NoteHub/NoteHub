@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Your Account | NoteHub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link href="../logo.png" rel="icon" />
+  <link href="../test-styling.css" rel="stylesheet" />
+  <link href="../editor-styling.css" rel="stylesheet" />
+  <link href="account-manager.css" rel="stylesheet" />
+  
+  <script src="miscellaneous.js"></script>
+  <script src="../accounts/accounts.js"></script>
+</head>
+  
+<body onload="Autorun();" data-hasmenu="true">
+  <div id="Menu-IconBar" data-open="closed">
+    <a class="IconBar-Function" href="index.html" style="display: block;">
+      <table style="border-spacing: 0px;"><tbody><tr><td><img src="../resources/menu-icons/home.png" width="32" height="32"></td><td>&nbsp;&nbsp;Account&nbsp;Details</td></tr></tbody></table>
+    </a>
+    <a class="IconBar-Function" href="security.html" style="display: block;">
+      <table style="border-spacing: 0px;"><tbody><tr><td><img src="../resources/menu-icons/security.png" width="32" height="32"></td><td>&nbsp;&nbsp;Account&nbsp;Security/Privacy</td></tr></tbody></table>
+    </a>
+    <a class="IconBar-Function" style="display: block;">
+      <table style="border-spacing: 0px;"><tbody><tr><td><img src="../resources/menu-icons/login.png" width="32" height="32"></td><td>&nbsp;&nbsp;Logout</td></tr></tbody></table>
+    </a>
+    <hr>
+    <a class="IconBar-Function" href="../note" style="display: block;">
+      <table style="border-spacing: 0px;"><tbody><tr><td><img src="../resources/menu-icons/document.png" width="32" height="32"></td><td>&nbsp;&nbsp;New&nbsp;Note</td></tr></tbody></table>
+    </a>
+    <a class="IconBar-Function" href="../gallery" style="display: block;">
+      <table style="border-spacing: 0px;"><tbody><tr><td><img src="../resources/menu-icons/gallery.png" width="32" height="32"></td><td>&nbsp;&nbsp;NoteHub&nbsp;Gallery</td></tr></tbody></table>
+    </a>
+    <a class="IconBar-Function" href="../account-manager/file-manager.html?tab=public" style="display: block;">
+      <table style="border-spacing: 0px;"><tbody><tr><td><img src="../resources/menu-icons/worldwide.png" width="32" height="32"></td><td>&nbsp;&nbsp;Browse&nbsp;NoteHub</td></tr></tbody></table>
+    </a>
+  </div>
+  
+  <div id="Header">
+    <span onclick="RevealIconDescriptors();" style="cursor: pointer;">&#9776;</span>&nbsp;
+    <span style="font-weight: lighter">Note</span><span><b>Hub</b></span> - Notes
+  </div>
+  
+  <div id="Title" style="width: calc(100% - 67px); font-size: 23px;">Welcome to NoteHub, <span id="NewUserName">User</span>!</div>
+  
+  <div id="Editor" style="cursor: default;">
+    
+  </div>
+</body>
+</html>

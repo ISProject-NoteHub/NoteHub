@@ -7,78 +7,33 @@
   <link href="../logo.png" rel="icon" />
   <link href="../test-styling.css" rel="stylesheet" />
   <link href="../editor-styling.css" rel="stylesheet" />
+  <link href="account-manager.css" rel="stylesheet" />
   
   <script src="miscellaneous.js"></script>
   <script src="../accounts/accounts.js"></script>
-
-  <style>
-    a { text-decoration: none; } /*Add this class to all account manager pages, not to the main stylesheet.*/
-
-    #EditorPanes-Home {
-      position: absolute;
-      left: 15%;
-      top: 35px;
-    }
-
-    #EditorPanes-NewUser {
-      display: none;
-      position: fixed;
-      z-index: 10;
-      background-color: black; color: white;
-      opacity: 0.9;
-      text-align: -webkit-center;
-      left: 0; top: 0;
-    }
-
-    @media screen and (min-width: 541px) {
-      #EditorPanes-NewUser {
-        padding: 30px;
-        width: calc(100% - 60px); height: calc(100% - 60px);
-        font-size: 20px;
-      }
-
-      #EditorPanes-NewUser-NavButton { width: calc(100% - 60px); }
-    }
-
-    @media screen and (max-width: 540px) {
-      #EditorPanes-NewUser {
-        padding: 10px;
-        width: calc(100% - 20px); height: calc(100% - 20px);
-      }
-
-      #EditorPanes-NewUser-NavButton { width: calc(100% - 20px); }
-    }
-
-    #EditorPanes-NewUser-NavButton {
-      position: absolute;
-      display: block;
-      bottom: 20px;
-    }
-    a {
-      color: white;
-    }
-  </style>
 </head>
   
-<body onload="Autorun();">
+<body onload="Autorun();" data-hasintro="true" data-hasmenu="true">
   <div id="Menu-IconBar" data-open="closed">
-    <div class="IconBar-Function">
-      <a href="./index.html"><table style="border-spacing: 0px;"><tbody><tr><td><img src="../view-note/icons/home.png" width="32" height="32"></td><td>&nbsp;&nbsp;Account&nbsp;Details</td></tr></tbody></table></a>
-    </div>
-    <div class="IconBar-Function">
-      <a href="./security.html"><table style="border-spacing: 0px;"><tbody><tr><td><img src="../view-note/icons/security.png" width="32" height="32"></td><td>&nbsp;&nbsp;Account&nbsp;Security/Privacy</td></tr></tbody></table></a>
-    </div>
-    <div class="IconBar-Function">
-      <table style="border-spacing: 0px;"><tbody><tr><td><img src="../view-note/icons/login.png" width="32" height="32"></td><td>&nbsp;&nbsp;Logout</td></tr></tbody></table>
-      <!--Theodore, please build function for this.-->
-    </div>
-    <hr>
-    <a class="IconBar-Function" href="../view-note/" style="display: block; text-decoration: none;">
-      <table style="border-spacing: 0px;"><tbody><tr><td><img src="../view-note/icons/plus.png" width="32" height="32"></td><td>&nbsp;&nbsp;New&nbsp;Note</td></tr></tbody></table>
+    <a class="IconBar-Function" href="index.html" style="display: block;">
+      <table style="border-spacing: 0px;"><tbody><tr><td><img src="../resources/menu-icons/home.png" width="32" height="32"></td><td>&nbsp;&nbsp;Account&nbsp;Details</td></tr></tbody></table>
     </a>
-    <div class="IconBar-Function" onclick="ViewNotebooks();">
-      <table style="border-spacing: 0px;"><tbody><tr><td><img src="../view-note/icons/folder.png" width="32" height="32"></td><td>&nbsp;&nbsp;This&nbsp;Notebook</td></tr></tbody></table>
-    </div>
+    <a class="IconBar-Function" href="security.html" style="display: block;">
+      <table style="border-spacing: 0px;"><tbody><tr><td><img src="../resources/menu-icons/security.png" width="32" height="32"></td><td>&nbsp;&nbsp;Account&nbsp;Security/Privacy</td></tr></tbody></table>
+    </a>
+    <a class="IconBar-Function" style="display: block;">
+      <table style="border-spacing: 0px;"><tbody><tr><td><img src="../resources/menu-icons/login.png" width="32" height="32"></td><td>&nbsp;&nbsp;Logout</td></tr></tbody></table>
+    </a>
+    <hr>
+    <a class="IconBar-Function" href="../note" style="display: block;">
+      <table style="border-spacing: 0px;"><tbody><tr><td><img src="../resources/menu-icons/document.png" width="32" height="32"></td><td>&nbsp;&nbsp;New&nbsp;Note</td></tr></tbody></table>
+    </a>
+    <a class="IconBar-Function" href="../gallery" style="display: block;">
+      <table style="border-spacing: 0px;"><tbody><tr><td><img src="../resources/menu-icons/gallery.png" width="32" height="32"></td><td>&nbsp;&nbsp;NoteHub&nbsp;Gallery</td></tr></tbody></table>
+    </a>
+    <a class="IconBar-Function" href="../account-manager/file-manager.html?tab=public" style="display: block;">
+      <table style="border-spacing: 0px;"><tbody><tr><td><img src="../resources/menu-icons/worldwide.png" width="32" height="32"></td><td>&nbsp;&nbsp;Browse&nbsp;NoteHub</td></tr></tbody></table>
+    </a>
   </div>
   
   <div id="Header">
@@ -89,7 +44,7 @@
   <div id="Title" style="width: calc(100% - 67px); font-size: 23px;">Welcome to NoteHub, <span id="NewUserName">User</span>!</div>
   
   <div id="Editor" style="cursor: default;">
-    <img src="../view-note/icons/profilepic.png" id="ProfilePic" width="175px" height="175px" alt="User" />
+    <img src="../resources/menu-icons/profilepic.png" id="ProfilePic" width="175" height="175" alt="User" />
     <div id="EditorPanes-Home">
       <label id="UserInfoTitle">Account Details</label>
       <hr>

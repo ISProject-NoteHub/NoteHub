@@ -11,12 +11,6 @@ function Autorun() {
       document.getElementById("EditorPanes-NewUser").style.display = "block";
     }
     else { /*Nothing*/ }
-    
-    document.getElementById("NewUserName").innerHTML = atob(localStorage.getItem("loggedIn")).split(",")[0];
-    document.getElementById("Home-Username").innerHTML = atob(localStorage.getItem("loggedIn")).split(",")[0];
-    document.getElementById("NewUser-Name").innerHTML = atob(localStorage.getItem("loggedIn")).split(",")[0];
-    
-    //Get and display account details on panes
   }
   else {
     //window.location.href = "../accounts/sign-in.html"; - Commented this out so that it won't get in the way of UI development.

@@ -5,25 +5,17 @@ function RevealIconDescriptors() {
   else { description.setAttribute("data-open", "closed");  }
 }
 
+function ResizeEditor() {
+  var height = window.innerHeight;
+  document.getElementById("cke_1_contents").style.height = (height - 207) + "px";
+}
+
 function Autorun() {
-  //Quill
-  var container = document.getElementById('Editor-Inside');
-  var quill = new Quill(container, {
-    modules: {
-      toolbar: [
-        [{ header: [1, 2, 3, 4, 5, 6, false] }, { 'font': [] }, { size: [ 'small', false, 'large', 'huge' ]}],
-        ['bold', 'italic', 'underline', 'strike', 'blockquote', 'clean'],
-        ['link', 'image', 'code-block'],
-        [{ 'list': 'ordered'}, { 'list': 'bullet' }, { 'indent': '-1'}, { 'indent': '+1' }, { 'align': [] }],
-        [{ 'color': [] }, { 'background': [] }]
-      ],
-      history: {
-        delay: 1000,
-        maxStack: 500
-      }
-    },
-    theme: 'snow'
-  });
+  //CKEditor
+  CKEDITOR.replace("Editor-Inside");
+  var height = window.innerHeight;
+  CKEDITOR.config.height = (height - 207) + "px";
+  CKEDITOR.config.resize_enabled = false;
 
   LoadLanguageData();
 
