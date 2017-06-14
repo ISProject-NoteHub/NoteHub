@@ -17,25 +17,18 @@ function Autorun() {
   CKEDITOR.config.height = (height - 207) + "px";
   CKEDITOR.config.resize_enabled = false;
 
+  //Load vulgarities, informalities, etc.
   LoadLanguageData();
 
-  if (CheckSignIn() === true) { /*Nothing*/ }
-  else {
-    document.getElementById("MyAccount").style.display = "none";
-    document.getElementById("LoggedInOut").innerHTML = "Login";
-  }
-
-  if (getParameterByName("edit") !== null) {
-    document.getElementById("Modal-Overlay").style.display = "block"; //Hide when note is loaded
-
-    
-  }
-  else { /*Nothing*/ }
-
+  //Show alpha dialog
   if (localStorage.getItem("seenNotice") !== "seen") {
     ShowModal("WhatWorks");
   }
   else { /*Who cares*/ }
+
+  //Tagging
+  tagsTags = new Tags("#NoteInfo-Tags");
+  keywordsTags = new Tags("#NoteInfo-Keywords");
 }
 
 function ShowModal(modalId) {

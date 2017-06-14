@@ -75,10 +75,26 @@ function ParseInNotes(modalName, topicIndex, notebookIndex) {
   globalTopicIndex = topicIndex; globalNotebookIndex = notebookIndex;
 
   for (i = 0; i < noteList[topicIndex][3][notebookIndex][3].length; i++) {
+    //Display file
     var topic = document.createElement("div");
     topic.setAttribute("class", "FilePicker-Item");
-    topic.innerHTML = noteList[topicIndex][3][notebookIndex][3][i];
+    topic.innerHTML = noteList[topicIndex][3][notebookIndex][3][i][0];
+    topic.setAttribute("data-filename", noteList[topicIndex][3][notebookIndex][3][i][0]);
     topic.setAttribute("onclick", "ChangeNoteNameTo('" + modalName + "', this);");
+
+    //Display tags
+    var tags = document.createElement("div");
+    tags.className = "FilePicker-Item-Tags";
+
+    for (a = 0; a < noteList[topicIndex][3][notebookIndex][3][i][1].length; a++) {
+      var tag = document.createElement("div");
+      tag.className = "FilePicker-Item-Tag";
+      tag.innerHTML = noteList[topicIndex][3][notebookIndex][3][i][1][a];
+
+      tags.innerHTML = tags.innerHTML + tag.outerHTML;
+    }
+
+    topic.innerHTML = topic.innerHTML + tags.outerHTML;
 
     document.getElementById(modalName + "-List").innerHTML = document.getElementById(modalName + "-List").innerHTML + topic.outerHTML;
   }
@@ -129,7 +145,7 @@ function PublicNote() {
 //Set a note as a suggestion
 function ChangeNoteNameTo(modalName, note) {
   document.getElementById(modalName + "-WillBeSuggestion").style.display = "block";
-  document.getElementById(modalName + "-SaveName").value = note.innerHTML;
+  document.getElementById(modalName + "-SaveName").value = note.getAttribute("data-filename");
   isSuggestion = true;
 }
 
@@ -150,8 +166,9 @@ function SaveNoteAs(fromMenu) {
     //Prepare note object
     var note = {
       author: atob(localStorage.getItem("loggedIn")).split(",")[0],
+      tags: JSON.stringify(tagsTags.getTags()), keywords: JSON.stringify(keywordsTags.getTags()),
       suggestions: [],
-      content: document.getElementsByClassName("cke_wysiwyg_frame cke_reset")[0].contentDocument.body.innerHTML.trim().replace("&nbsp;", " ")
+      content: document.getElementsByClassName("cke_wysiwyg_frame cke_reset")[0].contentDocument.body.innerHTML.replace(/&nbsp;/g, " ").trim()
     };
 
     ShowModal("SavingNote");
@@ -176,10 +193,10 @@ function SaveNoteAs(fromMenu) {
     }
     
     if (privateNote == true) {
-      getPHPFile.send("saveAs=" + saveAs + "&noteName=" + document.getElementById("Modal-SaveAdvanced-SaveName").value + "&noteContent=" + JSON.stringify(note) + "&username=" + atob(localStorage.getItem("loggedIn")).split(",")[0] + "&password=" + atob(localStorage.getItem("loggedIn")).split(",")[1] + "&private=true&requestedFunction=MakeNote");
+      getPHPFile.send("tags=" + JSON.stringify(tagsTags.getTags()) + "&keywords=" + JSON.stringify(keywordsTags.getTags()) + "&saveAs=" + saveAs + "&noteName=" + document.getElementById("Modal-SaveAdvanced-SaveName").value + "&noteContent=" + JSON.stringify(note) + "&username=" + atob(localStorage.getItem("loggedIn")).split(",")[0] + "&password=" + atob(localStorage.getItem("loggedIn")).split(",")[1] + "&private=true&requestedFunction=MakeNote");
     }
     else {
-      getPHPFile.send("saveAs=" + saveAs + "&folder=" + noteList[globalTopicIndex][3][globalNotebookIndex][1] + "&noteName=" + document.getElementById("Modal-SaveFilePicker-SaveName").value + "&noteContent=" + JSON.stringify(note) + "&username=" + atob(localStorage.getItem("loggedIn")).split(",")[0] + "&password=" + atob(localStorage.getItem("loggedIn")).split(",")[1] + "&private=false&requestedFunction=MakeNote");
+      getPHPFile.send("tags=" + JSON.stringify(tagsTags.getTags()) + "&keywords=" + JSON.stringify(keywordsTags.getTags()) + "&saveAs=" + saveAs + "&folder=" + noteList[globalTopicIndex][3][globalNotebookIndex][1] + "&noteName=" + document.getElementById("Modal-SaveFilePicker-SaveName").value + "&noteContent=" + JSON.stringify(note) + "&username=" + atob(localStorage.getItem("loggedIn")).split(",")[0] + "&password=" + atob(localStorage.getItem("loggedIn")).split(",")[1] + "&private=false&requestedFunction=MakeNote");
     }
   }
 }
@@ -190,8 +207,9 @@ function SaveNote() {
     //Prepare note object
     var note = {
       author: atob(localStorage.getItem("loggedIn")).split(",")[0],
+      tags: JSON.stringify(tagsTags.getTags()), keywords: JSON.stringify(keywordsTags.getTags()),
       suggestions: [],
-      content: document.getElementsByClassName("cke_wysiwyg_frame cke_reset")[0].contentDocument.body.innerHTML.trim().replace("&nbsp;", " ")
+      content: document.getElementsByClassName("cke_wysiwyg_frame cke_reset")[0].contentDocument.body.innerHTML.replace(/&nbsp;/g, " ").trim()
     };
 
     ShowModal("SavingNote");
@@ -209,10 +227,10 @@ function SaveNote() {
     getPHPFile.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     
     if (privateNote == true) {
-      getPHPFile.send("saveAs=false&noteName=" + noteName + "&noteContent=" + JSON.stringify(note) + "&username=" + atob(localStorage.getItem("loggedIn")).split(",")[0] + "&password=" + atob(localStorage.getItem("loggedIn")).split(",")[1] + "&private=true&requestedFunction=MakeNote");
+      getPHPFile.send("tags=" + JSON.stringify(tagsTags.getTags()) + "&keywords=" + JSON.stringify(keywordsTags.getTags()) + "&saveAs=false&noteName=" + noteName + "&noteContent=" + JSON.stringify(note) + "&username=" + atob(localStorage.getItem("loggedIn")).split(",")[0] + "&password=" + atob(localStorage.getItem("loggedIn")).split(",")[1] + "&private=true&requestedFunction=MakeNote");
     }
     else {
-      getPHPFile.send("saveAs=false&folder=" + noteFolder + "&noteName=" + noteName + "&noteContent=" + JSON.stringify(note) + "&username=" + atob(localStorage.getItem("loggedIn")).split(",")[0] + "&password=" + atob(localStorage.getItem("loggedIn")).split(",")[1] + "&private=false&requestedFunction=MakeNote");
+      getPHPFile.send("tags=" + JSON.stringify(tagsTags.getTags()) + "&keywords=" + JSON.stringify(keywordsTags.getTags()) + "&saveAs=false&folder=" + noteFolder + "&noteName=" + noteName + "&noteContent=" + JSON.stringify(note) + "&username=" + atob(localStorage.getItem("loggedIn")).split(",")[0] + "&password=" + atob(localStorage.getItem("loggedIn")).split(",")[1] + "&private=false&requestedFunction=MakeNote");
     }
   }
   else {

@@ -8,10 +8,18 @@
   <link href="../test-styling.css" rel="stylesheet" />
   <link href="../editor-styling.css" rel="stylesheet" />
 
+  <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
+
   <script>
     var checkKeywordsTags = true;
+    var tagsTags = null, keywordsTags = null;
   </script>
 
+  <!--Tagging Functionality-->
+  <script src="../resources/tags/tags.js"></script>
+  <link href="../resources/tags/tags.css" rel="stylesheet" />
+
+  <!--Scripts-->
   <script src="../query-strings.js"></script>
   <script src="miscellaneous.js"></script>
   <script src="think-about-it.js"></script>
@@ -20,10 +28,6 @@
 
   <!--CKEditor-->
   <script src="ckeditor/ckeditor.js"></script>
-
-  <!--Tagging Functionality-->
-  <script src="../resources/tags/tags.js"></script>
-  <link href="../resources/tags/tags.css" rel="stylesheet" />
 </head>
   
 <body onload="Autorun(); InitTags();" onresize="ResizeEditor();" data-hasmenu="true">
@@ -65,12 +69,12 @@
   
   <div id="Header">
     <span onclick="RevealIconDescriptors();" style="cursor: pointer;">&#9776;</span>&nbsp;
-    <span style="font-weight: lighter">Note</span><span><b>Hub</b></span>
+    <a href="/" style="color: white; text-decoration: none;"><span style="font-weight: lighter">Note</span><span><b>Hub</b></span></a>
   </div>
   
   <div id="Title"><input id="Title-Title" value="New Note" /></div>
-  <div id="TopBar">
-    ...
+  <div id="TopBar" style="overflow: hidden;">
+    &nbsp;
   </div>
   
   <div id="Editor" class="NoPadding">
