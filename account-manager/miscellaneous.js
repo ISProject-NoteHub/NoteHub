@@ -9,7 +9,7 @@ function Autorun() {
   if (CheckSignIn() === true) {
     //Show introduction dialog
     if ((localStorage.getItem("logInStatus") == "Newcomer!") && (document.body.getAttribute("data-hasintro") == "true")) {
-      document.getElementById("EditorPanes-NewUser").style.display = "block";
+      //document.getElementById("EditorPanes-NewUser").style.display = "block";
     }
 
     //Update all elements with class 'Data-Username'
