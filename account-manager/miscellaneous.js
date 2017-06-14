@@ -7,10 +7,17 @@ function RevealIconDescriptors() {
 
 function Autorun() {
   if (CheckSignIn() === true) {
+    //Show introduction dialog
     if ((localStorage.getItem("logInStatus") == "Newcomer!") && (document.body.getAttribute("data-hasintro") == "true")) {
       document.getElementById("EditorPanes-NewUser").style.display = "block";
     }
 
+    //Update all elements with class 'Data-Username'
+    for (i = 0; i < document.getElementsByClassName("Data-Username").length; i++) {
+      document.getElementsByClassName("Data-Username")[i].innerHTML = atob(localStorage.getItem("loggedIn")).split(",")[0];
+    }
+
+    //Set login/logout function
     document.getElementById("IconBar-LogInOut-Content").innerHTML = "&nbsp;&nbsp;Logout";
     document.getElementById("IconBar-LogInOut").setAttribute("onclick", "Logout(); window.location.href = '../accounts/sign-in.html';");
   }
