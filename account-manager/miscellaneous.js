@@ -11,7 +11,7 @@ function Autorun() {
     if ((document.body.getAttribute("data-filemanager") == "true") && (getParameterByName("tab") !== "private")) {
       InitFilePicker();
     }
-    else {
+    else if (document.body.getAttribute("data-filemanager") == "true") {
       PrivateNote();
     }
 

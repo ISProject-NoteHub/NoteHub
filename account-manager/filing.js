@@ -56,15 +56,15 @@ function ParseInNotebooks(modalName, topicIndex) {
   for (i = 0; i < noteList[topicIndex][3].length; i++) {
     var topic = document.createElement("div");
     topic.setAttribute("class", "FilePicker-Item");
-    topic.innerHTML = "<b>" + noteList[topicIndex][3][i][0] + "</b>";
+    topic.innerHTML = "<b>" + noteList[topicIndex][3][i][0] + "</b><div style='margin-top: 5px;'>" + noteList[topicIndex][3][i][3].length + " notes</div>";
     topic.setAttribute("onclick", "ParseInNotes('" + modalName + "', " + topicIndex + "," + i + ");");
 
     //Advanced - fancy icon <3
     var bigIcon = document.createElement("span");
     bigIcon.innerHTML = ">";
-    bigIcon.style.fontSize = "1.5em";
+    bigIcon.style.fontSize = "2em";
     bigIcon.style.position = "absolute";
-    bigIcon.style.left = "calc(100% - 1.5em)"; bigIcon.style.top = 130 + (i * 36) + "px";
+    bigIcon.style.left = "calc(100% - 1.5em)"; bigIcon.style.top = 135 + (i * 57) + "px";
     topic.innerHTML = topic.innerHTML + bigIcon.outerHTML;
 
     document.getElementById(modalName + "-List").innerHTML = document.getElementById(modalName + "-List").innerHTML + topic.outerHTML;
@@ -85,7 +85,7 @@ function ParseInNotes(modalName, topicIndex, notebookIndex) {
     //Display file
     var topic = document.createElement("div");
     topic.setAttribute("class", "FilePicker-Item");
-    topic.innerHTML = noteList[topicIndex][3][notebookIndex][3][i][0];
+    topic.innerHTML = "<b>" + noteList[topicIndex][3][notebookIndex][3][i][0] + "</b>";
     topic.setAttribute("data-filename", noteList[topicIndex][3][notebookIndex][3][i][0]);
 
     //Display tags
@@ -99,6 +99,9 @@ function ParseInNotes(modalName, topicIndex, notebookIndex) {
 
       tags.innerHTML = tags.innerHTML + tag.outerHTML;
     }
+
+    //Display functions
+    topic.innerHTML = topic.innerHTML + "<div style='margin-top: 5px;'>Open</div>";
 
     topic.innerHTML = topic.innerHTML + tags.outerHTML;
 

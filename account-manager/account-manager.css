@@ -92,3 +92,7 @@ a:hover {
   border-bottom: 2.5px solid #e5e5e5;
   background-color: #e5e5e5; color: black;
 }
+
+.FilePicker-Item-Tag {
+  top: -25px !important;
+}
