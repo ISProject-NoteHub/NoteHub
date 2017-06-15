@@ -7,6 +7,14 @@ function RevealIconDescriptors() {
 
 function Autorun() {
   if (CheckSignIn() === true) {
+    //Parse private notes
+    if ((document.body.getAttribute("data-filemanager") == "true") && (getParameterByName("tab") !== "private")) {
+      InitFilePicker();
+    }
+    else {
+      PrivateNote();
+    }
+
     //Show introduction dialog
     if ((localStorage.getItem("logInStatus") == "Newcomer!") && (document.body.getAttribute("data-hasintro") == "true")) {
       //document.getElementById("EditorPanes-NewUser").style.display = "block";
@@ -22,7 +30,9 @@ function Autorun() {
     document.getElementById("IconBar-LogInOut").setAttribute("onclick", "Logout(); window.location.href = '../accounts/sign-in.html';");
   }
   else {
-    if ((document.body.getAttribute("data-filemanager") == "true") && (getParameterByName("tab") !== "private")) { /*...*/ }
+    if ((document.body.getAttribute("data-filemanager") == "true") && (getParameterByName("tab") !== "private")) {
+      InitFilePicker();
+    }
     else {
       window.location.href = "../accounts/sign-in.html";
     }

@@ -29,6 +29,13 @@ function Autorun() {
   //Tagging
   tagsTags = new Tags("#NoteInfo-Tags");
   keywordsTags = new Tags("#NoteInfo-Keywords");
+
+  
+  if (CheckSignIn() === true) {
+    //Set login/logout function
+    document.getElementById("IconBar-LogInOut-Content").innerHTML = "&nbsp;&nbsp;Logout";
+    document.getElementById("IconBar-LogInOut").setAttribute("onclick", "Logout(); window.location.href = '../accounts/sign-in.html';");
+  }
 }
 
 function ShowModal(modalId) {

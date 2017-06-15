@@ -12,11 +12,12 @@
   <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
   
   <script src="miscellaneous.js"></script>
+  <script src="filing.js"></script>
   <script src="../query-strings.js"></script>
   <script src="../accounts/accounts.js"></script>
 </head>
   
-<body onload="Autorun(); CheckFiles();" data-filemanager="true">
+<body onload="Autorun();" data-filemanager="true">
   <div id="Menu-IconBar" data-open="closed">
     <a class="IconBar-Function" href="index.html" style="display: block;">
       <table style="border-spacing: 0px;"><tbody><tr><td><img src="../resources/menu-icons/home.png" width="32" height="32"></td><td>&nbsp;&nbsp;Account&nbsp;Details</td></tr></tbody></table>
@@ -55,7 +56,12 @@
 
     <!--Content-->
     <div id="Editor-NoteList">
-      <div class="FilePicker-HierachyLevel" style="margin-top: 0;"><b>Topics</b></div>
+      <div class="FilePicker-HierachyLevel" style="margin-top: 0;">
+        <a id="Files-HierachyLevel-Back" style="color: white;">< back to Topics</a>
+        <b id="Files-HierachyLevel-Name" style="float: right;">Topics</b>
+        <input id="File-HierachyLevel-Search" onkeyup="SearchCurrent();" style="padding: 10px; width: calc(100% - 20px); margin-top: 10px; border: 0;" placeholder="Search for a topic..." />
+      </div>
+      <div id="Files-List"></div>
     </div>
   </div>
 </body>
