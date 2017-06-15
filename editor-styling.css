@@ -186,10 +186,12 @@ body {
   }
 
   #Title {
-    width: calc(100% - 57px);
-    padding: 5px;
+    width: calc(100% - 47px);
+    padding: 0;
     top: 50px;
   }
+
+  #Title-Title { padding: 5px; }
   
   #TopBar {
     width: calc(100% - 52px);
@@ -257,21 +259,16 @@ body {
   }
 
   #Title {
-    width: calc(30% - 67px);
-    padding: 10px;
+    width: calc(100% - 47px);
+    padding: 0;
     top: 55px;
   }
-  
-  #TopBar {
-    width: calc(70% - 15px);
-    padding: 7.5px; padding-top: 2.5px; padding-bottom: 0px;
-    overflow-y: hidden;
-    top: 45px; left: 30%;
-  }
+
+  #Title-Title { padding: 10px; }
 
   #Editor {
-    top: 105px;
-    height: calc(100% - 125px);
+    top: 101px;
+    height: calc(100% - 121px);
   }
   
   #Menu-IconBar {
@@ -322,15 +319,8 @@ body {
 #Title-Title {
   background-color: transparent;
   width: calc(100% - 15px);
-  border: 1px solid #cdcdcd; border-radius: 3px;
+  border: 0;
   font-size: 22px; font-weight: bold;
-}
-
-#TopBar {
-  background-color: #d9d9d9;
-  position: fixed;
-  overflow-x: scroll;
-  height: 60px;
 }
 
 #Editor {
@@ -341,36 +331,6 @@ body {
   width: calc(100% - 67px);
   cursor: text;
   overflow: scroll;
-}
-
-.FormattingButton {
-  padding: 5px;
-  cursor: pointer;
-  white-space: nowrap;
-}
-
-.FormattingButton:hover {
-  background-color: #cdcdcd;
-}
-
-.FormattingButton[data-selected=selected] {
-  background-color: #cdcdcd;
-}
-
-.FormattingButton[data-image=true] {
-  position: relative;
-  top: 10.5px;
-}
-
-.FormattingButton[data-image=false] {
-  position: relative;
-  top: 6.5px;
-}
-
-.FormattingButton-Text {
-  position: relative;
-  top: -6px;
-  font-size: 15px; font-family: "Open Sans", sans-serif;
 }
 
 #Menu-IconBar {
@@ -430,12 +390,26 @@ body {
   cursor: text;
 }
 
-@media screen and (min-width: 541px) { #Editor.NoPadding {
-  top: 105px;
-  height: calc(100% - 105px);
-} }
+@media screen and (min-width: 541px) { 
+  #Editor.NoPadding {
+    top: 101px;
+    height: calc(100% - 101px);
+  }
 
-@media screen and (max-width: 540px) { #Editor.NoPadding {
-  top: 146px;
-  height: calc(100% - 146px);
-} }
+  #Title.Padding {
+    padding: 10px;
+    width: calc(100% - 67px);
+  }
+}
+
+@media screen and (max-width: 540px) {
+  #Editor.NoPadding {
+    top: 86px;
+    height: calc(100% - 86px);
+  }
+
+  #Title.Padding {
+    padding: 5px;
+    width: calc(100% - 57px);
+  }
+}

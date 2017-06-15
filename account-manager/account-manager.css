@@ -96,3 +96,9 @@ a:hover {
 .FilePicker-Item-Tag {
   top: -25px !important;
 }
+
+@media screen and (max-width: 540px) {
+  .Title-GoAway {
+    display: none;
+  }
+}
