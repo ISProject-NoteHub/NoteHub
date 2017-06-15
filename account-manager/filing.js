@@ -37,7 +37,7 @@ function ParseInTopics(modalName) {
     bigIcon.innerHTML = ">";
     bigIcon.style.fontSize = "2em";
     bigIcon.style.position = "absolute";
-    bigIcon.style.left = "calc(100% - 1.5em)"; bigIcon.style.top = 135 + (i * 57) + "px";
+    bigIcon.style.left = "calc(100% - 1.5em)"; bigIcon.style.top = 10 + (i * 57) + "px";
     topic.innerHTML = topic.innerHTML + bigIcon.outerHTML;
 
     document.getElementById(modalName + "-List").innerHTML = document.getElementById(modalName + "-List").innerHTML + topic.outerHTML;
@@ -64,7 +64,7 @@ function ParseInNotebooks(modalName, topicIndex) {
     bigIcon.innerHTML = ">";
     bigIcon.style.fontSize = "2em";
     bigIcon.style.position = "absolute";
-    bigIcon.style.left = "calc(100% - 1.5em)"; bigIcon.style.top = 135 + (i * 57) + "px";
+    bigIcon.style.left = "calc(100% - 1.5em)"; bigIcon.style.top = 10 + (i * 57) + "px";
     topic.innerHTML = topic.innerHTML + bigIcon.outerHTML;
 
     document.getElementById(modalName + "-List").innerHTML = document.getElementById(modalName + "-List").innerHTML + topic.outerHTML;
