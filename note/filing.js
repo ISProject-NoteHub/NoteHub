@@ -1,6 +1,5 @@
 //Initialise tags
 function InitTags() {
-  noteTagsKeywords = new Tags("#NoteInfo-Keywords");
   noteTagsInput = new Tags("#NoteInfo-Tags");
 }
 
@@ -223,7 +222,12 @@ function SaveNote() {
     getPHPFile.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     
     if (privateNote == true) {
-      getPHPFile.send("tags=" + JSON.stringify(tagsTags.getTags()) + "&saveAs=false&noteName=" + document.getElementById("Title-Title").value + "&noteContent=" + JSON.stringify(note) + "&username=" + atob(localStorage.getItem("loggedIn")).split(",")[0] + "&password=" + atob(localStorage.getItem("loggedIn")).split(",")[1] + "&private=true&requestedFunction=MakeNote");
+      if (CheckSignIn() == true) {
+        getPHPFile.send("tags=" + JSON.stringify(tagsTags.getTags()) + "&saveAs=false&noteName=" + document.getElementById("Title-Title").value + "&noteContent=" + JSON.stringify(note) + "&username=" + atob(localStorage.getItem("loggedIn")).split(",")[0] + "&password=" + atob(localStorage.getItem("loggedIn")).split(",")[1] + "&private=true&requestedFunction=MakeNote");
+      }
+      else {
+        ShowModal("AuthRequired");
+      }
     }
     else {
       getPHPFile.send("tags=" + JSON.stringify(tagsTags.getTags()) + "&saveAs=false&folder=" + noteFolder + "&noteName=" + document.getElementById("Title-Title").value + "&noteContent=" + JSON.stringify(note) + "&username=" + atob(localStorage.getItem("loggedIn")).split(",")[0] + "&password=" + atob(localStorage.getItem("loggedIn")).split(",")[1] + "&private=false&requestedFunction=MakeNote");
