@@ -163,7 +163,7 @@ function SaveNoteAs(fromMenu) {
       author: atob(localStorage.getItem("loggedIn")).split(",")[0],
       tags: JSON.stringify(tagsTags.getTags()),
       suggestions: [],
-      content: document.getElementsByClassName("cke_wysiwyg_frame cke_reset")[0].contentDocument.body.innerHTML.replace(/&nbsp;/g, " ").trim()
+      content: document.getElementsByClassName("cke_wysiwyg_frame cke_reset")[0].contentDocument.body.innerHTML.replace(/&nbsp;/g, " ").replace(/&amp;/g, " ").trim()
     };
 
     ShowModal("SavingNote");
