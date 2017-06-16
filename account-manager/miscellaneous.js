@@ -38,3 +38,26 @@ function Autorun() {
     }
   }
 }
+
+function ShowModal(modalId) {
+  var modalsClosed = 0;
+
+  while (document.getElementsByClassName("Modal").length > modalsClosed) {
+    document.getElementsByClassName("Modal")[modalsClosed].style.display = "none";
+    modalsClosed++;
+  }
+
+  document.getElementById("Modal-" + modalId).style.display = "block";
+  document.getElementById("Modal-Overlay").style.display = "block";
+}
+
+function CloseModal() {
+  var modalsClosed = 0;
+
+  while (document.getElementsByClassName("Modal").length > modalsClosed) {
+    document.getElementsByClassName("Modal")[modalsClosed].style.display = "none";
+    modalsClosed++;
+  }
+
+  document.getElementById("Modal-Overlay").style.display = "none";
+}

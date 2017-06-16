@@ -13,6 +13,10 @@
   <script>
     var checkKeywordsTags = true;
     var tagsTags = null, keywordsTags = null;
+
+    var currentNoteAsObject = null, noteList = null, privateNote = false, isSuggestion = false, noteOpened = false, noteName = "";
+    var noteTagsInput = null;
+    var noteKeywordsInput = null;
   </script>
 
   <!--Tagging Functionality-->
@@ -185,7 +189,7 @@
 
       <b>Note Name: </b><span id="NoteInfo-NoteName">New Note</span> - this is only updated when you save your note.<br>
       <b>Note Privacy: </b><span id="NoteInfo-NotePrivacy">Public, for all to see. Anyone can suggest, but you retain full control of what gets incoporated.</span><br>
-      <a href="https://notehub.ga/note?edit=<note id in generated link...>" target="_blank">Learn More about note privacy</a><br>
+      <a href="https://notehub.ga/view-note" target="_blank">Learn More about note privacy</a>&nbsp;<a href="javascript:return false;">Change this setting</a><br>
       <b>Last Modified: </b><span id="NoteInfo-LastModified">Today</span><br><br>
 
       <b>Note Tags:</b>
@@ -193,12 +197,6 @@
       <label><b>Suggested / Warnings: </b><span id="NoteInfo-SuggestedTags">- None -</span><br>
       <label>Note tags are displayed on your note as tags, for users to see. They are also a factor when other users search for notes using tags. Popular tags tend to be displayed at the top of the gallery feed.</label><br>
       <a href="https://notehub.ga/note?edit=<note id in generated link...>" target="_blank">Learn More about tags</a><br><br>
-
-      <b>Note Keywords:</b>
-      <input id="NoteInfo-Keywords" placeholder="Note Keywords" />
-      <label><b>Suggested: </b><span id="NoteInfo-SuggestedKeywords"></span><br>
-      <label>Keywords cannot be seen by other users when they view your notes as NoteHub uses them purely as a reference. Keywords also affect search results.</label><br>
-      <a href="https://notehub.ga/note?edit=<note id in generated link...>" target="_blank">Learn More about keywords</a>
     </div>
 
     <div class="Modal-Footer">

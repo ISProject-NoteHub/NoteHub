@@ -1,7 +1,3 @@
-var currentNoteAsObject = null, noteList = null, privateNote = false, isSuggestion = false, noteOpened = false, noteName = "";
-var noteTagsInput = null;
-var noteKeywordsInput = null;
-
 //Initialise tags
 function InitTags() {
   noteTagsKeywords = new Tags("#NoteInfo-Keywords");
@@ -166,7 +162,7 @@ function SaveNoteAs(fromMenu) {
     //Prepare note object
     var note = {
       author: atob(localStorage.getItem("loggedIn")).split(",")[0],
-      tags: JSON.stringify(tagsTags.getTags()), keywords: JSON.stringify(keywordsTags.getTags()),
+      tags: JSON.stringify(tagsTags.getTags()),
       suggestions: [],
       content: document.getElementsByClassName("cke_wysiwyg_frame cke_reset")[0].contentDocument.body.innerHTML.replace(/&nbsp;/g, " ").trim()
     };
@@ -193,10 +189,10 @@ function SaveNoteAs(fromMenu) {
     }
     
     if (privateNote == true) {
-      getPHPFile.send("tags=" + JSON.stringify(tagsTags.getTags()) + "&keywords=" + JSON.stringify(keywordsTags.getTags()) + "&saveAs=" + saveAs + "&noteName=" + document.getElementById("Modal-SaveAdvanced-SaveName").value + "&noteContent=" + JSON.stringify(note) + "&username=" + atob(localStorage.getItem("loggedIn")).split(",")[0] + "&password=" + atob(localStorage.getItem("loggedIn")).split(",")[1] + "&private=true&requestedFunction=MakeNote");
+      getPHPFile.send("tags=" + JSON.stringify(tagsTags.getTags()) + "&saveAs=" + saveAs + "&noteName=" + document.getElementById("Modal-SaveAdvanced-SaveName").value + "&noteContent=" + JSON.stringify(note) + "&username=" + atob(localStorage.getItem("loggedIn")).split(",")[0] + "&password=" + atob(localStorage.getItem("loggedIn")).split(",")[1] + "&private=true&requestedFunction=MakeNote");
     }
     else {
-      getPHPFile.send("tags=" + JSON.stringify(tagsTags.getTags()) + "&keywords=" + JSON.stringify(keywordsTags.getTags()) + "&saveAs=" + saveAs + "&folder=" + noteList[globalTopicIndex][3][globalNotebookIndex][1] + "&noteName=" + document.getElementById("Modal-SaveFilePicker-SaveName").value + "&noteContent=" + JSON.stringify(note) + "&username=" + atob(localStorage.getItem("loggedIn")).split(",")[0] + "&password=" + atob(localStorage.getItem("loggedIn")).split(",")[1] + "&private=false&requestedFunction=MakeNote");
+      getPHPFile.send("tags=" + JSON.stringify(tagsTags.getTags()) + "&saveAs=" + saveAs + "&folder=" + noteList[globalTopicIndex][3][globalNotebookIndex][1] + "&noteName=" + document.getElementById("Modal-SaveFilePicker-SaveName").value + "&noteContent=" + JSON.stringify(note) + "&username=" + atob(localStorage.getItem("loggedIn")).split(",")[0] + "&password=" + atob(localStorage.getItem("loggedIn")).split(",")[1] + "&private=false&requestedFunction=MakeNote");
     }
   }
 }
@@ -207,7 +203,7 @@ function SaveNote() {
     //Prepare note object
     var note = {
       author: atob(localStorage.getItem("loggedIn")).split(",")[0],
-      tags: JSON.stringify(tagsTags.getTags()), keywords: JSON.stringify(keywordsTags.getTags()),
+      tags: JSON.stringify(tagsTags.getTags()),
       suggestions: [],
       content: document.getElementsByClassName("cke_wysiwyg_frame cke_reset")[0].contentDocument.body.innerHTML.replace(/&nbsp;/g, " ").trim()
     };
@@ -227,10 +223,10 @@ function SaveNote() {
     getPHPFile.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     
     if (privateNote == true) {
-      getPHPFile.send("tags=" + JSON.stringify(tagsTags.getTags()) + "&keywords=" + JSON.stringify(keywordsTags.getTags()) + "&saveAs=false&noteName=" + noteName + "&noteContent=" + JSON.stringify(note) + "&username=" + atob(localStorage.getItem("loggedIn")).split(",")[0] + "&password=" + atob(localStorage.getItem("loggedIn")).split(",")[1] + "&private=true&requestedFunction=MakeNote");
+      getPHPFile.send("tags=" + JSON.stringify(tagsTags.getTags()) + "&saveAs=false&noteName=" + document.getElementById("Title-Title").value + "&noteContent=" + JSON.stringify(note) + "&username=" + atob(localStorage.getItem("loggedIn")).split(",")[0] + "&password=" + atob(localStorage.getItem("loggedIn")).split(",")[1] + "&private=true&requestedFunction=MakeNote");
     }
     else {
-      getPHPFile.send("tags=" + JSON.stringify(tagsTags.getTags()) + "&keywords=" + JSON.stringify(keywordsTags.getTags()) + "&saveAs=false&folder=" + noteFolder + "&noteName=" + noteName + "&noteContent=" + JSON.stringify(note) + "&username=" + atob(localStorage.getItem("loggedIn")).split(",")[0] + "&password=" + atob(localStorage.getItem("loggedIn")).split(",")[1] + "&private=false&requestedFunction=MakeNote");
+      getPHPFile.send("tags=" + JSON.stringify(tagsTags.getTags()) + "&saveAs=false&folder=" + noteFolder + "&noteName=" + document.getElementById("Title-Title").value + "&noteContent=" + JSON.stringify(note) + "&username=" + atob(localStorage.getItem("loggedIn")).split(",")[0] + "&password=" + atob(localStorage.getItem("loggedIn")).split(",")[1] + "&private=false&requestedFunction=MakeNote");
     }
   }
   else {

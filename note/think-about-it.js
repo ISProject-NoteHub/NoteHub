@@ -8,11 +8,12 @@ var vulgarities = null;
 //Suggest keywords for user
 
 //Load data from server-side databases
-function LoadLanguageData() {
+function LoadLanguageData(callback) {
   var getPHPFile = new XMLHttpRequest();
   getPHPFile.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       vulgarities = JSON.parse(getPHPFile.responseText);
+      callback();
     }
   }
   getPHPFile.open("GET", "https://notehub-serverside.000webhostapp.com/databases/databases.php?requestedFunction=vulgarities");

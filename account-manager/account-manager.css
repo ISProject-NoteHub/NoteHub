@@ -94,11 +94,25 @@ a:hover {
 }
 
 .FilePicker-Item-Tag {
-  top: -25px !important;
+  top: -25px;
 }
 
 @media screen and (max-width: 540px) {
   .Title-GoAway {
     display: none;
+  }
+
+  #Files-HierachyLevel-Name {
+    display: none;
+  }
+
+  .FilePicker-Item-Tag {
+    top: 0 !important;
+    margin-top: 5px; margin-left: 0 !important; margin-right: 5px;
+  }
+  
+  .FilePicker-Item-Tags {
+    float: none;
+    display: block;
   }
 }

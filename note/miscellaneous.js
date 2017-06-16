@@ -11,14 +11,47 @@ function ResizeEditor() {
 }
 
 function Autorun() {
+  //Load vulgarities, informalities, etc.
+  LoadLanguageData(function() {
+    //Load edit
+    if (getParameterByName("edit") !== null) {
+      if (getParameterByName("private") == "true") {
+        privateNote = true;
+      }
+
+      document.getElementById("Modal-Overlay").style.display = "block";
+
+      var getPHPFile = new XMLHttpRequest();
+      getPHPFile.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          currentNoteAsObject = JSON.parse(getPHPFile.responseText);
+
+          //Init note title
+          document.getElementById("Title-Title").value = getParameterByName("edit").split("/")[2];
+
+          //Init note content
+          setTimeout(function() {
+            document.getElementsByClassName("cke_wysiwyg_frame cke_reset")[0].contentDocument.body.innerHTML = currentNoteAsObject.content;
+            CloseModal();
+          }, 2000);
+
+          //Init tags
+          tagsTags.addTags(currentNoteAsObject.tags);
+
+          noteOpened = true;
+        }
+      }
+      getPHPFile.open("POST", "https://notehub-serverside.000webhostapp.com/handlers/filing.php", true);
+      getPHPFile.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      getPHPFile.send("noteRequested=" + getParameterByName("edit") + "&requestedFunction=GetNote");
+    }
+  });
+  
   //CKEditor
   CKEDITOR.replace("Editor-Inside");
   var height = window.innerHeight;
   CKEDITOR.config.height = (height - 207) + "px";
   CKEDITOR.config.resize_enabled = false;
-
-  //Load vulgarities, informalities, etc.
-  LoadLanguageData();
 
   //Show alpha dialog
   if (localStorage.getItem("seenNotice") !== "seen") {
@@ -30,7 +63,7 @@ function Autorun() {
   tagsTags = new Tags("#NoteInfo-Tags");
   keywordsTags = new Tags("#NoteInfo-Keywords");
 
-  
+  //What should I label this
   if (CheckSignIn() === true) {
     //Set login/logout function
     document.getElementById("IconBar-LogInOut-Content").innerHTML = "&nbsp;&nbsp;Logout";

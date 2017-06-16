@@ -88,6 +88,26 @@ function ParseInNotes(modalName, topicIndex, notebookIndex) {
     topic.innerHTML = "<b>" + noteList[topicIndex][3][notebookIndex][3][i][0] + "</b>";
     topic.setAttribute("data-filename", noteList[topicIndex][3][notebookIndex][3][i][0]);
 
+    //Display functions
+    var functionsBar = document.createElement("div");
+    functionsBar.style.marginTop = "5px";
+
+    var editFile = document.createElement("a");
+    editFile.href = "javascript:return false;";
+    editFile.innerHTML = "Suggest";
+    editFile.style.marginRight = "5px"; editFile.style.textDecoration = "underline";
+    
+    functionsBar.appendChild(editFile);
+
+    var copyFile = document.createElement("a");
+    copyFile.href = "javascript:CopyToPrivate();";
+    copyFile.innerHTML = "Copy to Your Notes";
+    copyFile.style.marginRight = "5px"; copyFile.style.textDecoration = "underline";
+    
+    functionsBar.appendChild(copyFile);
+
+    topic.innerHTML = topic.innerHTML + functionsBar.outerHTML;
+
     //Display tags
     var tags = document.createElement("div");
     tags.className = "FilePicker-Item-Tags";
@@ -99,10 +119,7 @@ function ParseInNotes(modalName, topicIndex, notebookIndex) {
 
       tags.innerHTML = tags.innerHTML + tag.outerHTML;
     }
-
-    //Display functions
-    topic.innerHTML = topic.innerHTML + "<div style='margin-top: 5px;'>Open</div>";
-
+    
     topic.innerHTML = topic.innerHTML + tags.outerHTML;
 
     document.getElementById(modalName + "-List").innerHTML = document.getElementById(modalName + "-List").innerHTML + topic.outerHTML;
@@ -131,7 +148,7 @@ function PrivateNote() {
         var topic = document.createElement("div");
         topic.setAttribute("class", "FilePicker-Item");
         topic.style.textAlign = "center";
-        topic.innerHTML = "You don't have any private notes to browse.<br>Go read a good book.";
+        topic.innerHTML = "You don't have any private notes to browse.<br>&#xAF;\_(&#x30C4;)_/&#xAF;";
 
         document.getElementById("Files-List").innerHTML = topic.outerHTML;
       }
@@ -139,18 +156,45 @@ function PrivateNote() {
         for (i = 0; i < privateNotes.length; i++){
           var topic = document.createElement("div");
           topic.setAttribute("class", "FilePicker-Item");
-          topic.innerHTML = privateNotes[i];
+          topic.innerHTML = "<b>" + privateNotes[i] + "</b>";
+
+          //Onclick
+          topic.setAttribute("onclick", "window.open('https://notehub.ga/note?private=true&edit=private-notes/" + atob(localStorage.getItem("loggedIn")).split(",")[0] + "/" + privateNotes[i] + "', '_blank');");
+
+          //Display functions
+          var functionsBar = document.createElement("div");
+          functionsBar.style.marginTop = "5px";
+
+          var editFile = document.createElement("a");
+          editFile.href = "javascript:return false;";
+          editFile.innerHTML = "Make Note Public";
+          editFile.style.marginRight = "5px"; editFile.style.textDecoration = "underline";
+          
+          functionsBar.appendChild(editFile);
+
+          var copyFile = document.createElement("a");
+          copyFile.href = "javascript:return false";
+          copyFile.innerHTML = "Delete Note";
+          copyFile.style.marginRight = "5px"; copyFile.style.textDecoration = "underline";
+          
+          functionsBar.appendChild(copyFile);
+
+          topic.innerHTML = topic.innerHTML + functionsBar.outerHTML;
 
           document.getElementById("Files-List").innerHTML = document.getElementById("Files-List").innerHTML + topic.outerHTML;
         }
       }
-
-      ShowModal("SaveAdvanced");
     }
   }
   getPHPFile.open("POST", "https://notehub-serverside.000webhostapp.com/handlers/filing.php", true);
   getPHPFile.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   getPHPFile.send("username=" + username + "&password=" + password + "&requestedFunction=GetPrivateNotes");
+}
+
+//Copy note to private notes
+function CopyToPrivate() {
+  ShowModal("SavingNote");
+  document.getElementById("Modal-SavingNote-Status").setAttribute("src", "../resources/loading.svg");
 }
 
 //Basic search - advanced search is in the gallery :3
