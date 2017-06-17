@@ -98,6 +98,7 @@ function ParseInNotes(modalName, topicIndex, notebookIndex) {
 //Switch to private note
 function PrivateNote() {
   if (CheckSignIn() == true) {
+    document.getElementById("Modal-SaveAdvanced-SaveAs").removeAttribute("disabled");
     privateNote = true;
     document.getElementById("Modal-SaveAdvanced-WillBeSuggestion").style.display = "none";
     var username = atob(localStorage.getItem("loggedIn")).split(",")[0], password = atob(localStorage.getItem("loggedIn")).split(",")[1];

@@ -148,7 +148,7 @@ function PrivateNote() {
         var topic = document.createElement("div");
         topic.setAttribute("class", "FilePicker-Item");
         topic.style.textAlign = "center";
-        topic.innerHTML = "You don't have any private notes to browse.<br>&#xAF;\_(&#x30C4;)_/&#xAF;";
+        topic.innerHTML = "You don't have any private notes to browse.<br>&#xAF;\\_(&#x30C4;)_/&#xAF;";
 
         document.getElementById("Files-List").innerHTML = topic.outerHTML;
       }
