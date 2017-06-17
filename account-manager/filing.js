@@ -23,7 +23,7 @@ function ParseInTopics(modalName) {
   for (i = 0; i < noteList.length; i++) {
     var topic = document.createElement("div");
     topic.setAttribute("class", "FilePicker-Item");
-    topic.innerHTML = "<b>" + noteList[i][0] + "</b>";
+    topic.innerHTML = "<b>" + noteList[i][0] + " &gt;</b>";
     topic.setAttribute("onclick", "ParseInNotebooks('" + modalName + "', " + i + ");");
 
     //Advanced - descriptions
@@ -31,14 +31,6 @@ function ParseInTopics(modalName) {
     description.style.marginTop = "5px";
     description.innerHTML = noteList[i][2];
     topic.innerHTML = topic.innerHTML + description.outerHTML;
-
-    //Advanced - fancy icon <3
-    var bigIcon = document.createElement("span");
-    bigIcon.innerHTML = ">";
-    bigIcon.style.fontSize = "2em";
-    bigIcon.style.position = "absolute";
-    bigIcon.style.left = "calc(100% - 1.5em)"; bigIcon.style.top = 10 + (i * 57) + "px";
-    topic.innerHTML = topic.innerHTML + bigIcon.outerHTML;
 
     document.getElementById(modalName + "-List").innerHTML = document.getElementById(modalName + "-List").innerHTML + topic.outerHTML;
   }
@@ -56,16 +48,8 @@ function ParseInNotebooks(modalName, topicIndex) {
   for (i = 0; i < noteList[topicIndex][3].length; i++) {
     var topic = document.createElement("div");
     topic.setAttribute("class", "FilePicker-Item");
-    topic.innerHTML = "<b>" + noteList[topicIndex][3][i][0] + "</b><div style='margin-top: 5px;'>" + noteList[topicIndex][3][i][3].length + " notes</div>";
+    topic.innerHTML = "<b>" + noteList[topicIndex][3][i][0] + " &gt;</b><div style='margin-top: 5px;'>" + noteList[topicIndex][3][i][2] + "<br>" + noteList[topicIndex][3][i][3].length + " notes</div>";
     topic.setAttribute("onclick", "ParseInNotes('" + modalName + "', " + topicIndex + "," + i + ");");
-
-    //Advanced - fancy icon <3
-    var bigIcon = document.createElement("span");
-    bigIcon.innerHTML = ">";
-    bigIcon.style.fontSize = "2em";
-    bigIcon.style.position = "absolute";
-    bigIcon.style.left = "calc(100% - 1.5em)"; bigIcon.style.top = 10 + (i * 57) + "px";
-    topic.innerHTML = topic.innerHTML + bigIcon.outerHTML;
 
     document.getElementById(modalName + "-List").innerHTML = document.getElementById(modalName + "-List").innerHTML + topic.outerHTML;
   }
@@ -87,6 +71,9 @@ function ParseInNotes(modalName, topicIndex, notebookIndex) {
     topic.setAttribute("class", "FilePicker-Item");
     topic.innerHTML = "<b>" + noteList[topicIndex][3][notebookIndex][3][i][0] + "</b>";
     topic.setAttribute("data-filename", noteList[topicIndex][3][notebookIndex][3][i][0]);
+
+    //Onclick
+    topic.setAttribute("onclick", "window.open('https://notehub.ga/note?private=false&edit=" + noteList[topicIndex][3][notebookIndex][1] + "/" + noteList[topicIndex][3][notebookIndex][3][i][0] + "', '_blank');");
 
     //Display functions
     var functionsBar = document.createElement("div");

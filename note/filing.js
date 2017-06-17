@@ -5,6 +5,11 @@ function InitTags() {
 
 //Initialise file picker
 function InitFilePicker() {
+  if (privateNote == true) {
+    noteOpened = false;
+    privateNote = false;
+  }
+
   //Set file name
   document.getElementById("Modal-SaveFilePicker-SaveName").value = document.getElementById("Title-Title").value;
   document.getElementById("Modal-SaveAdvanced-SaveName").value = document.getElementById("Title-Title").value;
