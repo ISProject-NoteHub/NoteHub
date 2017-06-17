@@ -5,6 +5,7 @@ function InitFilePicker() {
   var getPHPFile = new XMLHttpRequest();
   getPHPFile.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("Files-List").style.backgroundImage = "";
       noteList = JSON.parse(getPHPFile.responseText);
       ParseInTopics("Files");
     }
@@ -80,14 +81,14 @@ function ParseInNotes(modalName, topicIndex, notebookIndex) {
     functionsBar.style.marginTop = "5px";
 
     var editFile = document.createElement("a");
-    editFile.href = "javascript:return false;";
+    editFile.setAttribute("onclick", "event.stopPropagation(); return false;");
     editFile.innerHTML = "Suggest";
     editFile.style.marginRight = "5px"; editFile.style.textDecoration = "underline";
     
     functionsBar.appendChild(editFile);
 
     var copyFile = document.createElement("a");
-    copyFile.href = "javascript:CopyToPrivate();";
+    copyFile.setAttribute("onclick", "event.stopPropagation(); CopyToPrivate();");
     copyFile.innerHTML = "Copy to Your Notes";
     copyFile.style.marginRight = "5px"; copyFile.style.textDecoration = "underline";
     
@@ -126,6 +127,7 @@ function PrivateNote() {
   var getPHPFile = new XMLHttpRequest();
   getPHPFile.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("Files-List").style.backgroundImage = "";
       document.getElementById("Files-List").innerHTML = "";
       console.log(getPHPFile.responseText);
 
@@ -137,6 +139,26 @@ function PrivateNote() {
         topic.style.textAlign = "center";
         topic.innerHTML = "You don't have any private notes to browse.<br>&#xAF;\\_(&#x30C4;)_/&#xAF;";
 
+        //Display functions
+        var functionsBar = document.createElement("div");
+        functionsBar.style.marginTop = "5px";
+
+        var editFile = document.createElement("a");
+        editFile.setAttribute("href", "../note");
+        editFile.innerHTML = "New Note";
+        editFile.style.marginRight = "5px"; editFile.style.textDecoration = "underline";
+        
+        functionsBar.appendChild(editFile);
+
+        var copyFile = document.createElement("a");
+        copyFile.setAttribute("href", "file-manager.html?tab=public");
+        copyFile.innerHTML = "Browse Public Notes";
+        copyFile.style.marginRight = "5px"; copyFile.style.textDecoration = "underline";
+        
+        functionsBar.appendChild(copyFile);
+
+        topic.innerHTML = topic.innerHTML + functionsBar.outerHTML;
+
         document.getElementById("Files-List").innerHTML = topic.outerHTML;
       }
       else {
@@ -144,6 +166,7 @@ function PrivateNote() {
           var topic = document.createElement("div");
           topic.setAttribute("class", "FilePicker-Item");
           topic.innerHTML = "<b>" + privateNotes[i] + "</b>";
+          topic.setAttribute("data-filename", privateNotes[i]);
 
           //Onclick
           topic.setAttribute("onclick", "window.open('https://notehub.ga/note?private=true&edit=private-notes/" + atob(localStorage.getItem("loggedIn")).split(",")[0] + "/" + privateNotes[i] + "', '_blank');");
@@ -153,15 +176,22 @@ function PrivateNote() {
           functionsBar.style.marginTop = "5px";
 
           var editFile = document.createElement("a");
-          editFile.href = "javascript:return false;";
-          editFile.innerHTML = "Make Note Public";
+          editFile.setAttribute("onclick", "event.stopPropagation(); return false;");
+          editFile.innerHTML = "Make Public";
           editFile.style.marginRight = "5px"; editFile.style.textDecoration = "underline";
           
           functionsBar.appendChild(editFile);
 
+          var renameFile = document.createElement("a");
+          renameFile.setAttribute("onclick", "event.stopPropagation(); RenamePrivateNote(this);");
+          renameFile.innerHTML = "Rename";
+          renameFile.style.marginRight = "5px"; renameFile.style.textDecoration = "underline";
+          
+          functionsBar.appendChild(renameFile);
+
           var copyFile = document.createElement("a");
-          copyFile.href = "javascript:return false";
-          copyFile.innerHTML = "Delete Note";
+          copyFile.setAttribute("onclick", "event.stopPropagation(); DeletePrivateNote(this);");
+          copyFile.innerHTML = "Delete";
           copyFile.style.marginRight = "5px"; copyFile.style.textDecoration = "underline";
           
           functionsBar.appendChild(copyFile);
@@ -187,4 +217,29 @@ function CopyToPrivate() {
 //Basic search - advanced search is in the gallery :3
 function SearchCurrent() {
   
+}
+
+//Delete a private note
+function DeletePrivateNote(note) {
+  var username = atob(localStorage.getItem("loggedIn")).split(",")[0], password = atob(localStorage.getItem("loggedIn")).split(",")[1];
+  
+  ShowModal("DeletingNote");
+  document.getElementById("Modal-DeletingNote-Status").setAttribute("src", "../resources/loading.svg");
+
+  var getPHPFile = new XMLHttpRequest();
+  getPHPFile.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      console.log(getPHPFile.responseText);
+      if (JSON.parse(getPHPFile.responseText).error == "Note deleted!") {
+        document.getElementById("Modal-DeletingNote-Status").setAttribute("src", "../resources/success.png");
+        (((note.parentElement).parentElement).parentElement).removeChild(((note.parentElement).parentElement));
+      }
+      else {
+        document.getElementById("Modal-DeletingNote-Status").setAttribute("src", "../resources/error.png");
+      }
+    }
+  }
+  getPHPFile.open("POST", "https://notehub-serverside.000webhostapp.com/handlers/filing.php", true);
+  getPHPFile.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  getPHPFile.send("username=" + username + "&password=" + password + "&requestedFunction=DeletePrivateNote&noteName=" + ((note.parentElement).parentElement).getAttribute("data-filename"));
 }

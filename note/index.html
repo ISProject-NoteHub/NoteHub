@@ -62,12 +62,16 @@
     <a class="IconBar-Function" href="../account-manager" target="_blank" style="text-decoration: none; display: block;">
       <table style="border-spacing: 0px;"><tbody><tr><td><img src="../resources/menu-icons/imperial-user.png" width="32" height="32"></td><td>&nbsp;&nbsp;My&nbsp;Account</td></tr></tbody></table>
     </a>
-    <div id="IconBar-LogInOut" onclick="window.location.href = '../accounts/sign-in.html';" class="IconBar-Function">
-      <table style="border-spacing: 0px;"><tbody><tr><td><img src="../resources/menu-icons/login.png" width="32" height="32"></td><td id="IconBar-LogInOut-Content">&nbsp;&nbsp;Login</td></tr></tbody></table>
-    </div>
     <hr>
+    <div class="IconBar-Function" onclick="ShowModal('Share');">
+      <table style="border-spacing: 0px;"><tbody><tr><td><img src="../resources/menu-icons/share.png" width="32" height="32"></td><td>&nbsp;&nbsp;Share&nbsp;Note</td></tr></tbody></table>
+    </div>
     <div class="IconBar-Function" onclick="ShowModal('NoteInfo');">
       <table style="border-spacing: 0px;"><tbody><tr><td><img src="../resources/menu-icons/info.png" width="32" height="32"></td><td>&nbsp;&nbsp;Note&nbsp;Information</td></tr></tbody></table>
+    </div>
+    <hr>
+    <div id="IconBar-LogInOut" onclick="window.location.href = '../accounts/sign-in.html';" class="IconBar-Function">
+      <table style="border-spacing: 0px;"><tbody><tr><td><img src="../resources/menu-icons/login.png" width="32" height="32"></td><td id="IconBar-LogInOut-Content">&nbsp;&nbsp;Login</td></tr></tbody></table>
     </div>
   </div>
   
@@ -113,6 +117,18 @@
     <div class="Modal-Footer">
       <button onclick="PublicNote();" style="background-color: seagreen; color: white;" class="Modal-Button">SAVE AS ANONYMOUS</button> <!--Ask user for tags-->
       <button class="Modal-Button" onclick="CloseModal();">CLOSE</button>
+    </div>
+  </div>
+
+  <div id="Modal-NoteLoadFailed" class="Modal">
+    <div class="Modal-Title">Note Not Found</div>
+
+    <div class="Modal-Content">
+      The note you're attempting to load doesn't exist on our servers. Check the URL and try again. If you're trying to edit or access a note someone else owns, it's possible that they have deleted that note.
+    </div>
+
+    <div class="Modal-Footer">
+      <button class="Modal-Button" onclick="CloseModal();" style="background-color: seagreen; color: white;">OK</button>
     </div>
   </div>
   

@@ -97,6 +97,10 @@ a:hover {
   top: -25px;
 }
 
+#Files-List {
+  background-repeat: no-repeat; background-attachment: fixed; background-position: center;
+}
+
 @media screen and (max-width: 540px) {
   .Title-GoAway {
     display: none;
@@ -115,4 +119,20 @@ a:hover {
     float: none;
     display: block;
   }
+}
+
+#Notifications {
+  border-radius: 50%;
+  width: 35px; height: 35px;
+  position: fixed;
+  right: 10px; top: 10px;
+  background-color: white; color: rgb(1, 152, 255);
+  z-index: 3;
+  cursor: pointer;
+}
+
+#Notifications-Number {
+  position: relative;
+  left: 12px; top: 8px;
+  font-size: 20px;
 }

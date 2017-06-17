@@ -24,9 +24,9 @@
     <a class="IconBar-Function" href="security.html" style="display: block;">
       <table style="border-spacing: 0px;"><tbody><tr><td><img src="../resources/menu-icons/security.png" width="32" height="32"></td><td>&nbsp;&nbsp;Account&nbsp;Security/Privacy</td></tr></tbody></table>
     </a>
-    <div id="IconBar-LogInOut" onclick="window.location.href = '../accounts/sign-in.html';" class="IconBar-Function">
-      <table style="border-spacing: 0px;"><tbody><tr><td><img src="../resources/menu-icons/login.png" width="32" height="32"></td><td id="IconBar-LogInOut-Content">&nbsp;&nbsp;Login</td></tr></tbody></table>
-    </div>
+    <a class="IconBar-Function" href="../account-manager/file-manager.html?tab=private" style="display: block;">
+      <table style="border-spacing: 0px;"><tbody><tr><td><img src="../resources/menu-icons/folder.png" width="32" height="32"></td><td>&nbsp;&nbsp;Your&nbsp;Private&nbsp;Notes</td></tr></tbody></table>
+    </a>
     <hr>
     <a class="IconBar-Function" href="../note" style="display: block;">
       <table style="border-spacing: 0px;"><tbody><tr><td><img src="../resources/menu-icons/document.png" width="32" height="32"></td><td>&nbsp;&nbsp;New&nbsp;Note</td></tr></tbody></table>
@@ -37,14 +37,24 @@
     <a class="IconBar-Function" href="../account-manager/file-manager.html?tab=public" style="display: block;">
       <table style="border-spacing: 0px;"><tbody><tr><td><img src="../resources/menu-icons/worldwide.png" width="32" height="32"></td><td>&nbsp;&nbsp;Browse&nbsp;NoteHub</td></tr></tbody></table>
     </a>
+    <hr>
+    <div id="IconBar-LogInOut" onclick="window.location.href = '../accounts/sign-in.html';" class="IconBar-Function">
+      <table style="border-spacing: 0px;"><tbody><tr><td><img src="../resources/menu-icons/logout.png" width="32" height="32"></td><td id="IconBar-LogInOut-Content">&nbsp;&nbsp;Login</td></tr></tbody></table>
+    </div>
   </div>
 
   <div id="Header">
     <span onclick="RevealIconDescriptors();" style="cursor: pointer;">&#9776;</span>&nbsp;
-    <span style="font-weight: lighter">Note</span><span><b>Hub</b></span> - Account Security
+    <a href="/" style="color: white;"><span style="font-weight: lighter">Note</span><span><b>Hub</b></span></a> - Account Security
+  </div>
+
+  <div id="Notifications">
+    <span id="Notifications-Number">0</span>
   </div>
   
-  <div id="Title" class="Padding" style="font-size: 27px;">Welcome<span class="Title-GoAway"> to NoteHub</span>, <span id="NewUserName" class="Data-Username">User</span>!</div>
+  <div id="Title" class="Padding" style="font-size: 27px;">
+    Welcome<span class="Title-GoAway"> to NoteHub</span>, <span id="NewUserName" class="Data-Username">User</span>!
+  </div>
 
   <div id="Editor" style="cursor: default;">
     <img src="../resources/menu-icons/padlock.png" id="ProfilePic" width="175px" height="175px" alt="User" />

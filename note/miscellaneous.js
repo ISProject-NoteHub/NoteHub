@@ -13,10 +13,21 @@ function ResizeEditor() {
 function Autorun() {
   //Load vulgarities, informalities, etc.
   LoadLanguageData(function() {
-    //Load edit
+    //Load edit and token
     if (getParameterByName("edit") !== null) {
       if (getParameterByName("private") == "true") {
+        if (atob(localStorage.getItem("loggedIn")).split(",")[0] !== getParameterByName("edit").split("/")[1]) {
+          document.getElementById("ViewOnly").style.display = "block";
+        }
+
+        //Init note title
+        document.getElementById("Title-Title").value = getParameterByName("edit").split("/")[2];
+
         privateNote = true;
+      }
+      else {
+        //Init note title
+        document.getElementById("Title-Title").value = getParameterByName("edit").split("/")[1];
       }
 
       document.getElementById("Modal-Overlay").style.display = "block";
@@ -24,21 +35,22 @@ function Autorun() {
       var getPHPFile = new XMLHttpRequest();
       getPHPFile.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-          currentNoteAsObject = JSON.parse(getPHPFile.responseText);
+          if (getPHPFile.responseText == "File not found.") {
+            ShowModal("NoteLoadFailed");
+          }
+          else {
+            currentNoteAsObject = JSON.parse(getPHPFile.responseText);
+            noteOpened = true;
 
-          //Init note title
-          document.getElementById("Title-Title").value = getParameterByName("edit").split("/")[2];
+            //Init note content
+            setTimeout(function() {
+              document.getElementsByClassName("cke_wysiwyg_frame cke_reset")[0].contentDocument.body.innerHTML = currentNoteAsObject.content;
+              CloseModal();
+            }, 2000);
 
-          //Init note content
-          setTimeout(function() {
-            document.getElementsByClassName("cke_wysiwyg_frame cke_reset")[0].contentDocument.body.innerHTML = currentNoteAsObject.content;
-            CloseModal();
-          }, 2000);
-
-          //Init tags
-          tagsTags.addTags(currentNoteAsObject.tags);
-
-          noteOpened = true;
+            //Init tags
+            tagsTags.addTags(currentNoteAsObject.tags);
+          }
         }
       }
       getPHPFile.open("POST", "https://notehub-serverside.000webhostapp.com/handlers/filing.php", true);

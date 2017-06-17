@@ -25,9 +25,6 @@
     <a class="IconBar-Function" href="security.html" style="display: block;">
       <table style="border-spacing: 0px;"><tbody><tr><td><img src="../resources/menu-icons/security.png" width="32" height="32"></td><td>&nbsp;&nbsp;Account&nbsp;Security/Privacy</td></tr></tbody></table>
     </a>
-    <div id="IconBar-LogInOut" onclick="window.location.href = '../accounts/sign-in.html';" class="IconBar-Function">
-      <table style="border-spacing: 0px;"><tbody><tr><td><img src="../resources/menu-icons/login.png" width="32" height="32"></td><td id="IconBar-LogInOut-Content">&nbsp;&nbsp;Login</td></tr></tbody></table>
-    </div>
     <a class="IconBar-Function" href="../account-manager/file-manager.html?tab=private" style="display: block;">
       <table style="border-spacing: 0px;"><tbody><tr><td><img src="../resources/menu-icons/folder.png" width="32" height="32"></td><td>&nbsp;&nbsp;Your&nbsp;Private&nbsp;Notes</td></tr></tbody></table>
     </a>
@@ -41,14 +38,24 @@
     <a class="IconBar-Function" href="../account-manager/file-manager.html?tab=public" style="display: block;">
       <table style="border-spacing: 0px;"><tbody><tr><td><img src="../resources/menu-icons/worldwide.png" width="32" height="32"></td><td>&nbsp;&nbsp;Browse&nbsp;NoteHub</td></tr></tbody></table>
     </a>
+    <hr>
+    <div id="IconBar-LogInOut" onclick="window.location.href = '../accounts/sign-in.html';" class="IconBar-Function">
+      <table style="border-spacing: 0px;"><tbody><tr><td><img src="../resources/menu-icons/logout.png" width="32" height="32"></td><td id="IconBar-LogInOut-Content">&nbsp;&nbsp;Login</td></tr></tbody></table>
+    </div>
   </div>
   
   <div id="Header">
     <span onclick="RevealIconDescriptors();" style="cursor: pointer;">&#9776;</span>&nbsp;
-    <span style="font-weight: lighter">Note</span><span><b>Hub</b></span> - Notes
+    <a href="/" style="color: white;"><span style="font-weight: lighter">Note</span><span><b>Hub</b></span></a> - Notes
+  </div>
+
+  <div id="Notifications">
+    <span id="Notifications-Number">0</span>
   </div>
   
-  <div id="Title" class="Padding" style="font-size: 27px; overflow: hidden; text-overflow: ellipsis;">Welcome<span class="Title-GoAway">&nbsp;to&nbsp;NoteHub</span>,&nbsp;<span id="NewUserName" class="Data-Username">User</span>!</div>
+  <div id="Title" class="Padding" style="font-size: 27px;">
+    Welcome<span class="Title-GoAway"> to NoteHub</span>, <span id="NewUserName" class="Data-Username">User</span>!
+  </div>
   
   <div id="Editor" class="NoPadding" style="cursor: default;">
     <!--Tabs-->
@@ -64,7 +71,7 @@
         <b id="Files-HierachyLevel-Name" style="float: right;">Topics</b>
         <input id="File-HierachyLevel-Search" onkeyup="SearchCurrent();" style="padding: 10px; width: calc(100% - 20px); margin-top: 10px; border: 0;" placeholder="Search for a topic..." />
       </div>
-      <div id="Files-List" style="overflow-y: scroll; position: relative; height: calc(100% - 84px);"></div>
+      <div id="Files-List" style="background-image: url('../resources/loading.svg'); overflow-y: scroll; position: relative; height: calc(100% - 84px);"></div>
     </div>
   </div>
 
@@ -79,6 +86,20 @@
       The note is being copied to your private notes. We'll be done in a jiffy...
       <br><br>
       <img src="../resources/loading.svg" width="128" height="128" id="Modal-SavingNote-Status" />
+    </div>
+
+    <div class="Modal-Footer">
+      <button class="Modal-Button" onclick="CloseModal();" style="background-color: seagreen; color: white;">CLOSE</button>
+    </div>
+  </div>
+  
+  <div id="Modal-DeletingNote" class="Modal">
+    <div class="Modal-Title">Deleting Note...</div>
+
+    <div class="Modal-Content" style="text-align: -webkit-center;">
+      The note is being deleted from your account. Give us a moment...
+      <br><br>
+      <img src="../resources/loading.svg" width="128" height="128" id="Modal-DeletingNote-Status" />
     </div>
 
     <div class="Modal-Footer">
