@@ -41,7 +41,7 @@ function ParseInTopics(modalName) {
 function ParseInNotebooks(modalName, topicIndex) {
   document.getElementById(modalName + "-List").innerHTML = "";
   document.getElementById("File-HierachyLevel-Search").setAttribute("placeholder", "Search for a notebook...");
-  document.getElementById(modalName + "-HierachyLevel-Name").innerHTML = noteList[topicIndex][0];
+  document.getElementById(modalName + "-HierachyLevel-Name").innerHTML = "Notebooks";
   document.getElementById(modalName + "-HierachyLevel-Back").innerHTML = "< back to Topics";
   document.getElementById(modalName + "-HierachyLevel-Back").style.visibility = "visible";
   document.getElementById(modalName + "-HierachyLevel-Back").setAttribute("href", "javascript:ParseInTopics('" + modalName + "');");
@@ -60,7 +60,7 @@ function ParseInNotebooks(modalName, topicIndex) {
 function ParseInNotes(modalName, topicIndex, notebookIndex) {
   document.getElementById(modalName + "-List").innerHTML = "";
   document.getElementById("File-HierachyLevel-Search").setAttribute("placeholder", "Search for a note...");
-  document.getElementById(modalName + "-HierachyLevel-Name").innerHTML = noteList[topicIndex][0] + " > " + noteList[topicIndex][3][notebookIndex][0];
+  document.getElementById(modalName + "-HierachyLevel-Name").innerHTML = "Notes";
   document.getElementById(modalName + "-HierachyLevel-Back").innerHTML = "< back to " + noteList[topicIndex][3][notebookIndex][0];
   document.getElementById(modalName + "-HierachyLevel-Back").setAttribute("href", "javascript:ParseInNotebooks('" + modalName + "', " + topicIndex + ");");
 

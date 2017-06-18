@@ -2,45 +2,10 @@
 <html>
 <head>
   <title>Gallery | NoteHub</title>
-  <link href="../logo.png" rel="icon" />
-  <link href="../new-styling.css" rel="stylesheet" />
-  <link href="../test-styling.css" rel="stylesheet" />
 
-  <style>
-    #Page-Organiser-Mobile {
-      padding: 7.5px;
-    }
-    @media screen and (max-width: 540px) {
-      #Page-Organiser-Mobile { display: block; }
-      #Page-Organiser-Desktop { display: none; }
-    }
-    @media screen and (min-width: 541px) {
-      #Page-Organiser-Desktop { display: block; }
-      #Page-Organiser-Mobile { display: none; }
-    }
-    
-    .SearchResult {
-      border-radius: 10px;
-      padding: 0;
-      width: 290px; height: 290px;
-      display: inline-block;
-    }
-    
-    .SearchResult-OverlayPiece {
-      position: relative;
-      width: 0; height: 0;
-      left: 0; top: 0;
-    }
-    
-    .SearchResult-Title {
-      position: absolute;
-      padding: 10px;
-      background-color: black; color: white;
-      opacity: 0.85;
-      width: 270px; height: 270px;
-      border-radius: 10px;
-     }
-  </style>
+  <link href="../logo.png" rel="icon" />
+  <link href="gallery-styling.css" rel="stylesheet" />
+  <link href="../test-styling.css" rel="stylesheet" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="Description" content="Welcome to the NoteHub gallery, which showcases the best of NoteHub's notes.">
@@ -49,15 +14,47 @@
 <body>
   <div id="Page-TitleBar">
     <a href="../"><span style="float: left; margin: 10px"><img src="../logo.png" height="50px" width="50px"></a>
-    <span style="font-weight: lighter;">Note</span><b>Hub</b></span>
+    <span style="font-weight: lighter;">Note</span><b>Hub</b> - Gallery</span>
   </div>
 
   <a id="Page-SignIn" href="../accounts/sign-in.html">Sign In</a>
 
   <div id="Page-Contents">
-    <span style="font-size:30px;font-weight:bold;color:tomato;">We're sorry.</span><br><br>
-    The NoteHub gallery is not available for now. We're working on making it better for you even as you're reading this!<br>
-    Come back in late July or early August to check out the new NoteHub gallery!
+    <label style="font-size: 28px;" id="SignedInContent-Welcome">Welcome to the NoteHub Gallery!</label>
+
+    <!--Top picks, based on likes-->
+    <label class="SectionHead">Today's Top Picks</label>
+
+    <div class="SectionContents">
+      <div class="Note">
+        <div class="Note-Image"></div>
+        <div class="Note-Details">
+          World War I | A Brief Introduction
+          By historymvc
+        </div>
+        <div class="Note-Stats">
+          <div class="Note-Likes">Over 9000</div>
+          <div class="Note-Dislikes">10</div>
+        </div>
+      </div>
+    </div>
+
+    <!--Recommendations-->
+    <label class="SectionHead">Recommended for You</label>
+    
+    <div class="SectionContents">
+      <div class="Note">
+        <div class="Note-Image"></div>
+        <div class="Note-Details">
+          World War I | A Brief Introduction
+          By historymvc
+        </div>
+        <div class="Note-Stats">
+          <div class="Note-Likes">Over 9000</div>
+          <div class="Note-Dislikes">10</div>
+        </div>
+      </div>
+    </div>
   </div>
 </body>
 </html>
