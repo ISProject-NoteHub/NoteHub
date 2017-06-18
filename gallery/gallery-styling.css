@@ -3,3 +3,57 @@
   margin-top: 20px; margin-bottom: 10px;
   display: block;
 }
+
+.SectionContents {
+  width: 100%;
+  padding: 20px;
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+
+.Note {
+  width: 150px; height: 350px;
+  display: inline-block;
+  margin-right: 40px;
+}
+
+.Note-Image {
+  white-space: normal;
+  border: 1px solid #d9d9d9;
+  width: 110px; height: 185px;
+  margin-bottom: 10px;
+  text-align: center;
+  padding: 20px;
+  font-size: 18px;
+  /*If possible, put in background image when parsing in notes*/
+}
+
+.Note-Details {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.Note-Stats {
+  margin-top: 5px;
+  padding: 5px;
+}
+
+.Note-Likes {
+  background-image: url("../resources/like.png");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 30px 30px;
+  vertical-align: -webkit-baseline-middle;
+  padding-left: 40px; padding-top: 5px; padding-bottom: 5px;
+}
+
+.Note-Dislikes {
+  margin-top: 5px;
+  background-image: url("../resources/dislike.png");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 30px 30px;
+  vertical-align: -webkit-baseline-middle;
+  padding-left: 40px; padding-top: 5px; padding-bottom: 5px;
+}
