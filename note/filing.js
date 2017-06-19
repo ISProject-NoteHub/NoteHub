@@ -50,7 +50,7 @@ function ParseInNotebooks(modalName, topicIndex) {
   document.getElementById(modalName + "-SaveAs").setAttribute("disabled", "disabled");
 
   document.getElementById(modalName + "-List").innerHTML = "";
-  document.getElementById(modalName + "-HierachyLevel-Name").innerHTML = noteList[topicIndex][0];
+  document.getElementById(modalName + "-HierachyLevel-Name").innerHTML = "Notebooks";
   document.getElementById(modalName + "-HierachyLevel-Back").style.visibility = "visible";
   document.getElementById(modalName + "-HierachyLevel-Back").setAttribute("href", "javascript:ParseInTopics('" + modalName + "');");
 
@@ -69,7 +69,7 @@ function ParseInNotes(modalName, topicIndex, notebookIndex) {
   document.getElementById(modalName + "-SaveAs").removeAttribute("disabled");
 
   document.getElementById(modalName + "-List").innerHTML = "";
-  document.getElementById(modalName + "-HierachyLevel-Name").innerHTML = noteList[topicIndex][3][notebookIndex][0];
+  document.getElementById(modalName + "-HierachyLevel-Name").innerHTML = "Notes";
   document.getElementById(modalName + "-HierachyLevel-Back").setAttribute("href", "javascript:ParseInNotebooks('" + modalName + "', " + topicIndex + ");");
 
   globalTopicIndex = topicIndex; globalNotebookIndex = notebookIndex;
@@ -161,13 +161,14 @@ function CheckNoteName(modalName, noteName) {
 //Save Note As
 function SaveNoteAs(fromMenu) {
   if (fromMenu == true) {
-    InitFilePicker();
+    if (CheckSignIn() == true) { InitFilePicker(); }
+    else { ShowModal("AuthRequired"); }
   }
   else {
     //Prepare note object
     var note = {
       author: atob(localStorage.getItem("loggedIn")).split(",")[0],
-      tags: JSON.stringify(tagsTags.getTags()),
+      tags: tagsTags.getTags(),
       suggestions: [],
       content: document.getElementsByClassName("cke_wysiwyg_frame cke_reset")[0].contentDocument.body.innerHTML.replace(/&nbsp;/g, " ").replace(/&amp;/g, " ").trim()
     };
@@ -207,11 +208,24 @@ function SaveNote() {
   if (noteOpened == true) {
     //Prepare note object
     var note = {
-      author: atob(localStorage.getItem("loggedIn")).split(",")[0],
-      tags: JSON.stringify(tagsTags.getTags()),
-      suggestions: [],
-      content: document.getElementsByClassName("cke_wysiwyg_frame cke_reset")[0].contentDocument.body.innerHTML.replace(/&nbsp;/g, " ").trim()
+      author: currentNoteAsObject.author,
+      tags: tagsTags.getTags(),
+      suggestions: currentNoteAsObject.suggestions,
+      content: currentNoteAsObject.content
     };
+
+    if (atob(localStorage.getItem("loggedIn")).split(",")[0] !== currentNoteAsObject.author) {
+      note.suggestions.push({
+        author: atob(localStorage.getItem("loggedIn")).split(",")[0],
+        date: new Date().getDate() + "/" + (new Date().getMonth() + 1) + "/" + new Date().getFullYear(),
+        content: document.getElementsByClassName("cke_wysiwyg_frame cke_reset")[0].contentDocument.body.innerHTML.replace(/&nbsp;/g, " ").replace(/&amp;/g, " ").trim()
+      });
+    }
+    else {
+      note.content = document.getElementsByClassName("cke_wysiwyg_frame cke_reset")[0].contentDocument.body.innerHTML.replace(/&nbsp;/g, " ").replace(/&amp;/g, " ").trim();
+    }
+
+    console.log(note);
 
     ShowModal("SavingNote");
     document.getElementById("Modal-SavingNote-Status").setAttribute("src", "../resources/loading.svg");
@@ -219,7 +233,13 @@ function SaveNote() {
     var getPHPFile = new XMLHttpRequest();
     getPHPFile.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("Modal-SavingNote-Status").setAttribute("src", "../resources/success.png");
+        if (JSON.parse(getPHPFile.responseText).error == "Note saved!") {
+          document.getElementById("Modal-SavingNote-Status").setAttribute("src", "../resources/success.png");
+        }
+        else {
+          document.getElementById("Modal-SavingNote-Status").setAttribute("src", "../resources/error.png");
+        }
+
         console.log(getPHPFile.responseText);
       }
     }

@@ -16,17 +16,15 @@ function Autorun() {
     //Load edit and token
     if (getParameterByName("edit") !== null) {
       if (getParameterByName("private") == "true") {
-        if (atob(localStorage.getItem("loggedIn")).split(",")[0] !== getParameterByName("edit").split("/")[1]) {
-          document.getElementById("ViewOnly").style.display = "block";
-        }
-
         //Init note title
+        document.title = getParameterByName("edit").split("/")[2] + " | NoteHub";
         document.getElementById("Title-Title").value = getParameterByName("edit").split("/")[2];
 
         privateNote = true;
       }
       else {
         //Init note title
+        document.title = getParameterByName("edit").split("/")[1] + " | NoteHub";
         document.getElementById("Title-Title").value = getParameterByName("edit").split("/")[1];
       }
 
@@ -39,7 +37,7 @@ function Autorun() {
             ShowModal("NoteLoadFailed");
           }
           else {
-            currentNoteAsObject = JSON.parse(getPHPFile.responseText);
+            currentNoteAsObject = JSON.parse(getPHPFile.responseText); noteFolder = getParameterByName("edit").split("/")[0];
             noteOpened = true;
 
             //Init note content
@@ -50,6 +48,22 @@ function Autorun() {
 
             //Init tags
             tagsTags.addTags(currentNoteAsObject.tags);
+
+            //Mode
+            if (atob(localStorage.getItem("loggedIn")).split(",")[0] !== currentNoteAsObject.author) {
+              if ((privateNote == true) && (editKey == null)) {
+                document.getElementById("Title-Mode").style.display = "inline-block";
+              }
+              else if (privateNote == false) {
+                document.getElementById("Title-Mode").style.display = "inline-block";
+                document.getElementById("Title-Mode").innerHTML = "Suggesting-Only <span class='tooltiptext' id='Title-Mode-Reason'>You can only suggest on this public note as you aren't its original author. Edits you make will be saved as suggestions, for the author to incorporate.</span>";
+              }
+            }
+            else if (privateNote == false) {
+              document.getElementById("Title-Mode").style.display = "inline-block";
+              document.getElementById("Title-Mode").setAttribute("onclick", "ShowModal('Suggestions');");
+              document.getElementById("Title-Mode").innerHTML = currentNoteAsObject.suggestions.length + " New Suggestions <span class='tooltiptext' id='Title-Mode-Reason'>There are a few new suggestions on this note. Click here to review those suggestions.</span>";
+            }
           }
         }
       }
