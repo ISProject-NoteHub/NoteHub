@@ -70,7 +70,7 @@ function ParseInNotes(modalName, topicIndex, notebookIndex) {
     //Display file
     var topic = document.createElement("div");
     topic.setAttribute("class", "FilePicker-Item");
-    topic.innerHTML = "<b>" + noteList[topicIndex][3][notebookIndex][3][i][0] + "</b>";
+    topic.innerHTML = "<b>" + noteList[topicIndex][3][notebookIndex][3][i][0] + "</b> by " + noteList[topicIndex][3][notebookIndex][3][i][2];
     topic.setAttribute("data-filename", noteList[topicIndex][3][notebookIndex][3][i][0]);
 
     //Onclick

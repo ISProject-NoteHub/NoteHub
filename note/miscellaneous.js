@@ -40,11 +40,13 @@ function Autorun() {
             currentNoteAsObject = JSON.parse(getPHPFile.responseText); noteFolder = getParameterByName("edit").split("/")[0];
             noteOpened = true;
 
+            //Note name
+            document.getElementById("Title-Title").setAttribute("disabled", "");
+            if (getParameterByName("private") == "true") { currentNoteAsObject.name = getParameterByName("edit").split("/")[2]; }
+            else { currentNoteAsObject.name = getParameterByName("edit").split("/")[1]; }
+
             //Init note content
-            setTimeout(function() {
-              document.getElementsByClassName("cke_wysiwyg_frame cke_reset")[0].contentDocument.body.innerHTML = currentNoteAsObject.content;
-              CloseModal();
-            }, 2000);
+            document.getElementsByClassName("cke_wysiwyg_frame cke_reset")[0].contentDocument.body.innerHTML = currentNoteAsObject.content;
 
             //Init tags, note position
             notePosition = sessionStorage.getItem("notePosition");
@@ -65,6 +67,8 @@ function Autorun() {
               document.getElementById("Title-Mode").setAttribute("onclick", "ShowModal('Suggestions');");
               document.getElementById("Title-Mode").innerHTML = currentNoteAsObject.suggestions.length + " New Suggestions <span class='tooltiptext' id='Title-Mode-Reason'>There are a few new suggestions on this note. Click here to review those suggestions.</span>";
             }
+
+            CloseModal();
           }
         }
       }

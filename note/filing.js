@@ -247,14 +247,14 @@ function SaveNote() {
     
     if (privateNote == true) {
       if (CheckSignIn() == true) {
-        getPHPFile.send("tags=" + JSON.stringify(tagsTags.getTags()) + "&saveAs=false&noteName=" + document.getElementById("Title-Title").value + "&noteContent=" + JSON.stringify(note) + "&username=" + atob(localStorage.getItem("loggedIn")).split(",")[0] + "&password=" + atob(localStorage.getItem("loggedIn")).split(",")[1] + "&private=true&requestedFunction=MakeNote");
+        getPHPFile.send("tags=" + JSON.stringify(tagsTags.getTags()) + "&saveAs=false&noteName=" + currentNoteAsObject.name + "&noteContent=" + JSON.stringify(note) + "&username=" + atob(localStorage.getItem("loggedIn")).split(",")[0] + "&password=" + atob(localStorage.getItem("loggedIn")).split(",")[1] + "&private=true&requestedFunction=MakeNote");
       }
       else {
         ShowModal("AuthRequired");
       }
     }
     else {
-      getPHPFile.send("notePosition=" + notePosition + "&tags=" + JSON.stringify(tagsTags.getTags()) + "&saveAs=false&folder=" + noteFolder + "&noteName=" + document.getElementById("Title-Title").value + "&noteContent=" + JSON.stringify(note) + "&username=" + atob(localStorage.getItem("loggedIn")).split(",")[0] + "&password=" + atob(localStorage.getItem("loggedIn")).split(",")[1] + "&private=false&requestedFunction=MakeNote");
+      getPHPFile.send("notePosition=" + notePosition + "&tags=" + JSON.stringify(tagsTags.getTags()) + "&saveAs=false&folder=" + noteFolder + "&noteName=" + currentNoteAsObject.name + "&noteContent=" + JSON.stringify(note) + "&username=" + atob(localStorage.getItem("loggedIn")).split(",")[0] + "&password=" + atob(localStorage.getItem("loggedIn")).split(",")[1] + "&private=false&requestedFunction=MakeNote");
     }
   }
   else {
