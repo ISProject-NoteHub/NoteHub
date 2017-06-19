@@ -142,7 +142,7 @@
 
     function keyHandler(e) {
       if (checkKeywordsTags == true) {
-        //Check for and give suggestions
+        SuggestTags();
       }
 
       if(e.target.tagName === 'INPUT' && e.target.className === 'tag-input') {
@@ -180,6 +180,7 @@
 
     function addTag(name) {
       CheckKeywordsTags(field);
+
       if ((checkKeywordsTags == true) && (CheckKeywordsTags(field) !== "Approved.")) {
         return;
       }

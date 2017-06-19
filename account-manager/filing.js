@@ -74,7 +74,7 @@ function ParseInNotes(modalName, topicIndex, notebookIndex) {
     topic.setAttribute("data-filename", noteList[topicIndex][3][notebookIndex][3][i][0]);
 
     //Onclick
-    topic.setAttribute("onclick", "window.open('https://notehub.ga/note?private=false&edit=" + noteList[topicIndex][3][notebookIndex][1] + "/" + noteList[topicIndex][3][notebookIndex][3][i][0] + "', '_blank');");
+    topic.setAttribute("onclick", "sessionStorage.setItem('notePosition', '" + topicIndex + "," + notebookIndex + "," + i + "'); window.open('../note?private=false&edit=" + noteList[topicIndex][3][notebookIndex][1] + "/" + noteList[topicIndex][3][notebookIndex][3][i][0] + "', '_blank');");
 
     //Display functions
     var functionsBar = document.createElement("div");
@@ -169,7 +169,7 @@ function PrivateNote() {
           topic.setAttribute("data-filename", privateNotes[i]);
 
           //Onclick
-          topic.setAttribute("onclick", "window.open('https://notehub.ga/note?private=true&edit=private-notes/" + atob(localStorage.getItem("loggedIn")).split(",")[0] + "/" + privateNotes[i] + "', '_blank');");
+          topic.setAttribute("onclick", "window.open('../note?private=true&edit=private-notes/" + atob(localStorage.getItem("loggedIn")).split(",")[0] + "/" + privateNotes[i] + "', '_blank');");
 
           //Display functions
           var functionsBar = document.createElement("div");

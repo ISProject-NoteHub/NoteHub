@@ -5,7 +5,16 @@
 
 var vulgarities = null;
 
-//Suggest keywords for user
+var notTags = ["the", "h1", "h2", "h3", "h4", "h5", "h6", "span", "big", "img", "src", "font-size"]; 
+var prepositions = ["a","abaft","aboard","about","above","absent","across","afore","after","against","along","alongside","amid","amidst","among","amongst","an","anenst","apropos","apud","around","as","aside","astride","at","athwart","atop","barring","before","behind","below","beneath","beside","besides","between","beyond","but","by","circa","concerning","despite","down","during","except","excluding","failing","following","for","forenenst","from","given","in","including","inside","into","lest","like","mid","midst","minus","modulo","near","next","notwithstanding","of","off","on","onto","opposite","out","outside","over","pace","past","per","plus","pro","qua","regarding","round","sans","save","since","than","through","throughout","till","times","to","toward","towards","under","underneath","unlike","until","unto","up","upon","versus","via","vice","with","within","without","worth"];
+
+//Suggest tags for user to input; add click handlers to add those tags
+function SuggestTags() {
+  //Generate list of words in note
+  var noteContent = document.getElementsByClassName("cke_wysiwyg_frame cke_reset")[0].contentDocument.body.innerHTML.replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").trim();
+  var noteContentWords = noteContent.split(" ");
+  console.log(noteContentWords);
+}
 
 //Load data from server-side databases
 function LoadLanguageData(callback) {
@@ -22,8 +31,6 @@ function LoadLanguageData(callback) {
 
 //Vulgarity check
 function CheckKeywordsTags(input) {
-  console.log(input);
-
   //Checks for vulgarities that are bad, no need for context checking
   for (i = 0; i < vulgarities["no-context"].length; i++) {
     if (input.value.toUpperCase().includes(vulgarities["no-context"][i].toUpperCase())) {

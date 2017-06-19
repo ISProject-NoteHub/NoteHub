@@ -13,11 +13,11 @@
   <script>
     var checkKeywordsTags = true;
     var tagsTags = null, keywordsTags = null;
-
     var currentNoteAsObject = null, noteList = null, privateNote = false, isSuggestion = false, noteOpened = false, noteName = "", noteFolder = "";
     var noteTagsInput = null;
     var noteKeywordsInput = null;
     var editKey = null;
+    var notePosition = null;
   </script>
 
   <!--Tagging Functionality-->
@@ -218,7 +218,9 @@
 
       <b>Note Tags:</b>
       <input id="NoteInfo-Tags" placeholder="Note Tags" />
-      <label><b>Suggested / Warnings: </b><span id="NoteInfo-SuggestedTags">- None -</span><br>
+      <label><b>Suggested / Warnings: </b><span id="NoteInfo-SuggestedTags">
+        <div class="FilePicker-Item-Tag" style="top: 0;">- No Suggestions -</div>
+      </span><br>
       <label>Note tags are displayed on your note as tags, for users to see. They are also a factor when other users search for notes using tags. Popular tags tend to be displayed at the top of the gallery feed.</label><br>
       <a href="https://notehub.ga/note?edit=<note id in generated link...>" target="_blank">Learn More about tags</a><br><br>
     </div>

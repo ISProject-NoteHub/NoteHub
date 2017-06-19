@@ -46,7 +46,8 @@ function Autorun() {
               CloseModal();
             }, 2000);
 
-            //Init tags
+            //Init tags, note position
+            notePosition = sessionStorage.getItem("notePosition");
             tagsTags.addTags(currentNoteAsObject.tags);
 
             //Mode

@@ -170,7 +170,7 @@ function SaveNoteAs(fromMenu) {
       author: atob(localStorage.getItem("loggedIn")).split(",")[0],
       tags: tagsTags.getTags(),
       suggestions: [],
-      content: document.getElementsByClassName("cke_wysiwyg_frame cke_reset")[0].contentDocument.body.innerHTML.replace(/&nbsp;/g, " ").replace(/&amp;/g, " ").trim()
+      content: document.getElementsByClassName("cke_wysiwyg_frame cke_reset")[0].contentDocument.body.innerHTML.replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").trim()
     };
 
     ShowModal("SavingNote");
@@ -180,7 +180,9 @@ function SaveNoteAs(fromMenu) {
     getPHPFile.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
         console.log(getPHPFile.responseText);
-        document.getElementById("Modal-SavingNote-Status").setAttribute("src", "../resources/success.png");
+
+        if (JSON.parse(getPHPFile.responseText).error == "Note saved!") { document.getElementById("Modal-SavingNote-Status").setAttribute("src", "../resources/success.png"); }
+        else { document.getElementById("Modal-SavingNote-Status").setAttribute("src", "../resources/error.png"); }
       }
     }
 
@@ -218,11 +220,11 @@ function SaveNote() {
       note.suggestions.push({
         author: atob(localStorage.getItem("loggedIn")).split(",")[0],
         date: new Date().getDate() + "/" + (new Date().getMonth() + 1) + "/" + new Date().getFullYear(),
-        content: document.getElementsByClassName("cke_wysiwyg_frame cke_reset")[0].contentDocument.body.innerHTML.replace(/&nbsp;/g, " ").replace(/&amp;/g, " ").trim()
+        content: document.getElementsByClassName("cke_wysiwyg_frame cke_reset")[0].contentDocument.body.innerHTML.replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").trim()
       });
     }
     else {
-      note.content = document.getElementsByClassName("cke_wysiwyg_frame cke_reset")[0].contentDocument.body.innerHTML.replace(/&nbsp;/g, " ").replace(/&amp;/g, " ").trim();
+      note.content = document.getElementsByClassName("cke_wysiwyg_frame cke_reset")[0].contentDocument.body.innerHTML.replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").trim();
     }
 
     console.log(note);
@@ -233,14 +235,10 @@ function SaveNote() {
     var getPHPFile = new XMLHttpRequest();
     getPHPFile.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-        if (JSON.parse(getPHPFile.responseText).error == "Note saved!") {
-          document.getElementById("Modal-SavingNote-Status").setAttribute("src", "../resources/success.png");
-        }
-        else {
-          document.getElementById("Modal-SavingNote-Status").setAttribute("src", "../resources/error.png");
-        }
-
         console.log(getPHPFile.responseText);
+
+        if (JSON.parse(getPHPFile.responseText).error == "Note saved!") { document.getElementById("Modal-SavingNote-Status").setAttribute("src", "../resources/success.png"); }
+        else { document.getElementById("Modal-SavingNote-Status").setAttribute("src", "../resources/error.png"); }
       }
     }
 
@@ -256,7 +254,7 @@ function SaveNote() {
       }
     }
     else {
-      getPHPFile.send("tags=" + JSON.stringify(tagsTags.getTags()) + "&saveAs=false&folder=" + noteFolder + "&noteName=" + document.getElementById("Title-Title").value + "&noteContent=" + JSON.stringify(note) + "&username=" + atob(localStorage.getItem("loggedIn")).split(",")[0] + "&password=" + atob(localStorage.getItem("loggedIn")).split(",")[1] + "&private=false&requestedFunction=MakeNote");
+      getPHPFile.send("notePosition=" + notePosition + "&tags=" + JSON.stringify(tagsTags.getTags()) + "&saveAs=false&folder=" + noteFolder + "&noteName=" + document.getElementById("Title-Title").value + "&noteContent=" + JSON.stringify(note) + "&username=" + atob(localStorage.getItem("loggedIn")).split(",")[0] + "&password=" + atob(localStorage.getItem("loggedIn")).split(",")[1] + "&private=false&requestedFunction=MakeNote");
     }
   }
   else {
