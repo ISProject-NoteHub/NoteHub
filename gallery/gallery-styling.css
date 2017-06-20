@@ -44,7 +44,6 @@
   background-repeat: no-repeat;
   background-position: left center;
   background-size: 30px 30px;
-  vertical-align: -webkit-baseline-middle;
   padding-left: 40px; padding-top: 5px; padding-bottom: 5px;
 }
 
@@ -54,6 +53,5 @@
   background-repeat: no-repeat;
   background-position: left center;
   background-size: 30px 30px;
-  vertical-align: -webkit-baseline-middle;
   padding-left: 40px; padding-top: 5px; padding-bottom: 5px;
 }
