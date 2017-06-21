@@ -74,6 +74,8 @@ function ParseInNotes(modalName, topicIndex, notebookIndex) {
 
   globalTopicIndex = topicIndex; globalNotebookIndex = notebookIndex;
 
+  CheckNoteName('Modal-SaveFilePicker', document.getElementById("Modal-SaveFilePicker-SaveName").value);
+
   for (i = 0; i < noteList[topicIndex][3][notebookIndex][3].length; i++) {
     //Display file
     var topic = document.createElement("div");
@@ -152,6 +154,11 @@ function ChangeNoteNameTo(modalName, note) {
 
 //Check note name
 function CheckNoteName(modalName, noteName) {
+  //Prepare metadata
+  var noteMeta = {
+    name: document.getElementById("Modal-SaveFilePicker-SaveName").value
+  };
+
   //Check for special characters
   if (
     (noteMeta.name.includes(".")) || (noteMeta.name.includes(",")) ||
@@ -163,7 +170,6 @@ function CheckNoteName(modalName, noteName) {
     (noteMeta.name.includes("<")) || (noteMeta.name.includes(">")) ||
     (noteMeta.name.includes("|")) ||
     (noteMeta.name.includes("?")) ||
-    (noteMeta.name.includes("-")) ||
     (noteMeta.name.includes("+")) ||
     (noteMeta.name.includes("=")) ||
     (noteMeta.name.includes("~")) ||
@@ -175,11 +181,15 @@ function CheckNoteName(modalName, noteName) {
     document.getElementById("Modal-SaveFilePicker-IllegalChars").style.display = "none";
 
     for (i = 0; i < noteList[globalTopicIndex][3][globalNotebookIndex][3].length; i++) {
-      if (noteName == noteList[globalTopicIndex][3][globalNotebookIndex][3][i]) {
+      console.log(noteName, noteList[globalTopicIndex][3][globalNotebookIndex][3][i][0]);
+      if (noteName == noteList[globalTopicIndex][3][globalNotebookIndex][3][i][0]) {
         document.getElementById(modalName + "-WillBeSuggestion").style.display = "block";
         isSuggestion = true;
       }
-      else { document.getElementById(modalName + "-WillBeSuggestion").style.display = "none"; isSuggestion = false; }
+      else {
+        document.getElementById(modalName + "-WillBeSuggestion").style.display = "none";
+        isSuggestion = false;
+      }
     }
   }
 }
@@ -294,7 +304,7 @@ function SaveNote() {
       }
     }
     else {
-      getPHPFile.send("notePosition=" + notePosition + "&tags=" + noteMeta.tags + "&saveAs=false&folder=" + noteFolder + "&noteName=" + currentNoteAsObject.name + "&noteContent=" + JSON.stringify(note) + "&username=" + noteMeta.username + "&password=" + noteMeta.password + "&private=false&requestedFunction=MakeNote");
+      getPHPFile.send("notePosition=" + notePosition + "&tags=" + noteMeta.tags + "&saveAs=false&folder=" + noteFolder + "&noteName=" + currentNoteAsObject.name + "&noteContent=" + JSON.stringify(note) + "&username=" + currentNoteAsObject.author + "&password=" + noteMeta.password + "&private=false&requestedFunction=MakeNote");
     }
   }
   else {

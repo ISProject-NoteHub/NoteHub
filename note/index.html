@@ -152,7 +152,7 @@
       <br>
 
       Note Name:<br>
-      <input id="Modal-SaveFilePicker-SaveName" class="FilePicker-TextBox" value="New Note" onkeyup="CheckNoteName('Modal-SaveFilePicker', this);" />
+      <input id="Modal-SaveFilePicker-SaveName" class="FilePicker-TextBox" value="New Note" onkeyup="CheckNoteName('Modal-SaveFilePicker', this.value);" onchange="CheckNoteName('Modal-SaveFilePicker', this.value);" />
       <div class="FilePicker-TextBox-after"></div>
 
       <br>
