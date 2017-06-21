@@ -8,7 +8,7 @@ a:hover { color: gray; }
 #Page-Contents {
   margin-top: 60px;
   padding: 10px;
-  font-family: "Questrial", sans-serif;
+  font-family: "Questrial", "Segoe UI", sans-serif;
   /*Defines styling to move page contents to under the titlebar so that they are visible*/
 }
 
@@ -21,7 +21,7 @@ a:hover { color: gray; }
   font-size: 30px;
   color: white;
   z-index: 5;
-  font-family: "Questrial", sans-serif;
+  font-family: "Questrial", "Segoe UI", sans-serif;
 }
 
 #Page-SignIn {
@@ -35,11 +35,11 @@ a:hover { color: gray; }
   text-align: center;
   padding: 7.5px;
   color: rgb(1,152,255); background-color: white;
-  font-family: "Questrial", sans-serif;
+  font-family: "Questrial", "Segoe UI", sans-serif;
 }
 
 body {
-  font-family: "Questrial", sans-serif;
+  font-family: "Questrial", "Segoe UI", sans-serif;
   cursor: default;
   max-width: 100%;
 }
@@ -50,11 +50,11 @@ input[data-stacked=stacked] {
   border: 0;
   background-color: #f6f6f6;
   margin-top: 5px;
-  font-family: "Questrial", sans-serif;
+  font-family: "Questrial", "Segoe UI", sans-serif;
 }
 
 textarea {
-  font-family: "Questrial", sans-serif;
+  font-family: "Questrial", "Segoe UI", sans-serif;
 }
 
 textarea[data-stacked=stacked] {
