@@ -6,8 +6,8 @@
 
 <head>
   <title>
-    <?php echo "New Note"; ?>
-    &nbsp;| NoteHub
+    <?php echo "New Note "; ?>
+    | NoteHub
   </title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
@@ -18,9 +18,11 @@
   <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
 
   <script src="https://use.fontawesome.com/3e1c5661b6.js"></script>
+
+  <script src="miscellaneous.js"></script>
 </head>
 
-<body>
+<body onbeforeunload="return ConfirmLeave();">
   <div class="w3-sidebar w3-bar-block w3-collapse w3-card-2 w3-animate-left" style="width:200px;" id="App-Menu">
     <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="CloseAppMenu();">Close &times;</button>
 
@@ -33,12 +35,10 @@
       </h5>
     </div>
 
-    <a href="manager-manage.php" class="w3-bar-item w3-button"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Account Home</a>
-    <a href="manager-security.php" class="w3-bar-item w3-button"><i class="fa fa-shield" aria-hidden="true"></i>&nbsp;&nbsp;Account Security</a>
-    <a href="manager-details.php" class="w3-bar-item w3-button"><i class="fa fa-address-card" aria-hidden="true"></i>&nbsp;&nbsp;Account Details</a>
+    <a href="manager-manage.php" class="w3-bar-item w3-button"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Account Manager</a>
+    <a href="manager-privatenotes.php" class="w3-bar-item w3-button"><i class="fa fa-folder" aria-hidden="true"></i>&nbsp;&nbsp;Your Private Notes</a>
     <hr>
-    <a href="manager-privatenotes.php" class="w3-bar-item w3-button w3-grey"><i class="fa fa-folder" aria-hidden="true"></i>&nbsp;&nbsp;Your Private Notes</a>
-    <a href="/note" class="w3-bar-item w3-button"><i class="fa fa-file" aria-hidden="true"></i>&nbsp;&nbsp;New Note</a>
+    <a href="/note" class="w3-bar-item w3-button w3-grey"><i class="fa fa-file" aria-hidden="true"></i>&nbsp;&nbsp;New Note</a>
     <hr>
     <a href="sign-out.php" class="w3-bar-item w3-button"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Sign Out</a>
   </div>
