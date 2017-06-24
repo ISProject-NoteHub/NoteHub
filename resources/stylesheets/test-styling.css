@@ -1,0 +1,87 @@
+html, body {
+  overflow-x: hidden;
+}
+
+@media screen and (max-width: 540px) {
+  #Page-Logo { width: 0; height: 50px; }
+  #Page-Name { display: none; }
+}
+
+@media screen and (min-width: 541px) {
+  #Page-Logo { width: 50px; height: 50px; }
+  #Page-Name { display: inline; }
+}
+
+.ErrorText {
+  background-image: url("/resources/error.png");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 30px 30px;
+  padding-left: 40px; padding-top: 10px; padding-bottom: 10px;
+  color: red;
+}
+
+a { color: dodgerblue; }
+a:hover { color: gray; }
+
+#Page-Contents {
+  margin-top: 60px;
+  padding: 10px;
+  font-family: "Questrial", "Segoe UI", sans-serif;
+  /*Defines styling to move page contents to under the titlebar so that they are visible*/
+}
+
+#Page-TitleBar {
+  background-color: rgb(1, 152, 255);
+  line-height: 70px;
+  width: 100%; height: 70px;
+  left: 0; top: 0;
+  position: fixed;
+  font-size: 30px;
+  color: white;
+  z-index: 5;
+  font-family: "Questrial", "Segoe UI", sans-serif;
+}
+
+#Page-SignIn {
+  position: fixed;
+  text-decoration: none;
+  right: 15px; top: 15px;
+  z-index: 6;
+  border-radius: 10px;
+  width: 125px;
+  font-size: 20px;
+  text-align: center;
+  padding: 7.5px;
+  color: rgb(1,152,255); background-color: white;
+  font-family: "Questrial", "Segoe UI", sans-serif;
+}
+
+body {
+  font-family: "Questrial", "Segoe UI", sans-serif;
+  cursor: default;
+  max-width: 100%;
+}
+    
+input[data-stacked=stacked] {
+  padding: 7.5px;
+  width: calc(100% - 15px);
+  border: 0;
+  background-color: #f6f6f6;
+  margin-top: 5px;
+  font-family: "Questrial", "Segoe UI", sans-serif;
+}
+
+textarea {
+  font-family: "Questrial", "Segoe UI", sans-serif;
+}
+
+textarea[data-stacked=stacked] {
+  padding: 7.5px;
+  width: calc(100% - 15px);
+  border: 0;
+  background-color: #f6f6f6;
+  margin-top: 5px;
+}
+
+button { cursor: pointer; }
