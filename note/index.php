@@ -35,8 +35,8 @@
       </h5>
     </div>
 
-    <a href="manager-manage.php" class="w3-bar-item w3-button"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Account Manager</a>
-    <a href="manager-privatenotes.php" class="w3-bar-item w3-button"><i class="fa fa-folder" aria-hidden="true"></i>&nbsp;&nbsp;Your Private Notes</a>
+    <a href="/accounts/manager-manage.php" class="w3-bar-item w3-button"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Account Manager</a>
+    <a href="/accounts/manager-privatenotes.php" class="w3-bar-item w3-button"><i class="fa fa-folder" aria-hidden="true"></i>&nbsp;&nbsp;Your Private Notes</a>
     <hr>
     <a href="/note" class="w3-bar-item w3-button w3-grey"><i class="fa fa-file" aria-hidden="true"></i>&nbsp;&nbsp;New Note</a>
     <hr>
