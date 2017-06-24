@@ -77,8 +77,8 @@
     <div class="w3-container" id="App-TitleBar">
       <button class="w3-button w3-xlarge w3-hide-large" onclick="OpenAppMenu();">&#9776;</button>
 
-      <a href="/" style="color: white; text-decoration: none;">
-        <span style="font-weight: lighter; font-size: 24px;">Note</span><b>Hub</b>
+      <a href="/" style="color: white; text-decoration: none; font-size: 24px;">
+        <span style="font-weight: lighter;">Note</span><b>Hub</b>
       </a>
       <span id="Page-Name"> | Account Home</span>
     </div>
