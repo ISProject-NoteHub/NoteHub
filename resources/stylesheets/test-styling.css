@@ -27,7 +27,7 @@ a:hover { color: gray; }
 #Page-Contents {
   margin-top: 60px;
   padding: 10px;
-  font-family: "Questrial", "Segoe UI", sans-serif;
+  font-family: "Questrial", "Segoe UI", sans-serif !important;
   /*Defines styling to move page contents to under the titlebar so that they are visible*/
 }
 
@@ -58,7 +58,7 @@ a:hover { color: gray; }
 }
 
 body {
-  font-family: "Questrial", "Segoe UI", sans-serif;
+  font-family: "Questrial", "Segoe UI", sans-serif !important;
   cursor: default;
   max-width: 100%;
 }
