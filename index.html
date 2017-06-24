@@ -4,8 +4,9 @@
 <head>
   <title>NoteHub</title>
 
-  <link href="./logo.png" rel="icon" />
-  <link href="./test-styling.css" rel="stylesheet" />
+  <link href="/logo-small.png" rel="icon" />
+  <link href="/resources/stylesheets/test-styling.css" rel="stylesheet" />
+  <link href="/resources/stylesheets/w3.css" rel="stylesheet" />
 
   <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
 
@@ -63,11 +64,11 @@
     }
     .Page-Section[data-background=collab] {
       background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-      url("resources/slide3_collaboration.jpg");
+      url("/resources/slide3_collaboration.jpg");
     }
     .Page-Section[data-background=notes] {
       background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-      url("resources/post-it-notes-wall)_1940x900_33832.jpg");
+      url("/resources/post-it-notes-wall)_1940x900_33832.jpg");
     }
   </style>
 
@@ -77,34 +78,35 @@
 
 <body>
   <div id="Page-TitleBar">
-    <a href="./"><span style="float: left; margin: 10px"><img src="./logo.png" height="50px" width="50px"></span></a>
-    <span style="font-weight: lighter;">Note</span><b>Hub</b>
+    <a href="/" style="color: white; text-decoration: none;">
+      <span style="float: left; margin: 10px"><img src="/logo-small.png" id="Page-Logo" /></span>
+      <span style="font-weight: lighter;">Note</span><b>Hub</b>
+    </a>
   </div>
 
-  <a id="Page-SignIn" href="./accounts/sign-in.html">Sign In</a>
+  <a id="Page-SignIn" href="/accounts/sign-in.php">Sign In</a>
 
   <div id="Special-ScrollingTiles">
     <table width="100%">
       <tr>
         <td width="16.6%"></td>
-        <td width="16.6%" style="background-image: url('resources/scrollingPanes-1-background.png'); width: 16.6%; height: 100%; background-position: 50% 80%; background-size: cover;">
+        <td width="16.6%" style="background-image: url('/resources/scrollingPanes-1-background.png'); width: 16.6%; height: 100%; background-position: 50% 80%; background-size: cover;">
           <span style="font-size: 175px; color: white;"><span style="font-weight: lighter; vertical-align: top;">Note</span><b>Hub</b></span>
           <br>
           <span style="font-size: 40px; color: white; vertical-align: middle;">The Free Note-Sharing Service</span><br><br>
         </td>
-        <td width="16.6%" style="background-image: url('resources/NoteHub Feedback Slide.png'); width: 16.6%; height: 100%; background-position: 50% 80%; background-size: cover;">
+        <td width="16.6%" style="background-image: url('/resources/NoteHub Feedback Slide.png'); width: 16.6%; height: 100%; background-position: 50% 80%; background-size: cover;">
         </td>
         <td width="16.6%">
-          <img src="./resources/scrollingPanes-3.png" width="696.15" height="487.5" style="padding: 30px;">
+          <img src="/resources/scrollingPanes-3.png" width="696.15" height="487.5" style="padding: 30px;">
         </td>
         <td width="16.6%">
-          <img src="./resources/scrollingPanes-3.png" width="696.15" height="487.5" style="padding: 30px;">
+          <img src="/resources/scrollingPanes-3.png" width="696.15" height="487.5" style="padding: 30px;">
         </td>
         <td width="16.6%"></td>
       </tr>
     </table>
   </div>
-
 
   <div class="Page-Section" style="margin-top: 60px;" data-background="notes">
     <h1>Free Notes For <b>All</b>!</h1>
@@ -130,8 +132,8 @@
   </div>
 
   <div class="Page-Section" style="text-align: center; background-color: black;">
-    <h1>Don't hesitate! Please sign up for NoteHub today!</h1>
-    <a href="./accounts/sign-up.html" style="display: block; text-align: center; margin-left: 35%; width: 30%; text-decoration: none; color: black; background-color: white; border-radius: 10px; padding: 10px;">Sign Up!</a>
+    <h1>Don't hesitate! Sign up for NoteHub today!</h1>
+    <a href="/accounts/sign-up.php" style="display: block; text-align: center; margin-left: 35%; width: 30%; text-decoration: none; color: black; background-color: white; border-radius: 10px; padding: 10px;">Sign Up!</a>
   </div>
 
   <!--Footer-->

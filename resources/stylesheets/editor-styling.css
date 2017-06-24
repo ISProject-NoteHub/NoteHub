@@ -1,0 +1,102 @@
+/*File pickers*/
+.FilePicker-Item {
+  cursor: pointer;
+  padding: 10px;
+  color: rgb(1, 152, 255);
+}
+
+.FilePicker-TextBox {
+  padding: 7.5px;
+  font-size: 1em;
+  display: block;
+  width: calc(100% - 15px); max-width: 100%;
+  margin: .25rem auto; margin-top: 5px;
+  border: 1px solid #eee; border-bottom: 2px solid #ccc; border-radius: 0;
+  outline: none;
+}
+
+.FilePicker-TextBox-after {
+  display: block;
+  width: 100%; height: 2px;
+  margin: auto; margin-top: calc(-2px - .25rem);
+  transition: transform ease-in-out 300ms;
+  transform: scaleX(0);
+  background-color: rgb(1, 152, 255);
+}
+
+.FilePicker-TextBox:focus + .FilePicker-TextBox-after { transform: scaleX(1); }
+
+.FilePicker-Item:hover {
+  background-color: #e3e3e3;
+}
+
+.FilePicker-Item-Tags {
+  float: right;
+  display: block;
+}
+
+.FilePicker-Item-Tag {
+  position: relative;
+  top: -5px;
+  margin-left: 5px;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 4px 8px 4px 8px;
+  font-size: inherit; font-weight: 400;
+  text-align: center;
+  color: #fff; background-color: #317caf;
+  border-radius: 3px;
+  transition: background-color .3s ease;
+}
+
+.FilePicker-HierachyLevel {
+  margin-top: 10px;
+  font-size: 18px;
+  color: white; background-color: rgb(1, 152, 255);
+  padding: 10px;
+}
+
+/*General*/
+body {
+  cursor: default;
+  font-family: "Questrial", "Segoe UI", sans-serif;
+}
+
+/*Happy Scrollbars :P*/
+::-webkit-scrollbar { width: 0.5em; height: 0.5em; }
+::-webkit-scrollbar-button { background: #ccc; }
+::-webkit-scrollbar-track-piece { background: #888; }
+::-webkit-scrollbar-thumb { background: #eee; }
+
+#Menu-IconBar::-webkit-scrollbar { display: none; }
+#Menu-IconBar::-webkit-scrollbar-button { display: none; }
+#Menu-IconBar::-webkit-scrollbar-track-piece { display: none; }
+#Menu-IconBar::-webkit-scrollbar-thumb { display: none; }
+
+
+@media screen and (max-width: 540px) {
+  #Page-Logo { width: 0; height: 50px; }
+  #Page-Name { display: none; }
+}
+
+@media screen and (min-width: 541px) {
+  #Page-Logo { width: 50px; height: 50px; }
+  #Page-Name { display: inline; }
+}
+
+.ErrorText {
+  background-image: url("/resources/error.png");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 30px 30px;
+  padding-left: 40px; padding-top: 10px; padding-bottom: 10px;
+  color: red;
+}
+
+/*Common*/
+#App-TitleBar {
+  padding: 10px;
+  background-color: rgb(1, 152, 255); color: white;
+}
+
+#App-Menu { overflow-x: hidden; }
