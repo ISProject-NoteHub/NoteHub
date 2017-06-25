@@ -95,7 +95,6 @@
        <br>If you wish to find out more, you can click on the many links on the acknowledgements page to do so.
       <br>
       <h2>Want to find out more about NoteHub? Click <a href="info/index.html">here</a>!</h2>
-      <br>
       <h2>Click <a href="/sitemap.html">here</a> for our sitemap!</h2>
     </div>
   </div>
