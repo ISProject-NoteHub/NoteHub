@@ -30,10 +30,10 @@
         ?>!
       </h5>
     </div>
-    <a class="active" href="notehub.tk/help/index.html">Home</a>
-      <br><br><a href="notehub.tk/help/getting-started.html">Getting Started</a>
-      <br><br><a href="notehub.tk/help/creating-note.html">Creating a Note</a>
-      <br><br><a href="notehub.tk/help/account-management.html">Account Management</a>
+    <a class="active" href="notehub.tk/help/index.php">Home</a>
+      <br><br><a href="notehub.tk/help/getting-started.php">Getting Started</a>
+      <br><br><a href="notehub.tk/help/creating-note.php">Creating a Note</a>
+      <br><br><a href="notehub.tk/help/account-management.php">Account Management</a>
     <hr>
     <?php
       if (isset($_COOKIE["signedIn"])) { echo '<a href="../accounts/sign-out.php" class="w3-bar-item w3-button"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Sign Out</a>'; }
