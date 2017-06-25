@@ -84,7 +84,7 @@
        Keep track of and edit your private notes.
       <br>
       <h2><a href="/note/" target="_blank">New Note</a></h2>
-       Here you can create, share and save a new public or private note.
+       Here you can create a new public or private note.
        <br>Refer to <a href="/help/creating-note.php">this page</a> for more information.
       <br>
       <h2><a href="/info/logbook.html">Logbook</a> and <a href="/info/changelog.html">Changelog</a></h2>
@@ -92,9 +92,11 @@
       <br>
       <h2><a href="/info/acknowledgements.html">Acknowledgements</a></h2>
        The acknowledgements page is a thank you to the many brilliant sites which we took icons, fonts, pictures and the inspiration of our ideas from.
-       <br><br>If you wish to find out more, you can click on the many links on the acknowledgements page to do so.
+       <br>If you wish to find out more, you can click on the many links on the acknowledgements page to do so.
       <br>
       <h2>Want to find out more about NoteHub? Click <a href="info/index.html">here</a>!</h2>
+      <br>
+      <h2>Click <a href="/sitemap.html">here</a> for our sitemap!</h2>
     </div>
   </div>
 
