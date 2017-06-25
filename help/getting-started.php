@@ -59,11 +59,13 @@
     <div class="w3-container">
       <b style="font-size: 20px">Getting Started (For New Users)</b>
     <hr>
-      Are you confused about what does what? Fear not! In this simple tutorial, we'll give you a brief introduction to some of the functions and features of frequently used NoteHub pages.<br><br>
+      Getting confused about what does what? Worry not! In this simple tutorial, we'll give you a brief introduction to some of the functions and features of frequently used NoteHub pages.<br><br>
      <h2>Account Home</h2>
        This is the first page that you will see once you login to NoteHub. 
        <br><span style="font-size: 14px">Don't have an account yet? Sign up <a href="/accounts/sign-in.php">here</a>!</span>
        <br><br>This page will show the number of private notes you have and the number of new suggestions on your public notes.
+      
+      <h2></h2>
     </div>
   </div>
 
