@@ -67,25 +67,25 @@
        This is the first page that you will see once you login to NoteHub. 
        <br><span style="font-size: 14px">Don't have an account yet? Sign up <a href="/accounts/sign-up.php" target="_blank">here</a>!</span>
        <br><br>This page will show the number of private notes you have and the number of new suggestions on your public notes.
-      
+      <br>
       <h2><a href="/accounts/manager-security.php" target="_blank">Account Security</a></h2>
        View your security details here. 
        <br><br>Currently, you can change your account password here.
-
+      <br>
       <h2><a href="/accounts/manager-details.php" target="_blank">Account Details</a></h2>
        Backend not complete. Come back in early August to check it out!
-
+      <br>
       <h2><a href="/gallery/" target="_blank">NoteHub Gallery</a></h2>
        The gallery is one of the main features of NoteHub.
        <br><br>The gallery enables users who are <a href="/accounts/sign-in.php" target="_blank">signed in</a> to browse through other users' public notes. 
        <br><br>The gallery is able to sort notes into specific topics and suggest recommended notes for the user.
-
+      <br>
       <h2><a href="/accounts/manager-privatenotes.php" target="_blank">Your Private Notes</a></h2>
-       This page helps you to keep track of and edit your private notes.
-      
+       Keep track of and edit your private notes.
+      <br>
       <h2><a href="/note/" target="_blank">New Note</a></h2>
        Here you can create a new public or private note.
-       <br><br>Refer to <a href="/help/creating-note.php">this page</a> for more information.
+       <br>Refer to <a href="/help/creating-note.php">this page</a> for more information.
     </div>
   </div>
 
