@@ -30,7 +30,7 @@
       </h5>
     </div>
       <a href="/help/index.php">Home</a>
-      <br><br>class="active" <a href="/help/getting-started.php">Getting Started</a>
+      <br><br> <a class="active" href="/help/getting-started.php">Getting Started</a>
       <br><br><a href="/help/creating-note.php">Creating a Note</a>
       <br><br><a href="/help/account-management.php">Account Management</a>
     <hr>
