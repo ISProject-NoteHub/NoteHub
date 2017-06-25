@@ -55,8 +55,8 @@
       <b style="font-size: 20px">Welcome to the Help Page!</b>
     <hr>
     Feeling lost? No problem! Pay us a quick visit at the help page!
-    If your questions have no answers in the following pages, please contact us at <a href="/cdn-cgi/l/email-protection#63170b064d0d0c17060b160123040e020a0f4d000c0e"><span class="__cf_email__" data-cfemail="f7839f92d9999883929f8295b7909a969e9bd994989a">[email&#160;protected]</span><script data-cfhash='f9e31' type="text/javascript">/* <![CDATA[ */!function(t,e,r,n,c,a,p){try{t=document.currentScript||function(){for(t=document.getElementsByTagName('script'),e=t.length;e--;)if(t[e].getAttribute('data-cfhash'))return t[e]}();if(t&&(c=t.previousSibling)){p=t.parentNode;if(a=c.getAttribute('data-cfemail')){for(e='',r='0x'+a.substr(0,2)|0,n=2;a.length-n;n+=2)e+='%'+('0'+('0x'+a.substr(n,2)^r).toString(16)).slice(-2);p.replaceChild(document.createTextNode(decodeURIComponent(e)),c)}p.removeChild(t)}}catch(u){}}()/* ]]> */</script></a>.
-   <br><br>
+    <br><br>If your questions have no answers in the following pages, please contact us at <a href="/cdn-cgi/l/email-protection#63170b064d0d0c17060b160123040e020a0f4d000c0e"><span class="__cf_email__" data-cfemail="f7839f92d9999883929f8295b7909a969e9bd994989a">[email&#160;protected]</span><script data-cfhash='f9e31' type="text/javascript">/* <![CDATA[ */!function(t,e,r,n,c,a,p){try{t=document.currentScript||function(){for(t=document.getElementsByTagName('script'),e=t.length;e--;)if(t[e].getAttribute('data-cfhash'))return t[e]}();if(t&&(c=t.previousSibling)){p=t.parentNode;if(a=c.getAttribute('data-cfemail')){for(e='',r='0x'+a.substr(0,2)|0,n=2;a.length-n;n+=2)e+='%'+('0'+('0x'+a.substr(n,2)^r).toString(16)).slice(-2);p.replaceChild(document.createTextNode(decodeURIComponent(e)),c)}p.removeChild(t)}}catch(u){}}()/* ]]> */</script></a>.
+    <br><br>We hope you have a comfortable experience using NoteHub.
     </div>
   </div>
 
