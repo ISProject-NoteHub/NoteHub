@@ -13,6 +13,11 @@
   <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
 
   <script src="https://use.fontawesome.com/3e1c5661b6.js"></script>
+   <style>
+    a{
+      color: dodgerblue;
+    }
+  </style>
 </head>
   
 <body>
