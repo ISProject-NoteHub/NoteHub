@@ -61,7 +61,7 @@
     <hr>
       Are you confused about what does what? Fear not! In this simple tutorial, we'll give you a brief introduction to some of the functions and features of frequently used NoteHub pages.<br><br>
      <h2>Account Home</h2>
-       <br><br>This is the first page that you will see once you login to NoteHub. 
+       This is the first page that you will see once you login to NoteHub. 
        <br><span style="font-size: 10px">Don't have an account yet? Sign up <a href="/accounts/sign-in.php">here</a>!</span>
        <br><br>This page will show the number of private notes you have and the number of new suggestions on your public notes.
     </div>
