@@ -80,7 +80,12 @@
        <br><br>The gallery enables users who are <a href="/accounts/sign-in.php" target="_blank">signed in</a> to browse through other users' public notes. 
        <br><br>The gallery is able to sort notes into specific topics and suggest recommended notes for the user.
 
-      <h2><a href="" target="_blank">Your Private Notes</a></h2>
+      <h2><a href="/accounts/manager-privatenotes.php" target="_blank">Your Private Notes</a></h2>
+       This page helps you to keep track of and edit your private notes.
+      
+      <h2><a href="/note/" target="_blank">New Note</a></h2>
+       Here you can create a new public or private note.
+       <br><br>Refer to <a href="/help/creating-note.php">this page</a> for more information.
     </div>
   </div>
 
