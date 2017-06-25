@@ -29,10 +29,10 @@
         ?>!
       </h5>
     </div>
-      <a href="notehub.tk/help/index.php">Home</a>
-      <br><br>class="active" <a href="notehub.tk/help/getting-started.php">Getting Started</a>
-      <br><br><a href="notehub.tk/help/creating-note.php">Creating a Note</a>
-      <br><br><a href="notehub.tk/help/account-management.php">Account Management</a>
+      <a href="/help/index.php">Home</a>
+      <br><br>class="active" <a href="/help/getting-started.php">Getting Started</a>
+      <br><br><a href="/help/creating-note.php">Creating a Note</a>
+      <br><br><a href="/help/account-management.php">Account Management</a>
     <hr>
     <?php
       if (isset($_COOKIE["signedIn"])) { echo '<a href="../accounts/sign-out.php" class="w3-bar-item w3-button"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Sign Out</a>'; }
