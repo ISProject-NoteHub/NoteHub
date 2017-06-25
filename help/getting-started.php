@@ -87,6 +87,14 @@
        Here you can create a new public or private note.
        <br>Refer to <a href="/help/creating-note.php">this page</a> for more information.
       <br>
+      <h2><a href="/info/logbook.html">Logbook</a> and <a href="/info/changelog.html">Changelog</a></h2>
+       Offers a view of NoteHub's progress so far. The logbook offers a more detailed but less frequently updated version, whereas the changelog offers a more frequently updated but cruder version.
+      <br>
+      <h2><a href="/info/acknowledgements.html">Acknowledgements</a></h2>
+       The acknowledgements page is a thank you to the many brilliant sites which we took icons, fonts, pictures and the inspiration of our ideas from.
+       <br><br>If you wish to find out more, you can click on the many links on the acknowledgements page to do so.
+      <br>
+      <h2>Want to find out more about NoteHub? Click <a href="info/index.html">here</a>!</h2>
     </div>
   </div>
 
