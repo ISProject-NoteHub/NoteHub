@@ -1,4 +1,5 @@
 <?php
+  if (!isset($_COOKIE["signedIn"])) { header("Location: /accounts/sign-in.php"); }
 ?>
 <!--HTML document begins here-->
 <!DOCTYPE html>
@@ -19,7 +20,24 @@
 
   <script src="https://use.fontawesome.com/3e1c5661b6.js"></script>
 
+  <!--Tagging Functionality-->
+  <script src="/resources/tags/tags.js"></script>
+  <link href="/resources/tags/tags.css" rel="stylesheet" />
+
+  <!--Global Variables-->
+  <script>
+    var noteProperties = {
+      noteOpened: false, noteAsObject: null,
+      private: false,
+      tags: null, author: "..."
+    };
+
+    var otherTags = null;
+  </script>
+
   <!--NoteHub Note Editor-->
+  <script src="algorithm.js"></script>
+  <script src="filing.js"></script>
   <script src="miscellaneous.js"></script>
 
   <!--Unique CKEditor styling-->
@@ -64,23 +82,40 @@
       </h5>
     </div>
 
-    <a href="/accounts/manager-manage.php" class="w3-bar-item w3-button"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Account Manager</a>
-    <a href="/accounts/manager-privatenotes.php" class="w3-bar-item w3-button"><i class="fa fa-folder" aria-hidden="true"></i>&nbsp;&nbsp;Your Private Notes</a>
-    <hr>
-    <a href="/note" class="w3-bar-item w3-button w3-grey"><i class="fa fa-file" aria-hidden="true"></i>&nbsp;&nbsp;New Note</a>
-    <hr>
+    <div class="w3-dropdown-hover">
+      <button class="w3-button">
+        <i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp;&nbsp;Save Note...&nbsp;&nbsp;
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="w3-dropdown-content w3-bar-block w3-black" style="margin-left: 10px;">
+        <a href="javascript:PrepareSaveAs();" class="w3-bar-item w3-button">Save as New Note</a>
+        <a href="javascript:ViewLink();" class="w3-bar-item w3-button">Save Changes</a>
+      </div>
+    </div>
+
     <div class="w3-dropdown-hover">
       <button class="w3-button">
         <i class="fa fa-link" aria-hidden="true"></i>&nbsp;&nbsp;Share Link...&nbsp;&nbsp;
         <i class="fa fa-caret-down"></i>
       </button>
-      <div class="w3-dropdown-content w3-bar-block w3-black" style="margin-left: 7.5px;">
-        <a href="#" class="w3-bar-item w3-button">Editing Link</a>
-        <a href="#" class="w3-bar-item w3-button">Viewing Link</a>
+      <div class="w3-dropdown-content w3-bar-block w3-black" style="margin-left: 10px;">
+        <a href="javascript:EditLink();" class="w3-bar-item w3-button">Editing Link</a>
+        <a href="javascript:ViewLink();" class="w3-bar-item w3-button">Viewing Link</a>
       </div>
     </div>
+
+    <a href="javascript:ShowModal('NoteDetails');" class="w3-bar-item w3-button"><i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;&nbsp;Note Details</a>
     <hr>
-    <a href="sign-out.php" class="w3-bar-item w3-button"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Sign Out</a>
+
+    <a href="/accounts/manager-manage.php" class="w3-bar-item w3-button"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Account Manager</a>
+    <a href="/accounts/manager-privatenotes.php" class="w3-bar-item w3-button"><i class="fa fa-folder" aria-hidden="true"></i>&nbsp;&nbsp;Your Private Notes</a>
+    <hr>
+
+    <a href="/gallery" class="w3-bar-item w3-button"><i class="fa fa-picture-o" aria-hidden="true"></i>&nbsp;&nbsp;NoteHub Gallery</a>
+    <a href="/note" class="w3-bar-item w3-button w3-grey"><i class="fa fa-file" aria-hidden="true"></i>&nbsp;&nbsp;New Note</a>
+    <hr>
+
+    <a href="../accounts/sign-out.php" class="w3-bar-item w3-button"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Sign Out</a>
   </div>
 
   <div class="w3-main" style="margin-left: 200px">
@@ -102,31 +137,113 @@
     </div>
   </div>
 
+  <!--Snackbars-->
+  <div id="Snackbar-NoContent" class="w3-snackbar">
+    <span class="ErrorText">We can't save your note as it doesn't have any content.</span>
+  </div>
+
   <!--Modal Dialogs-->
-  <div id="Modal-SharingLink" class="w3-modal">
+  <div id="Modal-NoteDetails" class="w3-modal">
     <div class="w3-modal-content w3-animate-top w3-card-4">
-      <header class="w3-container w3-teal"> 
-        <span onclick="document.getElementById('Modal-SharingLink').style.display='none';" class="w3-button w3-display-topright">&times;</span>
-        <h2>Sharing Link</h2>
+      <header class="w3-container w3-blue"> 
+        <span onclick="CloseModal();" class="w3-button w3-display-topright">&times;</span>
+        <h2>Note Details</h2>
       </header>
-      <div class="w3-container">
-        <p>Some text..</p>
-        <p>Some text..</p>
+
+      <div class="w3-container w3-padding">
+        Here's the meta-data of your note. This data assists our intelligent algorithm in suggesting notes to users.
+        <br><br>
+
+        <b>Note Name: </b><span id="NoteInfo-NoteName">New Note</span> - this is only updated when you save your note.<br>
+        <b>Note Privacy: </b><select id="NoteInfo-NotePrivacy" style="width: 100%; padding: 10px;">
+          <option selected>Public, for all to see. Anyone can suggest, but you retain full control of what gets incoporated. Note content is subject to intelligent algorithms.</option>
+          <option>Private, but viewable by anyone. Only collaborators you add may make any changes to the note. Note content is not subject to inteligent algorithms.</option>
+          <option>Private and viewable only by those you let view it. Only collaborators you add may make any changes to the note. Note content is not subject to inteligent algorithms.</option>
+        </select><br>
+        <a href="https://notehub.ga/view-note" target="_blank">Learn More about note privacy</a><br>
+        <b>Last Modified: </b><span id="NoteInfo-LastModified">Today</span><br><br>
+
+        <b>Note Tags:</b>
+        <input id="NoteInfo-Tags" placeholder="Note Tags" />
+        <label><b>Suggested / Warnings: </b><span id="NoteInfo-SuggestedTags">
+          <div class="FilePicker-Item-Tag" style="top: 0;">- No Suggestions -</div>
+        </span><br>
+        <label>Note tags are displayed on your note as tags, for users to see. They are also a factor when other users search for notes using tags. Popular tags tend to be displayed at the top of the gallery feed.</label><br>
+        <a href="https://notehub.ga/note?edit=<note id in generated link...>" target="_blank">Learn More about tags</a><br><br>
       </div>
-      <footer class="w3-container w3-teal">
-        <button class="w3-button">CLOSE</button>
+
+      <footer class="w3-container w3-blue w3-padding">
+        <button class="w3-button w3-green" onclick="CloseModal();">CLOSE</button>
       </footer>
     </div>
   </div>
 
-  <script>
-    function OpenAppMenu() {
-      document.getElementById("App-Menu").style.display = "block";
-    }
-    function CloseAppMenu() {
-      document.getElementById("App-Menu").style.display = "none";
-    }
-  </script>
+  <div id="Modal-SaveAs" class="w3-modal">
+    <div class="w3-modal-content w3-animate-top w3-card-4">
+      <header class="w3-container w3-blue"> 
+        <span onclick="CloseModal();" class="w3-button w3-display-topright">&times;</span>
+        <h2>Save Note As...</h2>
+      </header>
+
+      <div class="w3-container w3-padding">
+        <details onclick="DetailsAsAccordion(event, this);" open>
+          <summary>Choose Note Location</summary>
+            <p>
+              Please select a location where your note will be stored.
+            </p>
+
+          <div class="Details-Content">
+            <div class="w3-row">
+              <div id="SaveAs-Header1" style="cursor: pointer;" class="w3-container w3-cell w3-light-grey" onclick="SwitchToFiles(1);"><h5>Public Notes</h5></div>
+              <div id="SaveAs-Header2" style="cursor: pointer;" class="w3-container w3-cell w3-blue" onclick="SwitchToFiles(2);"><h5>Your Private Notes</h5></div>
+            </div>
+
+            <div class="w3-container w3-light-grey">
+              <div id="SaveAs-Content1">Public Notes</div>
+              <div id="SaveAs-Content2" style="display: none;">Private Notes</div>
+            </div>
+          </div>
+        </details>
+
+        <details onclick="DetailsAsAccordion(event, this);">
+          <summary>Choose Note Tags</summary>
+
+          <div class="Details-Content">
+            <p>
+              Note tags are displayed on your note as tags, for users to see. They are also a factor when other users search for notes using tags. Popular tags tend to be displayed at the top of the gallery feed.
+            </p>
+
+            <input id="SaveAs-Tags" /><label><b>Suggested / Warnings: </b><span id="SaveAs-SuggestedTags">
+              <div class="FilePicker-Item-Tag" style="top: 0;">- No Suggestions -</div>
+            </span><br>
+          </div>
+        </details>
+      </div>
+
+      <footer class="w3-container w3-blue w3-padding">
+        <button class="w3-button w3-green" onclick="CloseModal();">SAVE AS</button>
+        <button class="w3-button w3-red" onclick="CloseModal();">CLOSE</button>
+      </footer>
+    </div>
+  </div>
+
+  <div id="Modal-SharingLink" class="w3-modal">
+    <div class="w3-modal-content w3-animate-top w3-card-4">
+      <header class="w3-container w3-blue"> 
+        <span onclick="CloseModal();" class="w3-button w3-display-topright">&times;</span>
+        <h2>Sharing Link</h2>
+      </header>
+
+      <div class="w3-container w3-padding">
+        <div id="Modal-SharingLink-Text"></div>
+        <input readonly="readonly" style="width: 100%; margin-top: 5px; padding: 5px;" id="Modal-SharingLink-Link" value="- No link! -" />
+      </div>
+
+      <footer class="w3-container w3-blue w3-padding">
+        <button class="w3-button w3-green" onclick="CloseModal();">CLOSE</button>
+      </footer>
+    </div>
+  </div>
 </body>
 
 </html>

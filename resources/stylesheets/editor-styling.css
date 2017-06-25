@@ -100,3 +100,61 @@ body {
 }
 
 #App-Menu { overflow-x: hidden; }
+
+details {
+  margin-bottom: 10px;
+}
+
+summary {
+  cursor: pointer;
+  padding: 10px;
+  background-color: #888888; color: white;
+}
+
+.Details-Content {
+  background-color: #ddd;
+  margin-left: 15px;
+  padding: 10px;
+}
+
+/*Snackbars*/
+.w3-snackbar {
+  visibility: hidden;
+  min-width: 500px;
+  margin-left: -250px;
+  background-color: #e1e1e1;
+  color: #333 !important;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 30px;
+  font-size: 17px;
+}
+
+.w3-snackbar.show {
+  visibility: visible;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;} 
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 30px; opacity: 1;} 
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}

@@ -141,9 +141,9 @@
     }
 
     function keyHandler(e) {
-      if (checkKeywordsTags == true) {
-        SuggestTags();
-      }
+      //if (checkKeywordsTags == true) {
+      //  SuggestTags();
+      //}
 
       if(e.target.tagName === 'INPUT' && e.target.className === 'tag-input') {
 
@@ -179,12 +179,12 @@
     }
 
     function addTag(name) {
-      CheckKeywordsTags(field);
+      //CheckKeywordsTags(field);
 
-      if ((checkKeywordsTags == true) && (CheckKeywordsTags(field) !== "Approved.")) {
-        return;
-      }
-      else {
+      //if ((checkKeywordsTags == true) && (CheckKeywordsTags(field) !== "Approved.")) {
+      //  return;
+      //}
+      {
         // delete comma if comma exists
         name = name.toLowerCase();
         name = name.toString().replace(/,/g, '').trim();

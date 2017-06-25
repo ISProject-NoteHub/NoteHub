@@ -70,6 +70,7 @@
     <a href="manager-security.php" class="w3-bar-item w3-button w3-grey"><i class="fa fa-shield" aria-hidden="true"></i>&nbsp;&nbsp;Account Security</a>
     <a href="manager-details.php" class="w3-bar-item w3-button"><i class="fa fa-address-card" aria-hidden="true"></i>&nbsp;&nbsp;Account Details</a>
     <hr>
+    <a href="/gallery" class="w3-bar-item w3-button"><i class="fa fa-picture-o" aria-hidden="true"></i>&nbsp;&nbsp;NoteHub Gallery</a>
     <a href="manager-privatenotes.php" class="w3-bar-item w3-button"><i class="fa fa-folder" aria-hidden="true"></i>&nbsp;&nbsp;Your Private Notes</a>
     <a href="/note" class="w3-bar-item w3-button"><i class="fa fa-file" aria-hidden="true"></i>&nbsp;&nbsp;New Note</a>
     <hr>
