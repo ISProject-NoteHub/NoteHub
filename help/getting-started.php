@@ -74,7 +74,7 @@
 
       <h2><a href="/gallery/" target="_blank">NoteHub Gallery</a></h2>
        The gallery is one of the main features of NoteHub.
-       <br><br>The gallery enables users who are <a href="/accounts/sign-in.php">signed in</a> to browse through other users' public notes. 
+       <br><br>The gallery enables users who are <a href="/accounts/sign-in.php" target="_blank">signed in</a> to browse through other users' public notes. 
        <br><br>The gallery is able to sort notes into specific topics and suggest recommended notes for the user.
     </div>
   </div>
