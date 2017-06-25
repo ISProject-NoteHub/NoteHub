@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
- <head>
+<head>
   <title>Help | NoteHub</title>
 
   <link href="../test-styling.css" rel="stylesheet">
@@ -8,10 +8,52 @@
   <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
- </head>
-  
- <body>
+
+<style>
+body {
+    margin: 0;
+    font-family:"Questrial","Segoe UI",sans-serif;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 25%;
+    background-color: #f1f1f1;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+}
+
+li a {
+    display: block;
+    color: #000;
+    padding: 16px 32px;
+    text-decoration: none;
+}
+
+li a.active {
+    background-color: rgb(1,152,255);
+    color: white;
+}
+
+li a:hover:not(.active) {
+    background-color: mintcream;
+    color: rgb(1,152,255);
+}
+</style>
+</head>
+<body>
+
+<ul>
+  <li><a class="active" href="notehub.tk/help/index.html">Home</a></li>
+  <li><a href="">Getting Started</a></li>
+  <li><a href="">Creating a Note</a></li>
+  <li><a href="">Account Management</a></li>
+</ul>
+
+<div style="margin-left:25%;padding:1px 16px;height:1000px;">
   <div id="Page-TitleBar">
     <a href="../"><span style="float: left; margin: 10px"><img src="../logo.png" height="50px" width="50px"></span></a>
     <span style="font-weight: lighter;">Note</span><span><b>Hub</b> - Help</span>
@@ -21,6 +63,9 @@
     <b style="font-size: 20px">Welcome to the Help Page!</b>
     <hr>
     Feeling lost? No problem! Pay us a quick visit at the help page!
+   <br><br>
   </div>
- </body>
+</div>
+
+</body>
 </html>
