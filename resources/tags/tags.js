@@ -179,45 +179,39 @@
     }
 
     function addTag(name) {
-      //CheckKeywordsTags(field);
+      console.log(name);
+      // delete comma if comma exists
+      name = name.toLowerCase();
+      name = name.toString().replace(/,/g, '').trim();
 
-      //if ((checkKeywordsTags == true) && (CheckKeywordsTags(field) !== "Approved.")) {
-      //  return;
-      //}
-      {
-        // delete comma if comma exists
-        name = name.toLowerCase();
-        name = name.toString().replace(/,/g, '').trim();
+      if(name === '') return field.value = '';
 
-        if(name === '') return field.value = '';
+      if(~tagsArray.indexOf(name)) {
 
-        if(~tagsArray.indexOf(name)) {
+        var exist = $$('.tag', wrap);
 
-          var exist = $$('.tag', wrap);
+        Array.prototype.forEach.call(exist, function(tag) {
+          if(tag.firstChild.textContent === name) {
 
-          Array.prototype.forEach.call(exist, function(tag) {
-            if(tag.firstChild.textContent === name) {
+            addClass('tag--exists', tag);
 
-              addClass('tag--exists', tag);
-
-              if(transitionEnd) {
-                oneListener(tag, transitionEnd, function() {
-                  removeClass('tag--exists', tag);
-                });
-              } else {
+            if(transitionEnd) {
+              oneListener(tag, transitionEnd, function() {
                 removeClass('tag--exists', tag);
-              }
+              });
+            } else {
+              removeClass('tag--exists', tag);
             }
-          });
-          return field.value = '';
-        }
-
-        var tag = createTag(name);
-        wrap.insertBefore(tag, field);
-        tagsArray.push(name);
-        field.value = '';
-        el.value += (el.value === '') ? name : ',' + name;
+          }
+        });
+        return field.value = '';
       }
+
+      var tag = createTag(name);
+      wrap.insertBefore(tag, field);
+      tagsArray.push(name);
+      field.value = '';
+      el.value += (el.value === '') ? name : ',' + name;
     }
 
     function removeTag() {
