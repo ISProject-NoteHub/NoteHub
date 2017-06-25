@@ -84,7 +84,7 @@
        Keep track of and edit your private notes.
       <br>
       <h2><a href="/note/" target="_blank">New Note</a></h2>
-       Here you can create a new public or private note.
+       Here you can create, share and save a new public or private note.
        <br>Refer to <a href="/help/creating-note.php">this page</a> for more information.
       <br>
       <h2><a href="/info/logbook.html">Logbook</a> and <a href="/info/changelog.html">Changelog</a></h2>
