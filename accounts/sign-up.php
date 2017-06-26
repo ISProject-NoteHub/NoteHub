@@ -5,7 +5,8 @@
 
   if ((isset($_POST["submitted"])) && ($_POST["username"] !== "") && ($_POST["password"] !== "") && ($_POST["email"] !== "")) {
     if (preg_match('/[^a-zA-Z]+/', $_POST["username"])) { $illigalChars = true; }
-    else if (strlen($_POST["username"]) < 8) { $tooShort = true; }
+    else if (strlen($_POST["username"]) < 3) { $tooShort = true; }
+    else if (strlen($_POST["username"]) > 32) { $tooLong = true; }
     else {
       include("../databases/microdb/Database.php");
       include("../databases/microdb/Cache.php");
@@ -138,7 +139,11 @@
             }
 
             if ($tooShort === true) {
-              echo "<br><span class='ErrorText'>We can't create your account as your username is too short. Please use a different username with at least 8 characters.</span>";
+              echo "<br><span class='ErrorText'>We can't create your account as your username is too short. Please use a different username with at least 3 characters.</span>";
+            }
+
+            if ($tooLong === true) {
+              echo "<br><span class='ErrorText'>We can't create your account as your username is too long. Please use a different username with less than 33 characters.</span>";
             }
           }
         ?>
