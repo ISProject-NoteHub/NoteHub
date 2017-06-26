@@ -144,6 +144,52 @@
   </div>
 
   <!--Modal Dialogs-->
+  <div id="Modal-References" class="w3-modal">
+    <div class="w3-modal-content w3-animate-top w3-card-4">
+      <header class="w3-container w3-blue"> 
+        <span onclick="CloseModal();" class="w3-button w3-display-topright">&times;</span>
+        <h2>References</h2>
+      </header>
+
+      <div class="w3-container w3-padding">
+        <!--When possible, push the styles to the editor-styling.css stylesheet-->
+        Public notes are always better with references! Our algorithm will award more credibility points to notes with credible sources.
+        <br><br>
+
+        <!--Box for adding References-->
+        <div style="padding: 10px; background-color: #e2e2e2;">
+          <b>Reference Type:</b>
+          <select id="References-AddBar-Type" style="width: calc(100% - 120px); margin-left: 5px; margin-bottom: 5px; padding: 7.5px;">
+            <option>Written Work (books, essays)</option>
+            <option>Website</option>
+            <option>Image/Photo Gallery</option>
+          </select><br>
+
+          <b id="References-AddBar-NameLabel">Book/Essay Title:</b>
+          <!--Make the placeholder dynamic, change when type is changed-->
+          <input id="References-AddBar-Name" style="width: 100%; margin-top: 5px; padding: 7.5px;" placeholder="Book Title / Webpage URL / Photo Gallery URL"><br>
+
+          <b id="References-AddBar-AuthorLabel">Book/Essay Author (optional):</b>
+          <!--Make the placeholder dynamic, change when type is changed-->
+          <input id="References-AddBar-AuthorLabel" style="width: 100%; margin-top: 5px; padding: 7.5px;" placeholder="Book / Webpage / Photo Gallery Author">
+        </div>
+
+        <!--References - style like CloudFlare DNS records-->
+        <table>
+          <tr class="w3-grey">
+            <th>Reference Type</th>
+            <th>Reference Name / URL</th>
+            <th>Reference Author / Publisher</th>
+          </tr>
+        </table>
+      </div>
+
+      <footer class="w3-container w3-blue w3-padding">
+        <button class="w3-button w3-green" onclick="CloseModal();">CLOSE</button>
+      </footer>
+    </div>
+  </div>
+
   <div id="Modal-NoteDetails" class="w3-modal">
     <div class="w3-modal-content w3-animate-top w3-card-4">
       <header class="w3-container w3-blue"> 
