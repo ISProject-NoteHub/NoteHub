@@ -158,7 +158,7 @@
 
         <!--Box for adding References-->
         <div style="padding: 10px; background-color: #e2e2e2;">
-          <h5><b>Add New Reference<b></h5>
+          <h5><b>Add New Reference</b></h5>
 
           <b>Reference Type:</b>
           <select id="References-AddBar-Type" style="width: calc(100% - 120px); margin-left: 5px; margin-bottom: 5px; padding: 7.5px;">
