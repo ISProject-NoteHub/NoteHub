@@ -32,51 +32,28 @@ function ListSuggestions() {
       removeFrom(prepositions[i], words, false);
     }
 
-    //This comparison is done for every word
-    for (i = 0; i < words.length; i++) {
-      if (contains(wordsFound, words[i])) {
-        var giveUp = true;
+    console.log(words);
 
-        for (a = 0; a < commonOccurences.length; a++) {
-          if (commonOccurences[a].word.includes(words[i])) {
-            giveUp = false;
-            commonOccurences[a].count = commonOccurences[a].count + 1;
-          }
-          else if (a == (commonOccurences.length - 1)) {
-            commonOccurences[commonOccurences.length] = {
-              word: words[i], count: 1
-            };
-          }
+    //Count
+    var commonOccurences = [];
+    for (i = 0; i < words.length; i++) {
+      var indexesPushed = [];
+
+      for (a = 0; a < words.length; a++) {
+        if (words[a] == words[i]) { indexesPushed.push(a); }
+        else { /*Nothing to do*/ }
+      }
+
+      if (indexesPushed.length > 1) {
+        commonOccurences[commonOccurences.length] = {
+          word: words[i], count: indexesPushed.length
+        };
+
+        for (a = 0; a < indexesPushed.length; a++) {
+          words.splice(indexesPushed[a], 1);
         }
       }
-      else {
-        wordsFound[wordsFound.length] = words[i];
-      }
     }
-
-    //Combine duplicates
-    var duplicatesHolding = [];
-
-    for (i = 0; i < commonOccurences.length; i++) {
-      var word = commonOccurences[i].word;
-      var indexesFound = [];
-
-      for (a = 0; a < commonOccurences.length; a++) {
-        if (commonOccurences[a].word == word) { indexesFound.push(a); }
-      }
-
-      duplicatesHolding[i] = { word: "...", count: 0 };
-
-      //Add count of the next index
-      for (a = 0; a < indexesFound.length; a++) {
-        duplicatesHolding[i].word = word;
-        duplicatesHolding[i].count = duplicatesHolding[i].count + commonOccurences[indexesFound[a]].count;
-
-        commonOccurences.splice(indexesFound[a], 1);
-      }
-    }
-
-    commonOccurences = duplicatesHolding;
 
     //Sort output
     var arr = commonOccurences;
@@ -106,8 +83,8 @@ function ListSuggestions() {
     }
 
     //Display output
-    a.innerHTML = "";
-    b.innerHTML = a.innerHTML;
+    document.getElementById("NoteInfo-SuggestedTags").innerHTML = "";
+    document.getElementById("SaveAs-SuggestedTags").innerHTML = "";
 
     for (i = (suggestionsOutput.length - 5); i < suggestionsOutput.length; i++) {
       var tag = document.createElement("div");
@@ -116,8 +93,11 @@ function ListSuggestions() {
       tag.innerHTML = suggestionsOutput[i];
       tag.setAttribute("onclick", "this.style.display = 'none'; otherTags.addTags('" + suggestionsOutput[i] + "'); noteProperties.tags.addTags('" + suggestionsOutput[i] + "');");
 
-      document.getElementById("NoteInfo-SuggestedTags").appendChild(tag);
-      document.getElementById("SaveAs-SuggestedTags").appendChild(tag);
+      if ("undefined" === typeof suggestionsOutput[i]) { /*Skip*/ }
+      else {
+        document.getElementById("NoteInfo-SuggestedTags").appendChild(tag);
+        document.getElementById("SaveAs-SuggestedTags").appendChild(tag);
+      }
     }
   }
 }
