@@ -488,7 +488,7 @@ class Database
     	
     	while ($i < $this->options["subtree"] && $i < $idLength)
     	{
-            $path .= substr($id, $i, 1) . "/";
+            $path .= substr($id, $i, 1) . "../";
             $i++;
     	}
     	
