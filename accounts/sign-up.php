@@ -28,7 +28,7 @@
           $db -> save(1, $accountData);
 
           //Cookies
-          setcookie("signedIn", base64_encode($_POST["username"] . "," . $_POST["password"]), time() + (86400 * 20), "../");
+          setcookie("signedIn", base64_encode($_POST["username"] . "," . $_POST["password"]), time() + (86400 * 20), "/");
 
           //Account manager
           mkdir("../databases/notes/private-notes/" . $_POST["username"]);
@@ -52,10 +52,10 @@
 <head>
   <title>Sign Up | NoteHub</title>
 
-  <link href="../logo-small.png" rel="icon" />
-  <link href="../resources/stylesheets/float-labels.css" rel="stylesheet" />
-  <link href="../resources/stylesheets/test-styling.css" rel="stylesheet" />
-  <link href="../resources/stylesheets/w3.css" rel="stylesheet" />
+  <link href="/logo-small.png" rel="icon" />
+  <link href="/resources/stylesheets/float-labels.css" rel="stylesheet" />
+  <link href="/resources/stylesheets/test-styling.css" rel="stylesheet" />
+  <link href="/resources/stylesheets/w3.css" rel="stylesheet" />
 
   <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
 
@@ -93,14 +93,14 @@
 
 <body>
   <div id="Page-TitleBar">
-    <a href="../" style="color: white; text-decoration: none;">
-      <span style="float: left; margin: 10px"><img src="../logo-small.png" id="Page-Logo" /></span>
+    <a href="/" style="color: white; text-decoration: none;">
+      <span style="float: left; margin: 10px"><img src="/logo-small.png" id="Page-Logo" /></span>
       <span style="font-weight: lighter;">Note</span><b>Hub</b>
     </a>
     <span id="Page-Name"> | Sign Up</span>
   </div>
 
-  <a id="Page-SignIn" href="../accounts/sign-in.php">Sign In</a>
+  <a id="Page-SignIn" href="/accounts/sign-in.php">Sign In</a>
 
   <div id="Page-Contents">
     <div class="w3-card w3-panel" id="Page-SignUpBox">
