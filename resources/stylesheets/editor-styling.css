@@ -85,7 +85,7 @@ body {
 }
 
 .ErrorText {
-  background-image: url("../resources/error.png");
+  background-image: url("/resources/error.png");
   background-repeat: no-repeat;
   background-position: left center;
   background-size: 30px 30px;

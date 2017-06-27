@@ -5,10 +5,10 @@
   <title>Help | NoteHub</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <link href="../logo-small.png" rel="icon" />
-  <link href="../resources/stylesheets/float-labels.css" rel="stylesheet" />
-  <link href="../resources/stylesheets/w3.css" rel="stylesheet" />
-  <link href="../resources/stylesheets/editor-styling.css" rel="stylesheet" />
+  <link href="/logo-small.png" rel="icon" />
+  <link href="/resources/stylesheets/float-labels.css" rel="stylesheet" />
+  <link href="/resources/stylesheets/w3.css" rel="stylesheet" />
+  <link href="/resources/stylesheets/editor-styling.css" rel="stylesheet" />
 
   <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
 
@@ -19,7 +19,7 @@
   <div class="w3-sidebar w3-bar-block w3-collapse w3-card-2 w3-animate-left" style="width:200px;" id="App-Menu">
     <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="CloseAppMenu();">Close &times;</button>
 
-    <img src="../logo.png" width="200" height="200" />
+    <img src="/logo.png" width="200" height="200" />
 
     <div class="w3-container w3-blue">
       <h5>
@@ -42,7 +42,7 @@
     <div class="w3-container" id="App-TitleBar">
       <button class="w3-button w3-xlarge w3-hide-large" onclick="OpenAppMenu();">&#9776;</button>
 
-      <a href="../" style="color: white; text-decoration: none; font-size: 24px;">
+      <a href="/" style="color: white; text-decoration: none; font-size: 24px;">
         <span style="font-weight: lighter;">Note</span><b>Hub</b>
       </a>
       <span id="Page-Name"> | Help</span>
