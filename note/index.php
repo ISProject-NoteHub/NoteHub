@@ -40,6 +40,32 @@
   <script src="filing.js"></script>
   <script src="miscellaneous.js"></script>
 
+  <!--Dialogs-->
+  <style>
+    #References-AddBar {
+      display: flex;  
+      flex-flow: row wrap;
+    }
+    
+    #References-AddBar > * {
+      padding: 5px;
+      flex: 1 100%;
+    }
+
+    @media all and (min-width: 500px) {
+      #References-AddBar-Bottom { flex: 1 auto; }
+    }
+
+    #Reference-Table {
+      position: relative;
+      left: -16px;
+      width: calc(100% + 32px);
+      border-collapse: collapsed; border-spacing: 0; border: 0;
+    }
+    #Reference-Table th, #Reference-Table td { padding: 7.5px; text-align: left; }
+    #Reference-Table th { background-color: lightgrey; }
+  </style>
+
   <!--Unique CKEditor styling-->
   <style>
     #cke_Editor {
@@ -157,31 +183,39 @@
         <br><br>
 
         <!--Box for adding References-->
-        <div style="padding: 10px; background-color: #e2e2e2;">
-          <h5><b>Add New Reference</b></h5>
+        <div id="References-AddBar">
+          <header class="header">
+            <select id="References-AddBar-Types" style="width: 100%; padding: 6px;">
+              <option>Written Work (book, essay, etc.)</option>
+              <option>Website</option>
+              <option>Multimedia</option>
+              <option>Other</option>
+            </select>
+          </header>
 
-          <b>Reference Type:</b>
-          <select id="References-AddBar-Type" style="width: calc(100% - 120px); margin-left: 5px; margin-bottom: 5px; padding: 7.5px;">
-            <option>Written Work (books, essays)</option>
-            <option>Website</option>
-            <option>Image/Photo Gallery</option>
-          </select><br>
+          <article class="main">
+            <input id="References-AddBar-Reference" style="width: 100%; padding: 6px;" placeholder="Title of Written Work" />
+          </article>
 
-          <b id="References-AddBar-NameLabel">Book/Essay Title:</b>
-          <!--Make the placeholder dynamic, change when type is changed-->
-          <input id="References-AddBar-Name" style="width: 100%; margin-top: 5px; padding: 7.5px;" placeholder="Book Title / Webpage URL / Photo Gallery URL"><br>
+          <aside id="References-AddBar-Bottom">
+            <input id="References-AddBar-Author" style="width: 100%; padding: 6px;" placeholder="Author / Publisher of Written Work" />
+          </aside>
 
-          <b id="References-AddBar-AuthorLabel">Book/Essay Author (optional):</b>
-          <!--Make the placeholder dynamic, change when type is changed-->
-          <input id="References-AddBar-AuthorLabel" style="width: 100%; margin-top: 5px; padding: 7.5px;" placeholder="Book / Webpage / Photo Gallery Author">
+          <asid id="References-AddBar-Bottom" style="max-width: 200px !important;">
+            <button class="w3-button w3-green" style="width: 100%;">Add Reference</button>
+          </aside>
         </div>
 
-        <!--References - style like CloudFlare DNS records-->
-        <table>
-          <tr class="w3-grey">
-            <th>Reference Type</th>
-            <th>Reference Name / URL</th>
-            <th>Reference Author / Publisher</th>
+        <!--References-->
+        <table id="Reference-Table">
+          <tr>
+            <th style="min-width: 200px;">Reference Type</th>
+            <th style="width: 50%;">Reference Title / URL</th>
+            <th style="width: 50%;">Reference Author / Publisher</th>
+          </tr>
+
+          <tr style="border-bottom: 1px solid grey;">
+            <td style="text-align: center;" colspan="3">No references found...</td>
           </tr>
         </table>
       </div>
