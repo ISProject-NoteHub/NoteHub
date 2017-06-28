@@ -89,16 +89,16 @@
       
       <!--Spruce this up with some w3-cards and large text-->
 
-      You have...<br>
+      <h2>You have...<h2><br><br>
 
       <!--PHP prints the number of private notes-->
       <div class="w3-row-padding" style="margin:0 -16px">
 <div class="w3-third">
 <div style="height:100px" class="w3-card w3-container w3-yellow w3-margin-bottom">
    <p>
-      <?php
+      <h1><?php
         echo count(ListPrivateNotes(explode(",", base64_decode($_COOKIE["signedIn"]))[0], explode(",", base64_decode($_COOKIE["signedIn"]))[1]));
-      ?> Private Notes<br>
+      ?></h1> Private Notes<br>
    </p>
   </div>
       </div>
@@ -106,9 +106,9 @@
           <div style="height:100px" class="w3-card-2 w3-container w3-margin-bottom">
               <p>
               <!--PHP prints number of new suggestions-->
-              <?php
+              <h1><?php
               echo count($suggestions);
-              ?> New Suggestions on your Public Notes
+              ?></h1> New Suggestions on your Public Notes
             </p>
           </div>
         </div>
