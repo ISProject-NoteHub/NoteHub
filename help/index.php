@@ -60,7 +60,7 @@
     <div class="w3-container">
       <b style="font-size: 20px">Welcome to the Help Page!</b>
     <hr>
-    Feeling lost? No problem! Pay us a quick visit at the help page!
+    Feeling lost? Stuck up this particular creek without a note to spare? No problem! Pay us a quick visit at the help page!
     <br><br>If your questions have no answers in the following pages, please contact us at <a href="mailto:the.notehub@gmail.com">the.notehub@gmail.com</a>.
     <br><br>We hope you have a comfortable experience using NoteHub.
     </div>
