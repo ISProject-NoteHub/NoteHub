@@ -92,14 +92,23 @@
       You have...<br>
 
       <!--PHP prints the number of private notes-->
+      <div class="w3-card">
+        <p>
       <?php
         echo count(ListPrivateNotes(explode(",", base64_decode($_COOKIE["signedIn"]))[0], explode(",", base64_decode($_COOKIE["signedIn"]))[1]));
       ?> Private Notes<br>
+        </p>
+      </div>
 
       <!--PHP prints number of new suggestions-->
-      <?php
+        <div class="w3-card">
+          <p>
+            <?php
         echo count($suggestions);
       ?> New Suggestions on your Public Notes
+          </p>
+        </div>
+      
     </div>
   </div>
 
