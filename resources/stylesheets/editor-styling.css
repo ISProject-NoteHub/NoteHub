@@ -117,6 +117,28 @@ summary {
   padding: 10px;
 }
 
+/*Vibration*/
+@keyframes vibrate {
+  0%, to {
+    transform: translateZ(0);
+  }
+
+  10%,
+    30%,
+    50%,
+    70%,
+    90% {
+      transform: translate3d(-5px, 0, 0);
+  }
+
+  20%,
+    40%,
+    60%,
+    80% {
+      transform: translate3d(5px, 0, 0);
+  }
+}
+
 /*Snackbars*/
 .w3-snackbar {
   visibility: hidden;

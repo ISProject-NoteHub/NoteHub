@@ -38,6 +38,7 @@
   <!--NoteHub Note Editor-->
   <script src="algorithm.js"></script>
   <script src="filing.js"></script>
+  <script src="ui.js"></script>
   <script src="miscellaneous.js"></script>
 
   <!--Dialogs-->
@@ -185,7 +186,7 @@
         <!--Box for adding References-->
         <div id="References-AddBar">
           <header class="header">
-            <select id="References-AddBar-Types" style="width: 100%; padding: 6px;">
+            <select onchange="UpdateReferencesBar();" id="References-AddBar-Types" style="width: 100%; padding: 6px;">
               <option>Written Work (book, essay, etc.)</option>
               <option>Website</option>
               <option>Multimedia</option>
@@ -202,7 +203,7 @@
           </aside>
 
           <asid id="References-AddBar-Bottom" style="max-width: 200px !important;">
-            <button class="w3-button w3-green" style="width: 100%;">Add Reference</button>
+            <button class="w3-button w3-green" style="width: 100%;" onclick="AddReference();">Add Reference</button>
           </aside>
         </div>
 
