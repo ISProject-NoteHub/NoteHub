@@ -1,4 +1,3 @@
-<!--HTML document begins here-->
 <!DOCTYPE html>
 <html>
 <head>
