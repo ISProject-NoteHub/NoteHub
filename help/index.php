@@ -36,7 +36,7 @@
       </h5>
     </div>
       <a href="/help/index.php">Help Main Page</a>
-      <br><br><a href="/help/getting-started.php">Getting Started</a>
+      <br><br><a href="/help/what's-what.php">Getting Started</a>
       <br><br><a href="/help/creating-note.php">Creating a Note</a>
       <br><br><a href="/help/gallery.php">Navigating the Gallery</a>
       <br><br><a href="/help/account-management.php">Account Management</a>
