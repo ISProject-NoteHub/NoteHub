@@ -92,7 +92,7 @@
       <span style="font-size:18px;">You have...<span><br>
 
       <!--PHP prints the number of private notes-->
-      <div class="w3-row-padding" style="margin:0 -16px">
+      <div class="w3-row-padding" style="margin-left: -16px; margin-top: 7.5px;">
 <div class="w3-third">
 <div style="height:100px" class="w3-card w3-container w3-yellow w3-margin-bottom">
    <p>

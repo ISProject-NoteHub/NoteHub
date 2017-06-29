@@ -13,6 +13,16 @@ function AddReference() {
     setTimeout(900, function() { c.style.animation = ""; });
   }
   else {
+    if (noteProperties.references == null) {
+      a.deleteRow(1);
+      noteProperties.references = [];
+    }
+
+    noteProperties.references[noteProperties.references.length] = {
+      type: d,
+      name: b.value, author: c.value
+    };
+
     var reference = a.insertRow(-1);
 
     var type = reference.insertCell(-1);
@@ -45,6 +55,7 @@ function AddReference() {
   }
 }
 
+//Update placeholders of references
 function UpdateReferencesBar() {
   var a = document.getElementById("References-AddBar-Types").selectedIndex;
   var b = document.getElementById("References-AddBar-Reference"), c = document.getElementById("References-AddBar-Author");

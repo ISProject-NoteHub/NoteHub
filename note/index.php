@@ -29,7 +29,8 @@
     var noteProperties = {
       noteOpened: false, noteAsObject: null,
       private: false,
-      tags: null, author: "..."
+      tags: null, author: "...",
+      references: null
     };
 
     var otherTags = null;
