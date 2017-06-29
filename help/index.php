@@ -36,11 +36,10 @@
       </h5>
     </div>
       <a href="/help/index.php">Help Main Page</a>
-      <br><br><a href="/help/what's-what.php">Getting Started</a>
+      <br><br><a href="/help/what's-what.php">What's What</a>
       <br><br><a href="/help/creating-note.php">Creating a Note</a>
       <br><br><a href="/help/gallery.php">Navigating the Gallery</a>
       <br><br><a href="/help/account-management.php">Account Management</a>
-    <hr>
     <?php
       if (isset($_COOKIE["signedIn"])) { echo '<a href="../accounts/sign-out.php" class="w3-bar-item w3-button"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Sign Out</a>'; }
       else { echo '<a href="../accounts/sign-in.php" class="w3-bar-item w3-button"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Sign In</a>'; }
