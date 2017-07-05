@@ -2,16 +2,14 @@
 var prepositions = ["you", "just", "can", "would", "knew", "had", "that", "my", "their", "was", "that", "is", "and", "i", "the", "a","abaft","aboard","about","above","absent","across","afore","after","against","along","alongside","amid","amidst","among","amongst","an","anenst","apropos","apud","around","as","aside","astride","at","athwart","atop","barring","before","behind","below","beneath","beside","besides","between","beyond","but","by","circa","concerning","despite","down","during","except","excluding","failing","following","for","forenenst","from","given","in","including","inside","into","lest","like","mid","midst","minus","modulo","near","next","notwithstanding","of","off","on","onto","opposite","out","outside","over","pace","past","per","plus","pro","qua","regarding","round","sans","save","since","than","through","throughout","till","times","to","toward","towards","under","underneath","unlike","until","unto","up","upon","versus","via","vice","with","within","without","worth"];
 
 function ListSuggestions() {
-  var a = document.getElementById("NoteInfo-SuggestedTags"), b = document.getElementById("SaveAs-SuggestedTags");
-
   if (document.getElementsByClassName("cke_wysiwyg_frame cke_reset")[0].contentDocument.body.innerHTML == "<p><br></p>") {
     var tag = document.createElement("div");
     tag.className = "FilePicker-Item-Tag";
     tag.style.top = "0";
     tag.innerHTML = "- No Suggestions -";
 
-    a.innerHTML = tag.outerHTML;
-    b.innerHTML = a.innerHTML;
+    document.getElementById("NoteInfo-SuggestedTags").innerHTML = tag.outerHTML;
+    document.getElementById("SaveAs-SuggestedTags").innerHTML = tag.outerHTML;
   }
   else {
     var words = document.getElementsByClassName("cke_wysiwyg_frame cke_reset")[0].contentDocument.body.innerHTML.toLowerCase().replace(/&nbsp;/g, " ");
