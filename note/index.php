@@ -133,7 +133,7 @@
     </div>
 
     <a href="javascript:ShowModal('References');" class="w3-bar-item w3-button"><i class="fa fa-external-link" aria-hidden="true"></i>&nbsp;&nbsp;References</a>
-    <a href="javascript:ShowModal('NoteDetails');" class="w3-bar-item w3-button"><i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;&nbsp;Note Details</a>
+    <a href="javascript:ListSuggestions();ShowModal('NoteDetails');" class="w3-bar-item w3-button"><i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;&nbsp;Note Details</a>
     <hr>
 
     <a href="/accounts/manager-manage.php" class="w3-bar-item w3-button"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Account Manager</a>
