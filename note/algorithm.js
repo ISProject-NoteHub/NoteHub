@@ -93,8 +93,8 @@ function ListSuggestions() {
 
       if ("undefined" === typeof suggestionsOutput[i]) { /*Skip*/ }
       else {
-        document.getElementById("NoteInfo-SuggestedTags").appendChild(tag);
         document.getElementById("SaveAs-SuggestedTags").appendChild(tag);
+        document.getElementById("NoteInfo-SuggestedTags").appendChild(tag);
       }
     }
   }
