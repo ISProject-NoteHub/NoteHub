@@ -1,5 +1,5 @@
 //prepositions actually contains pronouns and prepositions
-var prepositions = ["you", "just", "can", "would", "knew", "had", "that", "my", "their", "was", "that", "is", "and", "i", "the", "a","abaft","aboard","about","above","absent","across","afore","after","against","along","alongside","amid","amidst","among","amongst","an","anenst","apropos","apud","around","as","aside","astride","at","athwart","atop","barring","before","behind","below","beneath","beside","besides","between","beyond","but","by","circa","concerning","despite","down","during","except","excluding","failing","following","for","forenenst","from","given","in","including","inside","into","lest","like","mid","midst","minus","modulo","near","next","notwithstanding","of","off","on","onto","opposite","out","outside","over","pace","past","per","plus","pro","qua","regarding","round","sans","save","since","than","through","throughout","till","times","to","toward","towards","under","underneath","unlike","until","unto","up","upon","versus","via","vice","with","within","without","worth"];
+var prepositions = ["he", "his", "her", "she", "you", "just", "can", "would", "knew", "had", "that", "my", "their", "was", "that", "is", "and", "i", "the", "a","abaft","aboard","about","above","absent","across","afore","after","against","along","alongside","amid","amidst","among","amongst","an","anenst","apropos","apud","around","as","aside","astride","at","athwart","atop","barring","before","behind","below","beneath","beside","besides","between","beyond","but","by","circa","concerning","despite","down","during","except","excluding","failing","following","for","forenenst","from","given","in","including","inside","into","lest","like","mid","midst","minus","modulo","near","next","notwithstanding","of","off","on","onto","opposite","out","outside","over","pace","past","per","plus","pro","qua","regarding","round","sans","save","since","than","through","throughout","till","times","to","toward","towards","under","underneath","unlike","until","unto","up","upon","versus","via","vice","with","within","without","worth"];
 
 function ListSuggestions() {
   if (document.getElementsByClassName("cke_wysiwyg_frame cke_reset")[0].contentDocument.body.innerHTML == "<p><br></p>") {
@@ -29,8 +29,6 @@ function ListSuggestions() {
     for (i = 0; i < prepositions.length; i++) {
       removeFrom(prepositions[i], words, false);
     }
-
-    console.log(words);
 
     //Count
     var commonOccurences = [];
@@ -66,7 +64,7 @@ function ListSuggestions() {
       }
     }
 
-    commonOccurences = arr;
+    commonOccurences = arr; console.log(arr);
 
     //Format output
     var suggestionsOutput = [];
@@ -93,8 +91,8 @@ function ListSuggestions() {
 
       if ("undefined" === typeof suggestionsOutput[i]) { /*Skip*/ }
       else {
-        document.getElementById("SaveAs-SuggestedTags").appendChild(tag);
-        document.getElementById("NoteInfo-SuggestedTags").appendChild(tag);
+        document.getElementById("NoteInfo-SuggestedTags").innerHTML = document.getElementById("NoteInfo-SuggestedTags").innerHTML + tag.outerHTML;
+        document.getElementById("SaveAs-SuggestedTags").innerHTML =  document.getElementById("SaveAs-SuggestedTags").innerHTML + tag.outerHTML;
       }
     }
   }

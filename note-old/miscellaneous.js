@@ -94,7 +94,7 @@ function Autorun() {
   if (CheckSignIn() === true) {
     //Set login/logout function
     document.getElementById("IconBar-LogInOut-Content").innerHTML = "&nbsp;&nbsp;Logout";
-    document.getElementById("IconBar-LogInOut").setAttribute("onclick", "Logout(); window.location.href = '../accounts/sign-in.html';");
+    document.getElementById("IconBar-LogInOut").setAttribute("onclick", "Logout(); window.location.href = '../accounts/sign-in.php';");
   }
 
   //Tagging
