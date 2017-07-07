@@ -28,7 +28,7 @@
           $db -> save(1, $accountData);
 
           //Cookies
-          setcookie("signedIn", base64_encode($_POST["username"] . "," . $_POST["password"]), time() + (86400 * 20), "/");
+          setcookie("signedIn", base64_encode($_POST["username"] . "," . $_POST["password"]), time() + (86400 * 20), "/", "notehub.ga");
 
           //Account manager
           mkdir("../databases/notes/private-notes/" . $_POST["username"]);
