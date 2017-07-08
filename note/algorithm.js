@@ -82,18 +82,29 @@ function ListSuggestions() {
     document.getElementById("NoteInfo-SuggestedTags").innerHTML = "";
     document.getElementById("SaveAs-SuggestedTags").innerHTML = "";
 
-    for (i = (suggestionsOutput.length - 5); i < suggestionsOutput.length; i++) {
+    if (suggestionsOutput.length !== 0) {
+      for (i = (suggestionsOutput.length - 5); i < suggestionsOutput.length; i++) {
+        var tag = document.createElement("div");
+        tag.className = "FilePicker-Item-Tag";
+        tag.style.top = "0"; tag.style.cursor = "pointer";
+        tag.innerHTML = suggestionsOutput[i];
+        tag.setAttribute("onclick", "this.style.display = 'none'; otherTags.addTags('" + suggestionsOutput[i] + "'); noteProperties.tags.addTags('" + suggestionsOutput[i] + "');");
+
+        if ("undefined" === typeof suggestionsOutput[i]) { /*Skip*/ }
+        else {
+          document.getElementById("NoteInfo-SuggestedTags").innerHTML = document.getElementById("NoteInfo-SuggestedTags").innerHTML + tag.outerHTML;
+          document.getElementById("SaveAs-SuggestedTags").innerHTML =  document.getElementById("SaveAs-SuggestedTags").innerHTML + tag.outerHTML;
+        }
+      }
+    }
+    else {
       var tag = document.createElement("div");
       tag.className = "FilePicker-Item-Tag";
-      tag.style.top = "0"; tag.style.cursor = "pointer";
-      tag.innerHTML = suggestionsOutput[i];
-      tag.setAttribute("onclick", "this.style.display = 'none'; otherTags.addTags('" + suggestionsOutput[i] + "'); noteProperties.tags.addTags('" + suggestionsOutput[i] + "');");
+      tag.style.top = "0";
+      tag.innerHTML = "- No Suggestions -";
 
-      if ("undefined" === typeof suggestionsOutput[i]) { /*Skip*/ }
-      else {
-        document.getElementById("NoteInfo-SuggestedTags").innerHTML = document.getElementById("NoteInfo-SuggestedTags").innerHTML + tag.outerHTML;
-        document.getElementById("SaveAs-SuggestedTags").innerHTML =  document.getElementById("SaveAs-SuggestedTags").innerHTML + tag.outerHTML;
-      }
+      document.getElementById("NoteInfo-SuggestedTags").innerHTML = tag.outerHTML;
+      document.getElementById("SaveAs-SuggestedTags").innerHTML = tag.outerHTML;
     }
   }
 }
