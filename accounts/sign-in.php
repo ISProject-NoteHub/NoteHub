@@ -13,7 +13,7 @@
 
     if (VerifyAccount($_POST["username"], $_POST["password"])) {
       //Cookies
-      setcookie("signedIn", base64_encode($_POST["username"] . "," . $_POST["password"]), time() + (86400 * 20), "/");
+      setcookie("signedIn", base64_encode($_POST["username"] . "," . $_POST["password"]), time() + (86400 * 20), "/", "notehub.ga");
 
       //Account manager
       header("Location: manager-manage.php");
