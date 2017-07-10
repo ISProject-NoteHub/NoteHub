@@ -94,7 +94,7 @@
   </style>
 
   <!--CKEditor-->
-  <script src="//cdnjs.cloudflare.com/ajax/libs/ckeditor/4.3.2/ckeditor.min.js" type="text/javascript"></script>
+  <script src="ckeditor/ckeditor.js"></script>
 </head>
 
 <body style="overflow: hidden;" onbeforeunload="return ConfirmLeave();">
