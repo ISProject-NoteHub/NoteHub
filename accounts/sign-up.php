@@ -1,5 +1,5 @@
 <?php
-  $notVisited = false; $tooShort = false; $illigalChars = false; $particularsMissing = false; $usernameTaken = false;
+  $notVisited = false; $tooLong = false; $tooShort = false; $illigalChars = false; $particularsMissing = false; $usernameTaken = false;
 
   if (isset($_COOKIE["signedIn"])) { header("Location: manager-manage.php"); }
 

@@ -5,7 +5,7 @@
 
   <link href="../logo.png" rel="icon" />
   <link href="./gallery-styling.css" rel="stylesheet" />
-  <link href="../test-styling.css" rel="stylesheet" />
+  <link href="/resources/stylesheets/test-styling.css" rel="stylesheet" />
 
   <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
 
@@ -15,11 +15,13 @@
 
 <body>
   <div id="Page-TitleBar">
-    <a href="../"><span style="float: left; margin: 10px"><img src="../logo.png" height="50px" width="50px"></a>
-    <span style="font-weight: lighter;">Note</span><b>Hub</b> - Gallery</span>
+    <a href="/" style="color: white; text-decoration: none;">
+      <span style="float: left; margin: 10px"><img src="/logo.png" id="Page-Logo" /></span>
+      <span style="font-weight: lighter;">Note</span><b>Hub</b>
+    </a>
   </div>
 
-  <a id="Page-SignIn" href="../accounts/sign-in.php">Sign In</a>
+  <a style="line-height: 1.5;" id="Page-SignIn" href="/accounts/sign-in.php">Sign In</a>
 
   <div id="Page-Contents">
     <label style="font-size: 28px;" id="SignedInContent-Welcome">Welcome to the NoteHub Gallery!</label>

@@ -17,7 +17,7 @@
 
     for ($i = 0; $i < $accounts; $i++) {
       if (($accountData[$i][0] == explode(",", base64_decode($_COOKIE["signedIn"]))[0]) && password_verify(explode(",", base64_decode($_COOKIE["signedIn"]))[1], $accountData[$i][1])) {
-        setcookie("signedIn", base64_encode(explode(",", base64_decode($_COOKIE["signedIn"]))[0] . "," . $_POST["password"]), time() + (86400 * 20), "/");
+        setcookie("signedIn", base64_encode(explode(",", base64_decode($_COOKIE["signedIn"]))[0] . "," . $_POST["password"]), time() + (86400 * 20), "/", "notehub.ga");
         $accountData[$i][1] = password_hash($_POST["password"], PASSWORD_DEFAULT);
         $db -> save(1, $accountData);
       }

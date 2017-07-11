@@ -91,28 +91,58 @@
 
       <span style="font-size:18px;">You have...<span><br>
 
-      <!--PHP prints the number of private notes-->
+      <!--PHP prints the number of private notes and suggestions-->
       <div class="w3-row-padding" style="margin-left: -16px; margin-top: 7.5px;">
-<div class="w3-third">
-<div style="height:100px" class="w3-card w3-container w3-yellow w3-margin-bottom">
-   <p>
-      <span style="font-size:26px;"><?php
-        echo count(ListPrivateNotes(explode(",", base64_decode($_COOKIE["signedIn"]))[0], explode(",", base64_decode($_COOKIE["signedIn"]))[1]));
-      ?></span><br>Private Notes<br>
-   </p>
-  </div>
-      </div>
+      	<div class="w3-third">
+					<div style="height:100px" class="w3-card w3-container w3-light-grey w3-margin-bottom">
+   					<p>
+      				<span style="font-size:26px;"><?php
+        				echo count(ListPrivateNotes(explode(",", base64_decode($_COOKIE["signedIn"]))[0], explode(",", base64_decode($_COOKIE["signedIn"]))[1]));
+      				?></span><br>Private Notes<br>
+   					</p>
+  				</div>
+      	</div>
         <div class="w3-third">
-          <div style="height:100px" class="w3-card-2 w3-container w3-margin-bottom">
-              <p>
-              <!--PHP prints number of new suggestions-->
+          <div style="height:100px" class="w3-card-2 w3-container w3-light-grey w3-margin-bottom">
+            <p>
               <span style="font-size:26px;"><?php
-              echo count($suggestions);
+              	echo count($suggestions);
               ?></span><br>New Suggestions on your Public Notes
             </p>
           </div>
         </div>
-      </div>    
+        <div class="w3-third">
+          <div style="height:100px" class="w3-card-2 w3-container w3-light-grey w3-margin-bottom">
+            <p>
+              <!--PHP prints number of new suggestions-->
+              <span style="font-size:26px;">0</span><br>Cans of Marmite
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!--Help Menu-->
+      <h2>Help Menu</h2>
+      
+      <div class="w3-row-padding" style="margin-left: -16px; margin-top: 7.5px;">
+      	<div class="w3-third">
+					<div style="height:150px" class="w3-card w3-container w3-green w3-margin-bottom">
+   					<p>
+      				<span style="font-size:26px;">Getting Started with NoteHub</span><br>
+              <a href="../help">Open ></a><br>
+   					</p>
+  				</div>
+      	</div>
+        <div class="w3-third">
+          <div style="height:150px" class="w3-card-2 w3-container w3-light-grey w3-margin-bottom">
+            <p>
+              <!--PHP prints number of new suggestions-->
+              <span style="font-size:26px;">Navigating the NoteHub Gallery</span><br>
+              <a href="../help/gallery.php">Open ></a><br>
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 

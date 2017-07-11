@@ -1,5 +1,5 @@
 <?php
-  setcookie("signedIn", "", time() - (86400 * 20), "/");
+  setcookie("signedIn", "", time() - (86400 * 20), "/", "notehub.ga");
 ?>
 <!--HTML document begins here-->
 <!DOCTYPE html>
