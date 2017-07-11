@@ -58,7 +58,7 @@ function ListNotes() {
     }
   }
 
-  getJSONFile.open("GET", "/databases/notes/notes-map.json", true);
+  getJSONFile.open("GET", "/databases/notes/notes-map.txt", true);
   getJSONFile.send();
 }
 
