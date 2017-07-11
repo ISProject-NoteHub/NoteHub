@@ -38,14 +38,14 @@ function DetailsAsAccordion(event, element) {
 function SwitchToFiles(category) {
   for (i = 1; i < 3; i++) {
     if (i == category) {
-      document.getElementById("SaveAs-Header" + i).classList.add("w3-light-grey");
-      document.getElementById("SaveAs-Header" + i).classList.remove("w3-blue");
+      document.getElementById("SaveAs-Header" + i).classList.add("w3-blue");
+      document.getElementById("SaveAs-Header" + i).classList.remove("w3-light-grey");
 
       document.getElementById("SaveAs-Content" + i).style.display = "block";
     }
     else {
-      document.getElementById("SaveAs-Header" + i).classList.remove("w3-light-grey");
-      document.getElementById("SaveAs-Header" + i).classList.add("w3-blue");
+      document.getElementById("SaveAs-Header" + i).classList.remove("w3-blue");
+      document.getElementById("SaveAs-Header" + i).classList.add("w3-light-grey");
 
       document.getElementById("SaveAs-Content" + i).style.display = "none";
     }

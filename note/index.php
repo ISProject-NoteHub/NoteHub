@@ -33,6 +33,12 @@
       references: null
     };
 
+    var user = {
+      username: "<?php echo explode(',', base64_decode($_COOKIE['signedIn']))[0]; ?>", password: "<?php echo base64_encode(explode(',', base64_decode($_COOKIE['signedIn']))[1]); ?>"
+    }
+
+    var notebooks = [];
+
     var otherTags = null;
   </script>
 
@@ -171,6 +177,14 @@
     <span class="ErrorText">We can't save your note as it doesn't have any content.</span>
   </div>
 
+  <div id="Snackbar-Tags" class="w3-snackbar">
+    <span class="ErrorText">Please set some tags for your note.</span>
+  </div>
+
+  <div id="Snackbar-Name" class="w3-snackbar">
+    <span class="ErrorText">Please set a name for your note.</span>
+  </div>
+
   <!--Modal Dialogs-->
   <div id="Modal-References" class="w3-modal">
     <div class="w3-modal-content w3-animate-top w3-card-4">
@@ -279,14 +293,22 @@
 
           <div class="Details-Content">
             <div class="w3-row">
-              <div id="SaveAs-Header1" style="cursor: pointer;" class="w3-container w3-cell w3-light-grey" onclick="SwitchToFiles(1);"><h5>Public Notes</h5></div>
-              <div id="SaveAs-Header2" style="cursor: pointer;" class="w3-container w3-cell w3-blue" onclick="SwitchToFiles(2);"><h5>Your Private Notes</h5></div>
+              <div id="SaveAs-Header1" style="cursor: pointer;" class="w3-container w3-cell w3-blue" onclick="SwitchToFiles(1);"><h5>Public Notes</h5></div>
+              <div id="SaveAs-Header2" style="cursor: pointer;" class="w3-container w3-cell w3-light-grey" onclick="SwitchToFiles(2);"><h5>Your Private Notes</h5></div>
             </div>
 
-            <div class="w3-container w3-light-grey">
-              <div id="SaveAs-Content1">Public Notes</div>
-              <div id="SaveAs-Content2" style="display: none;">Private Notes</div>
+            <div class="w3-light-grey">
+              <div id="SaveAs-Content1">
+                <div id="SaveAs-Content1-Objects" class="w3-padding w3-blue">Notebooks</div>
+                <div id="SaveAs-Content1-Content"></div>
+              </div>
+              <div id="SaveAs-Content2" style="display: none;">
+                <div id="SaveAs-Content2-Objects" class="w3-padding w3-blue">Private Notes</div>
+                <div id="SaveAs-Content2-Content"></div>
+              </div>
             </div>
+
+            <br><input id="SaveAs-NoteName" style="width: calc(100% - 18px); padding: 6px;" placeholder="Note Name" />
           </div>
         </details>
 
@@ -306,8 +328,26 @@
       </div>
 
       <footer class="w3-container w3-blue w3-padding">
-        <button class="w3-button w3-green" onclick="CloseModal();">SAVE AS</button>
+        <button class="w3-button w3-green" onclick="SaveNote();">SAVE AS</button>
         <button class="w3-button w3-red" onclick="CloseModal();">CLOSE</button>
+      </footer>
+    </div>
+  </div>
+
+  <div id="Modal-Saving" class="w3-modal">
+    <div class="w3-modal-content w3-animate-top w3-card-4">
+      <header class="w3-container w3-blue"> 
+        <span onclick="CloseModal();" class="w3-button w3-display-topright">&times;</span>
+        <h2>Saving Note...</h2>
+      </header>
+
+      <div id="Saving-Status" style="text-align: -webkit-center;" class="w3-container w3-padding">
+        <i class="fa fa-check fa-5x" aria-hidden="true"></i>
+        <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+      </div>
+
+      <footer class="w3-container w3-blue w3-padding">
+        <button class="w3-button w3-green" onclick="CloseModal();">CLOSE</button>
       </footer>
     </div>
   </div>

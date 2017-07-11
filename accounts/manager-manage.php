@@ -112,7 +112,7 @@
           </div>
         </div>
         <div class="w3-third">
-          <div style="height:100px" class="w3-card-2 w3-container w3-light-grey w3-margin-bottom">
+          <div style="height:100px; background: #fff url('/resources/marmite.jpg') center center no-repeat; background-size: cover;" class="w3-card-2 w3-container w3-light-grey w3-margin-bottom">
             <p>
               <!--PHP prints number of new suggestions-->
               <span style="font-size:26px;">0</span><br>Cans of Marmite
