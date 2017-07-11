@@ -1,0 +1,1 @@
+<?php echo json_encode(scandir($_POST["username"])); ?>
