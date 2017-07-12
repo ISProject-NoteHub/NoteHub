@@ -9,7 +9,7 @@
       //$notesMap = json_decode(file_get_contents("../../databases/notes/notes-map.json"));
 
       //Write to note
-      file_put_contents("../../" . $_POST["notename"] . ".txt", $_POST["note"]);
+      file_put_contents("../../databases/notes/" . $_POST["topic"] . "/" . $_POST["notename"] . ".txt", $_POST["note"]);
     }
   }
 ?>
