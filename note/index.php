@@ -169,9 +169,7 @@
 
     <div class="w3-container">
       <!--Equivalent of the old #Editor-->
-      <div id="Editor"><?php
-        if (isset($_GET["note"])) { echo (json_decode(file_get_contents("../../databases/notes/" . explode("/", $_GET["note"])[0] . "/" . explode("/", $_GET["note"])[1] . ".txt")))["noteContent"]; }
-      ?></div>
+      <div id="Editor"></div>
     </div>
   </div>
 
