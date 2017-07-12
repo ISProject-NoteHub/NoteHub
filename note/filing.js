@@ -89,7 +89,7 @@ function SaveNote() {
   else {
     //UI updates
     document.getElementById("Saving-Status").innerHTML = '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>';
-    ShowModal("Saving");
+    ShowModal("Saving"); console.log("note=" + JSON.stringify({ noteContent: document.getElementsByClassName("cke_wysiwyg_frame cke_reset")[0].contentDocument.body.innerHTML.replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").trim() }) + "&action=WriteNote&saveas=true&topic=" + noteProperties.topic + "&notename" + document.getElementById("SaveAs-NoteName").value);
     
     //Update database
     var getPHPFile = new XMLHttpRequest();
