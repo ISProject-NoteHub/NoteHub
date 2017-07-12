@@ -169,7 +169,7 @@
 
     <div class="w3-container">
       <!--Equivalent of the old #Editor-->
-      <div id="Editor"></div>
+      <div id="Editor">ffffff</div>
     </div>
   </div>
 
