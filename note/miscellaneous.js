@@ -1,11 +1,11 @@
 window.addEventListener("load", function() {
-  //CKEditor Initialisation
-  CKEDITOR.replace("Editor");
-  CKEDITOR.config.resize_enabled = false;
-
   //Tagging System
   otherTags = new Tags("#SaveAs-Tags");
   noteProperties.tags = new Tags("#NoteInfo-Tags");
+
+  //CKEditor Initialisation
+  CKEDITOR.replace("Editor");
+  CKEDITOR.config.resize_enabled = false;
 });
 
 //Link Sharing
