@@ -30,7 +30,8 @@
       noteOpened: false, noteAsObject: null,
       private: false,
       tags: null, author: "...",
-      references: null
+      references: null,
+      topic: null
     };
 
     var user = {

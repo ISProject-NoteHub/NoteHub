@@ -63,6 +63,8 @@ function ListNotes() {
 }
 
 function ListNotebook(notebook) {
+  noteProperties.topic = notebooks[notebook][6];
+
   document.getElementById("SaveAs-Content1-Content").innerHTML = "";
   document.getElementById("SaveAs-Content1-Objects").innerHTML = "Notes";
 
@@ -88,5 +90,18 @@ function SaveNote() {
     //UI updates
     document.getElementById("Saving-Status").innerHTML = '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>';
     ShowModal("Saving");
+    
+    //Update database
+    var getPHPFile = new XMLHttpRequest();
+    getPHPFile.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        //Update UI
+        document.getElementById("Saving-Status").innerHTML = '<i class="fa fa-check fa-5x"></i>';
+      }
+    }
+
+    getPHPFile.open("POST", "backend/public-notes.php", true);
+    getPHPFile.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    getPHPFile.send("note=" + JSON.stringify({ noteContent: document.getElementsByClassName("cke_wysiwyg_frame cke_reset")[0].contentDocument.body.innerHTML.replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").trim() }) + "&action=WriteNote&saveas=true&topic=" + noteProperties.topic + "&notename" + document.getElementById("SaveAs-NoteName").value);
   }
 }
