@@ -94,7 +94,7 @@ function SaveNote() {
     //Update database
     var getPHPFile = new XMLHttpRequest();
     getPHPFile.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
+      if (this.readyState == 4 && this.status == 200) { console.log(getPHPFile.responseText);
         //Update UI
         document.getElementById("Saving-Status").innerHTML = '<i class="fa fa-check fa-5x"></i>';
       }
@@ -102,6 +102,6 @@ function SaveNote() {
 
     getPHPFile.open("POST", "backend/public-notes.php", true);
     getPHPFile.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    getPHPFile.send("note=" + JSON.stringify({ noteContent: document.getElementsByClassName("cke_wysiwyg_frame cke_reset")[0].contentDocument.body.innerHTML.replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").trim() }) + "&action=WriteNote&saveas=true&topic=" + noteProperties.topic + "&notename" + document.getElementById("SaveAs-NoteName").value);
+    getPHPFile.send("note=" + JSON.stringify({ noteContent: document.getElementsByClassName("cke_wysiwyg_frame cke_reset")[0].contentDocument.body.innerHTML.replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").trim() }) + "&action=WriteNote&saveas=true&topic=" + "getting-started-with-notehub" + "&notename=" + document.getElementById("SaveAs-NoteName").value);
   }
 }
