@@ -38,6 +38,11 @@
 
   <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
 
+  <style>
+    .submit-button { margin-top: 20px; }
+    .account-option { padding: 15px; margin-top: 15px;}
+  </style>
+
   <script src="https://use.fontawesome.com/3e1c5661b6.js"></script>
 
   <!--
@@ -92,7 +97,15 @@
       
       <!--Spruce this up with some w3-cards and large text-->
       
-      <form method="post">
+      <form method="post" class="account-option w3-card">
+        <h5>Recent Logins</h5>
+        <input type="hidden" name="action" value="password" />
+
+        <input class="w3-button w3-card w3-blue w3-round-large"/>
+        <input class="w3-button w3-card w3-blue w3-round-large"/>
+      </form>
+
+      <form method="post" class="account-option w3-card">
         <h5>Change Password</h5>
 
         <div class="has-float-label">
@@ -102,7 +115,7 @@
 
         <input type="hidden" name="action" value="password" />
 
-        <input type="submit" />
+        <input type="submit" class="w3-button w3-card w3-blue w3-round-large submit-button"/>
       </form>
     </div>
   </div>
