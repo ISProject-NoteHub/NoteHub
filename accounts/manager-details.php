@@ -41,20 +41,20 @@
 
     <div class="w3-container w3-blue">
       <h5>
-        <i class="fa fa-user-circle-o" aria-hidden="true"></i>&nbsp;&nbsp;
+        <i class="fa fa-fwfa-user-circle-o" aria-hidden="true"></i>&nbsp;&nbsp;
         Welcome, <?php echo explode(",", base64_decode($_COOKIE["signedIn"]))[0]; ?>!
       </h5>
     </div>
 
-    <a href="manager-manage.php" class="w3-bar-item w3-button"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Account Home</a>
-    <a href="manager-security.php" class="w3-bar-item w3-button"><i class="fa fa-shield" aria-hidden="true"></i>&nbsp;&nbsp;Account Security</a>
-    <a href="manager-details.php" class="w3-bar-item w3-button w3-grey"><i class="fa fa-address-card" aria-hidden="true"></i>&nbsp;&nbsp;Account Details</a>
+    <a href="manager-manage.php" class="w3-bar-item w3-button"><i class="fa fa-fwfa-user" aria-hidden="true"></i>&nbsp;&nbsp;Account Home</a>
+    <a href="manager-security.php" class="w3-bar-item w3-button"><i class="fa fa-fwfa-shield" aria-hidden="true"></i>&nbsp;&nbsp;Account Security</a>
+    <a href="manager-details.php" class="w3-bar-item w3-button w3-grey"><i class="fa fa-fwfa-address-card" aria-hidden="true"></i>&nbsp;&nbsp;Account Details</a>
     <hr>
-    <a href="/gallery" class="w3-bar-item w3-button"><i class="fa fa-picture-o" aria-hidden="true"></i>&nbsp;&nbsp;NoteHub Gallery</a>
-    <a href="manager-privatenotes.php" class="w3-bar-item w3-button"><i class="fa fa-folder" aria-hidden="true"></i>&nbsp;&nbsp;Your Private Notes</a>
-    <a href="/note" class="w3-bar-item w3-button"><i class="fa fa-file" aria-hidden="true"></i>&nbsp;&nbsp;New Note</a>
+    <a href="/gallery" class="w3-bar-item w3-button"><i class="fa fa-fwfa-picture-o" aria-hidden="true"></i>&nbsp;&nbsp;NoteHub Gallery</a>
+    <a href="manager-privatenotes.php" class="w3-bar-item w3-button"><i class="fa fa-fwfa-folder" aria-hidden="true"></i>&nbsp;&nbsp;Your Private Notes</a>
+    <a href="/note" class="w3-bar-item w3-button"><i class="fa fa-fwfa-file" aria-hidden="true"></i>&nbsp;&nbsp;New Note</a>
     <hr>
-    <a href="sign-out.php" class="w3-bar-item w3-button"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Sign Out</a>
+    <a href="sign-out.php" class="w3-bar-item w3-button"><i class="fa fa-fwfa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Sign Out</a>
   </div>
 
   <div class="w3-main" style="margin-left: 200px">
