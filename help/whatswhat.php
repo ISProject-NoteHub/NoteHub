@@ -84,7 +84,7 @@
       <h2><a href="/accounts/manager-privatenotes.php" target="_blank">Note Manager</a></h2>
        Keep track of and edit your private notes.
       <br>
-      <h2><a href="/note/" target="_blank">New Note</a></h2>
+      <h2><a href="/note/" target="_blank">New Notebook</a></h2>
        Here you can create a new public or private note.
        <br>Refer to <a href="/help/creating-note.php">this page</a> for more information.
       <br>

@@ -7,7 +7,7 @@
 
 <head>
   <title>
-    <?php echo "New Note "; ?>
+    <?php echo "New Notebook "; ?>
     | NoteHub
   </title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,6 +48,12 @@
   <script src="filing.js"></script>
   <script src="ui.js"></script>
   <script src="miscellaneous.js"></script>
+
+  <!--CKEditor-->
+  <script src="ckeditor/ckeditor.js"></script>
+
+  <!--Notebook UI-->
+
 
   <!--Dialogs-->
   <style>
@@ -99,9 +105,6 @@
 
     .cke_inner[role=presentation] { height: calc(100% - 75px) !important; }
   </style>
-
-  <!--CKEditor-->
-  <script src="ckeditor/ckeditor.js"></script>
 </head>
 
 <body style="overflow: hidden;" onbeforeunload="return ConfirmLeave();">
@@ -123,7 +126,7 @@
         <i class="fa fa-fw fa-caret-down"></i>
       </button>
       <div class="w3-dropdown-content w3-bar-block w3-black" style="margin-left: 10px;">
-        <a href="javascript:PrepareSaveAs();" class="w3-bar-item w3-button">Save as New Note</a>
+        <a href="javascript:PrepareSaveAs();" class="w3-bar-item w3-button">Save as New Notebook</a>
         <a href="javascript:ViewLink();" class="w3-bar-item w3-button">Save Changes</a>
       </div>
     </div>
@@ -148,7 +151,7 @@
     <hr>
 
     <a href="/gallery" class="w3-bar-item w3-button"><i class="fa fa-fw fa-picture-o" aria-hidden="true"></i>&nbsp;&nbsp;NoteHub Gallery</a>
-    <a href="/note" class="w3-bar-item w3-button w3-grey"><i class="fa fa-fw fa-file" aria-hidden="true"></i>&nbsp;&nbsp;New Note</a>
+    <a href="/note" class="w3-bar-item w3-button w3-grey"><i class="fa fa-fw fa-file" aria-hidden="true"></i>&nbsp;&nbsp;New Notebook</a>
     <hr>
 
     <a href="../accounts/sign-out.php" class="w3-bar-item w3-button"><i class="fa fa-fw fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Sign Out</a>
@@ -162,12 +165,16 @@
         <span style="font-weight: lighter;">Note</span><b>Hub</b>
       </a>
       <span id="Page-Name"> | <?php
-        echo "New Note"
+        echo "New Notebook"
       ?>
       </span>
     </div>
 
     <div class="w3-container">
+      <div id="Notes-TabStrip">
+
+      </div>
+
       <!--Equivalent of the old #Editor-->
       <div id="Editor"><?php
         if (isset($_GET["note"])) {
@@ -258,7 +265,7 @@
         Here's the meta-data of your note. This data assists our intelligent algorithm in suggesting notes to users.
         <br><br>
 
-        <b>Note Name: </b><span id="NoteInfo-NoteName">New Note</span> - this is only updated when you save your note.<br>
+        <b>Note Name: </b><span id="NoteInfo-NoteName">New Notebook</span> - this is only updated when you save your note.<br>
         <b>Note Privacy: </b><select id="NoteInfo-NotePrivacy" style="width: 100%; padding: 10px;">
           <option selected>Public, for all to see. Anyone can suggest, but you retain full control of what gets incoporated. Note content is subject to intelligent algorithms.</option>
           <option>Private, but viewable by anyone. Only collaborators you add may make any changes to the note. Note content is not subject to inteligent algorithms.</option>

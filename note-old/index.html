@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>New Note | NoteHub</title>
+  <title>New Notebook | NoteHub</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <link href="../logo.png" rel="icon" />
@@ -77,7 +77,7 @@
   </div>
   
   <div id="Title">
-    <input id="Title-Title" value="New Note" />
+    <input id="Title-Title" value="New Notebook" />
     <div id="Title-Mode" class="tooltip" style="display: none; text-decoration: underline; cursor: pointer; position: absolute; right: 10px; background-color: #ce2929; color: white; padding: 5px; border-radius: 2.5px; bottom: 5px;">
       View-Only
       <span class="tooltiptext" id="Title-Mode-Reason">
@@ -152,7 +152,7 @@
       <br>
 
       Note Name:<br>
-      <input id="Modal-SaveFilePicker-SaveName" class="FilePicker-TextBox" value="New Note" onkeyup="CheckNoteName('Modal-SaveFilePicker', this.value);" onchange="CheckNoteName('Modal-SaveFilePicker', this.value);" />
+      <input id="Modal-SaveFilePicker-SaveName" class="FilePicker-TextBox" value="New Notebook" onkeyup="CheckNoteName('Modal-SaveFilePicker', this.value);" onchange="CheckNoteName('Modal-SaveFilePicker', this.value);" />
       <div class="FilePicker-TextBox-after"></div>
 
       <br>
@@ -189,7 +189,7 @@
       <br>
 
       Note Name:<br>
-      <input id="Modal-SaveAdvanced-SaveName" class="FilePicker-TextBox" value="New Note" onkeyup="CheckNoteName('Modal-AdvancedSave', this);" />
+      <input id="Modal-SaveAdvanced-SaveName" class="FilePicker-TextBox" value="New Notebook" onkeyup="CheckNoteName('Modal-AdvancedSave', this);" />
       <div class="FilePicker-TextBox-after"></div>
 
       <br>
@@ -212,7 +212,7 @@
       Here's the meta-data of your note. We use this data to assist our intelligent algorithm in suggesting notes to users such as yourself. Feel free to update any of the data here.
       <br><br>
 
-      <b>Note Name: </b><span id="NoteInfo-NoteName">New Note</span> - this is only updated when you save your note.<br>
+      <b>Note Name: </b><span id="NoteInfo-NoteName">New Notebook</span> - this is only updated when you save your note.<br>
       <b>Note Privacy: </b><span id="NoteInfo-NotePrivacy">Public, for all to see. Anyone can suggest, but you retain full control of what gets incoporated.</span><br>
       <a href="https://notehub.ga/view-note" target="_blank">Learn More about note privacy</a>&nbsp;<a href="javascript:return false;">Change this setting</a><br>
       <b>Last Modified: </b><span id="NoteInfo-LastModified">Today</span><br><br>
