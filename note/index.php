@@ -171,7 +171,7 @@
       <!--Equivalent of the old #Editor-->
       <div id="Editor"><?php
         if (isset($_GET["note"])) {
-          echo explode("/", $_GET["note"])[0] . "/" . explode("/", $_GET["note"])[1];
+          echo "../../databases/notes/" . explode("/", $_GET["note"])[0] . "/" . explode("/", $_GET["note"])[1];
         }
       ?></div>
     </div>
