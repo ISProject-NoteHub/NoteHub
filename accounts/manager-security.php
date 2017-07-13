@@ -110,6 +110,11 @@
 
         <div class="has-float-label">
           <input type="password" class="text" name="password" placeholder="New Password">
+          <label for="username">Old Password</label>
+        </div>
+
+        <div class="has-float-label">
+          <input type="password" class="text" name="password" placeholder="New Password">
           <label for="username">New Password</label>
         </div>
 
