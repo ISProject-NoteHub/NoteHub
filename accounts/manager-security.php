@@ -102,15 +102,18 @@
 
         <div class="has-float-label">
           <input type="password" class="text" name="password" placeholder="New Password">
+          <label for="username">Old Password</label>
+        </div>
+
+        <div class="has-float-label">
+          <input type="password" class="text" name="password" placeholder="New Password">
           <label for="username">New Password</label>
         </div>
 
-        <div>
-          <?php
-            if (isset($_POST["action"])) { if (($_POST["password"] == "") && ($_POST["action"] == "password")) { echo "<i class=\"fa fa-times fa-fw\" aria-hidden=\"true\"></i> Password cannot be blank."; } }
-          ?>
+        <div class="has-float-label">
+          <input type="password" class="text" name="password" placeholder="New Password">
+          <label for="username">New Password (again)</label>
         </div>
-
         <input type="hidden" name="action" value="password" />
 
         <input type="submit" class="w3-button w3-card w3-blue w3-round-large submit-button"/>
