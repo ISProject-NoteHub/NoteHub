@@ -10,16 +10,18 @@
   }
   
   if (isset($_POST["action"])) {
-    $db = new \MicroDB\Database("../databases/accounts");
+    if (($_POST["action"] == "password") && ($_POST["password"] !== "")) {
+      $db = new \MicroDB\Database("../databases/accounts");
 
-    $accountData = $db -> load(1);
-    $accounts = count($accountData);
+      $accountData = $db -> load(1);
+      $accounts = count($accountData);
 
-    for ($i = 0; $i < $accounts; $i++) {
-      if (($accountData[$i][0] == explode(",", base64_decode($_COOKIE["signedIn"]))[0]) && password_verify(explode(",", base64_decode($_COOKIE["signedIn"]))[1], $accountData[$i][1])) {
-        setcookie("signedIn", base64_encode(explode(",", base64_decode($_COOKIE["signedIn"]))[0] . "," . $_POST["password"]), time() + (86400 * 20), "/", "notehub.ga");
-        $accountData[$i][1] = password_hash($_POST["password"], PASSWORD_DEFAULT);
-        $db -> save(1, $accountData);
+      for ($i = 0; $i < $accounts; $i++) {
+        if (($accountData[$i][0] == explode(",", base64_decode($_COOKIE["signedIn"]))[0]) && password_verify(explode(",", base64_decode($_COOKIE["signedIn"]))[1], $accountData[$i][1])) {
+          setcookie("signedIn", base64_encode(explode(",", base64_decode($_COOKIE["signedIn"]))[0] . "," . $_POST["password"]), time() + (86400 * 20), "/", "notehub.ga");
+          $accountData[$i][1] = password_hash($_POST["password"], PASSWORD_DEFAULT);
+          $db -> save(1, $accountData);
+        }
       }
     }
   }
@@ -42,21 +44,11 @@
     .submit-button { margin-top: 20px; }
     .account-option { padding: 15px; margin-top: 15px;}
     .secure-account { margin-left: 10px; }
+
+    #Page-Name { display: inline !important; }
   </style>
 
   <script src="https://use.fontawesome.com/3e1c5661b6.js"></script>
-
-  <!--
-    README PLS
-
-    Wing Yip, please read through https://www.w3schools.com/w3css/ and see how you can incoporate such design into the content of the account manager.
-    W3.css is already loaded into this page. PHP snippets spitting out the information are below - drag and drop them to your will.
-
-    While the account manager isn't exactly the main part of NoteHub, it is important so please please please please please do it up properly.
-    If there are many well-designed projects, this could be the deal-breaker :).
-
-    For icons, http://fontawesome.io/icons/. Preloaded.
-  -->
 </head>
   
 <body>
@@ -111,6 +103,12 @@
         <div class="has-float-label">
           <input type="password" class="text" name="password" placeholder="New Password">
           <label for="username">New Password</label>
+        </div>
+
+        <div>
+          <?php
+            if (isset($_POST["action"])) { if (($_POST["password"] == "") && ($_POST["action"] == "password")) { echo "<i class=\"fa fa-times fa-fw\" aria-hidden=\"true\"></i> Password cannot be blank."; } }
+          ?>
         </div>
 
         <input type="hidden" name="action" value="password" />

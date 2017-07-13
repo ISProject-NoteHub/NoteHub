@@ -54,7 +54,12 @@
 
   <!--Notebook UI-->
   <style>
-    
+    .TabStrip { overflow-x: scroll; }
+
+    .TabStrip::-webkit-scrollbar { display: none; }
+    .TabStrip::-webkit-scrollbar-button { display: none; }
+    .TabStrip::-webkit-scrollbar-track-piece { display: none; }
+    .TabStrip::-webkit-scrollbar-thumb { display: none; }
   </style>
 
   <!--Dialogs-->
@@ -92,14 +97,25 @@
     @media screen and (min-width: 993px) {
       #cke_Editor {
         left: 200px;
-        width: calc(100% - 200px); height: calc(100% - 58px);
+        width: calc(100% - 200px); height: calc(100% - 135px);
+      }
+
+      .TabStrip table {
+        table-layout: fixed;
+        white-space: nowrap;
+        border-collapse: collapse;
       }
     }
 
     @media screen and (max-width: 992px) {
       #cke_Editor {
         left: 0;
-        width: 100%; height: calc(100% - 72px);
+        width: 100%; height: calc(100% - 150px);
+      }
+
+      .TabStrip table {
+        white-space: nowrap;
+        border-collapse: collapse;
       }
     }
 
@@ -172,9 +188,24 @@
       </span>
     </div>
 
-    <div class="w3-container">
-      <div id="Notes-TabStrip">
-
+    <div>
+      <div class="TabStrip">
+        <table cellspacing="0" cellpadding="0" class="w3-bar w3-black w3-container"><tr>
+          <td>
+            <button style="white-space: nowrap; width: 100%;" class="w3-bar-item w3-button tablink w3-white" onclick="SwitchNote(event,'New Note')">New Note</button>
+          </td>
+          <td>
+            <button style="white-space: nowrap; width: 100%;" class="w3-bar-item w3-button tablink" onclick="SwitchNote(event, 'Note 2')">Note 2</button>
+          </td>
+        </tr></table>
+      </div>
+      
+      <div id="Notes-New Note" class="city">
+        <div class="w3-padding"><b>New Note</b></div>
+      </div>
+      
+      <div id="Notes-Note 2" style="display: none;" class="city">
+        <div class="w3-padding"><b>Note 2</b></div>
       </div>
 
       <!--Equivalent of the old #Editor-->

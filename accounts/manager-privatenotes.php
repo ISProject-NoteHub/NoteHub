@@ -27,17 +27,9 @@
 
   <script src="https://use.fontawesome.com/3e1c5661b6.js"></script>
 
-  <!--
-    README PLS
-
-    Wing Yip, please read through https://www.w3schools.com/w3css/ and see how you can incoporate such design into the content of the account manager.
-    W3.css is already loaded into this page. PHP snippets spitting out the information are below - drag and drop them to your will.
-
-    While the account manager isn't exactly the main part of NoteHub, it is important so please please please please please do it up properly.
-    If there are many well-designed projects, this could be the deal-breaker :).
-
-    For icons, http://fontawesome.io/icons/. Preloaded.
-  -->
+  <style>
+    #Page-Name { display: inline !important; }
+  </style>
 </head>
   
 <body>
