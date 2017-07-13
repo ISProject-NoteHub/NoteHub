@@ -172,7 +172,7 @@
       <div id="Editor"><?php
         if (isset($_GET["note"])) {
           $a = json_decode(file_get_contents("../databases/notes/" . explode("/", $_GET["note"])[0] . "/" . explode("/", $_GET["note"])[1] . ".txt"));
-          echo $a["noteContent"];
+          echo $a;
         }
       ?></div>
     </div>

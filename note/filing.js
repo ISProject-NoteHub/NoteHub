@@ -102,6 +102,6 @@ function SaveNote() {
 
     getPHPFile.open("POST", "backend/public-notes.php", true);
     getPHPFile.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    getPHPFile.send("note=" + JSON.stringify({ noteContent: document.getElementsByClassName("cke_wysiwyg_frame cke_reset")[0].contentDocument.body.innerHTML.replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").trim() }) + "&action=WriteNote&saveas=true&topic=" + "getting-started-with-notehub" + "&notename=" + document.getElementById("SaveAs-NoteName").value);
+    getPHPFile.send("note=" + document.getElementsByClassName("cke_wysiwyg_frame cke_reset")[0].contentDocument.body.innerHTML.replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").trim() + "&action=WriteNote&saveas=true&topic=" + "getting-started-with-notehub" + "&notename=" + document.getElementById("SaveAs-NoteName").value);
   }
 }
