@@ -27,7 +27,7 @@
 
     <div class="w3-container w3-blue">
       <h5>
-        <i class="fa fa-fwfa-user-circle-o" aria-hidden="true"></i>&nbsp;&nbsp;
+        <i class="fa fa-fw fa-user-circle-o" aria-hidden="true"></i>&nbsp;&nbsp;
         Welcome, <?php
           if (isset($_COOKIE["signedIn"])) { echo explode(",", base64_decode($_COOKIE["signedIn"]))[0]; }
           else { echo "User"; }
@@ -40,8 +40,8 @@
       <br><br><a href="/help/gallery.php">Navigating the Gallery</a>
       <br><br><a href="/help/account-management.php">Account Management</a>
     <?php
-      if (isset($_COOKIE["signedIn"])) { echo '<a href="../accounts/sign-out.php" class="w3-bar-item w3-button"><i class="fa fa-fwfa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Sign Out</a>'; }
-      else { echo '<a href="../accounts/sign-in.php" class="w3-bar-item w3-button"><i class="fa fa-fwfa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Sign In</a>'; }
+      if (isset($_COOKIE["signedIn"])) { echo '<a href="../accounts/sign-out.php" class="w3-bar-item w3-button"><i class="fa fa-fw fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Sign Out</a>'; }
+      else { echo '<a href="../accounts/sign-in.php" class="w3-bar-item w3-button"><i class="fa fa-fw fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Sign In</a>'; }
     ?>
   </div>
 

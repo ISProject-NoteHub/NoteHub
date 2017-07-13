@@ -112,15 +112,15 @@
 
     <div class="w3-container w3-blue">
       <h5>
-        <i class="fa fa-fwfa-user-circle-o" aria-hidden="true"></i>&nbsp;&nbsp;
+        <i class="fa fa-fw fa-user-circle-o" aria-hidden="true"></i>&nbsp;&nbsp;
         Welcome, <?php echo explode(",", base64_decode($_COOKIE["signedIn"]))[0]; ?>!
       </h5>
     </div>
 
     <div class="w3-dropdown-hover">
       <button class="w3-button">
-        <i class="fa fa-fwfa-floppy-o" aria-hidden="true"></i>&nbsp;&nbsp;Save Note...&nbsp;&nbsp;
-        <i class="fa fa-fwfa-caret-down"></i>
+        <i class="fa fa-fw fa-floppy-o" aria-hidden="true"></i>&nbsp;&nbsp;Save Note...&nbsp;&nbsp;
+        <i class="fa fa-fw fa-caret-down"></i>
       </button>
       <div class="w3-dropdown-content w3-bar-block w3-black" style="margin-left: 10px;">
         <a href="javascript:PrepareSaveAs();" class="w3-bar-item w3-button">Save as New Note</a>
@@ -130,8 +130,8 @@
 
     <div class="w3-dropdown-hover">
       <button class="w3-button">
-        <i class="fa fa-fwfa-link" aria-hidden="true"></i>&nbsp;&nbsp;Share Link...&nbsp;&nbsp;
-        <i class="fa fa-fwfa-caret-down"></i>
+        <i class="fa fa-fw fa-link" aria-hidden="true"></i>&nbsp;&nbsp;Share Link...&nbsp;&nbsp;
+        <i class="fa fa-fw fa-caret-down"></i>
       </button>
       <div class="w3-dropdown-content w3-bar-block w3-black" style="margin-left: 10px;">
         <a href="javascript:EditLink();" class="w3-bar-item w3-button">Editing Link</a>
@@ -139,19 +139,19 @@
       </div>
     </div>
 
-    <a href="javascript:ShowModal('References');" class="w3-bar-item w3-button"><i class="fa fa-fwfa-external-link" aria-hidden="true"></i>&nbsp;&nbsp;References</a>
-    <a href="javascript:ListSuggestions();ShowModal('NoteDetails');" class="w3-bar-item w3-button"><i class="fa fa-fwfa-info-circle" aria-hidden="true"></i>&nbsp;&nbsp;Note Details</a>
+    <a href="javascript:ShowModal('References');" class="w3-bar-item w3-button"><i class="fa fa-fw fa-external-link" aria-hidden="true"></i>&nbsp;&nbsp;References</a>
+    <a href="javascript:ListSuggestions();ShowModal('NoteDetails');" class="w3-bar-item w3-button"><i class="fa fa-fw fa-info-circle" aria-hidden="true"></i>&nbsp;&nbsp;Note Details</a>
     <hr>
 
-    <a href="/accounts/manager-manage.php" class="w3-bar-item w3-button"><i class="fa fa-fwfa-user" aria-hidden="true"></i>&nbsp;&nbsp;Account Manager</a>
-    <a href="/accounts/manager-privatenotes.php" class="w3-bar-item w3-button"><i class="fa fa-fwfa-folder" aria-hidden="true"></i>&nbsp;&nbsp;Your Private Notes</a>
+    <a href="/accounts/manager-manage.php" class="w3-bar-item w3-button"><i class="fa fa-fw fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Account Manager</a>
+    <a href="/accounts/manager-privatenotes.php" class="w3-bar-item w3-button"><i class="fa fa-fw fa-folder" aria-hidden="true"></i>&nbsp;&nbsp;Your Private Notes</a>
     <hr>
 
-    <a href="/gallery" class="w3-bar-item w3-button"><i class="fa fa-fwfa-picture-o" aria-hidden="true"></i>&nbsp;&nbsp;NoteHub Gallery</a>
-    <a href="/note" class="w3-bar-item w3-button w3-grey"><i class="fa fa-fwfa-file" aria-hidden="true"></i>&nbsp;&nbsp;New Note</a>
+    <a href="/gallery" class="w3-bar-item w3-button"><i class="fa fa-fw fa-picture-o" aria-hidden="true"></i>&nbsp;&nbsp;NoteHub Gallery</a>
+    <a href="/note" class="w3-bar-item w3-button w3-grey"><i class="fa fa-fw fa-file" aria-hidden="true"></i>&nbsp;&nbsp;New Note</a>
     <hr>
 
-    <a href="../accounts/sign-out.php" class="w3-bar-item w3-button"><i class="fa fa-fwfa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Sign Out</a>
+    <a href="../accounts/sign-out.php" class="w3-bar-item w3-button"><i class="fa fa-fw fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Sign Out</a>
   </div>
 
   <div class="w3-main" style="margin-left: 200px">
@@ -347,8 +347,8 @@
       </header>
 
       <div id="Saving-Status" style="text-align: -webkit-center;" class="w3-container w3-padding">
-        <i class="fa fa-fwfa-check fa-5x" aria-hidden="true"></i>
-        <i class="fa fa-fwfa-spinner fa-pulse fa-5x fa-fw"></i>
+        <i class="fa fa-fw fa-check fa-5x" aria-hidden="true"></i>
+        <i class="fa fa-fw fa-spinner fa-pulse fa-5x fa-fw "></i>
       </div>
 
       <footer class="w3-container w3-blue w3-padding">

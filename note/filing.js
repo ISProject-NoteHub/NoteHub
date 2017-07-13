@@ -88,7 +88,7 @@ function SaveNote() {
   }
   else {
     //UI updates
-    document.getElementById("Saving-Status").innerHTML = '<i class="fa fa-fwfa-spinner fa-pulse fa-5x fa-fw"></i>';
+    document.getElementById("Saving-Status").innerHTML = '<i class="fa fa-fw fa-spinner fa-pulse fa-5x fa-fw "></i>';
     ShowModal("Saving"); console.log("note=" + JSON.stringify({ noteContent: document.getElementsByClassName("cke_wysiwyg_frame cke_reset")[0].contentDocument.body.innerHTML.replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").trim() }) + "&action=WriteNote&saveas=true&topic=" + noteProperties.topic + "&notename" + document.getElementById("SaveAs-NoteName").value);
     
     //Update database
@@ -96,7 +96,7 @@ function SaveNote() {
     getPHPFile.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) { console.log(getPHPFile.responseText);
         //Update UI
-        document.getElementById("Saving-Status").innerHTML = '<i class="fa fa-fwfa-check fa-5x"></i>';
+        document.getElementById("Saving-Status").innerHTML = '<i class="fa fa-fw fa-check fa-5x"></i>';
       }
     }
 
