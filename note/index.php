@@ -171,7 +171,7 @@
       <!--Equivalent of the old #Editor-->
       <div id="Editor"><?php
         if (isset($_GET["note"])) {
-          print_r( file_get_contents("../README.md") );
+          file_get_contents("../databases/notes/" . explode("/", $_GET["note"])[0] . "/" . explode("/", $_GET["note"])[1] . ".txt");
         }
       ?></div>
     </div>
