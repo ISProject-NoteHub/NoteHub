@@ -53,7 +53,9 @@
   <script src="ckeditor/ckeditor.js"></script>
 
   <!--Notebook UI-->
-
+  <style>
+    
+  </style>
 
   <!--Dialogs-->
   <style>
