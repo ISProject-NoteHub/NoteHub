@@ -170,7 +170,7 @@
     <div class="w3-container">
       <!--Equivalent of the old #Editor-->
       <div id="Editor"><?php
-        if (isset($_POST["note"])) {
+        if (isset($_GET["note"])) {
           echo explode("/", $_GET["note"])[0];
           echo explode("/", $_GET["note"])[1];
         }
