@@ -89,6 +89,11 @@
         <li>Saving changes only saves the changes you have made to the note but not to your account</li>
       </ul>
       <br>
+      <h2>Tags</h2>
+      Tags are basically key words for your note which allow other people to understand the content of your note better. You can add tags under the 'Save As' function.
+      <br><img src="https://mail.google.com/mail/u/0/?ui=2&ik=aaf02b2d3d&view=att&th=15d419cc5c794c1a&attid=0.1&disp=safe&zw" width="853" height="442"/>
+      <br><br>NoteHub will automatically generate suggestions for tags
+      <br>
       <h2>Sharing as Links</h2>
       <br>If you want to share your work with collaborators via a simple and handy link, click on the "Share Link..." button on the side of the page and choose one of the two options available. (Note that this requires you to name the note.)
       <ul>
