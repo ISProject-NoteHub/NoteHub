@@ -32,10 +32,15 @@
   <link href="/logo-small.png" rel="icon" />
   <link href="/resources/stylesheets/w3.css" rel="stylesheet" />
   <link href="/resources/stylesheets/editor-styling.css" rel="stylesheet" />
+  <link href="/gallery/gallery-styling.css" rel="stylesheet"/>
 
   <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
 
   <script src="https://use.fontawesome.com/3e1c5661b6.js"></script>
+
+  <style>
+    .stat { height: 120px;}
+  </style>
 
   <!--
     README PLS
@@ -89,12 +94,23 @@
       
       <!--Spruce this up with some w3-cards and large text-->
 
-      <span style="font-size:18px;">You have...<span><br>
+      <h2 style="margin-top: 20px; padding-left: 0px;">You have...</h2>
 
       <!--PHP prints the number of private notes and suggestions-->
       <div class="w3-row-padding" style="margin-left: -16px; margin-top: 7.5px;">
-      	<div class="w3-third">
-					<div style="height:100px" class="w3-card w3-container w3-light-grey w3-margin-bottom">
+        <div class="w3-quarter">
+					<div class="w3-card w3-container w3-green w3-margin-bottom stat">
+   					<p>
+      				<span style="font-size:26px;"><?php
+        				//Calculate no. of contributions
+              ?>21<!--For example--></span><br><?php
+                //If number of contribs is 1, print "contribution". If else, print "contributions".
+              ?>Contributions<br>
+   					</p>
+  				</div>
+      	</div>
+        <div class="w3-quarter">
+					<div class="w3-card w3-container w3-teal w3-margin-bottom stat">
    					<p>
       				<span style="font-size:26px;"><?php
         				echo count(ListPrivateNotes(explode(",", base64_decode($_COOKIE["signedIn"]))[0], explode(",", base64_decode($_COOKIE["signedIn"]))[1]));
@@ -108,8 +124,8 @@
    					</p>
   				</div>
       	</div>
-        <div class="w3-third">
-          <div style="height:100px" class="w3-card-2 w3-container w3-light-grey w3-margin-bottom">
+        <div class="w3-quarter">
+          <div class="w3-card-2 w3-container w3-blue w3-margin-bottom stat">
             <p>
               <span style="font-size:26px;"><?php
               	echo count($suggestions);
@@ -117,35 +133,29 @@
             </p>
           </div>
         </div>
-        <div class="w3-third">
-          <div style="height:100px;" class="w3-card-2 w3-container w3-light-grey w3-margin-bottom">
+        <div class="w3-quarter">
+          <div class="w3-card-2 w3-container w3-purple w3-margin-bottom stat">
             <p>
               <!--PHP prints number of new suggestions-->
-              <span style="font-size:26px;">0</span><br>Preferences
+              You are following<br><span style="font-size:26px;">0</span><br>topics
             </p>
           </div>
         </div>
       </div>
 
       <!--Help Menu-->
-      <h2>Help Menu</h2>
+      <h2 style="padding-top: 10px;">Help Menu</h2>
       
       <div class="w3-row-padding" style="margin-left: -16px; margin-top: 7.5px;">
       	<div class="w3-third">
-					<div style="height:150px" class="w3-card w3-container w3-green w3-margin-bottom">
-   					<p>
-      				<span style="font-size:26px;">Getting Started with NoteHub</span><br>
-              <a href="../help">Open ></a><br>
-   					</p>
+					<div class="w3-card w3-container w3-green w3-margin-bottom">
+   					<a href="../help" style="text-decoration: none; color: white !important;"><span style="font-size: 18px; margin: 0px;" class="w3-container">Getting Started with NoteHub</span><br></a>
   				</div>
       	</div>
         <div class="w3-third">
-          <div style="height:150px" class="w3-card-2 w3-container w3-light-grey w3-margin-bottom">
-            <p>
-              <!--PHP prints number of new suggestions-->
-              <span style="font-size:26px;">Navigating the NoteHub Gallery</span><br>
-              <a href="../help/gallery.php">Open ></a><br>
-            </p>
+          <div class="w3-card-2 w3-container w3-light-grey w3-margin-bottom">
+            <!--PHP prints number of new suggestions-->
+            <a href="../help/gallery.php" style="text-decoration: none; color: black !important;"><span style="font-size: 18px; margin: 0px;" class="w3-container">Navigating the NoteHub Gallery</span><br></a>
           </div>
         </div>
       </div>

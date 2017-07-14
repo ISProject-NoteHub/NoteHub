@@ -37,6 +37,7 @@
   <link href="/resources/stylesheets/float-labels.css" rel="stylesheet" />
   <link href="/resources/stylesheets/w3.css" rel="stylesheet" />
   <link href="/resources/stylesheets/editor-styling.css" rel="stylesheet" />
+  <link href="/gallery/gallery-styling.css" rel="stylesheet"/>
 
   <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
 
@@ -93,7 +94,7 @@
       <form method="post" class="account-option w3-card">
         <h5>Recent Logins</h5>
 
-        <input value="View Older Logins" class="w3-button w3-card w3-teal w3-round-large"/>
+        <input value="View Older Logins" class="w3-button w3-card w3-blue w3-round-large"/>
         <input value="Secure Account" class="w3-button w3-card w3-red w3-round-large secure-account"/>
       </form>
 

@@ -51,7 +51,10 @@
     
     <div class="SectionContents">
       <div class="Note">
-        <div class="Note-Image"></div>
+        <div class="Note-Image">
+          World War I - A Brief Introduction
+          <br><br><span style="font-size: 14px;">by historymvc</span>
+        </div>
         <div class="Note-Details">
           World War I - A Brief Introduction
         </div>
