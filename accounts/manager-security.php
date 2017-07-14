@@ -1,29 +1,12 @@
 <?php
-  $suggestions = [];
+  $suggestions = []; $incorrect = false;
 
   if (!isset($_COOKIE["signedIn"])) { header("Location: sign-in.php"); }
-  else {
+  else { 
     include("../databases/microdb/Database.php");
     include("../databases/microdb/Cache.php");
     include("../databases/microdb/Event.php");
     include("../databases/microdb/Index.php");
-  }
-  
-  if (isset($_POST["action"])) {
-    if (($_POST["action"] == "password") && ($_POST["password"] !== "")) {
-      $db = new \MicroDB\Database("../databases/accounts");
-
-      $accountData = $db -> load(1);
-      $accounts = count($accountData);
-
-      for ($i = 0; $i < $accounts; $i++) {
-        if (($accountData[$i][0] == explode(",", base64_decode($_COOKIE["signedIn"]))[0]) && password_verify(explode(",", base64_decode($_COOKIE["signedIn"]))[1], $accountData[$i][1])) {
-          setcookie("signedIn", base64_encode(explode(",", base64_decode($_COOKIE["signedIn"]))[0] . "," . $_POST["password"]), time() + (86400 * 20), "/", "notehub.ga");
-          $accountData[$i][1] = password_hash($_POST["password"], PASSWORD_DEFAULT);
-          $db -> save(1, $accountData);
-        }
-      }
-    }
   }
 ?>
 <!--HTML document begins here-->
@@ -85,36 +68,48 @@
       <span id="Page-Name"> | Account Security</span>
     </div>
 
-    <div class="w3-container">
+    <div class="w3-container" style="position: relative; top: 72px;">
       <!--Equivalent of the old #Editor-->
       
       <!--Spruce this up with some w3-cards and large text-->
       
-      <form method="post" class="account-option w3-card">
+      <div class="account-option w3-card">
         <h5>Recent Logins</h5>
 
-        <input value="View Older Logins" class="w3-button w3-card w3-teal w3-round-large"/>
-        <input value="Secure Account" class="w3-button w3-card w3-red w3-round-large secure-account"/>
-      </form>
+        <input type="button" value="View Older Logins" class="w3-button w3-card w3-teal w3-round-large"/>
+        <input type="button" value="Secure Account" class="w3-button w3-card w3-red w3-round-large secure-account"/>
+      </div>
 
       <form method="post" class="account-option w3-card">
         <h5>Change Password</h5>
 
         <div class="has-float-label">
-          <input type="password" class="text" name="password" placeholder="New Password">
+          <input type="password" class="text" name="oldpassword" placeholder="Old Password">
           <label for="username">Old Password</label>
         </div>
 
         <div class="has-float-label">
-          <input type="password" class="text" name="password" placeholder="New Password">
+          <input type="password" class="text" name="newpassword" placeholder="New Password">
           <label for="username">New Password</label>
         </div>
 
         <div class="has-float-label">
-          <input type="password" class="text" name="password" placeholder="New Password">
+          <input type="password" class="text" name="password" placeholder="New Password (again)">
           <label for="username">New Password (again)</label>
         </div>
         <input type="hidden" name="action" value="password" />
+
+        <?php
+          if (isset($_POST["action"])) {
+            if ($_POST["action"] == "password") {
+              include("verify-account.php");
+
+              if (VerifyAccount(explode(",", base64_decode($_COOKIE["signedIn"]))[0], $_POST["oldpassword"]) === false) { echo "<div class=\"ErrorText\">Your old password is incorrect. Please try again.</div>"; $incorrect = true; }
+              else if ($_POST["newpassword"] !== $_POST["password"]) { echo "<div class=\"ErrorText\">Your new passwords don't match. Please try again.</div>"; $incorrect = true; }
+              else if ($_POST["password"] == "") { echo "<div class=\"ErrorText\">You didn't input your new password. Please try again.</div>"; $incorrect = true; }
+            }
+          }
+        ?>
 
         <input type="submit" class="w3-button w3-card w3-blue w3-round-large submit-button"/>
       </form>
@@ -129,5 +124,25 @@
       document.getElementById("App-Menu").style.display = "none";
     }
   </script>
+
+  <?php
+    if (isset($_POST["action"])) {
+      if (($_POST["action"] == "password") && ($_POST["password"] !== "") && ($incorrect === true)) {
+        //Set le new password
+        $db = new \MicroDB\Database("../databases/accounts");
+
+        $accountData = $db -> load(1);
+        $accounts = count($accountData);
+
+        for ($i = 0; $i < $accounts; $i++) {
+          if (($accountData[$i][0] == explode(",", base64_decode($_COOKIE["signedIn"]))[0]) && password_verify(explode(",", base64_decode($_COOKIE["signedIn"]))[1], $accountData[$i][1])) {
+            setcookie("signedIn", base64_encode(explode(",", base64_decode($_COOKIE["signedIn"]))[0] . "," . $_POST["password"]), time() + (86400 * 20), "/", "notehub.ga");
+            $accountData[$i][1] = password_hash($_POST["password"], PASSWORD_DEFAULT);
+            $db -> save(1, $accountData);
+          }
+        }
+      }
+    }
+  ?>
 </body>
 </html>
