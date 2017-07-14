@@ -27,7 +27,7 @@
     <label style="font-size: 28px;" id="SignedInContent-Welcome">Welcome to the NoteHub Gallery!</label>
 
     <!--Top picks, based on likes-->
-    <label class="SectionHead">Today's Top Picks</label>
+    <label class="SectionHead">Recommended for You</label>
 
     <div class="SectionContents">
       <div class="Note">
@@ -47,11 +47,14 @@
     </div>
 
     <!--Recommendations-->
-    <label class="SectionHead">Recommended for You</label>
+    <label class="SectionHead">Try Something New!</label>
     
     <div class="SectionContents">
       <div class="Note">
-        <div class="Note-Image"></div>
+        <div class="Note-Image">
+          World War I - A Brief Introduction
+          <br><br><span style="font-size: 14px;">by historymvc</span>
+        </div>
         <div class="Note-Details">
           World War I - A Brief Introduction
         </div>

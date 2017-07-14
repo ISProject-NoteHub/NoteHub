@@ -20,6 +20,8 @@
   <link href="/resources/stylesheets/float-labels.css" rel="stylesheet" />
   <link href="/resources/stylesheets/w3.css" rel="stylesheet" />
   <link href="/resources/stylesheets/editor-styling.css" rel="stylesheet" />
+  <link href="/resources/stylesheets/test-styling.css" rel="stylesheet"/>
+  <link href="/gallery/gallery-styling.css" rel="stylesheet"/>
 
   <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
 
@@ -76,9 +78,15 @@
       <div class="account-option w3-card">
         <h5>Recent Logins</h5>
 
+<<<<<<< HEAD
         <input type="button" value="View Older Logins" class="w3-button w3-card w3-teal w3-round-large"/>
         <input type="button" value="Secure Account" class="w3-button w3-card w3-red w3-round-large secure-account"/>
       </div>
+=======
+        <input value="View Older Logins" class="w3-button w3-card w3-blue w3-round-large"/>
+        <input value="Secure Account" class="w3-button w3-card w3-red w3-round-large secure-account"/>
+      </form>
+>>>>>>> 3e8e7042d0be8b3994a707a1a5f29edc3bc3e509
 
       <form method="post" class="account-option w3-card">
         <h5>Change Password</h5>

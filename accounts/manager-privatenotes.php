@@ -22,6 +22,8 @@
   <link href="/resources/stylesheets/float-labels.css" rel="stylesheet" />
   <link href="/resources/stylesheets/w3.css" rel="stylesheet" />
   <link href="/resources/stylesheets/editor-styling.css" rel="stylesheet" />
+  <link href="/resources/stylesheets/test-styling.css" rel="stylesheet"/>
+  <link href="/gallery/gallery-styling.css" rel="stylesheet"/>
 
   <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
 
