@@ -26,6 +26,8 @@
   <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
 
   <style>
+    #App-TitleBar { position: fixed; width: 100%; }
+
     .submit-button { margin-top: 20px; }
     .account-option { padding: 15px; margin-top: 15px;}
     .secure-account { margin-left: 10px; }
