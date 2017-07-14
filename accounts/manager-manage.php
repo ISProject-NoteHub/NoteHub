@@ -98,7 +98,13 @@
    					<p>
       				<span style="font-size:26px;"><?php
         				echo count(ListPrivateNotes(explode(",", base64_decode($_COOKIE["signedIn"]))[0], explode(",", base64_decode($_COOKIE["signedIn"]))[1]));
-      				?></span><br>Private Notes<br>
+              ?></span><br><?php
+                if (count(ListPrivateNotes(explode(",", base64_decode($_COOKIE["signedIn"]))[0], explode(",", base64_decode($_COOKIE["signedIn"]))[1])) == 1) {
+                  print("Private Note");
+                } else {
+                  print("Private Notes");
+                }
+              ?><br>
    					</p>
   				</div>
       	</div>
