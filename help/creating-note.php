@@ -91,7 +91,7 @@
       <h2>Sharing as Links</h2>
       <br>If you want to share your work with collaborators via a simple and handy link, click on the "Share Link..." button on the side of the page and choose one of the two options available. (Note that this requires you to name the note.)
       <ul>
-        <li>Share the editing link to allow the reciepients to edit your note</li>
+        <li>Share the editing link to allow the receipients to edit your note</li>
         <li>If the note is only for viewing, click on the viewing link to share it with them</li>
       </ul>
       <br>
