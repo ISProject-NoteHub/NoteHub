@@ -67,7 +67,7 @@ if (!isset($_COOKIE["signedIn"])) {
       <p>
         <img src="/resources/user-large.png" width="200" class="w3-container profile-picture"/>
         <div class="important-details">
-          <h1 class="w3-container">historymvc</h1>
+          <h1 class="w3-container"><?php echo explode(",", base64_decode($_COOKIE["signedIn"]))[0]; ?></h1>
           <h5 class="w3-container">Account Created on 13 June 2017</h5>
           <h5 class="w3-container">Over 9000 Credibility Points</h5>
         </div>
