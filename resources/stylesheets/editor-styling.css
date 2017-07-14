@@ -96,23 +96,7 @@ body {
 /*Common*/
 #App-TitleBar {
   padding: 10px;
-  position: fixed;
-  top: 0;
   background-color: rgb(1, 152, 255); color: white;
-}
-
-@media screen and (min-width: 993px) {
-  #App-TitleBar {
-    left: 200px;
-    width: calc(100% - 200px);
-  }
-}
-
-@media screen and (max-width: 992px) {
-  #App-TitleBar {
-    left: 0;
-    width: 100%;
-  }
 }
 
 #App-Menu { overflow-x: hidden; }
