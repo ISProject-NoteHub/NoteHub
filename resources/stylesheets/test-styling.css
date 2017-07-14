@@ -12,6 +12,28 @@ html, body {
   #Page-Name { display: inline; }
 }
 
+@media screen and (max-width: 992px) {
+  .important-details {
+    position: absolute;
+    top: 110px;
+    left: 216px;
+  }
+}
+
+@media screen and (min-width: 993px) {
+  .important-details {
+    position: absolute;
+    top: 90px;
+    left: 416px;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  h5:nth-child(2), h5:nth-child(3) {
+    font-size: 12px;
+  }
+}
+
 .ErrorText {
   background-image: url("/resources/error.png");
   background-repeat: no-repeat;

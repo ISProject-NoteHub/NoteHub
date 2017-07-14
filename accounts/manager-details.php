@@ -17,6 +17,7 @@ if (!isset($_COOKIE["signedIn"])) {
   <link href="/resources/stylesheets/float-labels.css" rel="stylesheet" />
   <link href="/resources/stylesheets/w3.css" rel="stylesheet" />
   <link href="/resources/stylesheets/editor-styling.css" rel="stylesheet" />
+  <link href="/resources/stylesheets/test-styling.css" rel="stylesheet"/>
   <link href="/gallery/gallery-styling.css" rel="stylesheet"/>
 
   <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
@@ -25,7 +26,6 @@ if (!isset($_COOKIE["signedIn"])) {
 
   <style>
     .profile-picture { margin-top: 15px; margin-bottom: 15px; }
-    .important-details { position: absolute; top: 90px; left: 416px; /*Optimise for different-sized screens, please.*/ }
   </style>
 </head>
   
