@@ -63,7 +63,10 @@ if (!isset($_COOKIE["signedIn"])) {
       <span id="Page-Name"> | Account Details</span>
     </div>
 
-    <div class="w3-container w3-card w3-border-blue">
+    <div class="w3-container w3-padding w3-card w3-border-blue">
+      <!--Equivalent of the old #Editor-->
+      <div style="margin-top: 52px;"></div>
+      
       <p>
         <img src="/resources/user-large.png" width="200" class="w3-container profile-picture"/>
         <div class="important-details">

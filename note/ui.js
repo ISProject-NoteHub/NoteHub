@@ -37,7 +37,7 @@ function AddReference() {
       
       case 1:
         type.innerHTML = "Website";
-        name.innerHTML = "<a href='" + b.value + "'>" + b.value + "</a>";
+        name.innerHTML = "<a target='_blank' href='" + b.value + "'>" + b.value + "</a>";
         break;
       
       case 2:
@@ -53,6 +53,77 @@ function AddReference() {
 
     author.innerHTML = c.value;
   }
+}
+
+//Display note from JSON
+function LoadBook() {
+  for (i = 0; i < notebook.length; i++) {
+    //Display note tab header
+    var tab = document.getElementById("TabStrip").insertCell(-1);
+
+    var tabHeader = document.createElement("button");
+    tabHeader.style.whiteSpace = "nowrap";
+    tabHeader.style.width = "100%";
+    tabHeader.classList = "w3-bar-item w3-button tablink";
+    tabHeader.setAttribute("onclick", "SwitchNote(event, '" + notebook[i].name + "');");
+    tabHeader.innerHTML = notebook[i].name;
+
+    if (i == 0) { tabHeader.classList.add("w3-white"); }
+
+    tab.innerHTML = tabHeader.outerHTML;
+
+    //Display note content header
+    if (notebook[i].type == "Note") {
+      var tabContent = document.createElement("div");
+      tabContent.setAttribute("id", "Notes-" + notebook[i].name);
+      tabContent.classList = "city";
+      tabContent.style.display = "none";
+
+      var tabTitle = document.createElement("div");
+      tabTitle.classList = "w3-padding";
+      tabTitle.style.display = "inline-block";
+      tabTitle.innerHTML = "<b>" + notebook[i].name + "</b>";
+      tabContent.innerHTML = tabTitle.outerHTML;
+      tabContent.innerHTML = tabContent.innerHTML + "<div style=\"float: right;\"><button class=\"w3-button\"><i class=\"fa fa-trash fa-fw\" aria-hidden=\"true\"></i> Delete Note</button></div>";
+
+      if (i == 0) {
+        tabContent.style.display = "block";
+      }
+
+      document.getElementById("TabContent").innerHTML = document.getElementById("TabContent").innerHTML + tabContent.outerHTML;
+    }
+
+    //Display note contents
+    if (i == 0) {
+      document.getElementsByClassName("cke_wysiwyg_frame cke_reset")[0].contentDocument.body.innerHTML = notebook[i].content;
+    }
+  }
+}
+
+//Note Switching
+function SwitchNote(evt, noteName) {
+  var i, x, tablinks;
+
+  x = document.getElementsByClassName("city");
+  for (i = 0; i < x.length; i++) { x[i].style.display = "none"; }
+
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) { tablinks[i].className = tablinks[i].className.replace(" w3-white", ""); }
+
+  if (noteName == "References") {
+    document.getElementById("Notes-" + noteName).style.display = "block";
+    document.getElementById("cke_Editor").style.display = "none";
+  }
+  else {
+    document.getElementById("Notes-" + noteName).style.display = "block";
+    document.getElementById("cke_Editor").style.display = "block";
+  }
+
+  for (a = 0; a < notebook.length; a++) {
+    if (notebook[a].name == noteName) { document.getElementsByClassName("cke_wysiwyg_frame cke_reset")[0].contentDocument.body.innerHTML = notebook[a].content; }
+  }
+
+  evt.currentTarget.className += " w3-white";
 }
 
 //Update placeholders of references

@@ -34,11 +34,11 @@
       topic: null
     };
 
+    var notebook = [];
+
     var user = {
       username: "<?php echo explode(',', base64_decode($_COOKIE['signedIn']))[0]; ?>", password: "<?php echo base64_encode(explode(',', base64_decode($_COOKIE['signedIn']))[1]); ?>"
     }
-
-    var notebooks = [];
 
     var otherTags = null;
   </script>
@@ -138,6 +138,8 @@
       </h5>
     </div>
 
+    <a href="javascript:AddNote();" class="w3-bar-item w3-button"><i class="fa fa-fw fa-plus" aria-hidden="true"></i>&nbsp;&nbsp;Add Note</a>
+
     <div class="w3-dropdown-hover">
       <button class="w3-button">
         <i class="fa fa-fw fa-floppy-o" aria-hidden="true"></i>&nbsp;&nbsp;Save Note...&nbsp;&nbsp;
@@ -160,7 +162,6 @@
       </div>
     </div>
 
-    <a href="javascript:ShowModal('References');" class="w3-bar-item w3-button"><i class="fa fa-fw fa-external-link" aria-hidden="true"></i>&nbsp;&nbsp;References</a>
     <a href="javascript:ListSuggestions();ShowModal('NoteDetails');" class="w3-bar-item w3-button"><i class="fa fa-fw fa-info-circle" aria-hidden="true"></i>&nbsp;&nbsp;Note Details</a>
     <hr>
 
@@ -189,31 +190,64 @@
     </div>
 
     <div>
+      <!--Equivalent of the old #Editor-->
+      <div style="margin-top: 52px;"></div>
+
       <div class="TabStrip">
-        <table cellspacing="0" cellpadding="0" class="w3-bar w3-black w3-container"><tr>
-          <td>
-            <button style="white-space: nowrap; width: 100%;" class="w3-bar-item w3-button tablink w3-white" onclick="SwitchNote(event,'New Note')">New Note</button>
-          </td>
-          <td>
-            <button style="white-space: nowrap; width: 100%;" class="w3-bar-item w3-button tablink" onclick="SwitchNote(event, 'Note 2')">Note 2</button>
-          </td>
-        </tr></table>
+        <table cellspacing="0" cellpadding="0" class="w3-bar w3-black w3-container"><tr id="TabStrip"></tr></table>
       </div>
       
-      <div id="Notes-New Note" class="city">
-        <div class="w3-padding"><b>New Note</b></div>
-      </div>
-      
-      <div id="Notes-Note 2" style="display: none;" class="city">
-        <div class="w3-padding"><b>Note 2</b></div>
+      <div id="TabContent">
+        <!--References UI-->
+        <div id="Notes-References" style="display: none;" class="city">
+          <div class="w3-padding"><b>References</b></div>
+          <div class="w3-padding">
+            <!--When possible, push the styles to the editor-styling.css stylesheet-->
+            Public notes are always better with references! Our algorithm will award more credibility points to notes with credible sources.
+            <br><br>
+
+            <!--Box for adding References-->
+            <div id="References-AddBar">
+              <header class="header">
+                <select onchange="UpdateReferencesBar();" id="References-AddBar-Types" style="width: 100%; padding: 6px;">
+                  <option>Written Work (book, essay, etc.)</option>
+                  <option>Website</option>
+                  <option>Multimedia</option>
+                  <option>Other</option>
+                </select>
+              </header>
+
+              <article class="main">
+                <input id="References-AddBar-Reference" style="width: 100%; padding: 6px;" placeholder="Title of Written Work" />
+              </article>
+
+              <aside id="References-AddBar-Bottom">
+                <input id="References-AddBar-Author" style="width: 100%; padding: 6px;" placeholder="Author / Publisher of Written Work" />
+              </aside>
+
+              <aside id="References-AddBar-Bottom" style="max-width: 200px !important;">
+                <button class="w3-button w3-green" style="width: 100%;" onclick="AddReference();">Add Reference</button>
+              </aside>
+            </div>
+
+            <!--References-->
+            <table id="Reference-Table">
+              <tr>
+                <th style="min-width: 200px;">Reference Type</th>
+                <th style="width: 50%;">Reference Title / URL</th>
+                <th style="width: 50%;">Reference Author / Publisher</th>
+              </tr>
+
+              <tr style="border-bottom: 1px solid grey;">
+                <td style="text-align: center;" colspan="3">No references found...</td>
+              </tr>
+            </table>
+          </div>
+        </div>
       </div>
 
       <!--Equivalent of the old #Editor-->
-      <div id="Editor"><?php
-        if (isset($_GET["note"])) {
-          echo file_get_contents("../databases/notes/" . explode("/", $_GET["note"])[0] . "/" . explode("/", $_GET["note"])[1] . ".txt");
-        }
-      ?></div>
+      <div id="Editor"></div>
     </div>
   </div>
 
@@ -239,46 +273,7 @@
       </header>
 
       <div class="w3-container w3-padding">
-        <!--When possible, push the styles to the editor-styling.css stylesheet-->
-        Public notes are always better with references! Our algorithm will award more credibility points to notes with credible sources.
-        <br><br>
-
-        <!--Box for adding References-->
-        <div id="References-AddBar">
-          <header class="header">
-            <select onchange="UpdateReferencesBar();" id="References-AddBar-Types" style="width: 100%; padding: 6px;">
-              <option>Written Work (book, essay, etc.)</option>
-              <option>Website</option>
-              <option>Multimedia</option>
-              <option>Other</option>
-            </select>
-          </header>
-
-          <article class="main">
-            <input id="References-AddBar-Reference" style="width: 100%; padding: 6px;" placeholder="Title of Written Work" />
-          </article>
-
-          <aside id="References-AddBar-Bottom">
-            <input id="References-AddBar-Author" style="width: 100%; padding: 6px;" placeholder="Author / Publisher of Written Work" />
-          </aside>
-
-          <asid id="References-AddBar-Bottom" style="max-width: 200px !important;">
-            <button class="w3-button w3-green" style="width: 100%;" onclick="AddReference();">Add Reference</button>
-          </aside>
-        </div>
-
-        <!--References-->
-        <table id="Reference-Table">
-          <tr>
-            <th style="min-width: 200px;">Reference Type</th>
-            <th style="width: 50%;">Reference Title / URL</th>
-            <th style="width: 50%;">Reference Author / Publisher</th>
-          </tr>
-
-          <tr style="border-bottom: 1px solid grey;">
-            <td style="text-align: center;" colspan="3">No references found...</td>
-          </tr>
-        </table>
+        
       </div>
 
       <footer class="w3-container w3-blue w3-padding">
@@ -414,6 +409,29 @@
       </footer>
     </div>
   </div>
+
+  <script>
+    notebook = <?php
+      if (isset($_GET["note"])) { /*Get note*/ }
+      else {
+        $note = [];
+        $note[0] = array(
+          "name" => "New Note", "type" => "Note",
+          "content" => "<p><h1><b>New Note</b></h1><small>by " . explode(',', base64_decode($_COOKIE['signedIn']))[0] . "</small></p><hr><p>Content</p>"
+        );
+        $note[1] = array(
+          "name" => "Qwerty", "type" => "Note",
+          "content" => "<p><h1><b>Qwerty</b></h1><small>by " . explode(',', base64_decode($_COOKIE['signedIn']))[0] . "</small></p><hr><p>Content</p>"
+        );
+        $note[2] = array(
+          "name" => "References", "type" => "References",
+          "content" => []
+        );
+
+        echo json_encode($note);
+      }
+    ?>;
+  </script>
 </body>
 
 </html>

@@ -7,7 +7,7 @@
       $notesOutput = array();
       
       for ($i = 2; $i < count($notes); $i++) {
-        $notesOutput[$i - 2] = str_replace(".json", "", $notes[$i]);
+        $notesOutput[$i - 2] = str_replace(".txt", "", $notes[$i]);
       }
 
       return $notesOutput;

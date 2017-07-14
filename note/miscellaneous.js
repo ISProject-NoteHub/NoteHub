@@ -6,22 +6,12 @@ window.addEventListener("load", function() {
   //CKEditor Initialisation
   CKEDITOR.replace("Editor");
   CKEDITOR.config.resize_enabled = false;
-});
 
-//Note Switching
-function SwitchNote(evt, noteName) {
-  var i, x, tablinks;
-  x = document.getElementsByClassName("city");
-  for (i = 0; i < x.length; i++) {
-      x[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablink");
-  for (i = 0; i < x.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" w3-white", "");
-  }
-  document.getElementById("Notes-" + noteName).style.display = "block";
-  evt.currentTarget.className += " w3-white";
-}
+  //Initialise notebook contents
+  CKEDITOR.on("instanceReady", function(evt) {
+    LoadBook();
+  });
+});
 
 //Link Sharing
 function EditLink() {

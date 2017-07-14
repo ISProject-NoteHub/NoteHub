@@ -26,10 +26,8 @@
   <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
 
   <style>
-    #App-TitleBar { position: fixed; width: 100%; }
-
     .submit-button { margin-top: 20px; }
-    .account-option { padding: 15px; margin-top: 15px;}
+    .account-option { padding: 15px; margin-top: 15px; }
     .secure-account { margin-left: 10px; }
 
     #Page-Name { display: inline !important; }
@@ -72,10 +70,9 @@
       <span id="Page-Name"> | Account Security</span>
     </div>
 
-    <div class="w3-container" style="position: relative; top: 72px;">
+    <div class="w3-container w3-padding">
       <!--Equivalent of the old #Editor-->
-      
-      <!--Spruce this up with some w3-cards and large text-->
+      <div style="margin-top: 52px;"></div>
       
       <div class="account-option w3-card">
         <h5>Recent Logins</h5>

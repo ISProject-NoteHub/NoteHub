@@ -90,12 +90,10 @@
       <span id="Page-Name"> | Account Home</span>
     </div>
 
-    <div class="w3-container">
+    <div class="w3-container w3-padding">
       <!--Equivalent of the old #Editor-->
-      
-      <!--Spruce this up with some w3-cards and large text-->
-
-      <h2 style="margin-top: 20px; padding-left: 0px;">You have...</h2>
+      <div style="margin-top: 52px;"></div>
+      <h2 style="margin-top: 20px; padding-left: 0px;">Quick Stats</h2>
 
       <!--PHP prints the number of private notes and suggestions-->
       <div class="w3-row-padding" style="margin-left: -16px; margin-top: 7.5px;">
