@@ -87,20 +87,20 @@
         <li>Saving as a new note makes a new note under your account</li>
         <li>Saving changes only saves the changes you have made to the note but not to your account</li>
       </ul>
-      <br><br>
+      <br>
       <h2>Sharing as Links</h2>
       <br>If you want to share your work with collaborators via a simple and handy link, click on the "Share Link..." button on the side of the page and choose one of the two options available. (Note that this requires you to name the note.)
       <ul>
         <li>Share the editing link to allow the reciepients to edit your note</li>
         <li>If the note is only for viewing, click on the viewing link to share it with them</li>
       </ul>
-      <br><br>
+      <br>
       <h2>References</h2>
       Citing references is a great way to gain more credibility for your note if your sources are credible.
       <br>
       To add references, simply click on the 'References' button on the left menu and a screen will pop up asking you to add your sources.
       <br>
-      <img src="https://mail.google.com/mail/u/0/?ui=2&ik=aaf02b2d3d&view=att&th=15d417c75fd65cac&attid=0.1&disp=safe&zw">
+      <img src="https://mail.google.com/mail/u/0/?ui=2&ik=aaf02b2d3d&view=att&th=15d417c75fd65cac&attid=0.1&disp=safe&zw" width="500" height="700"/>
       <br>
       Just state the title and author of the source and it can be added to your list.
     </div>
