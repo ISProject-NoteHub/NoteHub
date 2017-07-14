@@ -100,7 +100,7 @@
       <br>
       To add references, simply click on the 'References' button on the left menu and a screen will pop up asking you to add your sources.
       <br>
-      <img src="https://mail.google.com/mail/u/0/?ui=2&ik=aaf02b2d3d&view=att&th=15d417c75fd65cac&attid=0.1&disp=safe&zw" width="700" height="1600" textalign="center"/>
+      <img src="https://mail.google.com/mail/u/0/?ui=2&ik=aaf02b2d3d&view=att&th=15d417c75fd65cac&attid=0.1&disp=safe&zw" width="1600" height="400" textalign="center"/>
       <br>
       Just state the title and author of the source and it can be added to your list.
     </div>
