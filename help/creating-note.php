@@ -82,6 +82,7 @@
       ...But you haven't saved it yet. If you don't save, all of your progress will be lost...
       <br>...so remember to save your work at regular intervals to keep your precious work safe and sound.
       <br><br>Saving also allows you to give your note a name.
+      <br><img src="https://mail.google.com/mail/u/0/?ui=2&ik=aaf02b2d3d&view=att&th=15d4191130c5030b&attid=0.1&disp=safe&zw" width="334" height="240"/>
       <br><br>Under the save button on the left menu bar, there are two options: saving your note as a New Notebook and saving the changes that you made to an existing note.
       <ul>
         <li>Saving as a new note makes a new note under your account</li>
