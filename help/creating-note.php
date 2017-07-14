@@ -72,6 +72,7 @@
       <ul><p>Features</p>
         <li>Spelling checker: you can enable a spelling checker by clicking on the icon and enabling SCAYT</li>
         <li>Formatting can be arranged in the bottom row (e.g. bold, italics, font size and family)</li>
+        <li>Make your notes more detailed with the ability to include photos, special characters and tables in your notes!</li>
       </ul>
       <br>On this page, you can type in your content, using the functions in the top menu bar to manipulate your font into different colours, shapes and sizes.
       <br>
@@ -93,6 +94,15 @@
         <li>Share the editing link to allow the reciepients to edit your note</li>
         <li>If the note is only for viewing, click on the viewing link to share it with them</li>
       </ul>
+      <br><br>
+      <h2>References</h2>
+      Citing references is a great way to gain more credibility for your note if your sources are credible.
+      <br>
+      To add references, simply click on the 'References' button on the left menu and a screen will pop up asking you to add your sources.
+      <br>
+      <img src="https://mail.google.com/mail/u/0/?ui=2&ik=aaf02b2d3d&view=att&th=15d417c75fd65cac&attid=0.1&disp=safe&zw">
+      <br>
+      Just state the title and author of the source and it can be added to your list.
     </div>
   </div>
 
