@@ -61,6 +61,13 @@
     .TabStrip::-webkit-scrollbar-button { display: none; }
     .TabStrip::-webkit-scrollbar-track-piece { display: none; }
     .TabStrip::-webkit-scrollbar-thumb { display: none; }
+
+    #App-Mode {
+      position: fixed;
+      top: 10px; right: 10px;
+      z-index: 3;
+      padding: 5px;
+    }
   </style>
 
   <!--Dialogs-->
@@ -143,7 +150,7 @@
 
     <div class="w3-dropdown-hover">
       <button class="w3-button">
-        <i class="fa fa-fw fa-floppy-o" aria-hidden="true"></i>&nbsp;&nbsp;Save Note...&nbsp;&nbsp;
+        <i class="fa fa-fw fa-floppy-o" aria-hidden="true"></i>&nbsp;&nbsp;Save Notebook...&nbsp;&nbsp;
         <i class="fa fa-fw fa-caret-down"></i>
       </button>
       <div class="w3-dropdown-content w3-bar-block w3-black" style="margin-left: 10px;">
@@ -189,6 +196,8 @@
       ?>
       </span>
     </div>
+
+    <div class="w3-card w3-green" id="App-Mode">Suggesting-Only</div>
 
     <div>
       <div id="Fluffy" style="margin-top: 52px;"></div>
