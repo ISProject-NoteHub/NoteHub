@@ -63,30 +63,32 @@ if (!isset($_COOKIE["signedIn"])) {
       <span id="Page-Name"> | Account Details</span>
     </div>
 
-    <div class="w3-container w3-card w3-padding w3-border-blue">
-      <!--Equivalent of the old #Editor-->      
-      <div class="w3-container w3-card w3-border-blue w3-padding account-option-first">
+    <div class="w3-container w3-padding w3-card w3-border-blue">
+      <!--Equivalent of the old #Editor-->
+      <div style="margin-top: 52px;"></div>
+      
+      <p>
         <img src="/resources/user-large.png" width="200" class="w3-container profile-picture"/>
         <div class="important-details">
           <h1 class="w3-container"><?php echo explode(",", base64_decode($_COOKIE["signedIn"]))[0]; ?></h1>
           <h5 class="w3-container">Account Created on 13 June 2017</h5>
           <h5 class="w3-container">Over 9000 Credibility Points</h5>
         </div>
-      </div>
+      </p>
+    </div>
 
-      <div class="w3-container w3-card w3-border-blue w3-padding account-option" style="padding-bottom: 16px !important;">
-        <h3>Topics You Are Following</h3>
-        <div class="w3-container w3-padding w3-margin-top w3-margin-right w3-card w3-half w3-green">History</div>
-        <div class="w3-container w3-padding w3-margin-top w3-margin-right w3-card w3-half w3-green">Geography</div>
-        <div class="w3-container w3-padding w3-margin-top w3-margin-right w3-card w3-half w3-green">History</div>
-        <div class="w3-container w3-padding w3-margin-top w3-margin-right w3-card w3-half w3-green">Geography</div>
-        <!--Argh!-->
-      </div>
+    <div class="w3-container w3-card w3-border-blue w3-padding" style="padding-bottom: 16px !important;">
+      <h3>Topics You Are Following</h3>
+      <div class="w3-container w3-padding w3-margin-top w3-margin-right w3-card w3-half w3-green">History</div>
+      <div class="w3-container w3-padding w3-margin-top w3-margin-right w3-card w3-half w3-green">Geography</div>
+      <div class="w3-container w3-padding w3-margin-top w3-margin-right w3-card w3-half w3-green">History</div>
+      <div class="w3-container w3-padding w3-margin-top w3-margin-right w3-card w3-half w3-green">Geography</div>
+      <!--Argh!-->
+    </div>
 
-      <div class="w3-container w3-card w3-border-blue w3-padding account-option" style="padding-bottom: 16px !important;">
-        <h3>Top Rated Notes</h3>
-        <!--Gallery-like thing here-->
-      </div>
+    <div class="w3-container w3-card w3-border-blue w3-padding" style="padding-bottom: 16px !important;">
+      <h3>Top Rated Notes</h3>
+      <!--Gallery-like thing here-->
     </div>
   </div>
 
