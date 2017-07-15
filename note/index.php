@@ -68,10 +68,8 @@
       z-index: 3;
       padding: 5px;
     }
-  </style>
 
-  <!--Dialogs-->
-  <style>
+/*Dialogs*/
     #References-AddBar {
       display: flex;  
       flex-flow: row wrap;
@@ -94,10 +92,8 @@
     }
     #Reference-Table th, #Reference-Table td { padding: 7.5px; text-align: left; }
     #Reference-Table th { background-color: lightgrey; }
-  </style>
 
-  <!--Unique CKEditor styling-->
-  <style>
+  /*Unique CKEditor styling*/
     #cke_Editor {
       position: absolute;
     }
@@ -306,22 +302,38 @@
         Here's the meta-data of your note. This data assists our intelligent algorithm in suggesting notes to users.
         <br><br>
 
-        <b>Note Name: </b><span id="NoteInfo-NoteName">New Notebook</span> - this is only updated when you save your note.<br>
-        <b>Note Privacy: </b><select id="NoteInfo-NotePrivacy" style="width: 100%; padding: 10px;">
-          <option selected>Public, for all to see. Anyone can suggest, but you retain full control of what gets incoporated. Note content is subject to intelligent algorithms.</option>
-          <option>Private, but viewable by anyone. Only collaborators you add may make any changes to the note. Note content is not subject to inteligent algorithms.</option>
-          <option>Private and viewable only by those you let view it. Only collaborators you add may make any changes to the note. Note content is not subject to inteligent algorithms.</option>
-        </select><br>
-        <a href="https://notehub.ga/view-note" target="_blank">Learn More about note privacy</a><br>
-        <b>Last Modified: </b><span id="NoteInfo-LastModified">Today</span><br><br>
+        <h4><b>Note Name: </b></h4><span id="NoteInfo-NoteName">New Notebook</span> - this is only updated when you save your note.<br><br>
+        <h4><b>Note Privacy</b></h4>
+        <form action="" id="NoteInfo-NotePrivacy" style="width: 100%; padding: 10px;">
+          <input type="radio" checked>&nbsp;&nbsp;Public
+            <ul>
+              <li>Anyone can suggest</li>
+              <li>You have full control over note content</li>
+              <li>Subject to intelligent algorithms</li>
+            </ul>
+          <input type="radio">&nbsp;&nbsp;Private, Viewable
+            <ul>
+              <li>Viewable by anyone</li>
+              <li>Only specific people may edit this note</li>
+              <li>Not subject to inteligent algorithms.</li>
+            </ul>
+          <input type="radio">&nbsp;&nbsp;Private, Restricted
+            <ul>
+              <li>Only specific people may view this note</li>
+              <li>Only specific people may edit this note</li>
+              <li>Not subject to inteligent algorithms.</li>
+            </ul>
+        </form>
+        <h5><a href="https://notehub.ga/view-note" target="_blank">Learn More about note privacy</a></h5>
+        <h4><b>Last Modified: </b></h4><span id="NoteInfo-LastModified">Today</span><br><br>
 
-        <b>Note Tags:</b>
+        <h4><b>Note Tags:</b></h4>
         <input id="NoteInfo-Tags" placeholder="Note Tags" />
-        <label><b>Suggested / Warnings: </b><span id="NoteInfo-SuggestedTags">
+        <label><b>Suggested: </b><span id="NoteInfo-SuggestedTags">
           <div class="FilePicker-Item-Tag" style="top: 0;">- No Suggestions -</div>
         </span><br>
         <label>Note tags are displayed on your note as tags, for users to see. They are also a factor when other users search for notes using tags. Popular tags tend to be displayed at the top of the gallery feed.</label><br>
-        <a href="https://notehub.ga/note?edit=<note id in generated link...>" target="_blank">Learn More about tags</a><br><br>
+        <a href="https://notehub.ga/note?edit=<note id in generated link...>" target="_blank">Learn more about tags</a><br><br>
       </div>
 
       <footer class="w3-container w3-blue w3-padding">
