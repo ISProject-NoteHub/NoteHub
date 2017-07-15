@@ -27,7 +27,6 @@
 
   <style>
     .submit-button { margin-top: 20px; }
-    .account-option { padding: 15px; margin-top: 15px; }
     .secure-account { margin-left: 10px; }
 
     #Page-Name { display: inline !important; }
@@ -74,15 +73,15 @@
       <!--Equivalent of the old #Editor-->
       <div style="margin-top: 52px;"></div>
       
-      <div class="account-option w3-card">
-        <h5>Recent Logins</h5>
+      <div class="account-option w3-container w3-card account-option-first">
+        <h2>Recent Logins</h2>
 
         <input type="button" value="View Older Logins" class="w3-button w3-card w3-teal w3-round-large"/>
         <input type="button" value="Secure Account" class="w3-button w3-card w3-red w3-round-large secure-account"/>
       </div>
 
-      <form method="post" class="account-option w3-card">
-        <h5>Change Password</h5>
+      <form method="post" class="account-option w3-container w3-card">
+        <h2>Change Password</h2>
 
         <div class="has-float-label">
           <input type="password" class="text" name="oldpassword" placeholder="Old Password">

@@ -200,7 +200,7 @@
       <style> @media screen and (max-width: 992px) { #Fluffy { margin-top: 72px !important; } } </style>
 
       <div class="TabStrip">
-        <table cellspacing="0" cellpadding="0" class="w3-bar w3-black w3-container"><tr id="TabStrip"></tr></table>
+        <table cellspacing="0" cellpadding="0" class="w3-bar w3-gray w3-container"><tr id="TabStrip"></tr></table>
       </div>
       
       <div id="TabContent"></div>
@@ -299,10 +299,7 @@
       </header>
 
       <div class="w3-container w3-padding">
-        Here's the meta-data of your note. This data assists our intelligent algorithm in suggesting notes to users.
-        <br><br>
-
-        <h4><b>Note Name: </b></h4><span id="NoteInfo-NoteName">New Notebook</span> - this is only updated when you save your note.<br><br>
+        <h4 title="This is only updated when you save your note."><b>Note Name: </b></h4><span id="NoteInfo-NoteName" title="This is only updated when you save your note.">New Notebook</span><br><br>
         <h4><b>Note Privacy</b></h4>
         <form action="" id="NoteInfo-NotePrivacy" style="width: 100%; padding: 10px;">
           <input type="radio" checked>&nbsp;&nbsp;Public
@@ -324,15 +321,15 @@
               <li>Not subject to inteligent algorithms.</li>
             </ul>
         </form>
-        <h5><a href="https://notehub.ga/view-note" target="_blank">Learn More about note privacy</a></h5>
-        <h4><b>Last Modified: </b></h4><span id="NoteInfo-LastModified">Today</span><br><br>
+        <a href="https://notehub.ga/view-note" target="_blank">Learn more about note privacy</a><br><br>
+        <h4><b>Last Modified: </b><span id="NoteInfo-LastModified">Today</span></h4>
 
         <h4><b>Note Tags:</b></h4>
         <input id="NoteInfo-Tags" placeholder="Note Tags" />
         <label><b>Suggested: </b><span id="NoteInfo-SuggestedTags">
           <div class="FilePicker-Item-Tag" style="top: 0;">- No Suggestions -</div>
         </span><br>
-        <label>Note tags are displayed on your note as tags, for users to see. They are also a factor when other users search for notes using tags. Popular tags tend to be displayed at the top of the gallery feed.</label><br>
+        <label>Notes are classified by tags. Tags are a factor when other users search for notes. Popular tags tend to be recommended to more people, and more often.</label><br>
         <a href="https://notehub.ga/note?edit=<note id in generated link...>" target="_blank">Learn more about tags</a><br><br>
       </div>
 
