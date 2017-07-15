@@ -14,11 +14,3 @@ function PrepareSaveAs() {
 function ListNotes() {
   
 }
-
-function ListNotebook(notebook) {
-  
-}
-
-function SaveNote() {
-  
-}

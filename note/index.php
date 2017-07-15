@@ -35,6 +35,7 @@
     };
 
     var notebook = [];
+    var currentNotebook = 0;
 
     var user = {
       username: "<?php echo explode(',', base64_decode($_COOKIE['signedIn']))[0]; ?>", password: "<?php echo base64_encode(explode(',', base64_decode($_COOKIE['signedIn']))[1]); ?>"
@@ -190,59 +191,59 @@
     </div>
 
     <div>
-      <!--Equivalent of the old #Editor-->
-      <div style="margin-top: 52px;"></div>
+      <div id="Fluffy" style="margin-top: 52px;"></div>
+      <style> @media screen and (max-width: 992px) { #Fluffy { margin-top: 72px !important; } } </style>
 
       <div class="TabStrip">
         <table cellspacing="0" cellpadding="0" class="w3-bar w3-black w3-container"><tr id="TabStrip"></tr></table>
       </div>
       
-      <div id="TabContent">
-        <!--References UI-->
-        <div id="Notes-References" style="display: none;" class="city">
-          <div class="w3-padding"><b>References</b></div>
-          <div class="w3-padding">
-            <!--When possible, push the styles to the editor-styling.css stylesheet-->
-            Public notes are always better with references! Our algorithm will award more credibility points to notes with credible sources.
-            <br><br>
+      <div id="TabContent"></div>
 
-            <!--Box for adding References-->
-            <div id="References-AddBar">
-              <header class="header">
-                <select onchange="UpdateReferencesBar();" id="References-AddBar-Types" style="width: 100%; padding: 6px;">
-                  <option>Written Work (book, essay, etc.)</option>
-                  <option>Website</option>
-                  <option>Multimedia</option>
-                  <option>Other</option>
-                </select>
-              </header>
+      <!--References UI-->
+      <div id="Notes-References" style="display: none;" class="city">
+        <div class="w3-padding"><b>References</b></div>
+        <div class="w3-padding">
+          <!--When possible, push the styles to the editor-styling.css stylesheet-->
+          Public notes are always better with references! Our algorithm will award more credibility points to notes with credible sources.
+          <br><br>
 
-              <article class="main">
-                <input id="References-AddBar-Reference" style="width: 100%; padding: 6px;" placeholder="Title of Written Work" />
-              </article>
+          <!--Box for adding References-->
+          <div id="References-AddBar">
+            <header class="header">
+              <select onchange="UpdateReferencesBar();" id="References-AddBar-Types" style="width: 100%; padding: 6px;">
+                <option>Written Work (book, essay, etc.)</option>
+                <option>Website</option>
+                <option>Multimedia</option>
+                <option>Other</option>
+              </select>
+            </header>
 
-              <aside id="References-AddBar-Bottom">
-                <input id="References-AddBar-Author" style="width: 100%; padding: 6px;" placeholder="Author / Publisher of Written Work" />
-              </aside>
+            <article class="main">
+              <input id="References-AddBar-Reference" style="width: 100%; padding: 6px;" placeholder="Title of Written Work" />
+            </article>
 
-              <aside id="References-AddBar-Bottom" style="max-width: 200px !important;">
-                <button class="w3-button w3-green" style="width: 100%;" onclick="AddReference();">Add Reference</button>
-              </aside>
-            </div>
+            <aside id="References-AddBar-Bottom">
+              <input id="References-AddBar-Author" style="width: 100%; padding: 6px;" placeholder="Author / Publisher of Written Work" />
+            </aside>
 
-            <!--References-->
-            <table id="Reference-Table">
-              <tr>
-                <th style="min-width: 200px;">Reference Type</th>
-                <th style="width: 50%;">Reference Title / URL</th>
-                <th style="width: 50%;">Reference Author / Publisher</th>
-              </tr>
-
-              <tr style="border-bottom: 1px solid grey;">
-                <td style="text-align: center;" colspan="3">No references found...</td>
-              </tr>
-            </table>
+            <aside id="References-AddBar-Bottom" style="max-width: 200px !important;">
+              <button class="w3-button w3-green" style="width: 100%;" onclick="AddReference();">Add Reference</button>
+            </aside>
           </div>
+
+          <!--References-->
+          <table id="Reference-Table">
+            <tr>
+              <th style="min-width: 200px;">Reference Type</th>
+              <th style="width: 50%;">Reference Title / URL</th>
+              <th style="width: 50%;">Reference Author / Publisher</th>
+            </tr>
+
+            <tr style="border-bottom: 1px solid grey;">
+              <td style="text-align: center;" colspan="3">No references found...</td>
+            </tr>
+          </table>
         </div>
       </div>
 
@@ -265,19 +266,22 @@
   </div>
 
   <!--Modal Dialogs-->
-  <div id="Modal-References" class="w3-modal">
+  <div id="Modal-Rename" class="w3-modal">
     <div class="w3-modal-content w3-animate-top w3-card-4">
       <header class="w3-container w3-blue"> 
         <span onclick="CloseModal();" class="w3-button w3-display-topright">&times;</span>
-        <h2>References</h2>
+        <h2>Rename Note</h2>
       </header>
 
       <div class="w3-container w3-padding">
-        
+        Rename "<span id="Rename-OldName"></span>" to:
+        <br>
+        <input style="width: 100%; padding: 6px; margin-top: 7.5px;" id="Rename-NewName" placeholder="New Name" />
       </div>
 
       <footer class="w3-container w3-blue w3-padding">
-        <button class="w3-button w3-green" onclick="CloseModal();">CLOSE</button>
+        <button class="w3-button w3-green" onclick="PerformRename();">RENAME</button>
+        <button class="w3-button w3-red" onclick="CloseModal();">CANCEL</button>
       </footer>
     </div>
   </div>
@@ -417,14 +421,12 @@
         $note = [];
         $note[0] = array(
           "name" => "New Note", "type" => "Note",
+          "author" => explode(',', base64_decode($_COOKIE['signedIn']))[0],
           "content" => "<p><h1><b>New Note</b></h1><small>by " . explode(',', base64_decode($_COOKIE['signedIn']))[0] . "</small></p><hr><p>Content</p>"
         );
         $note[1] = array(
-          "name" => "Qwerty", "type" => "Note",
-          "content" => "<p><h1><b>Qwerty</b></h1><small>by " . explode(',', base64_decode($_COOKIE['signedIn']))[0] . "</small></p><hr><p>Content</p>"
-        );
-        $note[2] = array(
           "name" => "References", "type" => "References",
+          "author" => "all",
           "content" => []
         );
 

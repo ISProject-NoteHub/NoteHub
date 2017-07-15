@@ -4,7 +4,7 @@
   if (isset($_COOKIE["signedIn"])) { header("Location: manager-manage.php"); }
 
   if ((isset($_POST["submitted"])) && ($_POST["username"] !== "") && ($_POST["password"] !== "") && ($_POST["email"] !== "")) {
-    if (preg_match('/[^a-zA-Z]+/', $_POST["username"])) { $illigalChars = true; }
+    if (preg_match('/[^0-9a-zA-Z]+/', $_POST["username"])) { $illigalChars = true; }
     else if (strlen($_POST["username"]) < 3) { $tooShort = true; }
     else if (strlen($_POST["username"]) > 32) { $tooLong = true; }
     else {

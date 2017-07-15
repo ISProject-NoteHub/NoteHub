@@ -84,13 +84,14 @@ function LoadBook() {
       tabTitle.style.display = "inline-block";
       tabTitle.innerHTML = "<b>" + notebook[i].name + "</b>";
       tabContent.innerHTML = tabTitle.outerHTML;
-      tabContent.innerHTML = tabContent.innerHTML + "<div style=\"float: right;\"><button class=\"w3-button\"><i class=\"fa fa-trash fa-fw\" aria-hidden=\"true\"></i> Delete Note</button></div>";
+      tabContent.innerHTML = tabContent.innerHTML +
+      "<div style=\"float: right;\"><button onclick=\"RenameNote('" + notebook[i].name + "');\" class=\"w3-button\"><i class=\"fa fa-pencil fa-fw\" aria-hidden=\"true\"></i> Rename Note</button><button onclick=\"DeleteNote();\" class=\"w3-button\"><i class=\"fa fa-trash fa-fw\" aria-hidden=\"true\"></i> Delete Note</button></div>";
 
       if (i == 0) {
         tabContent.style.display = "block";
       }
 
-      document.getElementById("TabContent").innerHTML = document.getElementById("TabContent").innerHTML + tabContent.outerHTML;
+      document.getElementById("TabContent").innerHTML = tabContent.outerHTML + document.getElementById("TabContent").innerHTML;
     }
 
     //Display note contents
@@ -100,9 +101,53 @@ function LoadBook() {
   }
 }
 
+//Open 'Rename Note' Dialog
+function RenameNote(noteName) {
+  ShowModal("Rename");
+  document.getElementById("Rename-OldName").innerHTML = noteName;
+}
+
+//Perform Rename
+function PerformRename() {
+  for (i = 0; i < notebook.length; i++) {
+    if (notebook[i].name == document.getElementById("Rename-OldName").innerHTML) {
+      CloseModal();
+
+      notebook[i].name = document.getElementById("Rename-NewName").value;
+      document.getElementById("TabStrip").children[i].children[0].setAttribute("onclick", "SwitchNote(event, '" + document.getElementById("Rename-NewName").value + "');");
+      document.getElementsByClassName("city")[(notebook.length - 2) - i].setAttribute("id", "Notes-" + document.getElementById("Rename-NewName").value);
+
+      document.getElementById("TabStrip").children[i].children[0].innerHTML = document.getElementById("Rename-NewName").value;
+      document.getElementsByClassName("city")[(notebook.length - 2) - i].children[0].innerHTML = "<b>" + document.getElementById("Rename-NewName").value + "</b>";
+    }
+  }
+}
+
+//Add Note to Notebook
+function AddNote() {
+  //Save note content
+  notebook[currentNotebook].content = document.getElementsByClassName("cke_wysiwyg_frame cke_reset")[0].contentDocument.body.innerHTML;
+
+  //Update notebook
+  notebook.splice(notebook.length - 1, 0, { name: "Note " + (notebook.length - 1), type: "Note", author: "", content: "<p><h1><b>New Note</b></h1><small>by you</small></p><hr><p>Content</p>" });
+  document.getElementById("TabStrip").innerHTML = "";
+  document.getElementById("TabContent").innerHTML = "";
+  LoadBook();
+
+  currentNotebook = 0;
+}
+
+//Delete current note from notebook
+function DeleteNote() {
+
+}
+
 //Note Switching
 function SwitchNote(evt, noteName) {
   var i, x, tablinks;
+
+  //Save note content
+  notebook[currentNotebook].content = document.getElementsByClassName("cke_wysiwyg_frame cke_reset")[0].contentDocument.body.innerHTML;
 
   x = document.getElementsByClassName("city");
   for (i = 0; i < x.length; i++) { x[i].style.display = "none"; }
@@ -117,12 +162,16 @@ function SwitchNote(evt, noteName) {
   else {
     document.getElementById("Notes-" + noteName).style.display = "block";
     document.getElementById("cke_Editor").style.display = "block";
+
+    for (a = 0; a < notebook.length; a++) {
+      if (notebook[a].name == noteName) {
+        currentNotebook = a;
+        document.getElementsByClassName("cke_wysiwyg_frame cke_reset")[0].contentDocument.body.innerHTML = notebook[a].content;
+      }
+    }
   }
 
-  for (a = 0; a < notebook.length; a++) {
-    if (notebook[a].name == noteName) { document.getElementsByClassName("cke_wysiwyg_frame cke_reset")[0].contentDocument.body.innerHTML = notebook[a].content; }
-  }
-
+  //Set tab header colour
   evt.currentTarget.className += " w3-white";
 }
 

@@ -116,7 +116,10 @@ body {
   }
 }
 
-#App-Menu { overflow-x: hidden; }
+#App-Menu {
+  overflow-x: hidden;
+  z-index: 3;
+}
 
 details {
   margin-bottom: 10px;
