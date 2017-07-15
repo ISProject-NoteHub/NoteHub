@@ -34,6 +34,10 @@ html, body {
   }
 }
 
+.account-option { padding: 15px; margin-top: 15px; }
+
+.account-option-first { margin-top: 70px; }
+
 .ErrorText {
   background-image: url("/resources/error.png");
   background-repeat: no-repeat;
