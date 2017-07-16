@@ -24,7 +24,7 @@
   <a style="line-height: 1.5;" id="Page-SignIn" href="/accounts/sign-in.php">Sign In</a>
 
   <div id="Page-Contents">
-    <label style="font-size: 28px;" id="SignedInContent-Welcome">Gallery</label>
+    <label style="font-size: 28px;" id="SignedInContent-Welcome">Welcome to the NoteHub Gallery!</label>
     <!--Top picks, based on likes-->
     <label class="SectionHead">Recommended for You</label>
 
