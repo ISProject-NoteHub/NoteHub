@@ -271,7 +271,7 @@
   </div>
 
   <!--Modal Dialogs-->
-  <div id="Modal-Rename" class="w3-modal">
+  <div id="Modal-Rename" class="w3-modal w3-card">
     <div class="w3-modal-content w3-animate-top w3-card-4">
       <header class="w3-container w3-blue"> 
         <span onclick="CloseModal();" class="w3-button w3-display-topright">&times;</span>
@@ -291,7 +291,7 @@
     </div>
   </div>
 
-  <div id="Modal-NoteDetails" class="w3-modal">
+  <div id="Modal-NoteDetails" class="w3-modal w3-card">
     <div class="w3-modal-content w3-animate-top w3-card-4">
       <header class="w3-container w3-blue"> 
         <span onclick="CloseModal();" class="w3-button w3-display-topright">&times;</span>
@@ -339,7 +339,7 @@
     </div>
   </div>
 
-  <div id="Modal-SaveAs" class="w3-modal">
+  <div id="Modal-SaveAs" class="w3-modal w3-card">
     <div class="w3-modal-content w3-animate-top w3-card-4">
       <header class="w3-container w3-blue"> 
         <span onclick="CloseModal();" class="w3-button w3-display-topright">&times;</span>
@@ -396,7 +396,7 @@
     </div>
   </div>
 
-  <div id="Modal-Saving" class="w3-modal">
+  <div id="Modal-Saving" class="w3-modal w3-card">
     <div class="w3-modal-content w3-animate-top w3-card-4">
       <header class="w3-container w3-blue"> 
         <span onclick="CloseModal();" class="w3-button w3-display-topright">&times;</span>
@@ -414,7 +414,7 @@
     </div>
   </div>
 
-  <div id="Modal-SharingLink" class="w3-modal">
+  <div id="Modal-SharingLink" class="w3-modal w3-card">
     <div class="w3-modal-content w3-animate-top w3-card-4">
       <header class="w3-container w3-blue"> 
         <span onclick="CloseModal();" class="w3-button w3-display-topright">&times;</span>
