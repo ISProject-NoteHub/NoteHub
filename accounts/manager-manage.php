@@ -93,68 +93,72 @@
     <div class="w3-container w3-padding">
       <!--Equivalent of the old #Editor-->
       <div style="margin-top: 52px;"></div>
-      <h2 style="margin-top: 20px; padding-left: 0px;">Quick Stats</h2>
 
-      <!--PHP prints the number of private notes and suggestions-->
-      <div class="w3-row-padding" style="margin-left: -16px; margin-top: 7.5px;">
-        <div class="w3-quarter">
-					<div class="w3-card w3-container w3-green w3-margin-bottom stat">
-   					<p>
-      				<span style="font-size:26px;"><?php
-        				//Calculate no. of contributions
-              ?>21<!--For example--></span><br><?php
-                //If number of contribs is 1, print "contribution". If else, print "contributions".
-              ?>Contributions<br>
-   					</p>
-  				</div>
-      	</div>
-        <div class="w3-quarter">
-					<div class="w3-card w3-container w3-teal w3-margin-bottom stat">
-   					<p>
-      				<span style="font-size:26px;"><?php
-        				echo count(ListPrivateNotes(explode(",", base64_decode($_COOKIE["signedIn"]))[0], explode(",", base64_decode($_COOKIE["signedIn"]))[1]));
-              ?></span><br><?php
-                if (count(ListPrivateNotes(explode(",", base64_decode($_COOKIE["signedIn"]))[0], explode(",", base64_decode($_COOKIE["signedIn"]))[1])) == 1) {
-                  print("Private Note");
-                } else {
-                  print("Private Notes");
-                }
-              ?><br>
-   					</p>
-  				</div>
-      	</div>
-        <div class="w3-quarter">
-          <div class="w3-card-2 w3-container w3-blue w3-margin-bottom stat">
-            <p>
-              <span style="font-size:26px;"><?php
-              	echo count($suggestions);
-              ?></span><br>New Suggestions on your Public Notes
-            </p>
+      <div class="w3-container w3-card account-option account-option-first">
+        <h2>Quick Stats</h2>
+        <!--PHP prints the number of private notes and suggestions-->
+        <div class="w3-row-padding" style="margin-left: -16px; margin-top: 7.5px;">
+          <div class="w3-quarter">
+            <div class="w3-card w3-container w3-green w3-margin-bottom stat">
+              <p>
+                <span style="font-size:26px;"><?php
+                  //Calculate no. of contributions
+                ?>21<!--For example--></span><br><?php
+                  //If number of contribs is 1, print "contribution". If else, print "contributions".
+                ?>Contributions<br>
+              </p>
+            </div>
           </div>
-        </div>
-        <div class="w3-quarter">
-          <div class="w3-card-2 w3-container w3-purple w3-margin-bottom stat">
-            <p>
-              <!--PHP prints number of new suggestions-->
-              You are following<br><span style="font-size:26px;">0</span><br>topics
-            </p>
+          <div class="w3-quarter">
+            <div class="w3-card w3-container w3-teal w3-margin-bottom stat">
+              <p>
+                <span style="font-size:26px;"><?php
+                  echo count(ListPrivateNotes(explode(",", base64_decode($_COOKIE["signedIn"]))[0], explode(",", base64_decode($_COOKIE["signedIn"]))[1]));
+                ?></span><br><?php
+                  if (count(ListPrivateNotes(explode(",", base64_decode($_COOKIE["signedIn"]))[0], explode(",", base64_decode($_COOKIE["signedIn"]))[1])) == 1) {
+                    print("Private Note");
+                  } else {
+                    print("Private Notes");
+                  }
+                ?><br>
+              </p>
+            </div>
+          </div>
+          <div class="w3-quarter">
+            <div class="w3-card-2 w3-container w3-blue w3-margin-bottom stat">
+              <p>
+                <span style="font-size:26px;"><?php
+                  echo count($suggestions);
+                ?></span><br>New Suggestions on your Public Notes
+              </p>
+            </div>
+          </div>
+          <div class="w3-quarter">
+            <div class="w3-card-2 w3-container w3-purple w3-margin-bottom stat">
+              <p>
+                <!--PHP prints number of new suggestions-->
+                You are following<br><span style="font-size:26px;">0</span><br>topics
+              </p>
+            </div>
           </div>
         </div>
       </div>
 
       <!--Help Menu-->
-      <h2 style="padding-top: 10px;">Help Menu</h2>
-      
-      <div class="w3-row-padding" style="margin-left: -16px; margin-top: 7.5px;">
-      	<div class="w3-third">
-					<div class="w3-card w3-container w3-green w3-margin-bottom">
-   					<a href="../help" style="text-decoration: none; color: white !important;"><span style="font-size: 18px; margin: 0px;" class="w3-container">Getting Started with NoteHub</span><br></a>
-  				</div>
-      	</div>
-        <div class="w3-third">
-          <div class="w3-card-2 w3-container w3-light-grey w3-margin-bottom">
-            <!--PHP prints number of new suggestions-->
-            <a href="../help/gallery.php" style="text-decoration: none; color: black !important;"><span style="font-size: 18px; margin: 0px;" class="w3-container">Navigating the NoteHub Gallery</span><br></a>
+      <div class="w3-container w3-card account-option">
+        <h2>Help Menu</h2>
+        
+        <div class="w3-row-padding" style="margin-left: -16px; margin-top: 7.5px;">
+          <div class="w3-third">
+            <div class="w3-card w3-container w3-green w3-margin-bottom">
+              <a href="../help" style="text-decoration: none; color: white !important;"><span style="font-size: 18px; margin: 0px;" class="w3-container">Getting Started with NoteHub</span><br></a>
+            </div>
+          </div>
+          <div class="w3-third">
+            <div class="w3-card-2 w3-container w3-light-grey w3-margin-bottom">
+              <!--PHP prints number of new suggestions-->
+              <a href="../help/gallery.php" style="text-decoration: none; color: black !important;"><span style="font-size: 18px; margin: 0px;" class="w3-container">Navigating the NoteHub Gallery</span><br></a>
+            </div>
           </div>
         </div>
       </div>
