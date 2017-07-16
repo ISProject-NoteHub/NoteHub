@@ -306,7 +306,7 @@
             <ul>
               <li>Anyone can suggest</li>
               <li>You have full control over note content</li>
-              <li>Subject to intelligent algorithms</li>
+              <li>Subject to intelligent algorithms.</li>
             </ul>
           <input type="radio">&nbsp;&nbsp;Private, Viewable
             <ul>
