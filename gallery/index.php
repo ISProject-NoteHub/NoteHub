@@ -6,6 +6,7 @@
   <link href="../logo.png" rel="icon" />
   <link href="./gallery-styling.css" rel="stylesheet" />
   <link href="/resources/stylesheets/test-styling.css" rel="stylesheet" />
+  <link href="/resources/stylesheets/w3.css" rel="stylesheet" />
 
   <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
 
@@ -23,44 +24,47 @@
 
   <a style="line-height: 1.5;" id="Page-SignIn" href="/accounts/sign-in.php">Sign In</a>
 
-  <div id="Page-Contents">
-    <label style="font-size: 28px;" id="SignedInContent-Welcome">Gallery</label>
+  <div id="Page-Contents" class="w3-main w3-animate-bottom">
+    <h1>Gallery</h1>
     <!--Top picks, based on likes-->
-    <label class="SectionHead">Recommended for You</label>
+    <div class="w3-card w3-border-blue w3-container">
+      <h2 class="SectionHead">Recommended for You</h2>
 
-    <div class="SectionContents">
-      <div class="Note">
-        <div class="Note-Image">
-          World War I - A Brief Introduction
-          <br><br><span style="font-size: 14px;">by historymvc</span>
-        </div>
-        <div class="Note-Details">
-          World War I - A Brief Introduction
-        </div>
-        <div class="Note-Author">By historymvc</div>
-        <div class="Note-Stats">
-          <div class="Note-Likes">Over 9000</div>
-          <div class="Note-Dislikes">10</div>
+      <div class="SectionContents">
+        <div class="Note">
+          <div class="Note-Image">
+            World War I - A Brief Introduction
+            <br><br><span style="font-size: 14px;">by historymvc</span>
+          </div>
+          <div class="Note-Details">
+            World War I - A Brief Introduction
+          </div>
+          <div class="Note-Author">By historymvc</div>
+          <div class="Note-Stats">
+            <div class="Note-Likes">Over 9000</div>
+            <div class="Note-Dislikes">10</div>
+          </div>
         </div>
       </div>
     </div>
 
-    <!--Recommendations-->
-    <label class="SectionHead">Try Something New!</label>
-    
-    <div class="SectionContents">
-      <div class="Note">
-        <div class="Note-Image">
-          World War I - A Brief Introduction
-          <br><br><span style="font-size: 14px;">by historymvc</span>
-        </div>
-        <div class="Note-Details">
-          World War I - A Brief Introduction
-        </div>
-        <div class="Note-Author">By historymvc</div>
-        <div class="Note-Stats">
-          <div class="Note-Likes">Over 9000</div>
-          <div class="Note-Dislikes">10</div>
+    <div class="w3-card w3-border-blue w3-container">
+      <h2 class="SectionHead">Try Something New!</h2>
+      
+      <div class="SectionContents">
+        <div class="Note">
+          <div class="Note-Image">
+            World War I - A Brief Introduction
+            <br><br><span style="font-size: 14px;">by historymvc</span>
+          </div>
+          <div class="Note-Details">
+            World War I - A Brief Introduction
+          </div>
+          <div class="Note-Author">By historymvc</div>
+          <div class="Note-Stats">
+            <div class="Note-Likes">Over 9000</div>
+            <div class="Note-Dislikes">10</div>
+          </div>
         </div>
       </div>
     </div>
