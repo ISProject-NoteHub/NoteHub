@@ -193,7 +193,7 @@
       </span>
     </div>
 
-    <div class="w3-card w3-green" id="App-Mode">Suggesting Only</div>
+    <div class="w3-card w3-green w3-round-large" id="App-Mode">Editing - Is Owner</div>
 
     <div>
       <div id="Fluffy" style="margin-top: 52px;"></div>
