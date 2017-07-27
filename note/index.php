@@ -193,7 +193,10 @@
       </span>
     </div>
 
-    <div class="w3-card w3-green w3-round-large" id="App-Mode">Editing - Is Owner</div>
+    <div class="w3-card w3-green w3-round-large" id="App-Mode">
+    <?php
+      if (!isset($_GET["note"])) { echo "Editing - Is Owner"; }
+    ?></div>
 
     <div>
       <div id="Fluffy" style="margin-top: 52px;"></div>
@@ -209,7 +212,6 @@
       <div id="Notes-References" style="display: none;" class="city">
         <div class="w3-padding"><b>References</b></div>
         <div class="w3-padding">
-          <!--When possible, push the styles to the editor-styling.css stylesheet-->
           Public notes are always better with references! Our algorithm will award more credibility points to notes with credible sources.
           <br><br>
 
@@ -270,6 +272,10 @@
     <span class="ErrorText">Please set a name for your note.</span>
   </div>
 
+  <div id="Snackbar-DuplicateReference" class="w3-snackbar">
+    <span class="ErrorText">You're trying to add a duplicate reference.</span>
+  </div>
+
   <!--Modal Dialogs-->
   <div id="Modal-Rename" class="w3-modal w3-card">
     <div class="w3-modal-content w3-animate-top w3-card-4">
@@ -299,7 +305,9 @@
       </header>
 
       <div class="w3-container w3-padding">
-        <h4 title="This is only updated when you save your note."><b>Note Name: </b></h4><span id="NoteInfo-NoteName" title="This is only updated when you save your note.">New Notebook</span><br><br>
+        <h4 title="This is only updated when you save your note."><b>Note Name: </b></h4>
+        <span id="NoteInfo-NoteName" title="This is only updated when you save your note.">New Notebook</span><br><br>
+
         <h4><b>Note Privacy</b></h4>
         <form action="" id="NoteInfo-NotePrivacy" style="width: 100%; padding: 10px;">
           <input type="radio" checked>&nbsp;&nbsp;Public
@@ -322,14 +330,16 @@
             </ul>
         </form>
         <a href="https://notehub.ga/view-note" target="_blank">Learn more about note privacy</a><br><br>
-        <h4><b>Last Modified: </b><span id="NoteInfo-LastModified">Today</span></h4>
 
-        <h4><b>Note Tags:</b></h4>
+        <h4><b>Last Modified: </b>
+        <span id="NoteInfo-LastModified">Today</span></h4>
+
+        <h4><b>Notebook Tags:</b></h4>
         <input id="NoteInfo-Tags" placeholder="Note Tags" />
         <label><b>Suggested: </b><span id="NoteInfo-SuggestedTags">
           <div class="FilePicker-Item-Tag" style="top: 0;">- No Suggestions -</div>
         </span><br>
-        <label>Notes are classified by tags. Tags are a factor when other users search for notes. Popular tags tend to be recommended to more people, and more often.</label><br>
+        <label>Notebooks are classified by tags. Tags are a factor when other users search for notes. Popular tags tend to be recommended to more people, and more often.</label><br>
         <a href="https://notehub.ga/note?edit=<note id in generated link...>" target="_blank">Learn more about tags</a><br><br>
       </div>
 
@@ -355,8 +365,8 @@
 
           <div class="Details-Content">
             <div class="w3-row">
-              <div id="SaveAs-Header1" style="cursor: pointer;" class="w3-container w3-cell w3-blue" onclick="SwitchToFiles(1);"><h5>Public Notes</h5></div>
-              <div id="SaveAs-Header2" style="cursor: pointer;" class="w3-container w3-cell w3-light-grey" onclick="SwitchToFiles(2);"><h5>Your Private Notes</h5></div>
+              <div id="SaveAs-Header1" style="cursor: pointer;" class="w3-container w3-cell w3-blue" onclick="SwitchToFiles(1);"><h5>Public Notebooks</h5></div>
+              <div id="SaveAs-Header2" style="cursor: pointer;" class="w3-container w3-cell w3-light-grey" onclick="SwitchToFiles(2);"><h5>Your Private Notebooks</h5></div>
             </div>
 
             <div class="w3-light-grey">
@@ -365,7 +375,7 @@
                 <div id="SaveAs-Content1-Content"></div>
               </div>
               <div id="SaveAs-Content2" style="display: none;">
-                <div id="SaveAs-Content2-Objects" class="w3-padding w3-blue">Private Notes</div>
+                <div id="SaveAs-Content2-Objects" class="w3-padding w3-blue">Private Notebooks</div>
                 <div id="SaveAs-Content2-Content"></div>
               </div>
             </div>

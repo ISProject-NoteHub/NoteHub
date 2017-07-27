@@ -13,45 +13,53 @@ function AddReference() {
     setTimeout(900, function() { c.style.animation = ""; });
   }
   else {
-    if (noteProperties.references == null) {
-      a.deleteRow(1);
-      noteProperties.references = [];
+    duplicateReference = false;
+
+    for (i = 0; i < notebook[notebook.length - 1].content.length; i++) {
+      if (notebook[notebook.length - 1].content[i].name == b.value) {
+        ShowSnackBar("DuplicateReference");
+        duplicateReference = true;
+      }
     }
 
-    noteProperties.references[noteProperties.references.length] = {
-      type: d,
-      name: b.value, author: c.value
-    };
+    if (duplicateReference !== true) {
+      if (notebook[notebook.length - 1].content.length == 0) { a.deleteRow(1); }
 
-    var reference = a.insertRow(-1);
+      notebook[notebook.length - 1].content[notebook[notebook.length - 1].content.length] = {
+        type: d,
+        name: b.value, author: c.value
+      };
 
-    var type = reference.insertCell(-1);
-    var name = reference.insertCell(-1);
-    var author = reference.insertCell(-1);
+      var reference = a.insertRow(-1);
 
-    switch (d) {
-      case 0:
-        type.innerHTML = "Written Work";
-        name.innerHTML = b.value;
-        break;
-      
-      case 1:
-        type.innerHTML = "Website";
-        name.innerHTML = "<a target='_blank' href='" + b.value + "'>" + b.value + "</a>";
-        break;
-      
-      case 2:
-        type.innerHTML = "Multimedia";
-        name.innerHTML = "<a target='_blank' href='" + b.value + "'>" + b.value + "</a>";
-        break;
-      
-      case 3:
-        type.innerHTML = "Other";
-        name.innerHTML = b.value;
-        break;
+      var type = reference.insertCell(-1);
+      var name = reference.insertCell(-1);
+      var author = reference.insertCell(-1);
+
+      switch (d) {
+        case 0:
+          type.innerHTML = "Written Work";
+          name.innerHTML = b.value;
+          break;
+        
+        case 1:
+          type.innerHTML = "Website";
+          name.innerHTML = "<a target='_blank' href='" + b.value + "'>" + b.value + "</a>";
+          break;
+        
+        case 2:
+          type.innerHTML = "Multimedia";
+          name.innerHTML = "<a target='_blank' href='" + b.value + "'>" + b.value + "</a>";
+          break;
+        
+        case 3:
+          type.innerHTML = "Other";
+          name.innerHTML = b.value;
+          break;
+      }
+
+      author.innerHTML = c.value;
     }
-
-    author.innerHTML = c.value;
   }
 }
 
