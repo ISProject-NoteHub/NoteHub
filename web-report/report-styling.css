@@ -1,5 +1,30 @@
 body {
-  background-image: url("IMG_20170802_225801.jpg");
   background-repeat: no-repeat;
+  height: 100%;
+  background-image: url("IMG_20170802_225801.jpg");
   background-size: cover;
+  background-attachment: fixed;
+}
+
+.top {
+  vertical-align: middle;
+  text-align: center;
+  font-size: 50px;
+  color: white;
+  background-color: rgba(1, 152, 255, 0.75);
+  height: 100vh;
+  position: fixed;
+  margin-bottom: 100vh;
+}
+
+.top img {
+  margin-top: 4%;
+}
+
+.panel {
+  opacity: 0.5;
+}
+
+b {
+  font-weight: bolder;
 }
