@@ -14,14 +14,14 @@ $(window).on('scroll', function () {
         top: "-20px",
         height: "70px",
         fontSize: "20px",
-      },100);
+      },200);
       hideLogo();
     } else {
       $('.top').stop().animate({
         top: "0",
         height: "100vh",
         fontSize: "50px",
-      },100);
+      },200);
       showLogo();
     }
 });
