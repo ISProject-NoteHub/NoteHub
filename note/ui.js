@@ -45,6 +45,7 @@ function AddReference() {
         case 1:
           type.innerHTML = "Website";
           name.innerHTML = "<a target='_blank' href='" + b.value + "'>" + b.value + "</a>";
+
           break;
         
         case 2:

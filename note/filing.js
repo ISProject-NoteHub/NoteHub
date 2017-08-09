@@ -6,11 +6,5 @@ function PrepareSaveAs() {
     ListSuggestions();
     otherTags.addTags(noteProperties.tags.getTags());
     ShowModal("SaveAs");
-
-    ListNotes();
   }
-}
-
-function ListNotes() {
-  
 }

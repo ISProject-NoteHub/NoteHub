@@ -372,11 +372,26 @@
             <div class="w3-light-grey">
               <div id="SaveAs-Content1">
                 <div id="SaveAs-Content1-Objects" class="w3-padding w3-blue">Notebooks</div>
-                <div id="SaveAs-Content1-Content"></div>
+                <div id="SaveAs-Content1-Content"><?php
+                  //Get public notebooks
+                ?></div>
               </div>
               <div id="SaveAs-Content2" style="display: none;">
-                <div id="SaveAs-Content2-Objects" class="w3-padding w3-blue">Private Notebooks</div>
-                <div id="SaveAs-Content2-Content"></div>
+                <div id="SaveAs-Content2-Objects" class="w3-padding w3-blue"><i class="fa fa-book" aria-hidden="true"></i>&nbsp;&nbsp;Private Notebooks</div>
+                <div id="SaveAs-Content2-Content"><?php
+                  //Get private notebooks
+                  include("../databases/notes/private-notes/list.php");
+                  $privateNotes = ListPrivateNotes(explode(",", base64_decode($_COOKIE["signedIn"]))[0]);
+                  $privateNotes = str_replace(".json", "", $privateNotes);
+
+                  if ($privateNotes == '[".",".."]') { echo "<div class='w3-button' style='width: calc(100% - 32px); background-color: transparent;'>You don't seem to have any private notes yet.<br>&#xAF;\\_(&#x30C4;)_/&#xAF;</div>"; }
+                  else {
+                    $privateNotes = json_decode($privateNotes);
+                    for ($i = 2; $i < count($privateNotes); $i++) {
+                      echo "<div class='w3-button' style='width: calc(100% - 32px); text-align: left;' onclick='document.getElementById(\"SaveAs-NoteName\").value = \"{$privateNotes[$i]}\";'>{$privateNotes[$i]}</div>";
+                    }
+                  }
+                ?></div>
               </div>
             </div>
 
