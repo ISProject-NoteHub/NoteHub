@@ -38,7 +38,7 @@
           include("../note/backend/private-notes.php");
           $privateNotes = ListPrivateNotes(explode(",", base64_decode($_COOKIE["signedIn"]))[0], explode(",", base64_decode($_COOKIE["signedIn"]))[1]);
 
-          if (empty($privateNotes)) { echo "<div class='w3-button' style='width: calc(100% - 32px); background-color: transparent;'>You don't seem to have any private notes yet.<br>&#xAF;\\_(&#x30C4;)_/&#xAF;</div>"; }
+          if (empty($privateNotes)) { echo "<div class='w3-button w3-large' style='width: 100%; background-color: transparent;'>You don't seem to have any private notes yet.<br>&#xAF;\\_(&#x30C4;)_/&#xAF;</div>"; }
           else {
             for ($i = 0; $i < count($privateNotes); $i++) {
               echo '<div class="Note">
