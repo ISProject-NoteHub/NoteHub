@@ -25,24 +25,35 @@
   <a style="line-height: 1.5;" id="Page-SignIn" href="/accounts/manager-manage.php"><?php echo explode(",", base64_decode($_COOKIE["signedIn"]))[0]; ?></a>
 
   <div id="Page-Contents" class="w3-main w3-animate-bottom">
-    <h1>My Private Notes</h1>
+    <h1>Your Private Notebooks</h1>
     <!--Top picks, based on likes-->
     <div class="w3-card w3-border-blue w3-container">
       <div class="SectionContents">
-        <div class="Note">
-          <div class="Note-Image">
-            World War I - A Brief Introduction
-            <br><br><span style="font-size: 14px;">by historymvc</span>
-          </div>
-          <div class="Note-Details">
-            World War I - A Brief Introduction
-          </div>
-          <div class="Note-Author">By historymvc</div>
-          <div class="Note-Stats">
-            <div class="Note-Likes">Over 9000</div>
-            <div class="Note-Dislikes">10</div>
-          </div>
-        </div>
+        <?php
+          //Get private notebooks
+          include("../databases/microdb/Database.php");
+          include("../databases/microdb/Cache.php");
+          include("../databases/microdb/Event.php");
+          include("../databases/microdb/Index.php");
+          include("../note/backend/private-notes.php");
+          $privateNotes = ListPrivateNotes(explode(",", base64_decode($_COOKIE["signedIn"]))[0], explode(",", base64_decode($_COOKIE["signedIn"]))[1]);
+
+          if (empty($privateNotes)) { echo "<div class='w3-button' style='width: calc(100% - 32px); background-color: transparent;'>You don't seem to have any private notes yet.<br>&#xAF;\\_(&#x30C4;)_/&#xAF;</div>"; }
+          else {
+            for ($i = 0; $i < count($privateNotes); $i++) {
+              echo '<div class="Note">
+                <div class="Note-Image">
+                  ' . $privateNotes[$i] . '
+                  <br><br><span style="font-size: 14px;">by ' . explode(",", base64_decode($_COOKIE["signedIn"]))[0] . '</span>
+                </div>
+                <div class="Note-Details">
+                  ' . $privateNotes[$i] . '
+                </div>
+                <div class="Note-Author">By historymvc</div>
+              </div>';
+            }
+          }
+        ?>
       </div>
     </div>
   </div>
