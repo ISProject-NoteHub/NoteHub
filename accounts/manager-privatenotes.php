@@ -49,7 +49,7 @@
                 <div class="Note-Details">
                   ' . $privateNotes[$i] . '
                 </div>
-                <div class="Note-Author">By historymvc</div>
+                <div class="Note-Author">By ' . explode(",", base64_decode($_COOKIE["signedIn"]))[0] . '</div>
               </div>';
             }
           }
