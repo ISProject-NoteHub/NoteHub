@@ -67,6 +67,11 @@ function AddReference() {
 //Display note from JSON
 function LoadBook() {
   for (i = 0; i < notebook.length; i++) {
+    //Set editor mode
+    if ((user.username !== notebook[0].author) && (noteProperties.private == "true")) { document.getElementById("App-Mode").innerHTML = "Viewing - Is Viewer"; }
+    if ((user.username !== notebook[0].author) && (noteProperties.private == "false")) { document.getElementById("App-Mode").innerHTML = "Suggesting"; }
+    else if (user.username == notebook[0].author) { document.getElementById("App-Mode").innerHTML = "Editing - Is Owner"; }
+
     //Display note tab header
     var tab = document.getElementById("TabStrip").insertCell(-1);
 

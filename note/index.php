@@ -34,7 +34,7 @@
   <script>
     var noteProperties = {
       name: "",
-      private: false,
+      private: <?php if (!isset($_GET["private"])) { echo "false"; } else { echo $_GET["private"]; } ?>,
       tags: null, author: "..."
     };
 
@@ -73,7 +73,7 @@
       padding: 5px;
     }
 
-/*Dialogs*/
+    /*Dialogs*/
     #References-AddBar {
       display: flex;  
       flex-flow: row wrap;
@@ -97,7 +97,7 @@
     #Reference-Table th, #Reference-Table td { padding: 7.5px; text-align: left; }
     #Reference-Table th { background-color: lightgrey; }
 
-  /*Unique CKEditor styling*/
+    /*Unique CKEditor styling*/
     #cke_Editor {
       position: absolute;
     }
