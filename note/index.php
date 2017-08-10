@@ -337,7 +337,7 @@
               <li>Not subject to inteligent algorithms.</li>
             </ul>
         </form>
-        <a href="https://notehub.ga/view-note" target="_blank">Learn more about note privacy</a><br><br>
+        <a href="https://beta.notehub.ga/note/index.php?note=TheoLeeCJ/NoteHub%20-%20Note%20Privacy&private=true" target="_blank">Learn more about note privacy</a><br><br>
 
         <h4><b>Last Modified: </b>
         <span id="NoteInfo-LastModified">Today</span></h4>
