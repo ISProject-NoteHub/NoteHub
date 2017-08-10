@@ -466,7 +466,29 @@
 
   <script>
     notebook = <?php
-      if (isset($_GET["note"])) { /*Get note*/ }
+      if ((isset($_GET["note"])) && ($_GET["private"] == "true")) {
+        error_reporting(0);
+
+        $path = $_SERVER['DOCUMENT_ROOT'];
+        $path .= "/databases/notes/private-notes/" . explode(',', base64_decode($_COOKIE['signedIn']))[0] . "/" . $_GET["note"] . ".txt";
+        
+        $getNote = file_get_contents($path);
+        if ($getNote !== false) { echo $getNote; }
+        else {
+          $note[0] = array(
+            "name" => "New Note", "type" => "Note",
+            "author" => explode(',', base64_decode($_COOKIE['signedIn']))[0],
+            "content" => "<p><h1><b>An Error Occurred :(</b></h1></p><hr><p>NoteHub was unable to retrive this private note, either because you don't have permissions to access it or due to <a href='https://en.wikipedia.org/wiki/Cosmic_ray'>cosmic rays</a>. We're sorry for any incovenience caused.</p>"
+          );
+          $note[1] = array(
+            "name" => "References", "type" => "References",
+            "author" => "all",
+            "content" => []
+          );
+
+          echo json_encode($note);
+        }
+      }
       else {
         $note = [];
         $note[0] = array(
