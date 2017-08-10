@@ -470,7 +470,7 @@
         error_reporting(0);
 
         $path = $_SERVER['DOCUMENT_ROOT'];
-        $path .= "/databases/notes/private-notes/" . explode(',', base64_decode($_COOKIE['signedIn']))[0] . "/" . $_GET["note"] . ".txt";
+        $path .= "/databases/notes/private-notes/" . $_GET["note"] . ".txt";
         
         $getNote = file_get_contents($path);
         if ($getNote !== false) { echo $getNote; }
