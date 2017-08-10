@@ -1,5 +1,5 @@
 <?php
-  if (!isset($_COOKIE["signedIn"])) { header("Location: /accounts/sign-in.php"); }
+  if (!isset($_COOKIE["signedIn"]) && empty($_GET["note"])) { header("Location: /accounts/sign-in.php"); }
   else {
     include("../databases/microdb/Database.php");
     include("../databases/microdb/Cache.php");
