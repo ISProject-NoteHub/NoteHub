@@ -41,7 +41,7 @@
           if (empty($privateNotes)) { echo "<div class='w3-button w3-large' style='width: 100%; background-color: transparent;'>You don't seem to have any private notes yet.<br>&#xAF;\\_(&#x30C4;)_/&#xAF;</div>"; }
           else {
             for ($i = 0; $i < count($privateNotes); $i++) {
-              echo '<a class="Note" href="../note/index.php?note=' . $privateNotes[$i] . '&private=true">
+              echo '<a class="Note" style="color: black !important;" href="../note/index.php?note=' . $privateNotes[$i] . '&private=true">
                 <div class="Note-Image">
                   ' . $privateNotes[$i] . '
                   <br><br><span style="font-size: 14px;">by ' . explode(",", base64_decode($_COOKIE["signedIn"]))[0] . '</span>
