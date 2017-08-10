@@ -6,6 +6,61 @@ body {
   background-attachment: fixed;
 }
 
+.credits {
+  width: 25%;
+  float: left;
+  height: 100%;
+}
+
+.comparison {
+  display: table-cell;
+  margin: 16px calc((100% - 960px)/2);
+}
+
+.timeline {
+  display: inline-block;
+  height: 100px;
+  line-height: 85px;
+  font-size: 30px;
+  text-align: center;
+  vertical-align: middle;
+  width: calc((100vw - 200px) / 4)
+}
+
+@media screen and (max-width: 1260px) {
+  .timeline {
+    font-size: 17px;
+  }
+}
+
+.timeline-container {
+  text-align: center;
+}
+
+.corecode-info, .interface-info, .accounts-info, .testing-info {
+  display: none;
+}
+
+.corecode:hover ~ .corecode-info {
+  display: block;
+}
+
+.interface:hover ~ .interface-info {
+  display: block;
+}
+
+.accounts:hover ~ .accounts-info {
+  display: block;
+}
+
+.testing:hover ~ .testing-info {
+  display: block;
+}
+
+.logos {
+  float: right;
+}
+
 .top {
   vertical-align: middle;
   text-align: center;
