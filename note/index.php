@@ -1,5 +1,11 @@
 <?php
   if (!isset($_COOKIE["signedIn"])) { header("Location: /accounts/sign-in.php"); }
+  else {
+    include("../databases/microdb/Database.php");
+    include("../databases/microdb/Cache.php");
+    include("../databases/microdb/Event.php");
+    include("../databases/microdb/Index.php");
+  }
 ?>
 <!--HTML document begins here-->
 <!DOCTYPE html>
@@ -27,11 +33,9 @@
   <!--Global Variables-->
   <script>
     var noteProperties = {
-      noteOpened: false, noteAsObject: null,
+      name: "",
       private: false,
-      tags: null, author: "...",
-      references: null,
-      topic: null
+      tags: null, author: "..."
     };
 
     var notebook = [];
@@ -276,6 +280,10 @@
     <span class="ErrorText">You're trying to add a duplicate reference.</span>
   </div>
 
+  <div id="Snackbar-WarnOverwrite" class="w3-snackbar">
+    <span class="ErrorText">You'll overwrite an existing note with the same name.</span>
+  </div>
+
   <!--Modal Dialogs-->
   <div id="Modal-Rename" class="w3-modal w3-card">
     <div class="w3-modal-content w3-animate-top w3-card-4">
@@ -365,18 +373,31 @@
 
           <div class="Details-Content">
             <div class="w3-row">
-              <div id="SaveAs-Header1" style="cursor: pointer;" class="w3-container w3-cell w3-blue" onclick="SwitchToFiles(1);"><h5>Public Notebooks</h5></div>
-              <div id="SaveAs-Header2" style="cursor: pointer;" class="w3-container w3-cell w3-light-grey" onclick="SwitchToFiles(2);"><h5>Your Private Notebooks</h5></div>
+              <div id="SaveAs-Header1" style="cursor: pointer;" class="w3-container w3-cell w3-blue" onclick="noteProperties.private = false; SwitchToFiles(1);"><h5>Public Notebooks</h5></div>
+              <div id="SaveAs-Header2" style="cursor: pointer;" class="w3-container w3-cell w3-light-grey" onclick="noteProperties.private = true; SwitchToFiles(2);"><h5>Your Private Notebooks</h5></div>
             </div>
 
             <div class="w3-light-grey">
               <div id="SaveAs-Content1">
                 <div id="SaveAs-Content1-Objects" class="w3-padding w3-blue">Notebooks</div>
-                <div id="SaveAs-Content1-Content"></div>
+                <div id="SaveAs-Content1-Content"><?php
+                  //Get public notebooks
+                ?></div>
               </div>
               <div id="SaveAs-Content2" style="display: none;">
-                <div id="SaveAs-Content2-Objects" class="w3-padding w3-blue">Private Notebooks</div>
-                <div id="SaveAs-Content2-Content"></div>
+                <div id="SaveAs-Content2-Objects" class="w3-padding w3-blue"><i class="fa fa-book" aria-hidden="true"></i>&nbsp;&nbsp;Private Notebooks</div>
+                <div id="SaveAs-Content2-Content"><?php
+                  //Get private notebooks
+                  include("backend/private-notes.php");
+                  $privateNotes = ListPrivateNotes(explode(",", base64_decode($_COOKIE["signedIn"]))[0], explode(",", base64_decode($_COOKIE["signedIn"]))[1]);
+
+                  if (empty($privateNotes)) { echo "<div class='w3-button' style='width: calc(100% - 32px); background-color: transparent;'>You don't seem to have any private notes yet.<br>&#xAF;\\_(&#x30C4;)_/&#xAF;</div>"; }
+                  else {
+                    for ($i = 0; $i < count($privateNotes); $i++) {
+                      echo "<div class='w3-button' style='width: calc(100% - 32px); text-align: left;' onclick='noteProperties.name = \"{$privateNotes[$i]}\"; ShowSnackBar(\"WarnOverwrite\"); document.getElementById(\"SaveAs-NoteName\").value = \"{$privateNotes[$i]}\";'>{$privateNotes[$i]}</div>";
+                    }
+                  }
+                ?></div>
               </div>
             </div>
 
@@ -389,7 +410,7 @@
 
           <div class="Details-Content">
             <p>
-              Note tags are displayed on your note as tags, for users to see. They are also a factor when other users search for notes using tags. Popular tags tend to be displayed at the top of the gallery feed.
+              Note tags are displayed on your note as tags, for users to see. They are also a factor when other users search for notes using tags. Popular tags tend to be displayed at the top of the gallery feed.<br>NOTE: Tags don't matter for private notes.
             </p>
 
             <input id="SaveAs-Tags" /><label><b>Suggested / Warnings: </b><span id="SaveAs-SuggestedTags">
@@ -414,6 +435,7 @@
       </header>
 
       <div id="Saving-Status" style="text-align: -webkit-center;" class="w3-container w3-padding">
+        <i class="fa fa-fw fa-times fa-5x" aria-hidden="true"></i>
         <i class="fa fa-fw fa-check fa-5x" aria-hidden="true"></i>
         <i class="fa fa-fw fa-spinner fa-pulse fa-5x fa-fw "></i>
       </div>
