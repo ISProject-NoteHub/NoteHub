@@ -317,26 +317,26 @@
         <span id="NoteInfo-NoteName" title="This is only updated when you save your note.">New Notebook</span><br><br>
 
         <h4><b>Note Privacy</b></h4>
-        <form action="" id="NoteInfo-NotePrivacy" style="width: 100%; padding: 10px;">
+        <div id="NoteInfo-NotePrivacy" style="width: 100%; padding: 10px;">
           <input type="radio" checked>&nbsp;&nbsp;Public
-            <ul>
-              <li>Anyone can suggest</li>
-              <li>You have full control over note content</li>
-              <li>Subject to intelligent algorithms.</li>
-            </ul>
+          <ul>
+            <li>Anyone can suggest</li>
+            <li>You have full control over note content</li>
+            <li>Subject to intelligent algorithms.</li>
+          </ul>
           <input type="radio">&nbsp;&nbsp;Private, Viewable
-            <ul>
-              <li>Viewable by anyone</li>
-              <li>Only specific people may edit this note</li>
-              <li>Not subject to inteligent algorithms.</li>
-            </ul>
+          <ul>
+            <li>Viewable by anyone</li>
+            <li>Only specific people may edit this note</li>
+            <li>Not subject to inteligent algorithms.</li>
+          </ul>
           <input type="radio">&nbsp;&nbsp;Private, Restricted
-            <ul>
-              <li>Only specific people may view this note</li>
-              <li>Only specific people may edit this note</li>
-              <li>Not subject to inteligent algorithms.</li>
-            </ul>
-        </form>
+          <ul>
+            <li>Only specific people may view this note</li>
+            <li>Only specific people may edit this note</li>
+            <li>Not subject to inteligent algorithms.</li>
+          </ul>
+        </div>
         <a href="https://beta.notehub.ga/note/index.php?note=TheoLeeCJ/NoteHub%20-%20Note%20Privacy&private=true" target="_blank">Learn more about note privacy</a><br><br>
 
         <h4><b>Last Modified: </b>
