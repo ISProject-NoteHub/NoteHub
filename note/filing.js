@@ -32,12 +32,24 @@ function SaveNote() {
     getPHPFile.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
         console.log(getPHPFile.responseText);
-        if (getPHPFile.responseText == "Write successful.") document.getElementById("Saving-Status").innerHTML = '<i class="fa fa-fw fa-check fa-5x" aria-hidden="true"></i>';
+        if (getPHPFile.responseText == "Write successful.") {
+          //Update contributions
+          var updateContributions = new XMLHttpRequest();
+          updateContributions.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              document.getElementById("Saving-Status").innerHTML = '<i class="fa fa-fw fa-check fa-5x" aria-hidden="true"></i>';
+            }
+          }
+
+          updateContributions.open("POST", "filing.php");
+          updateContributions.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+          updateContributions.send("username=" + user.username + "&password=" + atob(user.password));
+        }
         else if (getPHPFile.responseText == "Write failed.") document.getElementById("Saving-Status").innerHTML = '<i class="fa fa-fw fa-times fa-5x" aria-hidden="true"></i>';
       }
     }
     getPHPFile.open("POST", "filing.php");
     getPHPFile.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    getPHPFile.send("username=" + user.username + "&password=" + atob(user.password) + "&noteName=" + noteProperties.name + "&noteContent=" + encodeURIComponent(JSON.stringify(notebook)));
+    getPHPFile.send("private=" + noteProperties.private + "&username=" + user.username + "&password=" + atob(user.password) + "&noteName=" + noteProperties.name + "&noteContent=" + encodeURIComponent(JSON.stringify(notebook)));
   }
 }

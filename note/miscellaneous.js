@@ -6,6 +6,7 @@ window.addEventListener("load", function() {
   //CKEditor Initialisation
   CKEDITOR.replace("Editor");
   CKEDITOR.config.resize_enabled = false;
+  if (user.username == "") { CKEDITOR.config.readOnly = true; }
 
   //Initialise notebook contents
   CKEDITOR.on("instanceReady", function(evt) {

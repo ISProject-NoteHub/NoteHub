@@ -8,8 +8,6 @@
     $accountData = $db -> load(1);
     $accounts = count($accountData);
 
-    error_log($username); error_log($password);
-
     for ($i = 0; $i < $accounts; $i++) {
       if (($accountData[$i][0] == $username) && password_verify($password, $accountData[$i][1])) {
         $incorrect = false;

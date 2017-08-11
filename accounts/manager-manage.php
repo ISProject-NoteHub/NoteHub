@@ -1,5 +1,5 @@
 <?php
-  $suggestions = [];
+  $suggestions = []; $contributions = 0;
 
   if (!isset($_COOKIE["signedIn"])) { header("Location: sign-in.php"); }
   else {
@@ -16,8 +16,10 @@
     $accounts = count($accountData);
 
     for ($i = 0; $i < $accounts; $i++) {
-      if (($accountData[$i][0] == base64_decode($_COOKIE["signedIn"])[0]) && password_verify(base64_decode($_COOKIE["signedIn"])[1], $accountData[$i][1])) {
-        $suggestions = $accountData[$i][3];
+      if (($accountData[$i][0] == explode(",", base64_decode($_COOKIE["signedIn"]))[0]) && password_verify(explode(",", base64_decode($_COOKIE["signedIn"]))[1], $accountData[$i][1])) {
+        $suggestions = $accountData[$i][4];
+        $following = $accountData[$i][5];
+        $contributions = $accountData[$i][3];
       }
     }
   }
@@ -102,10 +104,14 @@
             <div class="w3-card w3-container w3-green w3-margin-bottom stat">
               <p>
                 <span style="font-size:26px;"><?php
-                  //Calculate no. of contributions
-                ?>21<!--For example--></span><br><?php
-                  //If number of contribs is 1, print "contribution". If else, print "contributions".
-                ?>Contributions<br>
+                  echo $contributions;
+                ?></span><br><?php
+                  if ($contributions == 1) {
+                    print("Contribution");
+                  } else {
+                    print("Contrbutions");
+                  }
+                ?><br>
               </p>
             </div>
           </div>
@@ -136,8 +142,9 @@
           <div class="w3-quarter">
             <div class="w3-card-2 w3-container w3-purple w3-margin-bottom stat">
               <p>
-                <!--PHP prints number of new suggestions-->
-                You are following<br><span style="font-size:26px;">0</span><br>topics
+                You are following<br><span style="font-size:26px;"><?php
+                  echo count($following);
+                ?></span><br>topics
               </p>
             </div>
           </div>

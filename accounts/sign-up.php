@@ -24,7 +24,7 @@
         if (($accountData[$i][0] == $_POST["username"]) && ($accountData[$i][5] == "active"))  { $usernameTaken = true; }
 
         if (($i == ($accounts - 1)) && ($usernameTaken == false)) {
-          $accountData[$accounts] = array($_POST["username"], password_hash($_POST["password"], PASSWORD_DEFAULT), $_POST["email"], [], [], "active");
+          $accountData[$accounts] = array($_POST["username"], password_hash($_POST["password"], PASSWORD_DEFAULT), $_POST["email"], "0", [], [], "active");
           $db -> save(1, $accountData);
 
           //Cookies
