@@ -1,5 +1,5 @@
 <?php
-  if (!isset($_COOKIE["signedIn"])) { header("Location: /accounts/sign-in.php"); }
+  if (!isset($_COOKIE["signedIn"]) && empty($_GET["note"])) { header("Location: /accounts/sign-in.php"); }
   else {
     include("../databases/microdb/Database.php");
     include("../databases/microdb/Cache.php");
@@ -34,7 +34,7 @@
   <script>
     var noteProperties = {
       name: "",
-      private: false,
+      private: <?php if (!isset($_GET["private"])) { echo "false"; } else { echo $_GET["private"]; } ?>,
       tags: null, author: "..."
     };
 
@@ -73,7 +73,7 @@
       padding: 5px;
     }
 
-/*Dialogs*/
+    /*Dialogs*/
     #References-AddBar {
       display: flex;  
       flex-flow: row wrap;
@@ -97,7 +97,7 @@
     #Reference-Table th, #Reference-Table td { padding: 7.5px; text-align: left; }
     #Reference-Table th { background-color: lightgrey; }
 
-  /*Unique CKEditor styling*/
+    /*Unique CKEditor styling*/
     #cke_Editor {
       position: absolute;
     }
@@ -317,27 +317,27 @@
         <span id="NoteInfo-NoteName" title="This is only updated when you save your note.">New Notebook</span><br><br>
 
         <h4><b>Note Privacy</b></h4>
-        <form action="" id="NoteInfo-NotePrivacy" style="width: 100%; padding: 10px;">
+        <div id="NoteInfo-NotePrivacy" style="width: 100%; padding: 10px;">
           <input type="radio" checked>&nbsp;&nbsp;Public
-            <ul>
-              <li>Anyone can suggest</li>
-              <li>You have full control over note content</li>
-              <li>Subject to intelligent algorithms.</li>
-            </ul>
+          <ul>
+            <li>Anyone can suggest</li>
+            <li>You have full control over note content</li>
+            <li>Subject to intelligent algorithms.</li>
+          </ul>
           <input type="radio">&nbsp;&nbsp;Private, Viewable
-            <ul>
-              <li>Viewable by anyone</li>
-              <li>Only specific people may edit this note</li>
-              <li>Not subject to inteligent algorithms.</li>
-            </ul>
+          <ul>
+            <li>Viewable by anyone</li>
+            <li>Only specific people may edit this note</li>
+            <li>Not subject to inteligent algorithms.</li>
+          </ul>
           <input type="radio">&nbsp;&nbsp;Private, Restricted
-            <ul>
-              <li>Only specific people may view this note</li>
-              <li>Only specific people may edit this note</li>
-              <li>Not subject to inteligent algorithms.</li>
-            </ul>
-        </form>
-        <a href="https://notehub.ga/view-note" target="_blank">Learn more about note privacy</a><br><br>
+          <ul>
+            <li>Only specific people may view this note</li>
+            <li>Only specific people may edit this note</li>
+            <li>Not subject to inteligent algorithms.</li>
+          </ul>
+        </div>
+        <a href="https://beta.notehub.ga/note/index.php?note=TheoLeeCJ/NoteHub%20-%20Note%20Privacy&private=true" target="_blank">Learn more about note privacy</a><br><br>
 
         <h4><b>Last Modified: </b>
         <span id="NoteInfo-LastModified">Today</span></h4>
