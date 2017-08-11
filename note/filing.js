@@ -20,26 +20,24 @@ function SaveNote() {
         //Public notes, who cares
       }
     }
-    else {
-      //Update UI
-      document.getElementById("Saving-Status").innerHTML = '<i class="fa fa-fw fa-spinner fa-pulse fa-5x fa-fw "></i>';
-      ShowModal("Saving");
+    //Update UI
+    document.getElementById("Saving-Status").innerHTML = '<i class="fa fa-fw fa-spinner fa-pulse fa-5x fa-fw "></i>';
+    ShowModal("Saving");
 
-      //Update notebook object
-      notebook[currentNotebook].content = document.getElementsByClassName("cke_wysiwyg_frame cke_reset")[0].contentDocument.body.innerHTML;
+    //Update notebook object
+    notebook[currentNotebook].content = document.getElementsByClassName("cke_wysiwyg_frame cke_reset")[0].contentDocument.body.innerHTML;
 
-      //Perform request
-      var getPHPFile = new XMLHttpRequest();
-      getPHPFile.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-          console.log(getPHPFile.responseText);
-          if (getPHPFile.responseText == "Write successful.") document.getElementById("Saving-Status").innerHTML = '<i class="fa fa-fw fa-check fa-5x" aria-hidden="true"></i>';
-          else if (getPHPFile.responseText == "Write failed.") document.getElementById("Saving-Status").innerHTML = '<i class="fa fa-fw fa-times fa-5x" aria-hidden="true"></i>';
-        }
+    //Perform request
+    var getPHPFile = new XMLHttpRequest();
+    getPHPFile.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        console.log(getPHPFile.responseText);
+        if (getPHPFile.responseText == "Write successful.") document.getElementById("Saving-Status").innerHTML = '<i class="fa fa-fw fa-check fa-5x" aria-hidden="true"></i>';
+        else if (getPHPFile.responseText == "Write failed.") document.getElementById("Saving-Status").innerHTML = '<i class="fa fa-fw fa-times fa-5x" aria-hidden="true"></i>';
       }
-      getPHPFile.open("POST", "filing.php");
-      getPHPFile.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-      getPHPFile.send("username=" + user.username + "&password=" + atob(user.password) + "&noteName=" + noteProperties.name + "&noteContent=" + encodeURIComponent(JSON.stringify(notebook)));
     }
+    getPHPFile.open("POST", "filing.php");
+    getPHPFile.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    getPHPFile.send("username=" + user.username + "&password=" + atob(user.password) + "&noteName=" + noteProperties.name + "&noteContent=" + encodeURIComponent(JSON.stringify(notebook)));
   }
 }
