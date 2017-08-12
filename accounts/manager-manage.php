@@ -131,13 +131,13 @@
             </div>
           </div>
           <div class="w3-quarter">
-            <div class="w3-card-2 w3-container w3-blue w3-margin-bottom stat">
+            <a style="display: block; text-decoration: none;" class="w3-card-2 w3-container w3-blue w3-margin-bottom stat" href="manage-suggestions.php">
               <p>
                 <span style="font-size:26px;"><?php
                   echo count($suggestions);
                 ?></span><br>New Suggestions on your Public Notes
               </p>
-            </div>
+            </a>
           </div>
           <div class="w3-quarter">
             <div class="w3-card-2 w3-container w3-purple w3-margin-bottom stat">
