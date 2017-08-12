@@ -20,14 +20,17 @@
       <span style="float: left; margin: 10px"><img src="/logo.png" id="Page-Logo" /></span>
       <span style="font-weight: lighter;">Note</span><b>Hub</b>
     </a>
+    <span id="Page-Name"> | Gallery</span>
   </div>
 
-  <a style="line-height: 1.5;" id="Page-SignIn" href="/accounts/sign-in.php">Sign In</a>
+  <a style="line-height: 1.5;" id="Page-SignIn" href="/accounts/sign-in.php"><?php
+    if (isset($_COOKIE["signedIn"])) echo explode(",", base64_decode($_COOKIE["signedIn"]))[0];
+    else echo "Sign In";
+  ?></a>
 
-  <div id="Page-Contents" class="w3-main w3-animate-bottom">
-    <h1>Gallery</h1>
+  <div id="Page-Contents" class="w3-animate-bottom" style="padding: 20px;">
     <!--Top picks, based on likes-->
-    <div class="w3-card w3-border-blue w3-container">
+    <div class="w3-card w3-container w3-margin-bottom">
       <h2 class="SectionHead">Recommended for You</h2>
 
       <div class="SectionContents">
@@ -48,8 +51,8 @@
       </div>
     </div>
 
-    <div class="w3-card w3-border-blue w3-container">
-      <h2 class="SectionHead">Try Something New!</h2>
+    <div class="w3-card w3-border-blue w3-container w3-margin-bottom">
+      <h2 class="SectionHead">Top Notes</h2>
       
       <div class="SectionContents">
         <div class="Note">
@@ -65,6 +68,19 @@
             <div class="Note-Likes">Over 9000</div>
             <div class="Note-Dislikes">10</div>
           </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="w3-card w3-border-blue w3-container w3-margin-bottom">
+      <h2 class="SectionHead">Take a Chance</h2>
+      
+      <div class="SectionContents">
+        <div class="Note">
+          <?php
+            include("../note/backend/public-notes.php");
+
+          ?>
         </div>
       </div>
     </div>

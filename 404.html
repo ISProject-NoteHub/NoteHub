@@ -69,7 +69,10 @@
     <span id="Page-Name"> | 404!</span>
   </div>
 
-  <a id="Page-SignIn" href="./accounts/sign-in.php">Sign In</a>
+  <a style="line-height: 1.5;" id="Page-SignIn" href="/accounts/sign-in.php"><?php
+    if (isset($_COOKIE["signedIn"])) echo explode(",", base64_decode($_COOKIE["signedIn"]))[0];
+    else echo "Sign In";
+  ?></a>
 
   <div id="imgdiv"><img src="./resources/404.png" alt="Error 404!" id="Image-404" /></div>
   <span id="Container-404">

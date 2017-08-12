@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Account Details | NoteHub</title>
+  <title>Suggestions | NoteHub</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <link href="/logo-small.png" rel="icon" />

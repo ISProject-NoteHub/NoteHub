@@ -6,7 +6,7 @@
 <html>
 
 <head>
-  <title>Sign Up | NoteHub</title>
+  <title>Sign Out | NoteHub</title>
 
   <link href="/logo-small.png" rel="icon" />
   <link href="/resources/stylesheets/float-labels.css" rel="stylesheet" />

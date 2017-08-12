@@ -26,7 +26,6 @@
 
   <div id="Page-Contents" class="w3-main w3-animate-bottom">
     <h1>Your Private Notebooks</h1>
-    <!--Top picks, based on likes-->
     <div class="w3-card w3-border-blue w3-container">
       <div class="SectionContents">
         <?php
