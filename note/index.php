@@ -13,8 +13,10 @@
 
 <head>
   <title>
-    <?php echo "New Notebook "; ?>
-    | NoteHub
+    <?php
+      if (isset($_GET['note'])) echo explode("/", $_GET['note'])[1];
+      else echo "New Notebook";
+    ?> | NoteHub
   </title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
@@ -192,7 +194,10 @@
     <a href="/note" class="w3-bar-item w3-button w3-grey"><i class="fa fa-fw fa-file" aria-hidden="true"></i>&nbsp;&nbsp;New Notebook</a>
     <hr>
 
-    <a href="../accounts/sign-out.php" class="w3-bar-item w3-button"><i class="fa fa-fw fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Sign Out</a>
+    <?php
+      if (isset($_COOKIE["signedIn"])) echo '<a href="../accounts/sign-out.php" class="w3-bar-item w3-button"><i class="fa fa-fw fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Sign Out</a>';
+      else echo '<a href="../accounts/sign-in.php" class="w3-bar-item w3-button"><i class="fa fa-fw fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Sign In</a>';
+    ?>
   </div>
 
   <div class="w3-main" style="margin-left: 200px">
