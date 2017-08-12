@@ -17,7 +17,10 @@ function SaveNote() {
     if (noteProperties.private === false) {
       if (noteProperties.tags.getTags == []) { ShowSnackBar("Tags"); return; }
       else {
-        //Public notes, who cares
+        //Add as suggestion to notebook if necessary
+
+
+        //Request to update pending suggestions
       }
     }
     //Update UI

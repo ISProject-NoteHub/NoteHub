@@ -8,4 +8,8 @@
     for ($i = 2; $i < count($notes); $i++) { $notesOut[$i - 2] = $notes[$i]; }
     echo json_encode($notesOut);
   }
+
+  function WritePublicNote($username, $password, $noteName, $noteContent) {
+    
+  }
 ?>

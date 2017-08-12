@@ -1,4 +1,5 @@
 <?php
+  include("backend/public-notes.php");
   include("backend/private-notes.php");
   //include("../accounts/verify-account.php");
 
@@ -6,6 +7,9 @@
     if ($_POST["private"] == "true") {
       $writeResult = WritePrivateNote($_POST["username"], $_POST["password"], $_POST["noteName"], $_POST["noteContent"]);
       return $writeResult;
+    }
+    else {
+
     }
   }
   else {
