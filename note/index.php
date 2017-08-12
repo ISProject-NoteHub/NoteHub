@@ -142,33 +142,46 @@
     <div class="w3-container w3-blue">
       <h5>
         <i class="fa fa-fw fa-user-circle-o" aria-hidden="true"></i>&nbsp;&nbsp;
-        Welcome, <?php echo explode(",", base64_decode($_COOKIE["signedIn"]))[0]; ?>!
+        Welcome, <?php
+          if (isset($_COOKIE['signedIn'])) echo explode(",", base64_decode($_COOKIE["signedIn"]))[0];
+          else echo "Anonymous";
+        ?>!
       </h5>
     </div>
 
-    <a href="javascript:AddNote();" class="w3-bar-item w3-button"><i class="fa fa-fw fa-plus" aria-hidden="true"></i>&nbsp;&nbsp;Add Note</a>
+    <?php
+      if (isset($_COOKIE['signedIn'])) { echo '<a href="javascript:AddNote();" class="w3-bar-item w3-button"><i class="fa fa-fw fa-plus" aria-hidden="true"></i>&nbsp;&nbsp;Add Note</a>';
+    ?>
 
-    <div class="w3-dropdown-hover">
-      <button class="w3-button">
-        <i class="fa fa-fw fa-floppy-o" aria-hidden="true"></i>&nbsp;&nbsp;Save Notebook...&nbsp;&nbsp;
-        <i class="fa fa-fw fa-caret-down"></i>
-      </button>
-      <div class="w3-dropdown-content w3-bar-block w3-black" style="margin-left: 10px;">
-        <a href="javascript:PrepareSaveAs();" class="w3-bar-item w3-button">Save as New Notebook</a>
-        <a href="javascript:ViewLink();" class="w3-bar-item w3-button">Save Changes</a>
-      </div>
-    </div>
+    <?php
+      if (isset($_COOKIE['signedIn'])) {
+        echo '<div class="w3-dropdown-hover">
+          <button class="w3-button">
+            <i class="fa fa-fw fa-floppy-o" aria-hidden="true"></i>&nbsp;&nbsp;Save Notebook...&nbsp;&nbsp;
+            <i class="fa fa-fw fa-caret-down"></i>
+          </button>
+          <div class="w3-dropdown-content w3-bar-block w3-black" style="margin-left: 10px;">
+            <a href="javascript:PrepareSaveAs();" class="w3-bar-item w3-button">Save as New Notebook</a>
+            <a href="javascript:ViewLink();" class="w3-bar-item w3-button">Save Changes</a>
+          </div>
+        </div>';
+      }
+    ?>
 
-    <div class="w3-dropdown-hover">
-      <button class="w3-button">
-        <i class="fa fa-fw fa-link" aria-hidden="true"></i>&nbsp;&nbsp;Share Link...&nbsp;&nbsp;
-        <i class="fa fa-fw fa-caret-down"></i>
-      </button>
-      <div class="w3-dropdown-content w3-bar-block w3-black" style="margin-left: 10px;">
-        <a href="javascript:EditLink();" class="w3-bar-item w3-button">Editing Link</a>
-        <a href="javascript:ViewLink();" class="w3-bar-item w3-button">Viewing Link</a>
-      </div>
-    </div>
+    <?php
+      if (isset($_COOKIE['signedIn'])) {
+        echo '<div class="w3-dropdown-hover">
+          <button class="w3-button">
+            <i class="fa fa-fw fa-link" aria-hidden="true"></i>&nbsp;&nbsp;Share Link...&nbsp;&nbsp;
+            <i class="fa fa-fw fa-caret-down"></i>
+          </button>
+          <div class="w3-dropdown-content w3-bar-block w3-black" style="margin-left: 10px;">
+            <a href="javascript:EditLink();" class="w3-bar-item w3-button">Editing Link</a>
+            <a href="javascript:ViewLink();" class="w3-bar-item w3-button">Viewing Link</a>
+          </div>
+        </div>';
+      }
+    ?>
 
     <a href="javascript:ListSuggestions();ShowModal('NoteDetails');" class="w3-bar-item w3-button"><i class="fa fa-fw fa-info-circle" aria-hidden="true"></i>&nbsp;&nbsp;Note Details</a>
     <hr>
@@ -181,7 +194,10 @@
     <a href="/note" class="w3-bar-item w3-button w3-grey"><i class="fa fa-fw fa-file" aria-hidden="true"></i>&nbsp;&nbsp;New Notebook</a>
     <hr>
 
-    <a href="../accounts/sign-out.php" class="w3-bar-item w3-button"><i class="fa fa-fw fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Sign Out</a>
+    <?php
+      if (isset($_COOKIE['signedIn'])) echo '<a href="../accounts/sign-out.php" class="w3-bar-item w3-button"><i class="fa fa-fw fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Sign Out</a>';
+      else echo '<a href="../accounts/sign-in.php" class="w3-bar-item w3-button"><i class="fa fa-fw fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Sign In</a>';
+    ?>
   </div>
 
   <div class="w3-main" style="margin-left: 200px">
@@ -472,6 +488,29 @@
 
         $path = $_SERVER['DOCUMENT_ROOT'];
         $path .= "/databases/notes/private-notes/" . $_GET["note"] . ".txt";
+        
+        $getNote = file_get_contents($path);
+        if ($getNote !== false) { echo $getNote; }
+        else {
+          $note[0] = array(
+            "name" => "New Note", "type" => "Note",
+            "author" => explode(',', base64_decode($_COOKIE['signedIn']))[0],
+            "content" => "<p><h1><b>An Error Occurred :(</b></h1></p><hr><p>NoteHub was unable to retrive this private note, either because you don't have permissions to access it or due to <a href='https://en.wikipedia.org/wiki/Cosmic_ray'>cosmic rays</a>. We're sorry for any incovenience caused.</p>"
+          );
+          $note[1] = array(
+            "name" => "References", "type" => "References",
+            "author" => "all",
+            "content" => []
+          );
+
+          echo json_encode($note);
+        }
+      }
+      else if ((isset($_GET["note"])) && ($_GET["private"] == "false")) {
+        error_reporting(0);
+
+        $path = $_SERVER['DOCUMENT_ROOT'];
+        $path .= "/databases/notes/" . $_GET["note"] . ".txt";
         
         $getNote = file_get_contents($path);
         if ($getNote !== false) { echo $getNote; }
