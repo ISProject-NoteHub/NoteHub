@@ -284,6 +284,10 @@
     <span class="ErrorText">You'll overwrite an existing note with the same name.</span>
   </div>
 
+  <div id="Snackbar-WarnSuggestion" class="w3-snackbar">
+    <span class="ErrorText">Your note will be saved as a suggestion on the<br>existing note with the same name.</span>
+  </div>
+
   <!--Modal Dialogs-->
   <div id="Modal-Rename" class="w3-modal w3-card">
     <div class="w3-modal-content w3-animate-top w3-card-4">
@@ -318,24 +322,7 @@
 
         <h4><b>Note Privacy</b></h4>
         <div id="NoteInfo-NotePrivacy" style="width: 100%; padding: 10px;">
-          <input type="radio" checked>&nbsp;&nbsp;Public
-          <ul>
-            <li>Anyone can suggest</li>
-            <li>You have full control over note content</li>
-            <li>Subject to intelligent algorithms.</li>
-          </ul>
-          <input type="radio">&nbsp;&nbsp;Private, Viewable
-          <ul>
-            <li>Viewable by anyone</li>
-            <li>Only specific people may edit this note</li>
-            <li>Not subject to inteligent algorithms.</li>
-          </ul>
-          <input type="radio">&nbsp;&nbsp;Private, Restricted
-          <ul>
-            <li>Only specific people may view this note</li>
-            <li>Only specific people may edit this note</li>
-            <li>Not subject to inteligent algorithms.</li>
-          </ul>
+          Note Privacy can now be changed when saving a note, and has been moved.
         </div>
         <a href="https://beta.notehub.ga/note/index.php?note=TheoLeeCJ/NoteHub%20-%20Note%20Privacy&private=true" target="_blank">Learn more about note privacy</a><br><br>
 
@@ -379,13 +366,27 @@
 
             <div class="w3-light-grey">
               <div id="SaveAs-Content1">
-                <div id="SaveAs-Content1-Objects" class="w3-padding w3-blue">Notebooks</div>
-                <div id="SaveAs-Content1-Content"><?php
-                  //Get public notebooks
-                ?></div>
+                <div id="SaveAs-Content1-Objects" class="w3-padding w3-blue">
+                  <i class="fa fa-archive" aria-hidden="true"></i>&nbsp;&nbsp;Topics
+                </div>
+
+                <div id="SaveAs-Content1-Content">
+                  <div id="SaveAs-Content1-Content-Topics">
+                    <div class="w3-button" onclick="ListNotes(this, 111);" style="width: calc(100% - 32px); text-align: left;">Computer Science, Knowledge and Systems</div>
+                    <div class="w3-button" onclick="ListNotes(this, 100);" style="width: calc(100% - 32px); text-align: left;">Philosophy</div>
+                    <div class="w3-button" onclick="ListNotes(this, 200);" style="width: calc(100% - 32px); text-align: left;">Religion</div>
+                    <div class="w3-button" onclick="ListNotes(this, 300);" style="width: calc(100% - 32px); text-align: left;">Social Sciences, Socialogy and Anthropology</div>
+                    <div class="w3-button" onclick="ListNotes(this, 500);" style="width: calc(100% - 32px); text-align: left;">Sciences and Mathematics</div>
+                  </div>
+
+                  <div style="display: none;" id="SaveAs-Content1-Content-Notebooks"></div>
+                </div>
               </div>
               <div id="SaveAs-Content2" style="display: none;">
-                <div id="SaveAs-Content2-Objects" class="w3-padding w3-blue"><i class="fa fa-book" aria-hidden="true"></i>&nbsp;&nbsp;Private Notebooks</div>
+                <div id="SaveAs-Content2-Objects" class="w3-padding w3-blue">
+                  <i class="fa fa-book" aria-hidden="true"></i>&nbsp;&nbsp;Private Notebooks
+                </div>
+
                 <div id="SaveAs-Content2-Content"><?php
                   //Get private notebooks
                   include("backend/private-notes.php");

@@ -64,6 +64,53 @@ function AddReference() {
   }
 }
 
+//Displays the topics pane
+function BackToTopics() {
+  document.getElementById("SaveAs-Content1-Objects").innerHTML = '<i class="fa fa-archive" aria-hidden="true"></i>&nbsp;&nbsp;Topics';
+
+  document.getElementById("SaveAs-Content1-Content-Notebooks").style.display = "none";
+  document.getElementById("SaveAs-Content1-Content-Topics").style.display = "block";
+}
+
+//Get list of notes from decimal
+function ListNotes(sender, decimal) {
+  var getPHPFile = new XMLHttpRequest();
+    getPHPFile.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("SaveAs-Content1-Content-Notebooks").innerHTML = "";
+        var response = JSON.parse(getPHPFile.responseText); var empty = false;
+
+        if (response.length == 0) {
+          empty = true;
+          response[0] = "This topic does not seem to contain any notes yet.<br>&#xAF;\\_(&#x30C4;)_/&#xAF";
+        }
+
+        for (i = 0; i < response.length; i++) {
+          if (response[i] !== "label.txt") {
+            var thisNotebook = document.createElement("div");
+
+            thisNotebook.classList = "w3-button";
+            thisNotebook.innerHTML = "<b>" + response[i].split("by")[0] + "</b><br>by" + response[i].split("by")[1].replace(".txt", "");
+            if (empty === false) thisNotebook.setAttribute("onclick", "noteProperties.name = \"" + response[i] + "\"; ShowSnackBar(\"WarnSuggestion\"); document.getElementById(\"SaveAs-NoteName\").value = \"" + response[i] + "\";");
+
+            if (empty === false) thisNotebook.style = "width: calc(100% - 32px); text-align: left;";
+            else thisNotebook.style = "width: calc(100% - 32px);";
+
+            document.getElementById("SaveAs-Content1-Content-Notebooks").innerHTML += thisNotebook.outerHTML;
+          }
+        }
+
+        document.getElementById("SaveAs-Content1-Objects").innerHTML = "<a style=\"color: white;\" onclick=\"BackToTopics();\" href=\"#\"><i class=\"fa fa-arrow-left\"></i></a> <label style=\"display: inline-block; float: right;\">Notebooks in <b>" + sender.innerHTML + "</b></label>";
+
+        document.getElementById("SaveAs-Content1-Content-Notebooks").style.display = "block";
+        document.getElementById("SaveAs-Content1-Content-Topics").style.display = "none";
+      }
+    }
+    getPHPFile.open("POST", "backend/public-notes.php");
+    getPHPFile.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    getPHPFile.send("decimal=" + decimal);
+}
+
 //Display note from JSON
 function LoadBook() {
   for (i = 0; i < notebook.length; i++) {

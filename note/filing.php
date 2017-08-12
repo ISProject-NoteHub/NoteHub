@@ -3,8 +3,10 @@
   //include("../accounts/verify-account.php");
 
   if (!empty($_POST["noteName"])) {
-    $writeResult = WritePrivateNote($_POST["username"], $_POST["password"], $_POST["noteName"], $_POST["noteContent"]);
-    return $writeResult;
+    if ($_POST["private"] == "true") {
+      $writeResult = WritePrivateNote($_POST["username"], $_POST["password"], $_POST["noteName"], $_POST["noteContent"]);
+      return $writeResult;
+    }
   }
   else {
     include("../databases/microdb/Database.php");
