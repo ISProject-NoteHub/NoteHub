@@ -1,12 +1,14 @@
 <?php
   if (isset($_POST["decimal"])) { ListPublicNotes($_POST["decimal"]); }
 
-  function ListPublicNotes($decimal) {
+  function ListPublicNotes($decimal, $direct = false) {
     $notes = scandir($_SERVER["DOCUMENT_ROOT"] . "/databases/notes/" . $decimal);
     $notesOut = [];
 
     for ($i = 2; $i < count($notes); $i++) { $notesOut[$i - 2] = $notes[$i]; }
-    echo json_encode($notesOut);
+    
+    if ($direct === false) echo json_encode($notesOut);
+    else return $notesOut;
   }
 
   function WritePublicNote($username, $password, $noteName, $noteContent) {
