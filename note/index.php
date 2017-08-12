@@ -149,9 +149,7 @@
       </h5>
     </div>
 
-    <?php
-      if (isset($_COOKIE['signedIn'])) { echo '<a href="javascript:AddNote();" class="w3-bar-item w3-button"><i class="fa fa-fw fa-plus" aria-hidden="true"></i>&nbsp;&nbsp;Add Note</a>';
-    ?>
+    <a href="javascript:AddNote();" class="w3-bar-item w3-button"><i class="fa fa-fw fa-plus" aria-hidden="true"></i>&nbsp;&nbsp;Add Note</a>
 
     <?php
       if (isset($_COOKIE['signedIn'])) {
@@ -167,7 +165,6 @@
         </div>';
       }
     ?>
-
     <?php
       if (isset($_COOKIE['signedIn'])) {
         echo '<div class="w3-dropdown-hover">
@@ -194,10 +191,7 @@
     <a href="/note" class="w3-bar-item w3-button w3-grey"><i class="fa fa-fw fa-file" aria-hidden="true"></i>&nbsp;&nbsp;New Notebook</a>
     <hr>
 
-    <?php
-      if (isset($_COOKIE['signedIn'])) echo '<a href="../accounts/sign-out.php" class="w3-bar-item w3-button"><i class="fa fa-fw fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Sign Out</a>';
-      else echo '<a href="../accounts/sign-in.php" class="w3-bar-item w3-button"><i class="fa fa-fw fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Sign In</a>';
-    ?>
+    <a href="../accounts/sign-out.php" class="w3-bar-item w3-button"><i class="fa fa-fw fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Sign Out</a>
   </div>
 
   <div class="w3-main" style="margin-left: 200px">
@@ -208,7 +202,8 @@
         <span style="font-weight: lighter;">Note</span><b>Hub</b>
       </a>
       <span id="Page-Name"> | <?php
-        echo "New Notebook"
+        if (isset($_GET['note'])) echo explode("/", $_GET['note'])[1];
+        else echo "New Notebook";
       ?>
       </span>
     </div>

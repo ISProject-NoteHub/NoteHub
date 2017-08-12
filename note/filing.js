@@ -28,6 +28,8 @@ function SaveNote() {
             if (this.readyState == 4 && this.status == 200) {
               if (updateSuggestions.responseText == "Write successful.") document.getElementById("Saving-Status").innerHTML = '<i class="fa fa-fw fa-check fa-5x" aria-hidden="true"></i><br><h3>Suggestion Added!</h3>';
               else if (updateSuggestions.responseText == "Write failed.") document.getElementById("Saving-Status").innerHTML = '<i class="fa fa-fw fa-times fa-5x" aria-hidden="true"></i><br><h3>Unable to save suggestion. Please try again.</h3>';
+
+              return;
             }
           }
           updateSuggestions.open("POST", "filing.php");
