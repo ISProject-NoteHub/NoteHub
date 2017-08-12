@@ -12,12 +12,12 @@ function PrepareSaveAs() {
 function SaveNote() {
   noteProperties.name = document.getElementById("SaveAs-NoteName").value;
 
-  if ((noteProperties.topic == 0) && (noteProperties.private !== false)) { ShowSnackBar("NeedsTopic"); }
+  if ((noteProperties.topic == 0) && (noteProperties.private == false)) { ShowSnackBar("NeedsTopic"); return; }
 
   if (noteProperties.name == "") { ShowSnackBar("Name"); return; }
   else {
-    if (noteProperties.private === false) {
-      if (noteProperties.tags.getTags == []) { ShowSnackBar("Tags"); return; }
+    if (noteProperties.private == false) {
+      if (noteProperties.tags.getTags() == []) { ShowSnackBar("Tags"); return; }
       else {
         noteProperties.name = noteProperties.topic + "/" + document.getElementById("SaveAs-NoteName").value;
 
