@@ -80,7 +80,7 @@ function ListNotes(sender, decimal) {
         document.getElementById("SaveAs-Content1-Content-Notebooks").innerHTML = "";
         var response = JSON.parse(getPHPFile.responseText); var empty = false;
 
-        if (response.length == 0) {
+        if (response.length == 1) {
           empty = true;
           response[0] = "This topic does not seem to contain any notes yet.<br>&#xAF;\\_(&#x30C4;)_/&#xAF";
         }
