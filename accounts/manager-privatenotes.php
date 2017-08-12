@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Gallery | NoteHub</title>
+  <title>Private Notes | NoteHub</title>
 
   <link href="../logo.png" rel="icon" />
   <link href="/gallery/gallery-styling.css" rel="stylesheet" />
