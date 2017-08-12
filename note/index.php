@@ -34,6 +34,7 @@
   <script>
     var noteProperties = {
       name: "",
+      topic: 0,
       private: <?php if (!isset($_GET["private"])) { echo "false"; } else { echo $_GET["private"]; } ?>,
       tags: null, author: "..."
     };
@@ -281,6 +282,10 @@
 
   <div id="Snackbar-Tags" class="w3-snackbar">
     <span class="ErrorText">Please set some tags for your note.</span>
+  </div>
+
+  <div id="Snackbar-NeedsTopic" class="w3-snackbar">
+    <span class="ErrorText">You need to assign a topic to public notes.</span>
   </div>
 
   <div id="Snackbar-Name" class="w3-snackbar">

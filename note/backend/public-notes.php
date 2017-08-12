@@ -10,6 +10,20 @@
   }
 
   function WritePublicNote($username, $password, $noteName, $noteContent) {
-    
+    include("../databases/microdb/Database.php");
+    include("../databases/microdb/Cache.php");
+    include("../databases/microdb/Event.php");
+    include("../databases/microdb/Index.php");
+
+    if (VerifyAccount($username, $password)) {
+      $path = $_SERVER['DOCUMENT_ROOT'];
+      $path .= "/databases/notes/" . $noteName . " by " . $username . ".txt";
+      $write = file_put_contents($path, $noteContent);
+      if ($write !== false) { echo "Write successful."; }
+      else { echo "Write failed."; }
+    }
+    else {
+      echo "Invalid account.";
+    }
   }
 ?>

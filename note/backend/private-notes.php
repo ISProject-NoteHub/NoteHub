@@ -25,7 +25,7 @@
     include("../databases/microdb/Event.php");
     include("../databases/microdb/Index.php");
 
-    if (VerifyAccount(explode(',', base64_decode($_COOKIE['signedIn']))[0], explode(',', base64_decode($_COOKIE['signedIn']))[1])) {
+    if (VerifyAccount($username, $password)) {
       $write = file_put_contents($_SERVER['DOCUMENT_ROOT'] . "/databases/notes/private-notes/" . $username . "/" . $noteName . ".txt", $noteContent);
       if ($write !== false) { echo "Write successful."; }
       else { echo "Write failed."; }

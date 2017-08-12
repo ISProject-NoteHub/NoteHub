@@ -31,7 +31,8 @@
       return $writeResult;
     }
     else {
-
+      $writeResult = WritePublicNote($_POST["username"], $_POST["password"], $_POST["noteName"], $_POST["noteContent"]);
+      return $writeResult;
     }
   }
   else {

@@ -12,11 +12,15 @@ function PrepareSaveAs() {
 function SaveNote() {
   noteProperties.name = document.getElementById("SaveAs-NoteName").value;
 
+  if ((noteProperties.topic == 0) && (noteProperties.private !== false)) { ShowSnackBar("NeedsTopic"); }
+
   if (noteProperties.name == "") { ShowSnackBar("Name"); return; }
   else {
     if (noteProperties.private === false) {
       if (noteProperties.tags.getTags == []) { ShowSnackBar("Tags"); return; }
       else {
+        noteProperties.name = noteProperties.topic + "/" + document.getElementById("SaveAs-NoteName").value;
+
         //Update UI
         document.getElementById("Saving-Status").innerHTML = '<i class="fa fa-fw fa-spinner fa-pulse fa-5x fa-fw "></i><br><h3>Saving Suggestion...</h3>';
         ShowModal("Saving");
