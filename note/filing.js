@@ -18,7 +18,7 @@ function SaveNote() {
   else {
     if (noteProperties.private == false) {
       if (noteProperties.tags.getTags() == []) { ShowSnackBar("Tags"); return; }
-      else {
+      else { console.log("Fly");
         noteProperties.name = noteProperties.topic + "/" + document.getElementById("SaveAs-NoteName").value;
 
         //Update UI
@@ -42,6 +42,7 @@ function SaveNote() {
         }
       }
     }
+
     //Update UI
     document.getElementById("Saving-Status").innerHTML = '<i class="fa fa-fw fa-spinner fa-pulse fa-5x fa-fw "></i><br><h3>Saving Note...</h3>';
     ShowModal("Saving");
