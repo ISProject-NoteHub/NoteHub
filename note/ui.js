@@ -87,7 +87,7 @@ function ListNotes(sender, decimal) {
         response[0] = "This topic does not seem to contain any notes yet.<br>&#xAF;\\_(&#x30C4;)_/&#xAF";
       }
 
-      for (i = 0; i < response.length; i++) { console.log(response);
+      for (i = 0; i < response.length; i++) {
         if (response[i] !== "label.txt") {
           var thisNotebook = document.createElement("div");
 

@@ -64,7 +64,7 @@ function ListSuggestions() {
       }
     }
 
-    commonOccurences = arr; console.log(arr);
+    commonOccurences = arr;
 
     //Format output
     var suggestionsOutput = [];

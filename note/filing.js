@@ -18,7 +18,7 @@ function SaveNote() {
   else {
     if (noteProperties.private == false) {
       if (noteProperties.tags.getTags() == []) { ShowSnackBar("Tags"); return; }
-      else { console.log("Fly");
+      else {
         noteProperties.name = noteProperties.topic + "/" + document.getElementById("SaveAs-NoteName").value;
 
         //Update UI
@@ -32,13 +32,13 @@ function SaveNote() {
             if (this.readyState == 4 && this.status == 200) {
               if (updateSuggestions.responseText == "Write successful.") document.getElementById("Saving-Status").innerHTML = '<i class="fa fa-fw fa-check fa-5x" aria-hidden="true"></i><br><h3>Suggestion Added!</h3>';
               else if (updateSuggestions.responseText == "Write failed.") document.getElementById("Saving-Status").innerHTML = '<i class="fa fa-fw fa-times fa-5x" aria-hidden="true"></i><br><h3>Unable to save suggestion. Please try again.</h3>';
-
-              return;
             }
           }
           updateSuggestions.open("POST", "filing.php");
           updateSuggestions.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
           updateSuggestions.send("owner=" + notebook[0].author + "&username=" + user.username + "&password=" + atob(user.password) + "&noteName=" + noteProperties.name + "&noteContent=" + encodeURIComponent(JSON.stringify(notebook)));
+
+          return;
         }
       }
     }
@@ -54,7 +54,6 @@ function SaveNote() {
     var getPHPFile = new XMLHttpRequest();
     getPHPFile.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-        console.log(getPHPFile.responseText);
         if (getPHPFile.responseText == "Write successful.") {
           //Update contributions
           var updateContributions = new XMLHttpRequest();

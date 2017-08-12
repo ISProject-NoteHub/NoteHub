@@ -13,7 +13,6 @@ function SuggestTags() {
   //Generate list of words in note
   var noteContent = document.getElementsByClassName("cke_wysiwyg_frame cke_reset")[0].contentDocument.body.innerHTML.replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").trim();
   var noteContentWords = noteContent.split(" ");
-  console.log(noteContentWords);
 }
 
 //Load data from server-side databases
@@ -36,7 +35,6 @@ function CheckKeywordsTags(input) {
     if (input.value.toUpperCase().includes(vulgarities["no-context"][i].toUpperCase())) {
       document.getElementById("NoteInfo-SuggestedTags").style.color = "red";
       document.getElementById("NoteInfo-SuggestedTags").innerHTML = "We've detected that you're trying to add a rude tag to your note. Try another tag.";
-      console.log("no.");
       return "No.";
     }
     else if (i == (vulgarities["no-context"].length - 1)) {

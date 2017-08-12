@@ -1,10 +1,7 @@
 <?php
   $suggestions = [];
 
-if (!isset($_COOKIE["signedIn"])) {
-    header("Location: sign-in.php");
-} else {
-}
+  if (!isset($_COOKIE["signedIn"])) { header("Location: sign-in.php"); }
 ?>
 <!--HTML document begins here-->
 <!DOCTYPE html>
@@ -73,18 +70,23 @@ if (!isset($_COOKIE["signedIn"])) {
         include("../databases/microdb/Event.php");
         include("../databases/microdb/Index.php");
 
-        //Update database
-        $db = new \MicroDB\Database("../databases/accounts");
+        if (empty($_GET["suggestion"])) {
+          //Get list of suggestions
+          $db = new \MicroDB\Database("../databases/accounts");
 
-        $accountData = $db -> load(1);
-        $accounts = count($accountData);
+          $accountData = $db -> load(1);
+          $accounts = count($accountData);
 
-        for ($i = 0; $i < $accounts; $i++) {
-          if ($accountData[$i][0] == explode(",", base64_decode($_COOKIE["signedIn"]))[0]) {
-            for ($a = 0; $a < count($accountData[$i][4]); $a++) {
-              echo "<div class='w3-card w3-padding'><h4>" . $accountData[$i][4][0] . " suggested changes to " . $accountData[$i][4][1];
+          for ($i = 0; $i < $accounts; $i++) {
+            if ($accountData[$i][0] == explode(",", base64_decode($_COOKIE["signedIn"]))[0]) {
+              for ($a = 0; $a < count($accountData[$i][4]); $a++) {
+                echo "<div class='w3-card w3-padding'><h4>" . $accountData[$i][4][$a][0] . " suggested changes to " . $accountData[$i][4][$a][1] . "</h4><a href='manage-suggestions.php?suggestion=" . $a . "'>View Suggestion</a>";
+              }
             }
           }
+        }
+        else {
+          //Show suggestion and mechanism to accept
         }
       ?>
     </div>
