@@ -12,11 +12,6 @@
   <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
 
   <script src="https://use.fontawesome.com/3e1c5661b6.js"></script>
-   <style>
-    a{
-      color: dodgerblue;
-    }
-  </style>
 </head>
   
 <body>
@@ -34,11 +29,10 @@
         ?>!
       </h5>
     </div>
-      <a href="/help/index.php">Help Main Page</a>
-      <br><br><a href="/help/whatswhat.php">What's What</a>
-      <br><br><a href="/help/creating-note.php">Creating and Sharing a Note</a>
-      <br><br><a href="/help/gallery.php">Navigating the Gallery</a>
-      <br><br><a href="/help/account-management.php">Account Management</a>
+      <a href="/help/index.php" class="w3-bar-item w3-button w3-grey">Help Main Page</a>
+      <a href="/help/whatswhat.php" class="w3-bar-item w3-button">What's What</a>
+      <a href="/help/creating-note.php" class="w3-bar-item w3-button">Creating and Sharing a Note</a>
+      <a href="/help/gallery.php" class="w3-bar-item w3-button">Navigating the Gallery</a>
     <?php
       if (isset($_COOKIE["signedIn"])) { echo '<a href="../accounts/sign-out.php" class="w3-bar-item w3-button"><i class="fa fa-fw fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Sign Out</a>'; }
       else { echo '<a href="../accounts/sign-in.php" class="w3-bar-item w3-button"><i class="fa fa-fw fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Sign In</a>'; }

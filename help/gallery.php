@@ -12,15 +12,6 @@
   <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
 
   <script src="https://use.fontawesome.com/3e1c5661b6.js"></script>
-  
-  <style>
-    a{
-        color: dodgerblue;
-    }
-    h2{
-        font-size: 17px;
-    }
-  </style>
 </head>
   
 <body>
@@ -38,11 +29,10 @@
         ?>!
       </h5>
     </div>
-      <a href="/help/index.php">Help Main Page</a>
-      <br><br><a href="/help/whatswhat.php">What's What</a>
-      <br><br><a href="/help/creating-note.php">Creating and Sharing a Note</a>
-      <br><br><a href="/help/gallery.php">Navigating the Gallery</a>
-      <br><br><a href="/help/account-management.php">Account Management</a>
+      <a href="/help/index.php" class="w3-bar-item w3-button">Help Main Page</a>
+      <a href="/help/whatswhat.php" class="w3-bar-item w3-button">What's What</a>
+      <a href="/help/creating-note.php" class="w3-bar-item w3-button">Creating and Sharing a Note</a>
+      <a href="/help/gallery.php" class="w3-bar-item w3-button w3-grey">Navigating the Gallery</a>
     <hr>
     <?php
       if (isset($_COOKIE["signedIn"])) { echo '<a href="../accounts/sign-out.php" class="w3-bar-item w3-button"><i class="fa fa-fw fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Sign Out</a>'; }
@@ -63,7 +53,10 @@
     <div class="w3-container">
       <b style="font-size: 20px">Navigating the Gallery</b>
     <hr>
-      
+    Here, you will learn how to navigate the <a href="/gallery/">Gallery</a>.<br><br>
+    In the Gallery, there is one section for random topics on the left. This shows a note from a random topic. Try reading it. Who knows? You might learn something new!
+    On the right is a set of top rated notes. These are picked based on your interests.<br><br>
+    Every user starts off in the Gallery. It is the Hub in NoteHub. From there, you can start reading others' notes, and create your own notes, public or private. Have fun using NoteHub's Gallery!
     </div>
   </div>
 
