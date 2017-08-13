@@ -21,7 +21,7 @@
       
       //Check username
       for ($i = 0; $i < $accounts; $i++) {
-        if (($accountData[$i][0] == $_POST["username"]) && ($accountData[$i][5] == "active"))  { $usernameTaken = true; }
+        if ($accountData[$i][0] == $_POST["username"])  { $usernameTaken = true; }
 
         if (($i == ($accounts - 1)) && ($usernameTaken == false)) {
           $accountData[$accounts] = array($_POST["username"], password_hash($_POST["password"], PASSWORD_DEFAULT), $_POST["email"], "0", [], [], "active");
