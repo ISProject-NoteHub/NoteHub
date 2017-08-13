@@ -16,7 +16,7 @@ window.addEventListener("load", function() {
 
 //Link Sharing
 function EditLink() {
-  ShowModal("SharingLink");
+  //ShowModal("SharingLink");
 
   if (noteProperties.noteOpened === true) { document.getElementById("Modal-SharingLink-Text").innerHTML = "Below is the link you can share with people who you wish to add as collaborators on this note."; }
   else { document.getElementById("Modal-SharingLink-Text").innerHTML = "Please save your note with a name before sharing it."; }
@@ -25,7 +25,10 @@ function EditLink() {
 function ViewLink() {
   ShowModal("SharingLink");
 
-  if (noteProperties.noteOpened === true) { document.getElementById("Modal-SharingLink-Text").innerHTML = "Below is the link you can share to let others view this note."; }
+  if (noteProperties.noteOpened === true) {
+    document.getElementById("Modal-SharingLink-Link").value = window.location.href;
+    document.getElementById("Modal-SharingLink-Text").innerHTML = "Below is the link you can share to let others view this note.";
+  }
   else { document.getElementById("Modal-SharingLink-Text").innerHTML = "Please save your note with a name before sharing it."; }
 }
 

@@ -14,8 +14,8 @@
 <head>
   <title>
     <?php
-      if (isset($_GET['note'])) echo explode("/", $_GET['note'])[1];
-      else echo "New Notebook";
+      if (!isset($_GET["note"])) { echo "New Notebook"; }
+      else { echo explode("by", explode("/", $_GET["note"])[1])[0]; }
     ?> | NoteHub
   </title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,10 +35,11 @@
   <!--Global Variables-->
   <script>
     var noteProperties = {
-      name: "",
-      topic: 0,
+      name: <?php if (!isset($_GET["note"])) { echo "''"; } else { echo "'" . explode("by", explode("/", $_GET["note"])[1])[0] . "'"; } ?>,
+      topic: <?php if (!isset($_GET["note"])) { echo "0"; } else { echo explode("/", $_GET["note"])[0]; } ?>,
       private: <?php if (!isset($_GET["private"])) { echo "false"; } else { echo $_GET["private"]; } ?>,
-      tags: null, author: "..."
+      tags: null, author: "...",
+      noteOpened: <?php if (!isset($_GET["note"])) { echo "false"; } else { echo "true"; } ?>
     };
 
     var notebook = [];
@@ -163,7 +164,7 @@
           </button>
           <div class="w3-dropdown-content w3-bar-block w3-black" style="margin-left: 10px;">
             <a href="javascript:PrepareSaveAs();" class="w3-bar-item w3-button">Save as New Notebook</a>
-            <a href="javascript:ViewLink();" class="w3-bar-item w3-button">Save Changes</a>
+            <a href="javascript:PrepareSaveChanges();" class="w3-bar-item w3-button">Save Changes</a>
           </div>
         </div>';
       }
@@ -177,7 +178,7 @@
           </button>
           <div class="w3-dropdown-content w3-bar-block w3-black" style="margin-left: 10px;">
             <a href="javascript:EditLink();" class="w3-bar-item w3-button">Editing Link</a>
-            <a href="javascript:ViewLink();" class="w3-bar-item w3-button">Viewing Link</a>
+            <a href="javascript:ViewLink();" disabled="disabled" class="w3-bar-item w3-button">Viewing Link</a>
           </div>
         </div>';
       }
@@ -208,8 +209,8 @@
         <span style="font-weight: lighter;">Note</span><b>Hub</b>
       </a>
       <span id="Page-Name"> | <?php
-        if (isset($_GET['note'])) echo explode("/", $_GET['note'])[1];
-        else echo "New Notebook";
+        if (!isset($_GET["note"])) { echo "New Notebook"; }
+        else { echo explode("by", explode("/", $_GET["note"])[1])[0] . " by " . explode("by", explode("/", $_GET["note"])[1])[1]; }
       ?>
       </span>
     </div>
@@ -295,6 +296,10 @@
 
   <div id="Snackbar-Name" class="w3-snackbar">
     <span class="ErrorText">Please set a name for your note.</span>
+  </div>
+
+  <div id="Snackbar-LongerPlease" class="w3-snackbar">
+    <span class="ErrorText">Public notes need have more content. While this<br>may be annoying, it is to reduce spam.</span>
   </div>
 
   <div id="Snackbar-DuplicateReference" class="w3-snackbar">

@@ -3,16 +3,25 @@ function PrepareSaveAs() {
     ShowSnackBar("NoContent");
   }
   else {
+    noteProperties.private = false;
     ListSuggestions();
     otherTags.addTags(noteProperties.tags.getTags());
     ShowModal("SaveAs");
   }
 }
 
+function PrepareSaveChanges() {
+  if (noteProperties.name == "") { PrepareSaveAs(); return; }
+
+  document.getElementById("SaveAs-NoteName").value = noteProperties.name.trim();
+  SaveNote();
+}
+
 function SaveNote() {
   noteProperties.name = document.getElementById("SaveAs-NoteName").value;
 
   if ((noteProperties.topic == 0) && (noteProperties.private == false)) { ShowSnackBar("NeedsTopic"); return; }
+  if ((document.getElementsByClassName("cke_wysiwyg_frame cke_reset")[0].contentDocument.body.innerHTML.length < 512) && (noteProperties.private == false)) { ShowSnackBar("LongerPlease"); return; }
 
   if (noteProperties.name == "") { ShowSnackBar("Name"); return; }
   else {
