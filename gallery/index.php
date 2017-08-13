@@ -79,7 +79,7 @@
           <h2 class="SectionHead">Top Notes</h2>
           
           <div class="SectionContents">
-            <a class="Note" href="https://beta.notehub.ga/help">
+            <a class="Note" href="/help">
               <div class="Note-Image">
                 NoteHub - Help Menu
                 <br><br><span style="font-size: 14px;">by TastyFriesAloy</span>

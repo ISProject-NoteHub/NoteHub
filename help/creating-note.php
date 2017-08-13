@@ -12,15 +12,6 @@
   <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
 
   <script src="https://use.fontawesome.com/3e1c5661b6.js"></script>
-  
-  <style>
-    a{
-        color: dodgerblue;
-    }
-    h2{
-        font-size: 17px;
-    }
-  </style>
 </head>
   
 <body>
@@ -38,11 +29,10 @@
         ?>!
       </h5>
     </div>
-      <a href="/help/index.php">Help Main Page</a>
-      <br><br><a href="/help/whatswhat.php">What's What</a>
-      <br><br><a href="/help/creating-note.php">Creating and Sharing a Note</a>
-      <br><br><a href="/help/gallery.php">Navigating the Gallery</a>
-      <br><br><a href="/help/account-management.php">Account Management</a>
+      <a href="/help/index.php" class="w3-bar-item w3-button">Help Main Page</a>
+      <a href="/help/whatswhat.php" class="w3-bar-item w3-button">What's What</a>
+      <a href="/help/creating-note.php" class="w3-bar-item w3-button w3-grey">Creating and Sharing a Note</a>
+      <a href="/help/gallery.php" class="w3-bar-item w3-button">Navigating the Gallery</a>
     <hr>
     <?php
       if (isset($_COOKIE["signedIn"])) { echo '<a href="../accounts/sign-out.php" class="w3-bar-item w3-button"><i class="fa fa-fw fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Sign Out</a>'; }
@@ -82,7 +72,6 @@
       ...But you haven't saved it yet. If you don't save, all of your progress will be lost...
       <br>...so remember to save your work at regular intervals to keep your precious work safe and sound.
       <br><br>Saving also allows you to give your note a name.
-      <br><img src="https://mail.google.com/mail/u/0/?ui=2&ik=aaf02b2d3d&view=att&th=15d4191130c5030b&attid=0.1&disp=safe&zw" width="334" height="240"/>
       <br><br>Under the save button on the left menu bar, there are two options: saving your note as a New Notebook and saving the changes that you made to an existing note.
       <ul>
         <li>Saving as a new note makes a new note under your account</li>
@@ -91,7 +80,6 @@
       <br>
       <h2>Tags</h2>
       Tags are basically key words for your note which allow other people to understand the content of your note better. You can add tags under the 'Save As' function.
-      <br><img src="https://mail.google.com/mail/u/0/?ui=2&ik=aaf02b2d3d&view=att&th=15d419cc5c794c1a&attid=0.1&disp=safe&zw" width="853" height="442"/>
       <br><br>NoteHub will automatically generate suggestions for tags which you can accept by clicking on them.
       <br><br>You can also add your own tags by typing them in and pressing 'Enter' on your keyboard.
       <br><br>
@@ -107,7 +95,6 @@
       <br>
       To add references, simply click on the 'References' button on the left menu and a screen will pop up asking you to add your sources.
       <br>
-      <img src="https://mail.google.com/mail/u/0/?ui=2&ik=aaf02b2d3d&view=att&th=15d417c75fd65cac&attid=0.1&disp=safe&zw" width="700" height="400"/>
       <br><br>
       Just state the title and author of the source and it can be added to your list.
       <br><br>
