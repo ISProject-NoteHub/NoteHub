@@ -1,3 +1,6 @@
+var prohibited = ["fuck", "f**k", "f*ck", "screw you", "bitch", "cunt", "$hit", "shit"];
+var alternatives = {bitch: "female dog", penis: "male genitalia", $hit: "faeces", shit: "faeces"};
+
 (function() {
 
   'use strict';
@@ -179,7 +182,19 @@
     }
 
     function addTag(name) {
-      console.log(name);
+      var ayylmao = 0;
+
+      for (ayylmao = 0; ayylmao < prohibited.length; ayylmao++) {
+        if (name == prohibited[ayylmao]) {
+          if (alternatives[prohibited[ayylmao]] !== undefined) { alert("We've detected that you're attempting to add a potentially offensive tag to this note. Perhaps consider " + alternatives[prohibited[ayylmao]] + " instead."); }
+          else { alert("We've detected that you're adding a vulgar / rude tag to this note."); }
+          return;
+        }
+        else {
+          //Continue
+        }
+      }
+
       // delete comma if comma exists
       name = name.toLowerCase();
       name = name.toString().replace(/,/g, '').trim();

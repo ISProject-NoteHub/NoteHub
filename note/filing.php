@@ -17,7 +17,7 @@
 
     if (VerifyAccount($_POST["username"], $_POST["password"])) {
       for ($i = 0; $i < $accounts; $i++) {
-        if ($accountData[$i][0] == $owner) {
+        if ($accountData[$i][0] == $_POST["owner"]) {
           $accountData[$i][4][count($accountData[$i][4])] = array($_POST["username"], $_POST["noteName"], $_POST["noteContent"]);
           $db -> save(1, $accountData);
           echo "Write successful.";

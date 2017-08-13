@@ -17,6 +17,8 @@
 
     for ($i = 0; $i < $accounts; $i++) {
       if (($accountData[$i][0] == explode(",", base64_decode($_COOKIE["signedIn"]))[0]) && password_verify(explode(",", base64_decode($_COOKIE["signedIn"]))[1], $accountData[$i][1])) {
+        if ($accountData[$i][6] == "active") { header("Location: manager-welcome.php"); }
+        
         $suggestions = $accountData[$i][4];
         $following = $accountData[$i][5];
         $contributions = $accountData[$i][3];
