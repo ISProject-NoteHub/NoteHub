@@ -31,6 +31,15 @@
   ?></a>
 
   <div id="Page-Contents" class="w3-animate-bottom" style="padding: 20px;">
+    <form class="w3-padding w3-row">
+      <div class="w3-col" style="width: 110px;">
+        <button type="submit" class="w3-button w3-blue"><i class="fa fa-search"></i>&nbsp;&nbsp;Search</button>
+      </div>
+      <div class="w3-rest">
+        <input name="query" class="w3-input w3-border" />
+      </div>
+    </form>
+
     <div class="w3-row">
       <div class="w3-half w3-padding">
         <!--Random Topic-->
