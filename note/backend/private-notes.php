@@ -19,6 +19,14 @@
     }
   }
 
+  function TrashPrivateNote($username, $password, $noteName) {
+    if (VerifyAccount($username, $password)) {
+      $write = unlink($_SERVER['DOCUMENT_ROOT'] . "/databases/notes/private-notes/" . $username . "/" . $noteName . ".txt");
+      if ($write !== false) return true;
+      else return false;
+    }
+  }
+
   function WritePrivateNote($username, $password, $noteName, $noteContent) {
     include("../databases/microdb/Database.php");
     include("../databases/microdb/Cache.php");

@@ -36,7 +36,7 @@
   <script>
     var noteProperties = {
       name: <?php if (!isset($_GET["note"])) { echo "''"; } else { echo "'" . explode("by", explode("/", $_GET["note"])[1])[0] . "'"; } ?>,
-      topic: <?php if (!isset($_GET["note"])) { echo "0"; } else { echo explode("/", $_GET["note"])[0]; } ?>,
+      topic: <?php if (!isset($_GET["note"])) { echo "0"; } else if (($_GET["private"] == "false")) { echo explode("/", $_GET["note"])[0]; } else { echo "''"; } ?>,
       private: <?php if (!isset($_GET["private"])) { echo "false"; } else { echo $_GET["private"]; } ?>,
       tags: null, author: "...",
       noteOpened: <?php if (!isset($_GET["note"])) { echo "false"; } else { echo "true"; } ?>
@@ -210,7 +210,8 @@
       </a>
       <span id="Page-Name"> | <?php
         if (!isset($_GET["note"])) { echo "New Notebook"; }
-        else { echo explode("by", explode("/", $_GET["note"])[1])[0] . " by " . explode("by", explode("/", $_GET["note"])[1])[1]; }
+        else if ($_GET["private"] == "false") { echo explode("by", explode("/", $_GET["note"])[1])[0] . " by " . explode("by", explode("/", $_GET["note"])[1])[1]; }
+        else if ($_GET["private"] == "true") { echo explode("/", $_GET["note"])[1]; }
       ?>
       </span>
     </div>
