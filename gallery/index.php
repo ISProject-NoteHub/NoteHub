@@ -73,6 +73,10 @@
                         ' . explode("by", $privateNotes[$i])[0] . '
                       </div>
                       <div class="Note-Author">By ' . explode("by", $privateNotes[$i])[1] . '</div>
+                      <div class="Note-Stats">
+                        <div class="Note-Likes">' . explode(".-.", str_replace(".txt", "", explode("by", $privateNotes[$i])[2]))[1] . '</div>
+                        <div class="Note-Dislikes">' . explode(".-.", str_replace(".txt", "", explode("by", $privateNotes[$i])[2]))[2] . '</div>
+                      </div>
                     </a>';
                   }
                 }
