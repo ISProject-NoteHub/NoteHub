@@ -60,7 +60,7 @@
               
               $privateNotes = ListPublicNotes($topic, true);
 
-              if (count($privateNotes) == 1) { echo "<div class='w3-button w3-large w3-block' style='background-color: transparent;'>This topic doesn't have any notes yet.<br>&#xAF;\\_(&#x30C4;)_/&#xAF;</div>"; }
+              if (count($privateNotes) == 1) { echo "<div class='w3-button w3-large w3-block' style='background-color: transparent;'>This topic doesn't have any notes yet.<br>Why not be the first to <a href='/note'>add one</a>?</div>"; }
               else {
                 for ($i = 0; $i < count($privateNotes); $i++) {
                   if ($privateNotes[$i] !== "label.txt") {
