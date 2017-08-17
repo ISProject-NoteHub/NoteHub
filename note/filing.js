@@ -10,6 +10,18 @@ function PrepareSaveAs() {
   }
 }
 
+function Vote(upOrDown) {
+  var updateSuggestions = new XMLHttpRequest();
+  updateSuggestions.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      ShowSnackbar("Voted");
+    }
+  }
+  updateSuggestions.open("POST", "backend/public-notes.php");
+  updateSuggestions.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  updateSuggestions.send("vote=" + upOrDown);
+}
+
 function PrepareSaveChanges() {
   if (noteProperties.name == "") { PrepareSaveAs(); return; }
 

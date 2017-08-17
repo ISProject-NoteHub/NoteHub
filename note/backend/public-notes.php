@@ -1,5 +1,6 @@
 <?php
   if (isset($_POST["decimal"])) { ListPublicNotes($_POST["decimal"]); }
+  else if (isset($_POST["vote"])) { Vote($_POST["vote"], $_COOKIE["note"]); }
 
   function ListPublicNotes($decimal, $direct = false) {
     $notes = scandir($_SERVER["DOCUMENT_ROOT"] . "/databases/notes/" . $decimal);
@@ -9,6 +10,31 @@
     
     if ($direct === false) echo json_encode($notesOut);
     else return $notesOut;
+  }
+
+  function Vote($upOrDown, $note) {
+    $upOrDown = (int)$upOrDown;
+    $thing = trim(explode(".-.", str_replace(".txt", "", explode("by", $note)[2]))[0]) + 1;
+    $newLikes = trim(explode(".-.", str_replace(".txt", "", explode("by", $note)[2]))[1]);
+    $newDislikes = trim(explode(".-.", str_replace(".txt", "", explode("by", $note)[2]))[2]);
+
+    if ($upOrDown == 2) { $newLikes = trim(explode(".-.", str_replace(".txt", "", explode("by", $note)[2]))[1]) + 1; }
+    else if ($upOrDown == 3) { $newDislikes = trim(explode(".-.", str_replace(".txt", "", explode("by", $note)[2]))[2]) + 1; }
+      
+    rename(
+      $_SERVER['DOCUMENT_ROOT'] . "/databases/notes/" . explode("/", $note)[0] .
+      "/" . explode("by", explode("/", $note)[1])[0] .
+      "by" . explode("by", explode("/", $note)[1])[1] .
+      "by " . $thing .
+      ".-." . trim(explode(".-.", str_replace(".txt", "", explode("by", $note)[2]))[1]) .
+      ".-." . trim(explode(".-.", str_replace(".txt", "", explode("by", $note)[2]))[2]) . ".txt",
+      $_SERVER['DOCUMENT_ROOT'] . "/databases/notes/" . explode("/", $note)[0] .
+      "/" . explode("by", explode("/", $note)[1])[0] .
+      "by" . explode("by", explode("/", $note)[1])[1] .
+      "by " . $thing .
+      ".-." . $newLikes .
+      ".-." . $newDislikes . ".txt"
+    );
   }
 
   function WritePublicNote($username, $password, $noteName, $noteContent) {

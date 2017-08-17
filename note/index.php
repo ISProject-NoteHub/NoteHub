@@ -6,6 +6,8 @@
     include("../databases/microdb/Event.php");
     include("../databases/microdb/Index.php");
   }
+
+  if (isset($_GET["note"])) setcookie("note", $_GET["note"]);
 ?>
 <!--HTML document begins here-->
 <!DOCTYPE html>
@@ -169,6 +171,7 @@
         </div>';
       }
     ?>
+
     <?php
       if (isset($_COOKIE['signedIn'])) {
         echo '<div class="w3-dropdown-hover">
@@ -186,6 +189,19 @@
 
     <a href="javascript:ListSuggestions();ShowModal('NoteDetails');" class="w3-bar-item w3-button"><i class="fa fa-fw fa-info-circle" aria-hidden="true"></i>&nbsp;&nbsp;Note Details</a>
     <hr>
+
+    <?php
+      if (isset($_GET['note']) && ($_GET["private"] == "false")) {
+        echo '<div class="w3-dropdown-hover">
+          <button class="w3-button" onclick="Vote(2);">
+            <i class="fa fa-fw fa-thumbs-up" aria-hidden="true"></i>&nbsp;&nbsp;Upvote
+          </button>
+          <button class="w3-button" onclick="Vote(3);">
+            <i class="fa fa-fw fa-thumbs-down" aria-hidden="true"></i>&nbsp;&nbsp;Downvote
+          </button>
+        </div><hr>';
+      }
+    ?>
 
     <a href="/accounts/manager-manage.php" class="w3-bar-item w3-button"><i class="fa fa-fw fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Account Manager</a>
     <a href="/accounts/manager-privatenotes.php" class="w3-bar-item w3-button"><i class="fa fa-fw fa-folder" aria-hidden="true"></i>&nbsp;&nbsp;Note Manager</a>
@@ -285,6 +301,10 @@
   <!--Snackbars-->
   <div id="Snackbar-NoContent" class="w3-snackbar">
     <span class="ErrorText">We can't save your note as it doesn't have any content.</span>
+  </div>
+
+  <div id="Snackbar-Voted" class="w3-snackbar">
+    <span class="ErrorText">Voted.</span>
   </div>
 
   <div id="Snackbar-Tags" class="w3-snackbar">
@@ -487,7 +507,7 @@
       </div>
 
       <footer class="w3-container w3-blue w3-padding">
-        <button class="w3-button w3-green" onclick="CloseModal();">CLOSE</button>
+        <button class="w3-button w3-green" onclick="CloseModal();">CLO  SE</button>
       </footer>
     </div>
   </div>
