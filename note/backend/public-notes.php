@@ -19,7 +19,7 @@
 
     if (VerifyAccount($username, $password)) {
       $path = $_SERVER['DOCUMENT_ROOT'];
-      $path .= "/databases/notes/" . $noteName . " by " . $username . " by .-.0.-.0.txt";
+      $path .= "/databases/notes/" . $noteName . " by " . $username . " by 0.-.0.-.0.txt";
       $write = file_put_contents($path, $noteContent);
       if ($write !== false) { echo "Write successful."; }
       else { echo "Write failed."; }

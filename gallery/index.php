@@ -74,8 +74,9 @@
                       </div>
                       <div class="Note-Author">By ' . explode("by", $privateNotes[$i])[1] . '</div>
                       <div class="Note-Stats">
-                        <div class="Note-Likes">' . explode(".-.", str_replace(".txt", "", explode("by", $privateNotes[$i])[2]))[1] . '</div>
-                        <div class="Note-Dislikes">' . explode(".-.", str_replace(".txt", "", explode("by", $privateNotes[$i])[2]))[2] . '</div>
+                        <div><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;&nbsp;' . trim(explode(".-.", str_replace(".txt", "", explode("by", $privateNotes[$i])[2]))[0]) . '</div>
+                        <div><i class="fa fa-thumbs-up" aria-hidden="true"></i>&nbsp;&nbsp;' . explode(".-.", str_replace(".txt", "", explode("by", $privateNotes[$i])[2]))[1] . '</div>
+                        <div><i class="fa fa-thumbs-down" aria-hidden="true"></i>&nbsp;&nbsp;' . explode(".-.", str_replace(".txt", "", explode("by", $privateNotes[$i])[2]))[2] . '</div>
                       </div>
                     </a>';
                   }

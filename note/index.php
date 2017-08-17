@@ -529,7 +529,7 @@
           $note[0] = array(
             "name" => "New Note", "type" => "Note",
             "author" => explode(',', base64_decode($_COOKIE['signedIn']))[0],
-            "content" => "<p><h1><b>An Error Occurred :(</b></h1></p><hr><p>NoteHub was unable to retrive this private note, either because you don't have permissions to access it or due to <a href='https://en.wikipedia.org/wiki/Cosmic_ray'>cosmic rays</a>. We're sorry for any incovenience caused.</p>"
+            "content" => "<p><h1><b>" . trim(explode(".-.", str_replace(".txt", "", explode("by", $_GET["note"])[2]))[0]) . "An Error Occurred :(</b></h1></p><hr><p>NoteHub was unable to retrive this private note, either because you don't have permissions to access it or due to <a href='https://en.wikipedia.org/wiki/Cosmic_ray'>cosmic rays</a>. We're sorry for any incovenience caused.</p>"
           );
           $note[1] = array(
             "name" => "References", "type" => "References",
@@ -557,6 +557,21 @@
       }
     ?>;
   </script>
+  
+  <?php
+    if (!empty($_GET["note"]) && ($_GET["private"] == "false") && file_exists("../databases/notes/" . $_GET["note"] . ".txt")) {
+      $thing = trim(explode(".-.", str_replace(".txt", "", explode("by", $_GET["note"])[2]))[0]) + 1;
+      
+      rename("../databases/notes/" . $_GET["note"] . ".txt",
+        $_SERVER['DOCUMENT_ROOT'] . "/databases/notes/" . explode("/", $_GET["note"])[0] .
+        "/" . explode("by", explode("/", $_GET["note"])[1])[0] .
+        "by" . explode("by", explode("/", $_GET["note"])[1])[1] .
+        "by " . $thing .
+        ".-." . trim(explode(".-.", str_replace(".txt", "", explode("by", $_GET["note"])[2]))[1]) .
+        ".-." . trim(explode(".-.", str_replace(".txt", "", explode("by", $_GET["note"])[2]))[2]) . ".txt"
+      );
+    }
+  ?>
 </body>
 
 </html>
