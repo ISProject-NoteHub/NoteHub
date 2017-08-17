@@ -80,7 +80,7 @@
           for ($i = 0; $i < $accounts; $i++) {
             if ($accountData[$i][0] == explode(",", base64_decode($_COOKIE["signedIn"]))[0]) {
               for ($a = 0; $a < count($accountData[$i][4]); $a++) {
-                echo "<div class='w3-card w3-padding'><h4>" . $accountData[$i][4][$a][0] . " suggested changes to " . $accountData[$i][4][$a][1] . "</h4><a href='manage-suggestions.php?suggestion=" . $a . "'>View Suggestion</a>";
+                echo "<div class='w3-card w3-padding'><h4>" . $accountData[$i][4][$a][0] . " suggested changes to " . $accountData[$i][4][$a][1] . "</h4><a href='manage-suggestions.php?suggestion=" . $a . "'>View Suggestion</a></div>";
               }
             }
           }
