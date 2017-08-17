@@ -1,0 +1,1 @@
+<textarea placeholder="paste to teach NoteHub"></textarea>
