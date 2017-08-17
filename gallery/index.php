@@ -58,18 +58,19 @@
             <?php
               include("../note/backend/public-notes.php");
               $privateNotes = ListPublicNotes($topic, true);
+              error_reporting(0);
               
-              function quick_sort() {
-                $length = count($privateNotes);
+              function quick_sort($array) {
+                $length = count($array);
 
-                if($length <= 1){ return $privateNotes; }
+                if($length <= 1){ return $array; }
                 else{
-                  $pivot = (int)explode(".-.", str_replace(".txt", "", explode("by", $privateNotes[0])[2]))[1];
+                  $pivot = $array[0];
                   $left = $right = array();
-                  for($i = 1; $i < count($privateNotes); $i++)
+                  for($i = 1; $i < count($array); $i++)
                   {
-                    if(((int)explode(".-.", str_replace(".txt", "", explode("by", $privateNotes[$i])[2]))[1]) < $pivot){ $left[] = $array[$i]; }
-                    else{ $right[] = $privateNotes[$i]; }
+                    if(((int)explode(".-.", str_replace(".txt", "", explode("by", $array[$i])[2]))[1]) > ((int)explode(".-.", str_replace(".txt", "", explode("by", $pivot[0])[2]))[1])){ $left[] = $array[$i]; }
+                    else{ $right[] = $array[$i]; }
                   }
                   
                   // use recursion to now sort the left and right lists
@@ -77,9 +78,11 @@
                 }
               }
 
+              $privateNotes = quick_sort($privateNotes);
+
               if (count($privateNotes) == 1) { echo "<div class='w3-button w3-large w3-block' style='background-color: transparent;'>This topic doesn't have any notes yet.<br>Why not be the first to <a href='/note'>add one</a>?</div>"; }
               else {
-                for ($i = 0; $i < count($privateNotes); $i++) {
+                for ($i = 0; $i < (count($privateNotes) - 1); $i++) {
                   if ($privateNotes[$i] !== "label.txt") {
                     echo '<a class="Note" style="color: black !important;" href="../note/index.php?note=' . $topic . '/' . str_replace(".txt", "", $privateNotes[$i]) . '&private=false">
                       <div class="Note-Image">
