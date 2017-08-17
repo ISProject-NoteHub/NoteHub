@@ -31,6 +31,15 @@
   ?></a>
 
   <div id="Page-Contents" class="w3-animate-bottom" style="padding: 20px;">
+    <form class="w3-padding w3-row">
+      <div class="w3-col" style="width: 110px;">
+        <button type="submit" class="w3-button w3-blue"><i class="fa fa-search"></i>&nbsp;&nbsp;Search</button>
+      </div>
+      <div class="w3-rest">
+        <input name="query" class="w3-input w3-border" />
+      </div>
+    </form>
+
     <div class="w3-row">
       <div class="w3-half w3-padding">
         <!--Random Topic-->
@@ -51,7 +60,7 @@
               
               $privateNotes = ListPublicNotes($topic, true);
 
-              if (count($privateNotes) == 1) { echo "<div class='w3-button w3-large w3-block' style='background-color: transparent;'>This topic doesn't have any notes yet.<br>&#xAF;\\_(&#x30C4;)_/&#xAF;</div>"; }
+              if (count($privateNotes) == 1) { echo "<div class='w3-button w3-large w3-block' style='background-color: transparent;'>This topic doesn't have any notes yet.<br>Why not be the first to <a href='/note'>add one</a>?</div>"; }
               else {
                 for ($i = 0; $i < count($privateNotes); $i++) {
                   if ($privateNotes[$i] !== "label.txt") {
@@ -64,6 +73,10 @@
                         ' . explode("by", $privateNotes[$i])[0] . '
                       </div>
                       <div class="Note-Author">By ' . explode("by", $privateNotes[$i])[1] . '</div>
+                      <div class="Note-Stats">
+                        <div class="Note-Likes">' . explode(".-.", str_replace(".txt", "", explode("by", $privateNotes[$i])[2]))[1] . '</div>
+                        <div class="Note-Dislikes">' . explode(".-.", str_replace(".txt", "", explode("by", $privateNotes[$i])[2]))[2] . '</div>
+                      </div>
                     </a>';
                   }
                 }
