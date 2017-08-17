@@ -57,8 +57,23 @@
           <div class="SectionContents" style="min-height: 407px;">
             <?php
               include("../note/backend/public-notes.php");
-              
               $privateNotes = ListPublicNotes($topic, true);
+
+              $length = count($privateNotes);
+
+              if($length <= 1){ return $privateNotes; }
+              else{
+                $pivot = $privateNotes[0];
+                $left = $right = array();
+                for($i = 1; $i < count($privateNotes); $i++)
+                {
+                  if((int)explode(".-.", str_replace(".txt", "", explode("by", $privateNotes[$i])[2]))[1] < $pivot){ $left[] = $array[$i]; }
+                  else{ $right[] = $privateNotes[$i]; }
+                }
+                
+                // use recursion to now sort the left and right lists
+                return array_merge(quick_sort($left), array($pivot), quick_sort($right));
+              }
 
               if (count($privateNotes) == 1) { echo "<div class='w3-button w3-large w3-block' style='background-color: transparent;'>This topic doesn't have any notes yet.<br>Why not be the first to <a href='/note'>add one</a>?</div>"; }
               else {
