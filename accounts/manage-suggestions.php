@@ -86,7 +86,11 @@
         include("../databases/microdb/Event.php");
         include("../databases/microdb/Index.php");
 
-        if (empty($_GET["suggestion"])) {
+        if (!empty($_POST["suggestion"])) {
+          //Commit suggestion
+          include ("")
+        }
+        else if (empty($_GET["suggestion"])) {
           //Get list of suggestions
           $db = new \MicroDB\Database("../databases/accounts");
 
@@ -108,7 +112,11 @@
         else {
           //Show suggestion and mechanism to accept
           $thisSuggestion = json_decode($_COOKIE["suggestion" . $_GET["suggestion"]]);
-          echo "<div class='w3-card w3-padding'><h2>Suggestion by {$thisSuggestion[0]}</h2></div>";
+          echo "<form method='post' class='w3-card w3-padding'>
+            <h2>Suggestion by {$thisSuggestion[0]}</h2>
+            <input type='hidden' name='suggestion' value='{$_GET["suggestion"]}' />
+            <input class='w3-button w3-green' type='submit' value='Accept Suggestion' />
+          </form>";
         }
       ?>
     </div>
