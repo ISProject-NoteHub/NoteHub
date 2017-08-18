@@ -84,6 +84,7 @@
               }
               
               for ($a = 0; $a < count($accountData[$i][4]); $a++) {
+                setcookie("suggestion" . $a, json_encode($accountData[$i][4][$a]));
                 echo "<div class='w3-card w3-padding'><h4>" . $accountData[$i][4][$a][0] . " suggested changes to " . $accountData[$i][4][$a][1] . "</h4><a href='manage-suggestions.php?suggestion=" . $a . "'>View Suggestion</a></div>";
               }
             }
@@ -91,6 +92,8 @@
         }
         else {
           //Show suggestion and mechanism to accept
+          $thisSuggestion = json_decode($_COOKIE["suggestion" . $_GET["suggestion"]]);
+          echo "<div class='w3-card w3-padding'><h2>Suggestion by {$thisSuggestion[0]}</h2></div>";
         }
       ?>
     </div>
