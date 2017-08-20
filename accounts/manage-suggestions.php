@@ -2,6 +2,22 @@
   $suggestions = [];
 
   if (!isset($_COOKIE["signedIn"])) { header("Location: sign-in.php"); }
+
+  if (empty($_GET["suggestion"])) {
+    //Get list of suggestions
+    $db = new \MicroDB\Database("../databases/accounts");
+
+    $accountData = $db -> load(1);
+    $accounts = count($accountData);
+
+    for ($i = 0; $i < $accounts; $i++) {
+      if ($accountData[$i][0] == explode(",", base64_decode($_COOKIE["signedIn"]))[0]) {
+        for ($a = 0; $a < count($accountData[$i][4]); $a++) {
+          setcookie("suggestion" . $a, json_encode($accountData[$i][4][$a]));
+        }
+      }
+    }
+  }
 ?>
 <!--HTML document begins here-->
 <!DOCTYPE html>
@@ -70,7 +86,11 @@
         include("../databases/microdb/Event.php");
         include("../databases/microdb/Index.php");
 
-        if (empty($_GET["suggestion"])) {
+        if (!empty($_POST["suggestion"])) {
+          //Commit suggestion
+          include ("")
+        }
+        else if (empty($_GET["suggestion"])) {
           //Get list of suggestions
           $db = new \MicroDB\Database("../databases/accounts");
 
@@ -79,6 +99,10 @@
 
           for ($i = 0; $i < $accounts; $i++) {
             if ($accountData[$i][0] == explode(",", base64_decode($_COOKIE["signedIn"]))[0]) {
+              if (count($accountData[$i][4]) == 0) {
+                echo "<div class='w3-card w3-padding'>No one's suggested on your public notes yet.</div>";
+              }
+              
               for ($a = 0; $a < count($accountData[$i][4]); $a++) {
                 echo "<div class='w3-card w3-padding'><h4>" . $accountData[$i][4][$a][0] . " suggested changes to " . $accountData[$i][4][$a][1] . "</h4><a href='manage-suggestions.php?suggestion=" . $a . "'>View Suggestion</a></div>";
               }
@@ -87,6 +111,12 @@
         }
         else {
           //Show suggestion and mechanism to accept
+          $thisSuggestion = json_decode($_COOKIE["suggestion" . $_GET["suggestion"]]);
+          echo "<form method='post' class='w3-card w3-padding'>
+            <h2>Suggestion by {$thisSuggestion[0]}</h2>
+            <input type='hidden' name='suggestion' value='{$_GET["suggestion"]}' />
+            <input class='w3-button w3-green' type='submit' value='Accept Suggestion' />
+          </form>";
         }
       ?>
     </div>
