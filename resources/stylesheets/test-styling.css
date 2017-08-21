@@ -47,7 +47,6 @@ html, body {
   color: red;
 }
 
-a { color: dodgerblue; }
 a:hover { color: gray; }
 
 #Page-Contents {
