@@ -94,3 +94,17 @@ body {
 b {
   font-weight: bolder;
 }
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  color: lightgray !important;
+}
+
+.nextpage {
+  color: white;
+  background-color: rgba(1, 152, 255, 0.75);
+}
