@@ -88,7 +88,7 @@
 
         if (!empty($_POST["suggestion"])) {
           //Commit suggestion
-          include ("")
+          include ("");
         }
         else if (empty($_GET["suggestion"])) {
           //Get list of suggestions
