@@ -371,7 +371,7 @@
         <div id="NoteInfo-NotePrivacy" style="width: 100%; padding: 10px;">
           Note Privacy can now be changed when saving a note, and has been moved.
         </div>
-        <a href="https://beta.notehub.ga/note/index.php?note=TheoLeeCJ/NoteHub%20-%20Note%20Privacy&private=true" target="_blank">Learn more about note privacy</a><br><br>
+        <a href="/note/index.php?note=TheoLeeCJ/NoteHub%20-%20Note%20Privacy&private=true" target="_blank">Learn more about note privacy</a><br><br>
 
         <h4><b>Last Modified: </b>
         <span id="NoteInfo-LastModified">Today</span></h4>
