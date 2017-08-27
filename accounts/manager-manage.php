@@ -10,7 +10,7 @@
 
     include("../note/backend/private-notes.php");
 
-    $db = new \MicroDB\Database("gs://yournotehub.appspot.com/databases/accounts");
+    $db = new \MicroDB\Database("../databases/accounts");
 
     $accountData = $db -> load(1);
     $accounts = count($accountData);
