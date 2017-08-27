@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href="https://beta.notehub.ga/logo.png" rel="icon" />
+    <link href="/logo.png" rel="icon" />
     <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet" />
     <link href="report-styling.css" rel="stylesheet" />
-    <link href="https://beta.notehub.ga/resources/stylesheets/w3.css" rel="stylesheet" />
-    <link href="https://beta.notehub.ga/resources/stylesheets/test-styling.css" rel="stylesheet" />
+    <link href="/resources/stylesheets/w3.css" rel="stylesheet" />
+    <link href="/resources/stylesheets/test-styling.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="scripts.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,20 +13,48 @@
   </head>
   <body>
     <div class="w3-container w3-bar top">
-      <img src="https://beta.notehub.ga/logo.png" width="452px" height="442px" class="report-logo"/>
+      <img src="/logo.png" class="report-logo"/>
       <br>
       The Team
     </div>
     <br style="line-height: 75vh;">
-    <div class="w3-container w3-card w3-white w3-margin w3-padding">
+    <div style="max-width: 600px;" class="w3-content w3-container w3-card w3-white w3-padding">
       <h1>The NoteHub Team</h1>
-      <h2>Here are the people who have helped to build NoteHub.</h2>
-      <ul>
-        <li>Aloysius Lee: Team Leader</li>
-        <li>Ho Wing Yip: Programmer, Styling</li>
-        <li>Samuel Lim: Designer, Slides</li>
-        <li>Theodore Lee: Programmer</li>
-      </ul>
+      <h2>Here are the people who built NoteHub.</h2>
+
+      <div>
+        <div class="w3-row">
+          <div class="w3-padding w3-half"><div class="w3-card w3-padding" style="text-align: center;">
+            <img src="aloy.png" style="width: 100%; border-radius: 50%;" />
+            <br>
+            <h2>Aloysius Lee</h2>
+            Team Leader, Web App Stylist
+          </div></div>
+          
+          <div class="w3-padding w3-half"><div class="w3-card w3-padding" style="text-align: center;">
+            <img src="yip.png" style="width: 100%; border-radius: 50%;" />
+            <br>
+            <h2>Ho Wing Yip</h2>
+            Programmer, Web App Stylist
+          </div></div>
+        </div>
+
+        <div class="w3-row">
+          <div class="w3-padding w3-half"><div class="w3-card w3-padding" style="text-align: center;">
+            <img src="sam.png" style="width: 100%; border-radius: 50%;" />
+            <br>
+            <h2>Samuel Lim</h2>
+            Web App and Slides Designer
+          </div></div>
+          
+          <div class="w3-padding w3-half"><div class="w3-card w3-padding" style="text-align: center;">
+            <img src="theo.png" style="width: 100%; border-radius: 50%;" />
+            <br>
+            <h2>Theodore Lee</h2>
+            Programmer, Web Hosting Finder
+          </div></div>
+        </div>
+      </div>
     </div>
     <div class="w3-container w3-card w3-margin w3-padding nextpage">
       <h2 class="w3-center"><b><a href="acknowledgements.html" class="nextpage-link">Acknowledgements ></a></b></h2>
