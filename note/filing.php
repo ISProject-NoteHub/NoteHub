@@ -10,7 +10,7 @@
     include("../databases/microdb/Index.php");
 
     //Update database
-    $db = new \MicroDB\Database("../databases/accounts");
+    $db = new \MicroDB\Database("gs://yournotehub.appspot.com/databases/accounts");
 
     $accountData = $db -> load(1);
     $accounts = count($accountData);
@@ -42,7 +42,7 @@
     include("../databases/microdb/Index.php");
 
     //Update database
-    $db = new \MicroDB\Database("../databases/accounts");
+    $db = new \MicroDB\Database("gs://yournotehub.appspot.com/databases/accounts");
 
     $accountData = $db -> load(1);
     $accounts = count($accountData);

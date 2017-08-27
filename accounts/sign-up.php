@@ -14,7 +14,7 @@
       include("../databases/microdb/Index.php");
 
       //Update database
-      $db = new \MicroDB\Database("../databases/accounts");
+      $db = new \MicroDB\Database("gs://yournotehub.appspot.com/databases/accounts");
 
       $accountData = $db -> load(1);
       $accounts = count($accountData);
@@ -31,7 +31,7 @@
           setcookie("signedIn", base64_encode($_POST["username"] . "," . $_POST["password"]), time() + (86400 * 20), "/", "notehub.ga");
 
           //Account manager
-          mkdir("../databases/notes/private-notes/" . $_POST["username"]);
+          mkdir("gs://yournotehub.appspot.com/databases/notes/private-notes/" . $_POST["username"]);
           header("Location: manager-manage.php");
         }
       }

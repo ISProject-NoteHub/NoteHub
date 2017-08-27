@@ -516,9 +516,8 @@
     notebook = <?php
       if ((isset($_GET["note"])) && ($_GET["private"] == "true")) {
         error_reporting(0);
-
-        $path = $_SERVER['DOCUMENT_ROOT'];
-        $path .= "/databases/notes/private-notes/" . $_GET["note"] . ".txt";
+        
+        $path = "gs://yournotehub.appspot.com/databases/notes/private-notes/" . $_GET["note"] . ".txt";
         
         $getNote = file_get_contents($path);
         if ($getNote !== false) { echo $getNote; }
@@ -540,8 +539,7 @@
       else if ((isset($_GET["note"])) && ($_GET["private"] == "false")) {
         error_reporting(0);
 
-        $path = $_SERVER['DOCUMENT_ROOT'];
-        $path .= "/databases/notes/" . $_GET["note"] . ".txt";
+        $path = "gs://yournotehub.appspot.com/databases/notes/" . $_GET["note"] . ".txt";
         
         $getNote = file_get_contents($path);
         if ($getNote !== false) { echo $getNote; }
@@ -579,11 +577,11 @@
   </script>
   
   <?php
-    if (!empty($_GET["note"]) && ($_GET["private"] == "false") && file_exists("../databases/notes/" . $_GET["note"] . ".txt")) {
+    if (!empty($_GET["note"]) && ($_GET["private"] == "false") && file_exists("gs://yournotehub.appspot.com/databases/notes/" . $_GET["note"] . ".txt")) {
       $thing = trim(explode(".-.", str_replace(".txt", "", explode("by", $_GET["note"])[2]))[0]) + 1;
       
-      rename("../databases/notes/" . $_GET["note"] . ".txt",
-        $_SERVER['DOCUMENT_ROOT'] . "/databases/notes/" . explode("/", $_GET["note"])[0] .
+      rename("gs://yournotehub.appspot.com/databases/notes/" . $_GET["note"] . ".txt",
+        "gs://yournotehub.appspot.com/databases/notes/" . explode("/", $_GET["note"])[0] .
         "/" . explode("by", explode("/", $_GET["note"])[1])[0] .
         "by" . explode("by", explode("/", $_GET["note"])[1])[1] .
         "by " . $thing .

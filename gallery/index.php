@@ -49,7 +49,7 @@
               $availableTopics = array(111, 100, 200, 300, 500);
               $topic = $availableTopics[mt_rand(0, 4)];
 
-              echo file_get_contents("../databases/notes/" . $topic . "/label.txt");
+              echo file_get_contents("gs://yournotehub.appspot.com/databases/notes/" . $topic . "/label.txt");
             ?>
             <a class="fa fa-refresh w3-button" href="index.php" style="float: right;"></a>
           </h2>

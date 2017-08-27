@@ -109,7 +109,7 @@
               else if ($_POST["password"] == "") { echo "<div class=\"ErrorText\">You didn't input your new password. Please try again.</div>"; $incorrect = true; }
               else {
                 //Set le new password
-                $db = new \MicroDB\Database("../databases/accounts");
+                $db = new \MicroDB\Database("gs://yournotehub.appspot.com/databases/accounts");
 
                 $accountData = $db -> load(1);
                 $accounts = count($accountData);
