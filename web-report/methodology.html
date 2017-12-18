@@ -1,57 +1,126 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <link href="/logo.png" rel="icon" />
-    <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet" />
-    <link href="report-styling.css" rel="stylesheet" />
-    <link href="/resources/stylesheets/w3.css" rel="stylesheet" />
-    <link href="/resources/stylesheets/test-styling.css" rel="stylesheet" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="scripts.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Report | NoteHub</title>
-  </head>
-  <body>
-    <div class="w3-container w3-bar top">
-      <img src="/logo.png" width="452px" height="442px" class="report-logo"/>
-      <br>
-      Methodology
-    </div>
-    <br style="line-height: 75vh;">
-    <div class="w3-container w3-card w3-white w3-margin w3-padding">
-      <h1>Methodology</h1>
-      <h2>Timeframe</h2>
-      NoteHub's development has been split into four phases, namely Core Code, Interface, Account Systems / Permissions Management, and Testing Period.<br>
-      Hover over a phase to see more about it.
-      <div class="timeline-container">
-        <div class="w3-container w3-card w3-round-large w3-margin-right w3-margin-top w3-margin-bottom w3-padding w3-green timeline corecode">Core Code</div>
-        <div class="w3-container w3-card w3-round-large w3-margin-right w3-margin-top w3-margin-bottom w3-padding w3-teal timeline interface">Interface</div>
-        <div class="w3-container w3-card w3-round-large w3-margin-right w3-margin-top w3-margin-bottom w3-padding w3-blue timeline accounts">Account Systems</div>
-        <div class="w3-container w3-card w3-round-large w3-margin-right w3-margin-top w3-margin-bottom w3-padding w3-purple timeline testing">Testing Period</div>
-        <div class="w3-container w3-padding w3-margin w3-card w3-round corecode-info">During the Core Code phase, the basic layout of NoteHub was established, such as the main page, the about page and the logbook were created. The core code set the outline for the next two phases.</div>
-        <div class="w3-container w3-padding w3-margin w3-card w3-round interface-info">The Interface stage saw a complete redesign of NoteHub's user interface to attract users to NoteHub and make the design cleaner, and the page easier to use.</div>
-        <div class="w3-container w3-padding w3-margin w3-card w3-round accounts-info">The Accounts phase was the most important. The account system, intelligent algorithm, note-saving system and the permissions management were set up, enabling users to create accounts and save or share notes.</div>
-        <div class="w3-container w3-padding w3-margin w3-card w3-round testing-info">Including both alpha and beta testing, the testing period aims to spread word about NoteHub and see real-life responses to NoteHub to find its popularity amongst students.</div>
-      </div>
-      <h2>What Did We Use?</h2>
-      We used quite a few programming languages and frameworks to build NoteHub.
-      <img src="w3.png" width="341" height="200" class="w3-margin logos">
-      <img src="php.png" class="w3-margin logos">
-      <img src="jquery.png" width="243" height="66" class="w3-margin logos">
-      <ul>
-        <li>HTML for the UI;</li>
-        <li>CSS for the UI;</li>
-        <li>JavaScript for the frontend, UI, UX and intelligent algorithms;</li>
-        <li><span style="font-family: 'Segoe UI';">j</span>Query framework for this web report;</li>
-        <li>W3.CSS Framework for the UI;</li>
-        <li>PHP for the backend;</li>
-        <li>CKEditor framework for the note editor; and</li>
-        <li>JSON for the database.</li>
-      </ul>
-    </div>
-    <div class="w3-container w3-card w3-margin w3-padding nextpage">
-      <h2 class="w3-center"><b><a href="features.html" class="nextpage-link">Features ></a></b></h2>
-    </div>
-    <br style="line-height: 50vh;">
-  </body>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Methodology | NoteHub</title>
+
+		<link href="styling.css" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
+	</head>
+
+	<body>
+		<a class="prev" href="lit-review.html">&#10094;</a>
+		<a class="next" href="features.html">&#10095;</a>
+		
+		<div id="PageContent" style="background-color: rgba(0, 0, 0, 0.7); margin-top: 10px;">
+			<table>
+				<tr>
+					<td><img width="100" src="resources/logo.png" style="margin-right: 10px;" /></td>
+					<td><h1>Methodology<br><span style="font-size: 0.6em;">WEB REPORT</span></h1>
+				</tr>
+			</table>
+
+			<div>
+				<br><h2>Timeframe</h2>
+				We split NoteHub up into multiple stages, and scheduled them in a most sensible way in order to make development as efficient as we could.
+
+				<table style="margin-top: 10px;">
+					<tr>
+						<td><img src="resources/user-account-box.png" width="150" style="margin: 15px;" /></td>
+						<td>
+							<h2>Accounts System</h2>
+							<p>In this stage, we built up a basic accounts system to handle user authentication.</p>
+						</td>
+					</tr>
+					
+					<tr>
+						<td><img src="resources/code.png" width="150" style="margin: 15px;" /></td>
+						<td>
+							<h2>NoteHub Core Code</h2>
+							<p>During this stage, we built up NoteHub's core features - the editor, gallery and note browsing, to name a few.</p>
+						</td>
+					</tr>
+					
+					<tr>
+						<td><img src="resources/design.png" width="150" style="margin: 15px;" /></td>
+						<td>
+							<h2>Design</h2>
+							<p>At this stage, we began to make NoteHub look pretty and more appealing to users, by redesigning our editor, website and galleries.</p>
+						</td>
+					</tr>
+					
+					<tr>
+						<td><img src="resources/database.png" width="150" style="margin: 15px;" /></td>
+						<td>
+							<h2>Algorithms and Backend</h2>
+							<p>After the design stage, we began piecing together the many algorithms and functions that NoteHub's backend would need - ranging from those for the gallery to those for recommending notes, and the all-important credibility one.</p>
+						</td>
+					</tr>
+					
+					<tr>
+						<td><img src="resources/users.png" width="150" style="margin: 15px;" /></td>
+						<td>
+							<h2>Testing</h2>
+							<p>Finally, we released NoteHub to testing, fixing bugs reported by users and acting on their suggestions, to produce an even better product.</p>
+						</td>
+					</tr>
+				</table>
+
+				<br><h2>Languages / Framworks Used</h2>
+				We used various programming languages and frameworks in the development of NoteHub, all for different purposes and components.
+
+				<table style="margin-top: 10px;">
+					<tr>
+						<td><img src="resources/html5.png" width="150" style="margin: 15px;" /></td>
+						<td>
+							<h2>HTML5</h2>
+							<p>Used for building the interface of NoteHub</p>
+						</td>
+					</tr>
+					
+					<tr>
+						<td><img src="resources/css3.png" width="150" style="margin: 15px;" /></td>
+						<td>
+							<h2>CSS3</h2>
+							<p>Used for making the interface appealing and easy to use</p>
+						</td>
+					</tr>
+					
+					<tr>
+						<td><img src="resources/js.png" width="150" style="margin: 15px;" /></td>
+						<td>
+							<h2>JavaScript</h2>
+							<p>Used to make the interface work</p>
+						</td>
+					</tr>
+					
+					<tr>
+						<td><img src="resources/w3schools.jpg" width="150" style="margin: 15px;" /></td>
+						<td>
+							<h2>W3.CSS (Library)</h2>
+							<p>Used to speed up development of interface</p>
+						</td>
+					</tr>
+					
+					<tr>
+						<td><img src="resources/settings-gears.png" width="150" style="margin: 15px;" /></td>
+						<td>
+							<h2>CKEditor</h2>
+							<p>Used for the note editor</p>
+						</td>
+					</tr>
+					
+					<tr>
+						<td><img src="resources/icon.png" width="150" style="margin: 15px;" /></td>
+						<td>
+							<h2>PHP</h2>
+							<p>Used to construct backend and handle server-side functions such as note storage</p>
+						</td>
+					</tr>
+				</table>
+			</div>
+
+			<h1 style="text-align: center; margin-top: 30px;"><a style="color: white; text-decoration: none;" href="features.html">NEXT > <span style="font-size: 0.6em;">Features</span></a></h1>
+		</div>
+	</body>
 </html>

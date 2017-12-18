@@ -1,0 +1,48 @@
+body {
+	margin: 0;
+	height: 100vh;
+	background: url("resources/background.jpg") center center no-repeat;
+	background-size: cover;
+	font-family: "Questrial", sans-serif;
+	cursor: default;
+	background-attachment: fixed;
+}
+
+* { line-height: 1.45em; }
+
+h1, h2, h3, h4, h5, h6 { margin-top: 5px; margin-bottom: 5px; }
+
+#PageContent {
+	margin: auto;
+	width: 100%; max-width: 730px;
+	color: white;
+	border-radius: 20px;
+	padding: 20px;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+	cursor: pointer;
+	position: fixed;
+	top: 50%;
+	width: auto;
+	padding: 16px;
+	margin-top: -22px;
+	color: white;
+	font-weight: bold;
+	font-size: 2em;
+	transition: 0.6s ease;
+	border-radius: 0 3px 3px 0;
+	text-decoration: none;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+	background-color: rgba(0,0,0,0.8);
+}
+
+/* Position the "next button" to the right */
+.next {
+	right: 0;
+	border-radius: 3px 0 0 3px;
+}
